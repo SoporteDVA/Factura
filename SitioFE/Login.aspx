@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" >
 <HEAD>
-		<title>Validación de usuario </title>
+		<title>Validaciï¿½n de usuario </title>
 		<script language="JavaScript" type="text/javascript">
 			<!--
 			function setTop() {
@@ -20,11 +20,11 @@
     <form id="form1" runat="server">
     <div align=center>
         <asp:Login ID="Login1" runat="server"
-            DestinationPageUrl="~/Default.aspx" FailureText="ID o contraseña incorrecta. Por favor intente de nuevo."
-            LoginButtonText="Ingresar" PasswordLabelText="Contraseña:" PasswordRecoveryText="Olvidó su contraseña?"
-             PasswordRequiredErrorMessage="La contraseña es requerida."
-            RememberMeText="Recordar mi contraseña." TitleText="Login" UserNameLabelText="ID:"
-            UserNameRequiredErrorMessage="La cédula es requerida." BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333">
+            DestinationPageUrl="~/Default.aspx" FailureText="ID o contraseï¿½a incorrecta. Por favor intente de nuevo:"
+            LoginButtonText="Ingresar" PasswordLabelText="Contraseï¿½a:" PasswordRecoveryText="Olvidï¿½ su contraseï¿½a?"
+             PasswordRequiredErrorMessage="La contraseï¿½a es requerida."
+            RememberMeText="Recordar mi contraseï¿½a." TitleText="Login" UserNameLabelText="ID:"
+            UserNameRequiredErrorMessage="La cï¿½dula es requerida." BackColor="#F7F6F3" BorderColor="#E6E2D8" BorderPadding="4" BorderStyle="Solid" BorderWidth="1px" Font-Names="Verdana" Font-Size="0.8em" ForeColor="#333333">
             <TitleTextStyle BackColor="#5D7B9D" Font-Bold="True" Font-Size="0.9em" ForeColor="White" />
             <InstructionTextStyle Font-Italic="True" ForeColor="Black" />
             <TextBoxStyle Font-Size="0.8em" />
