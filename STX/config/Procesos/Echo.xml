@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="500" Top="65">
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="570" Top="125">
             <Name>EchoOutput</Name>
             <Message>
               <Properties>
