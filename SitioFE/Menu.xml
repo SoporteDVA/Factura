@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+	<siteMapNode url="default.aspx" title="Inicio" description="Intranet" roles="*">
+		<siteMapNode title="Recaudador Central" description="Recaudador Central" roles="COMBCOCR\G-INSRecaudadorCentral">
+			<siteMapNode url="~/INSSOA/ConsecutivosRango.aspx" title="Consulta Consecutivos"/>
+			<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraNGConsecutivos&amp;Filtro=~/XML/Bitacora/NGDetalleConsecutivos.xsl" title="Ultimos Consecutivos Utilizados"/>
+			<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraNGPerfil&amp;Filtro=~/XML/Bitacora/NGPerfil.xsl" title="Perfil de Usuarios"/>
+		</siteMapNode>
+		<siteMapNode title="Bitácora" description="Bitácora de pagos" roles="*">				
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraNGResumen&amp;Filtro=~/XML/Bitacora/NGResumen.xsl" title="Resumen de pagos"/>
+		</siteMapNode>	
+		<siteMapNode title="Oficial Operativo" description="Oficial Operativo" roles="COMBCOCR\G-INSSupervisores">
+			<siteMapNode title="Consecutivos" description="Consecutivos de Impresión" roles="COMBCOCR\G-INSSupervisores">
+				<siteMapNode url="~/INSSOA/GenerarConsecutivos.aspx" title="Generar Consecutivos"/>
+				<siteMapNode url="~/INSSOA/ConsecutivosOficina.aspx" title="Consecutivos Oficina"/>
+				<siteMapNode url="~/INSSOA/ConsecutivosRango.aspx?t=1" title="Consulta Consecutivos"/>
+				<siteMapNode url="~/INSSOA/Reimpresion.aspx" title="Reimpresión"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraOOConsecutivos&amp;Filtro=~/XML/Bitacora/OODetalleConsecutivos.xsl" title="Ultimos Consecutivos Utilizados"/>
+			</siteMapNode>
+			<siteMapNode title="Bitácora" description="Bitácora de pagos" roles="COMBCOCR\G-INSSupervisores">
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraOODetalle&amp;Filtro=~/XML/Bitacora/OODetalle.xsl" title="Detalle de pagos"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraOOResumen&amp;Filtro=~/XML/Bitacora/OOResumen.xsl" title="Resumen de pagos"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraOOPendientes&amp;Filtro=~/XML/Bitacora/OOPendientes.xsl" title="Pendientes"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraOOPerfil&amp;Filtro=~/XML/Bitacora/OOPerfil.xsl" title="Perfil de Usuarios"/>
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode title="Pagos" description="Cajero" roles="COMBCOCR\G-INSCajeros,G-INSCajeros">
+			<siteMapNode url="ComponerXSL.aspx?Transaccion=Consulta&amp;Filtro=~/XML/INS/INSConsultar.xsl" title="Marchamos" description="INS Marchamos"/>
+			<siteMapNode url="~/SIR.exe" title="Activar Impresión"/>
+			<siteMapNode title="Bitácora" description="Bitácora de pagos" roles="COMBCOCR\G-INSCajeros,G-INSCajeros">
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraCJDetalle&amp;Filtro=~/XML/Bitacora/CJDetalle.xsl" title="Detalle de pagos"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraCJResumen&amp;Filtro=~/XML/Bitacora/CJResumen.xsl" title="Resumen de pagos"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraCJConsecutivos&amp;Filtro=~/XML/Bitacora/CJDetalleConsecutivos.xsl" title="Ultimos Consecutivos Utilizados"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=BitacoraCJPerfil&amp;Filtro=~/XML/Bitacora/CJPerfil.xsl" title="Perfil de Usuarios"/>
+			</siteMapNode>
+		</siteMapNode>
+	</siteMapNode>
+</siteMap>

@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<PerfilDS xmlns="http://tempuri.org/PerfilDS.xsd">
+	<Perfil>
+		<UsuarioID>COMBCOCR\bcomarchamos</UsuarioID>
+		<Nombre>Oficina</Nombre>
+		<Valor>1</Valor>
+	</Perfil>
+	<Perfil>
+		<UsuarioID>COMBCOCR\bcomarchamos</UsuarioID>
+		<Nombre>IP</Nombre>
+		<Valor>122.201.4.205</Valor>
+	</Perfil>
+	<Perfil>
+		<UsuarioID>COMBCOCR\bcomarchamos</UsuarioID>
+		<Nombre>AutorizaReversion</Nombre>
+		<Valor>1</Valor>
+	</Perfil>
+<Perfil>
+		<UsuarioID>COMBCOCR\rmonney</UsuarioID>
+		<Nombre>Oficina</Nombre>
+		<Valor>1</Valor>
+	</Perfil>
+	<Perfil>
+		<UsuarioID>COMBCOCR\rmonney</UsuarioID>
+		<Nombre>IP</Nombre>
+		<Valor>122.201.4.205</Valor>
+	</Perfil>
+	<Perfil>
+		<UsuarioID>COMBCOCR\rmonney</UsuarioID>
+		<Nombre>AutorizaReversion</Nombre>
+		<Valor>1</Valor>
+	</Perfil>		
+</PerfilDS>

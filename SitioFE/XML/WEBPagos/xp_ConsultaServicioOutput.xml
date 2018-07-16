@@ -1,0 +1,43 @@
+<xp_ConsultaServicioOutput>
+	<Colector>96</Colector>
+	<Oficina>1</Oficina>
+	<Convenio>1</Convenio>
+	<Identificacion>22456013</Identificacion>
+	<Nombre>ZU%IGA ZU%IGA JUAN ANTONIO</Nombre>
+	<Estado>00</Estado>
+	<Respuesta>Solicitud procesada satisfactoriamente</Respuesta>
+	<NServicios>1</NServicios>
+	<Servicios>
+		<Servicio>
+			<Contrato>22456013</Contrato>
+			<NRecibos>1</NRecibos>
+			<TotalPago>15295.00</TotalPago>
+			<Recibos>
+				<Recibo>
+					<Periodo>201405</Periodo>
+					<TotalPago>15295.00</TotalPago>
+					<FechaVence>06/30/2014</FechaVence>
+					<NumeroRecibo>00000000000000201406</NumeroRecibo>
+					<Self>0</Self>
+					<LlavePago>002014052014063000000000000000201406COL0000520000000000000002014-06-30T00:00:00ZU%IGA ZU%IGA JUAN ANTONIO0000000000000000000</LlavePago>
+				</Recibo>
+			</Recibos>
+		</Servicio>
+	</Servicios>
+	<Sesion>
+		<Cliente>54</Cliente>
+		<Usuario>CR_Hacienda</Usuario>
+		<OficinaUsuario>1</OficinaUsuario>
+	</Sesion>
+	<Monto></Monto>
+	<DescripcionColector>BNCR ICETELECOMUNICACIONES</DescripcionColector>
+	<DescripcionConvenio>BNCR COBRO DE RECIBOS TELEFONICOS</DescripcionConvenio>
+	<DescripcionTipoID>BNCR CUENTA CLIENTE ICETEL</DescripcionTipoID>
+	<ParametrosConvenio>
+		<Moneda>COL</Moneda>
+		<Periodo>1</Periodo>
+		<TipoPago>MontoExacto</TipoPago>
+		<CobroTardio>S</CobroTardio>
+		<ValidarAntiguedad>N</ValidarAntiguedad>
+	</ParametrosConvenio>
+</xp_ConsultaServicioOutput>

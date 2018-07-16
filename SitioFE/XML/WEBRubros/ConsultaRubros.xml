@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<ConsultaRubrosOutput>
+	<Fila>
+		<ID/>
+		<Colector>1</Colector>
+		<DescripcionColector>CAJA COSTARRICENSE DEL SEGURO SOCIAL (CCSS)</DescripcionColector>
+		<Convenio>1</Convenio>
+		<DescripcionConvenio>CONVENIO OBRERO PATRONAL (1)</DescripcionConvenio>
+		<Codigo/>
+		<Descripcion/>
+		<SinComision>0</SinComision>
+		<DescripcionSinComision>NO</DescripcionSinComision>
+		<Informativo>0</Informativo>
+		<DescripcionInformativo>NO</DescripcionInformativo>
+		<SumaImpuesto>0</SumaImpuesto>
+		<DescripcionSumaImpuesto>NO</DescripcionSumaImpuesto>
+		<Formato/>
+		<TipoDato/>
+	</Fila>
+</ConsultaRubrosOutput>

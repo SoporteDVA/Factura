@@ -1,0 +1,69 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<html>
+<head>
+
+  <link href="codigo/mb.scrollable.css" rel="stylesheet" type="text/css" />
+  <script type="text/javascript" src="codigo/jquery.min.js"></script>
+  <script type="text/javascript" src="codigo/mbScrollable.js"></script>
+  <script type="text/javascript">
+    $(function(){
+      if (self.location.href == top.location.href){
+        $("body").css({font:"normal 13px/16px 'trebuchet MS', verdana, sans-serif"});
+        var logo=$("<a href='http://corpdva.com'><img alt='DVA' style='display:none;'></a>");
+        $("body").prepend(logo);
+        $("#logo").fadeIn();
+      }
+
+      $("#myScroll").mbScrollable({
+        elementsInPage:1,
+		width:220,
+        elementMargin:2,
+        shadow:"#999 2px 2px 2px",
+        controls:"#controls",
+        slideTimer:600,
+        autoscroll:true,
+        scrollTimer:4000
+      });
+
+      $("#myScroll1").mbScrollable({
+        dir:"vertical",
+        width:140,
+        height:400,
+        elementsInPage:3,
+        elementMargin:6,
+        shadow:"#999 2px 2px 2px",
+        controls:"#controls1",
+        slideTimer:600,
+        autoscroll:false,
+        scrollTimer:6000
+      });
+
+      setTimeout(function(){$("#wrapper").fadeIn();},2000);
+    });
+  </script>
+
+<style type="text/css">
+body {
+     	font-family:Century Gothic;
+        font-size:12px;
+        font-weight:bold; }</style>
+</head>	
+<body>
+
+<!--<div id="wrapper">
+   <div id="orizontal">
+      <div id="myScroll">
+      <div class="scrollEl" style="background-image:url('imagenes/Part.jpg')"></div>      
+      <div class="scrollEl" style="background-image:url('imagenes/Carga.jpg')"></div>
+      <div class="scrollEl" style="background-image:url('imagenes/Moto.jpg')"></div>
+      <div class="scrollEl" style="background-image:url('imagenes/Especial.jpg')"></div>
+      <div class="scrollEl" style="background-image:url('imagenes/Clasicos.jpg')"></div>
+      <div class="scrollEl" style="background-image:url('imagenes/Publico.jpg')"></div>
+       
+    </div>
+<h1 align="center">Sistema de Gestion de Derechos de Circulacion</h1>-->
+
+
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<ProcesoDS xmlns="http://www.infowarecr.com/stx/ProcesoDS.xsd">
+  <Proceso>
+    <ID>0</ID>
+    <Nombre>Echo</Nombre>
+    <Diagrama>Echo.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>16/07/2018 3:06:06 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>1</ID>
+    <Nombre>Fecha</Nombre>
+    <Diagrama>Fecha.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>16/07/2018 4:09:23 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+</ProcesoDS>

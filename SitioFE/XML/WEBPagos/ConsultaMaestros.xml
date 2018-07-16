@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<ConsultaMaestrosOutput>
+	<Colectores>
+		<Fila>
+			<ID>187</ID>
+			<Cliente>54</Cliente>
+			<IDAlterno>96</IDAlterno>
+			<Descripcion>BNCR ICETELECOMUNICACIONES</Descripcion>
+			<Estado>A</Estado>
+		</Fila>
+	</Colectores>
+	<Convenios>
+		<Fila>
+			<ID>83</ID>
+			<Cliente>54</Cliente>
+			<IDAlterno>1</IDAlterno>
+			<Descripcion>BNCR COBRO DE RECIBOS TELEFONICOS</Descripcion>
+			<Estado>A</Estado>
+			<Colector>BNCR ICETELECOMUNICACIONES</Colector>
+			<Moneda>COL</Moneda>
+			<Periodo>1</Periodo>
+			<TipoPago>E</TipoPago>
+			<CobroTardio>S</CobroTardio>
+			<ValidarAntiguedad>N</ValidarAntiguedad>
+		</Fila>
+	</Convenios>
+	<TipoIdentificador>
+		<Fila>
+			<ID>68</ID>
+			<Cliente>54</Cliente>
+			<IDAlterno>52</IDAlterno>
+			<Descripcion>BNCR NUMERO DE TELEFONO</Descripcion>
+			<Estado>A</Estado>
+			<Colector>BNCR ICETELECOMUNICACIONES</Colector>
+			<Convenio>BNCR COBRO DE RECIBOS TELEFONICOS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>69</ID>
+			<Cliente>54</Cliente>
+			<IDAlterno>58</IDAlterno>
+			<Descripcion>BNCR CUENTA CLIENTE ICETEL</Descripcion>
+			<Estado>A</Estado>
+			<Colector>BNCR ICETELECOMUNICACIONES</Colector>
+			<Convenio>BNCR COBRO DE RECIBOS TELEFONICOS</Convenio>
+		</Fila>
+	</TipoIdentificador>
+	<Etapa>3</Etapa>
+</ConsultaMaestrosOutput>

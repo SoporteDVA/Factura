@@ -1,0 +1,92 @@
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+	<siteMapNode url="default.aspx" title="Inicio" description="Intranet" roles="*">
+		<siteMapNode title="Gestión Administrativa" description="Estructura y Seguridad" roles="daviviendacr\CR-DVAISR-S-G,daviviendacr\CR-DVAAdmin-S-G,daviviendacr\cr_hacienda,daviviendacr\C5060119,CRSJCE010152VM\cr_hacienda,daviviendacr\04rc6658">
+			<siteMapNode title="Usuario y Perfiles" url="Transaccion.aspx?Transaccion=ConsultaUsuarios&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBUsuarios/ConsultaUsuarios.xsl"></siteMapNode>
+			<siteMapNode title="Oficinas" url="Transaccion.aspx?Transaccion=ConsultaOficinas&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>
+			<siteMapNode title="Colectores" url="Transaccion.aspx?Transaccion=ConsultaColectores&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBColectores/ConsultaColectores.xsl"></siteMapNode>
+			<siteMapNode title="Colectores EXTERNOS" url="Transaccion.aspx?Transaccion=ConsultaColectoresDAV&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBColectores/ConsultaColectoresDAV.xsl"></siteMapNode>
+			<siteMapNode title="Convenios" url="Transaccion.aspx?Transaccion=ConsultaConvenios&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConvenios/ConsultaConvenios.xsl"></siteMapNode>
+			<siteMapNode title="Tipo Identificadores" url="Transaccion.aspx?Transaccion=ConsultaTipoids&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBTipoid/ConsultaTipoid.xsl"></siteMapNode>
+			<siteMapNode title="Comisiones BNCR" url="Transaccion.aspx?Transaccion=Consulta_ComisionesBNCR&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConvenios/ConsultaComisiones.xsl"></siteMapNode>
+			<siteMapNode title="Rubros" url="Transaccion.aspx?Transaccion=ConsultaColectores&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBRubros/ConsultaColectoresRubro.xsl"></siteMapNode>
+			<siteMapNode title="ParametrosMQ" url="Transaccion.aspx?Transaccion=ConsultaParametrosMQ&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBParametrosMQ/ConsultaParametrosMQ.xsl"></siteMapNode>
+			<siteMapNode title="Condiciones NotaCredito" url="Transaccion.aspx?Transaccion=ConsultaColectores&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCondiciones/ConsultaColectoresNC.xsl"></siteMapNode>
+		</siteMapNode>
+		<siteMapNode title="Recaudador Central" description="Gestion Recaudador"
+		             roles="daviviendacr\CR-DVAAdmin-S-G,daviviendacr\cr_hacienda,daviviendacr\C5060119,CRSJCE010152VM\cr_hacienda,daviviendacr\50600288,daviviendacr\04bm5513,daviviendacr\04rc6658,daviviendacr\04mp6139,daviviendacr\50600196,daviviendacr\50600096,daviviendacr\43674875,daviviendacr\43607556">
+			<siteMapNode title="Consultas Administrativas" description="Consultas Area Contable y Administrativa" roles="*">
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficina.xsl" title="Pagos Detallados Oficina y Servicio" description="Consulta de Pagos Detallada"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficinaGrupo.xsl" title="Pagos Resumen Oficina y Servicio"
+				             description="Consulta Pagos Oficina y Servicio"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenMesOficinaGrupo.xsl" title="Pagos Resumen Mensual NC" description="Consulta Pagos Resumen Mensual"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenEstadisticas.xsl" title="Pagos Estadisticas por Mes" description="Consulta Estadisticas por Mes"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficinaConvenio.xsl" title="Pagos Agrupado por Convenios"
+				             description="Consulta Pagos Agrupado por Convenios"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenRegimenConvenio.xsl" title="Pagos por Regimen (CCSS)"
+				             description="Consulta Pagos Agrupado por Convenio y Regimen CCSS"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenNC.xsl" title="Nota de Credito por Servicio" description="Consulta de Nota de Credito por Servicio"/>
+			</siteMapNode>
+			<siteMapNode title="Mantenimientos Administrativos" description="Mantenimientos Area Contable y Administrativa" roles="*">
+
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCierreNC/ConsultaServicioFechaEstado.xsl" title="Notas de Credito Hacienda"
+				             description="Generacion de Archivos de Notas de Credito"/>
+							 <siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenConciliacionAYA.xsl" title="Notas de Credito  AYA"
+				             description="Conciliación de Remesas (AYA)"/>
+		
+			</siteMapNode>
+			<siteMapNode description="Realiza procesos BNCR"
+			             roles="daviviendacr\CR-DVAAdmin-S-G,daviviendacr\cr_hacienda,daviviendacr\C5060119,daviviendacr\04rc6658,CRSJCE010152VM\cr_hacienda,daviviendacr\43536942,daviviendacr\04bm5513,daviviendacr\04da6945,daviviendacr\50600196,daviviendacr\50600096,daviviendacr\43674875"
+			             title="Procesos BNCR">
+				<siteMapNode description="Carga del Archivo de Conciliacion" title="Carga Archivo BNCR" url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCierreNC/CargaArchivoBNCR.xsl">
+				</siteMapNode>
+				<siteMapNode description="Consulta Registros Cargados" title="Consulta Archivos Procesados" url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGListaConciliacionesBNCR.xsl">
+				</siteMapNode>
+				<siteMapNode description="Consulta Transacciones" title="Consulta Transacciones" url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCierreNC/ParametrosNGConsultaTotalesTransacciones.xsl">
+				</siteMapNode>
+				<siteMapNode description="Consulta de Pagos Detallada BNCR" title="Transacciones de Pago BNCR" url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficinaTT.xsl">
+				</siteMapNode>
+			</siteMapNode>
+			<siteMapNode title="Reversiones Administrativas" description="Realiza Reversiones y Procesos a Cajeros" roles="*">
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenUsuarioAdmin.xsl" title="Pagos a Reversar" description="Pagos a Reversar"/>
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode title="Procesos Sucursal Actual" description="Oficina Recaudador"
+		             roles="daviviendacr\CR-DVAGestion-S-G,  daviviendacr\C5060119,daviviendacr\43676378,daviviendacr\43709872,daviviendacr\04jm8448,daviviendacr\43485744,daviviendacr\50600185, daviviendacr\cr_hacienda,CRSJCE010152VM\cr_hacienda,daviviendacr\43707936,daviviendacr\43688155,daviviendacr\43717883,daviviendacr\04js7314,daviviendacr\43584162,daviviendacr\43706308,daviviendacr\43596307,daviviendacr\43703365,daviviendacr\04lb6515,daviviendacr\50600233,daviviendacr\50600066,daviviendacr\43584165,daviviendacr\43533350,daviviendacr\43567732,daviviendacr\43708329,daviviendacr\43673049,daviviendacr\43658274,daviviendacr\50600279,daviviendacr\43550505,daviviendacr\04os8045,daviviendacr\43609834,daviviendacr\43722513,daviviendacr\43627596,daviviendacr\43634636,daviviendacr\04ml7935,daviviendacr\50600078,daviviendacr\04ec7851,daviviendacr\43551835,daviviendacr\43603637,daviviendacr\04so7922,daviviendacr\04sm8387,daviviendacr\04rv6467,daviviendacr\04es7802,daviviendacr\04js7694,daviviendacr\04aq7542,daviviendacr\04rg7108,daviviendacr\43595909,daviviendacr\04ca6684,daviviendacr\04jm7879,daviviendacr\04kr7684,daviviendacr\04dm6619,daviviendacr\04rv7697,daviviendacr\43741784,daviviendacr\04yg7595,daviviendacr\04ja8244,daviviendacr\04wg6874,daviviendacr\04gs8299,daviviendacr\04fm6533,daviviendacr\43484633,daviviendacr\50600445,daviviendacr\04jc8348,daviviendacr\04rh7919,daviviendacr\04pm6582,daviviendacr\04sq6899,daviviendacr\04mq7747,daviviendacr\43600540,daviviendacr\12077307,daviviendacr\43591880,daviviendacr\50600025,daviviendacr\43607556">
+
+			<siteMapNode title="Pagos Oficina Actual" description="Realiza Reversiones y Procesos a Cajeros de su Sucursal" roles="*">
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenOficinaActual.xsl" title="Pagos Oficina" description="Pagos Oficina"/>
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficinaGrupoOA.xsl" title="Pagos Resumen por Servicio" description="Pagos Resumen por Servicio"/>
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode title="Procesos" description="Consulta , Pago y Reversion"
+		             roles="daviviendacr\CR-DVAAdmin-S-G,daviviendacr\CR-DVACajeros-S-G,daviviendacr\50600185,daviviendacr\cr_hacienda,daviviendacr\C5060119,CRSJCE010152VM\CR_Hacienda,daviviendacr\50600288,daviviendacr\04bm5513,daviviendacr\04rc6658,daviviendacr\04mp6139,daviviendacr\50600196,daviviendacr\50600096,daviviendacr\43674875,daviviendacr\50600025">
+			<siteMapNode url="Transaccion.aspx?Transaccion=ConsultaMaestros&amp;Filtro=~/XML/WEBPagos/PagosConsultar.xsl" title="Pago de Servicios" description="Pago de Servicios"/>
+			<siteMapNode title="Bitácora" description="Bitácora de pagos" roles="*">
+				<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenUsuario.xsl" title="Resúmen de Pagos"/>
+			</siteMapNode>
+		</siteMapNode>
+		<siteMapNode title="Cierre de Notas de Credito" description="Cierres"
+		             roles="daviviendacr\CR-DVAAdmin-S-G,daviviendacr\cr_hacienda,daviviendacr\C5060119,CRSJCE010152VM\cr_hacienda,daviviendacr\50600288,daviviendacr\04bm5513,daviviendacr\04rc6658,daviviendacr\04mp6139,daviviendacr\50600196,daviviendacr\50600096,daviviendacr\43674875">
+
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCierreNC/ConsultaServicioFecha.xsl" title="Cierre Servicio y Fecha" description="Cierre de Notas de Credito"/>
+		</siteMapNode>
+		<siteMapNode title="Monitoreo" description="Monitoreo Operadores" roles="daviviendacr\cr_hacienda,CRSJCE010152VM\cr_hacienda,daviviendacr\C5060119,daviviendacr\CR-Operadores">
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGConsultaMonitoreo.xsl" title="Monitoreo CCSS" description="Bitacora de Cierres Automaticos"/>
+		</siteMapNode>
+		<siteMapNode title="Cargos Automáticos" description="Procesos Cargos Automáticos"
+		             roles="daviviendacr\CR-DVAAdmin-S-G,daviviendacr\CR-CargoAuto-S-G,daviviendacr\CR-CargosAutomaticos,CRSJCE010152VM\cr_hacienda,daviviendacr\cr_hacienda,daviviendacr\C5060119">
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGAfiliadosXFechaServicio.xsl" title="Consulta de Afiliados por Servicio" description="Consulta de Afiliados"/>
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGAfiliadosXFechaServicioENC.xsl" title="Consulta Resumen de Procesos C.A."
+			             description="Consulta Resumen Cargos Automaticos"/>
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGListaProcesosCA.xsl" title="Consulta Detalle de Procesos C.A." description="Detalle Cargos Automaticos "/>
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGListaProcesosCAExcel.xsl" title="Consulta Detalle de Procesos C.A. Simple"
+			             description=" Detalle de Cargos Automaticos Excel"/>
+
+			<siteMapNode url="Transaccion.aspx?Transaccion=Estados&amp;ServidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBConsultas/ParametrosNGResumenFechaOficinaGrupoPAR.xsl" title="Pagos Resumen por Servicio (PAR)" description="Pagos Resumen por Servicio (PAR)"/>
+			<siteMapNode title="Administración Ciclos" description="Administra los Ciclos de Proceso" roles="daviviendacr\CR-DVAAdmin-S-G,CRSJCE010152VM\cr_hacienda,daviviendacr\cr_hacienda,daviviendacr\C5060119">
+				<siteMapNode url="Transaccion.aspx?Transaccion=ConsultaCiclos&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBCargosAutomaticos/ConsultaColectoresCA.xsl" title="Catálogo de Ciclos por Colector"/>
+			</siteMapNode>
+		</siteMapNode>
+	</siteMapNode>
+</siteMap>

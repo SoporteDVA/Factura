@@ -1,0 +1,1236 @@
+
+<ConsultaArchivoBNCROutput>
+	<Resultado>
+		<Fila>
+			<ID>8517</ID>
+			<Colector>31</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000004329926</Factura>
+			<Moneda>001</Moneda>
+			<Numero>30211</Numero>
+			<Comprobante>00000000000015001801</Comprobante>
+			<Periodo>00201303</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>5800.0000</TotalPago>
+			<Comision>203.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>GUZMAN ALVAREZ KIMBERLY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001801</DocumentoLocal>
+			<NumeroLocal>30211</NumeroLocal>
+			<TotalPagoLocal>5800.0000</TotalPagoLocal>
+			<ComisionLocal>203.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201303</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>104</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010415161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</DescColectorLocal>
+			<DescConvenioLocal>BNCR PAGO DE COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000004329926</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8518</ID>
+			<Colector>355</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000074098</Factura>
+			<Moneda>001</Moneda>
+			<Numero>85</Numero>
+			<Comprobante>00000000000015001807</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>13500.0000</TotalPago>
+			<Comision>500.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>BEVERLY FURMISS PACHECO</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001807</DocumentoLocal>
+			<NumeroLocal>85</NumeroLocal>
+			<TotalPagoLocal>13500.0000</TotalPagoLocal>
+			<ComisionLocal>500.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>108</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010815161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR SISEA SISTEMAS INTE</DescColectorLocal>
+			<DescConvenioLocal>BNCR MONITOREO DE ALARMAS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000074098</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8519</ID>
+			<Colector>424</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000001061309</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1921</Numero>
+			<Comprobante>00000000000015001809</Comprobante>
+			<Periodo>20140901</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>581231.0600</TotalPago>
+			<Comision>1.0500</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>PETERS STEWART MARIANNE</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001809</DocumentoLocal>
+			<NumeroLocal>1921</NumeroLocal>
+			<TotalPagoLocal>581231.0600</TotalPagoLocal>
+			<ComisionLocal>1.0500</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>20140901</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>109</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO LINCOLN</DescColectorLocal>
+			<DescConvenioLocal>BNCR MENSUALIDAD</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000001061309</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8520</ID>
+			<Colector>424</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000001061315</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1932</Numero>
+			<Comprobante>00000000000015001811</Comprobante>
+			<Periodo>20140901</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>1281377.1700</TotalPago>
+			<Comision>1.0500</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>BALMA ECHEVERRIA ILEANA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001811</DocumentoLocal>
+			<NumeroLocal>1932</NumeroLocal>
+			<TotalPagoLocal>1281377.1700</TotalPagoLocal>
+			<ComisionLocal>1.0500</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>20140901</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>109</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO LINCOLN</DescColectorLocal>
+			<DescConvenioLocal>BNCR MENSUALIDAD</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000001061315</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8521</ID>
+			<Colector>6</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001505361780</Factura>
+			<Moneda>001</Moneda>
+			<Numero>495075200225</Numero>
+			<Comprobante>00000000000015001812</Comprobante>
+			<Periodo>00201505</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>47753.0000</TotalPago>
+			<Comision>500.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>SMITH CASTRO MARVIN ALEXIS</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001812</DocumentoLocal>
+			<NumeroLocal>495075200225</NumeroLocal>
+			<TotalPagoLocal>47753.0000</TotalPagoLocal>
+			<ComisionLocal>500.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201505</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>99</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE SERVICIOS ELECTRICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001505361780</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8522</ID>
+			<Colector>6</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001505361781</Factura>
+			<Moneda>001</Moneda>
+			<Numero>495075200229</Numero>
+			<Comprobante>00000000000015001813</Comprobante>
+			<Periodo>00201505</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>6410.0000</TotalPago>
+			<Comision>108.9700</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>RODRIGUEZ GOMEZ JOSE LUIS</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001813</DocumentoLocal>
+			<NumeroLocal>495075200229</NumeroLocal>
+			<TotalPagoLocal>6410.0000</TotalPagoLocal>
+			<ComisionLocal>108.9700</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201505</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>99</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE SERVICIOS ELECTRICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001505361781</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8523</ID>
+			<Colector>2</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000201406</Factura>
+			<Moneda>001</Moneda>
+			<Numero>22404569</Numero>
+			<Comprobante>00000000000015001815</Comprobante>
+			<Periodo>00201405</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>22490.0000</TotalPago>
+			<Comision>332.8800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>MORALES SALAZAR JORGE EDUARDO</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>2509.3300</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001815</DocumentoLocal>
+			<NumeroLocal>22404569</NumeroLocal>
+			<TotalPagoLocal>22490.0000</TotalPagoLocal>
+			<ComisionLocal>100.0000</ComisionLocal>
+			<ImpuestoLocal>2509.3300</ImpuestoLocal>
+			<PeriodoLocal>00201405</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>96</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>232.8800</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR ICETELECOMUNICACIONES</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE RECIBOS TELEFONICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000201406</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8524</ID>
+			<Colector>2</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000201406</Factura>
+			<Moneda>001</Moneda>
+			<Numero>22404570</Numero>
+			<Comprobante>00000000000015001816</Comprobante>
+			<Periodo>00201405</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>18930.0000</TotalPago>
+			<Comision>285.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>VILLAFUERTE CHAVARRIA LETICIA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>1823.0300</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001816</DocumentoLocal>
+			<NumeroLocal>22404570</NumeroLocal>
+			<TotalPagoLocal>18930.0000</TotalPagoLocal>
+			<ComisionLocal>100.0000</ComisionLocal>
+			<ImpuestoLocal>1823.0300</ImpuestoLocal>
+			<PeriodoLocal>00201405</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>96</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>185.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR ICETELECOMUNICACIONES</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE RECIBOS TELEFONICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000201406</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8525</ID>
+			<Colector>2</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000201406</Factura>
+			<Moneda>001</Moneda>
+			<Numero>22404571</Numero>
+			<Comprobante>00000000000015001817</Comprobante>
+			<Periodo>00201405</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>41045.0000</TotalPago>
+			<Comision>490.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>BATISTA VARELA MARIA GABRIELA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>4573.7200</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001817</DocumentoLocal>
+			<NumeroLocal>22404571</NumeroLocal>
+			<TotalPagoLocal>41045.0000</TotalPagoLocal>
+			<ComisionLocal>520.2000</ComisionLocal>
+			<ImpuestoLocal>4573.7200</ImpuestoLocal>
+			<PeriodoLocal>00201405</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>96</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-30.2000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR ICETELECOMUNICACIONES</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE RECIBOS TELEFONICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000201406</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8526</ID>
+			<Colector>3</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000038751036</Factura>
+			<Moneda>001</Moneda>
+			<Numero>8407400457</Numero>
+			<Comprobante>00000000000015001820</Comprobante>
+			<Periodo>20150324</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>95870.0000</TotalPago>
+			<Comision>490.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>VENEGAS ALPIZAR KARLA VANESSA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>4360.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001820</DocumentoLocal>
+			<NumeroLocal>8407400457</NumeroLocal>
+			<TotalPagoLocal>95870.0000</TotalPagoLocal>
+			<ComisionLocal>500.0000</ComisionLocal>
+			<ImpuestoLocal>4360.0000</ImpuestoLocal>
+			<PeriodoLocal>20150324</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>97</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-10.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009715161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COMPANIA NACIONAL DE FUERZA Y LUZ</DescColectorLocal>
+			<DescConvenioLocal>BNCR RECIBOS DE ELECTRICIDAD CNFL</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000038751036</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8527</ID>
+			<Colector>3</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000038751097</Factura>
+			<Moneda>001</Moneda>
+			<Numero>8407400458</Numero>
+			<Comprobante>00000000000015001821</Comprobante>
+			<Periodo>20150324</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>121565.0000</TotalPago>
+			<Comision>490.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>HARLENIS MARIA ACU??A OROZCO</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>5530.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001821</DocumentoLocal>
+			<NumeroLocal>8407400458</NumeroLocal>
+			<TotalPagoLocal>121565.0000</TotalPagoLocal>
+			<ComisionLocal>500.0000</ComisionLocal>
+			<ImpuestoLocal>5530.0000</ImpuestoLocal>
+			<PeriodoLocal>20150324</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>97</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-10.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009715161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COMPANIA NACIONAL DE FUERZA Y LUZ</DescColectorLocal>
+			<DescConvenioLocal>BNCR RECIBOS DE ELECTRICIDAD CNFL</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000038751097</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8528</ID>
+			<Colector>96</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001920201402</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1920</Numero>
+			<Comprobante>00000000000015001825</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>11588.0000</TotalPago>
+			<Comision>405.5800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>CHACON SANCHEZ LUCIA LORENA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001825</DocumentoLocal>
+			<NumeroLocal>1920</NumeroLocal>
+			<TotalPagoLocal>11588.0000</TotalPagoLocal>
+			<ComisionLocal>405.5800</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>106</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001920201402</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8529</ID>
+			<Colector>96</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001919201402</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1919</Numero>
+			<Comprobante>00000000000015001826</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>11588.0000</TotalPago>
+			<Comision>405.5800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>HERNANDEZ VARGAS JOSE GILBERTH</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001826</DocumentoLocal>
+			<NumeroLocal>1919</NumeroLocal>
+			<TotalPagoLocal>11588.0000</TotalPagoLocal>
+			<ComisionLocal>405.5800</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>106</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001919201402</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8530</ID>
+			<Colector>96</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001921201402</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1921</Numero>
+			<Comprobante>00000000000015001827</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>7338.0000</TotalPago>
+			<Comision>256.8300</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>CARDENAS MORERA ZULMA Y</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001827</DocumentoLocal>
+			<NumeroLocal>1921</NumeroLocal>
+			<TotalPagoLocal>7338.0000</TotalPagoLocal>
+			<ComisionLocal>256.8300</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>106</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001921201402</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8531</ID>
+			<Colector>96</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001922201402</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1922</Numero>
+			<Comprobante>00000000000015001828</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>11588.0000</TotalPago>
+			<Comision>405.5800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>ZARATE VALVERDE RUTH</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001828</DocumentoLocal>
+			<NumeroLocal>1922</NumeroLocal>
+			<TotalPagoLocal>11588.0000</TotalPagoLocal>
+			<ComisionLocal>405.5800</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>106</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001922201402</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8532</ID>
+			<Colector>96</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001923201402</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1923</Numero>
+			<Comprobante>00000000000015001829</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>7338.0000</TotalPago>
+			<Comision>256.8300</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>ARAYA CISNEROS LIGIA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001829</DocumentoLocal>
+			<NumeroLocal>1923</NumeroLocal>
+			<TotalPagoLocal>7338.0000</TotalPagoLocal>
+			<ComisionLocal>256.8300</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>106</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001923201402</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8533</ID>
+			<Colector>6</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001503160360</Factura>
+			<Moneda>001</Moneda>
+			<Numero>9475</Numero>
+			<Comprobante>00000000000015001830</Comprobante>
+			<Periodo>00201503</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>3878.0000</TotalPago>
+			<Comision>65.9200</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>MINISTERIO DE SALUD</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001830</DocumentoLocal>
+			<NumeroLocal>9475</NumeroLocal>
+			<TotalPagoLocal>3878.0000</TotalPagoLocal>
+			<ComisionLocal>65.9260</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201503</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>99</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-0.0060</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE SERVICIOS ELECTRICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001503160360</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8534</ID>
+			<Colector>6</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001505306808</Factura>
+			<Moneda>001</Moneda>
+			<Numero>9475</Numero>
+			<Comprobante>00000000000015001832</Comprobante>
+			<Periodo>00201505</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>3864.0000</TotalPago>
+			<Comision>65.6800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>MINISTERIO DE SALUD</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001832</DocumentoLocal>
+			<NumeroLocal>9475</NumeroLocal>
+			<TotalPagoLocal>3864.0000</TotalPagoLocal>
+			<ComisionLocal>65.6880</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201505</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>99</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-0.0080</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE SERVICIOS ELECTRICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001505306808</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8535</ID>
+			<Colector>31</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000004347120</Factura>
+			<Moneda>001</Moneda>
+			<Numero>30211</Numero>
+			<Comprobante>00000000000015001802</Comprobante>
+			<Periodo>00201304</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>5800.0000</TotalPago>
+			<Comision>203.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>GUZMAN ALVAREZ KIMBERLY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001802</DocumentoLocal>
+			<NumeroLocal>30211</NumeroLocal>
+			<TotalPagoLocal>5800.0000</TotalPagoLocal>
+			<ComisionLocal>203.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201304</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>104</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010415161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</DescColectorLocal>
+			<DescConvenioLocal>BNCR PAGO DE COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000004347120</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8536</ID>
+			<Colector>31</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000004364383</Factura>
+			<Moneda>001</Moneda>
+			<Numero>30211</Numero>
+			<Comprobante>00000000000015001803</Comprobante>
+			<Periodo>00201305</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>5800.0000</TotalPago>
+			<Comision>203.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>GUZMAN ALVAREZ KIMBERLY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001803</DocumentoLocal>
+			<NumeroLocal>30211</NumeroLocal>
+			<TotalPagoLocal>5800.0000</TotalPagoLocal>
+			<ComisionLocal>203.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201305</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>104</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010415161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</DescColectorLocal>
+			<DescConvenioLocal>BNCR PAGO DE COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000004364383</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8537</ID>
+			<Colector>31</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000004381833</Factura>
+			<Moneda>001</Moneda>
+			<Numero>30211</Numero>
+			<Comprobante>00000000000015001804</Comprobante>
+			<Periodo>00201306</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>5800.0000</TotalPago>
+			<Comision>203.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>GUZMAN ALVAREZ KIMBERLY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001804</DocumentoLocal>
+			<NumeroLocal>30211</NumeroLocal>
+			<TotalPagoLocal>5800.0000</TotalPagoLocal>
+			<ComisionLocal>203.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201306</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>104</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010415161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</DescColectorLocal>
+			<DescConvenioLocal>BNCR PAGO DE COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000004381833</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8538</ID>
+			<Colector>31</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000004399411</Factura>
+			<Moneda>001</Moneda>
+			<Numero>30211</Numero>
+			<Comprobante>00000000000015001805</Comprobante>
+			<Periodo>00201307</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>5800.0000</TotalPago>
+			<Comision>203.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>GUZMAN ALVAREZ KIMBERLY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001805</DocumentoLocal>
+			<NumeroLocal>30211</NumeroLocal>
+			<TotalPagoLocal>5800.0000</TotalPagoLocal>
+			<ComisionLocal>203.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201307</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>104</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010415161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</DescColectorLocal>
+			<DescConvenioLocal>BNCR PAGO DE COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000004399411</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8539</ID>
+			<Colector>95</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000201402001831</Factura>
+			<Moneda>001</Moneda>
+			<Numero>770</Numero>
+			<Comprobante>00000000000015001806</Comprobante>
+			<Periodo>00201402</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>6200.0000</TotalPago>
+			<Comision>124.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>CORDERO MORERA ARGERIE</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001806</DocumentoLocal>
+			<NumeroLocal>770</NumeroLocal>
+			<TotalPagoLocal>6200.0000</TotalPagoLocal>
+			<ComisionLocal>124.0000</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201402</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>105</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010515161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO DE PERIODISTAS DE C.R.</DescColectorLocal>
+			<DescConvenioLocal>BNCR COLEGIATURA</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000201402001831</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8540</ID>
+			<Colector>424</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000001061303</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1914</Numero>
+			<Comprobante>00000000000015001808</Comprobante>
+			<Periodo>20140901</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>97721.6100</TotalPago>
+			<Comision>1.0500</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>CORDERO BOLA?OS PATRICIA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001808</DocumentoLocal>
+			<NumeroLocal>1914</NumeroLocal>
+			<TotalPagoLocal>97721.6100</TotalPagoLocal>
+			<ComisionLocal>1.0500</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>20140901</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>109</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO LINCOLN</DescColectorLocal>
+			<DescConvenioLocal>BNCR MENSUALIDAD</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000001061303</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8541</ID>
+			<Colector>424</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000001061310</Factura>
+			<Moneda>001</Moneda>
+			<Numero>1922</Numero>
+			<Comprobante>00000000000015001810</Comprobante>
+			<Periodo>20140901</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>509268.6700</TotalPago>
+			<Comision>1.0500</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>HERNANDEZ OSTI ANNA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001810</DocumentoLocal>
+			<NumeroLocal>1922</NumeroLocal>
+			<TotalPagoLocal>509268.6700</TotalPagoLocal>
+			<ComisionLocal>1.0500</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>20140901</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>109</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000010915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COLEGIO LINCOLN</DescColectorLocal>
+			<DescConvenioLocal>BNCR MENSUALIDAD</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000001061310</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8542</ID>
+			<Colector>2</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000201406</Factura>
+			<Moneda>001</Moneda>
+			<Numero>22404563</Numero>
+			<Comprobante>00000000000015001814</Comprobante>
+			<Periodo>00201405</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>6835.0000</TotalPago>
+			<Comision>100.9800</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>MACROBIOTICA DE COSTA RICA S A</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>773.2800</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001814</DocumentoLocal>
+			<NumeroLocal>22404563</NumeroLocal>
+			<TotalPagoLocal>6835.0000</TotalPagoLocal>
+			<ComisionLocal>100.0000</ComisionLocal>
+			<ImpuestoLocal>773.2800</ImpuestoLocal>
+			<PeriodoLocal>00201405</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>96</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>0.9800</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR ICETELECOMUNICACIONES</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE RECIBOS TELEFONICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000201406</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8543</ID>
+			<Colector>2</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000000201406</Factura>
+			<Moneda>001</Moneda>
+			<Numero>22404574</Numero>
+			<Comprobante>00000000000015001818</Comprobante>
+			<Periodo>00201405</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>19850.0000</TotalPago>
+			<Comision>297.3200</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>OROZCO CAMPOS FELICIA MARIA</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>2003.7700</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001818</DocumentoLocal>
+			<NumeroLocal>22404574</NumeroLocal>
+			<TotalPagoLocal>19850.0000</TotalPagoLocal>
+			<ComisionLocal>100.0000</ComisionLocal>
+			<ImpuestoLocal>2003.7700</ImpuestoLocal>
+			<PeriodoLocal>00201405</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>96</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>197.3200</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009615161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR ICETELECOMUNICACIONES</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE RECIBOS TELEFONICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000000201406</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8544</ID>
+			<Colector>3</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000038750566</Factura>
+			<Moneda>001</Moneda>
+			<Numero>8407400456</Numero>
+			<Comprobante>00000000000015001819</Comprobante>
+			<Periodo>20150324</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>50220.0000</TotalPago>
+			<Comision>462.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>ARAYA RAMIREZ KATHY</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>2280.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001819</DocumentoLocal>
+			<NumeroLocal>8407400456</NumeroLocal>
+			<TotalPagoLocal>50220.0000</TotalPagoLocal>
+			<ComisionLocal>479.4000</ComisionLocal>
+			<ImpuestoLocal>2280.0000</ImpuestoLocal>
+			<PeriodoLocal>20150324</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>97</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-17.4000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009715161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COMPANIA NACIONAL DE FUERZA Y LUZ</DescColectorLocal>
+			<DescConvenioLocal>BNCR RECIBOS DE ELECTRICIDAD CNFL</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000038750566</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8545</ID>
+			<Colector>3</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000000038751065</Factura>
+			<Moneda>001</Moneda>
+			<Numero>8407400459</Numero>
+			<Comprobante>00000000000015001822</Comprobante>
+			<Periodo>20150324</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>59595.0000</TotalPago>
+			<Comision>490.0000</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>CARRO SOLERA ALFONSO</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>1</RubrosSinComision>
+			<MontoRubrosSinComision>2705.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001822</DocumentoLocal>
+			<NumeroLocal>8407400459</NumeroLocal>
+			<TotalPagoLocal>59595.0000</TotalPagoLocal>
+			<ComisionLocal>500.0000</ComisionLocal>
+			<ImpuestoLocal>2705.0000</ImpuestoLocal>
+			<PeriodoLocal>20150324</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>97</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-10.0000</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009715161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR COMPANIA NACIONAL DE FUERZA Y LUZ</DescColectorLocal>
+			<DescConvenioLocal>BNCR RECIBOS DE ELECTRICIDAD CNFL</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000000038751065</NumeroFacturaLocal>
+		</Fila>
+		<Fila>
+			<ID>8546</ID>
+			<Colector>6</Colector>
+			<Convenio>1</Convenio>
+			<RecaudadorProveedor>0354</RecaudadorProveedor>
+			<TransaccionBNCR>0000000000</TransaccionBNCR>
+			<Factura>00000000001504233512</Factura>
+			<Moneda>001</Moneda>
+			<Numero>9475</Numero>
+			<Comprobante>00000000000015001831</Comprobante>
+			<Periodo>00201504</Periodo>
+			<FechaPago>20150610</FechaPago>
+			<Impuesto>0.0000</Impuesto>
+			<TotalPago>4242.0000</TotalPago>
+			<Comision>72.1100</Comision>
+			<BancoCheque>0000</BancoCheque>
+			<CuentaCheque>0000000000000000000</CuentaCheque>
+			<NumeroCheque>000000000000000</NumeroCheque>
+			<NombreCliente>MINISTERIO DE SALUD</NombreCliente>
+			<CodigoOrigen>BNCNVDAVI</CodigoOrigen>
+			<RubrosSinComision>0</RubrosSinComision>
+			<MontoRubrosSinComision>0.0000</MontoRubrosSinComision>
+			<RegistroProceso>153255660</RegistroProceso>
+			<DocumentoLocal>15001831</DocumentoLocal>
+			<NumeroLocal>9475</NumeroLocal>
+			<TotalPagoLocal>4242.0000</TotalPagoLocal>
+			<ComisionLocal>72.1140</ComisionLocal>
+			<ImpuestoLocal>0.0000</ImpuestoLocal>
+			<PeriodoLocal>00201504</PeriodoLocal>
+			<FechaPagoLocal>2015/06/10</FechaPagoLocal>
+			<ColectorLocal>99</ColectorLocal>
+			<ConvenioLocal>1</ConvenioLocal>
+			<DiferenciaMonto>0.0000</DiferenciaMonto>
+			<DiferenciaComision>-0.0040</DiferenciaComision>
+			<Informacion>El documento fue encontrado y esta en Estado= Pago Generado</Informacion>
+			<NotaCreditoLocal>000009915161</NotaCreditoLocal>
+			<NotaCreditoBNCR>0000005822</NotaCreditoBNCR>
+			<DescColectorLocal>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</DescColectorLocal>
+			<DescConvenioLocal>BNCR COBRO DE SERVICIOS ELECTRICOS</DescConvenioLocal>
+			<NumeroFacturaLocal>00000000001504233512</NumeroFacturaLocal>
+		</Fila>
+	</Resultado>
+	<FechaCarga>2015-06-12 15:32:56.057</FechaCarga>
+</ConsultaArchivoBNCROutput>

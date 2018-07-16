@@ -1,0 +1,464 @@
+
+<Consulta_ComisionesBNCROutput>
+	<Resultado>
+		<Fila>
+			<ID>61</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>187</IDColector>
+			<IDConvenio>83</IDConvenio>
+			<LimiteSuperior>26008.96</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>100.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>2</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR ICETELECOMUNICACIONES</Empresa>
+			<Convenio>BNCR COBRO DE RECIBOS TELEFONICOS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>62</ID>
+			<IDAlterno>3</IDAlterno>
+			<IDColector>187</IDColector>
+			<IDConvenio>83</IDConvenio>
+			<LimiteSuperior>104039998.96</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>520.20</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>2</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR ICETELECOMUNICACIONES</Empresa>
+			<Convenio>BNCR COBRO DE RECIBOS TELEFONICOS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>63</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>188</IDColector>
+			<IDConvenio>84</IDConvenio>
+			<LimiteSuperior>50000.00</LimiteSuperior>
+			<Porcentaje>1.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>3</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COMPANIA NACIONAL DE FUERZA Y</Empresa>
+			<Convenio>BNCR RECIBOS DE ELECTRICIDAD CNFL</Convenio>
+		</Fila>
+		<Fila>
+			<ID>64</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>188</IDColector>
+			<IDConvenio>84</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>500.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>3</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COMPANIA NACIONAL DE FUERZA Y</Empresa>
+			<Convenio>BNCR RECIBOS DE ELECTRICIDAD CNFL</Convenio>
+		</Fila>
+		<Fila>
+			<ID>65</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>189</IDColector>
+			<IDConvenio>85</IDConvenio>
+			<LimiteSuperior>5100.00</LimiteSuperior>
+			<Porcentaje>3.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>5</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR CABLE TICA</Empresa>
+			<Convenio>BNCR SUCURSALES CABLETICA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>66</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>190</IDColector>
+			<IDConvenio>86</IDConvenio>
+			<LimiteSuperior>29412.00</LimiteSuperior>
+			<Porcentaje>1.70</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>6</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR INST.COSTARRICENSE DE ELECTRI</Empresa>
+			<Convenio>BNCR COBRO DE SERVICIOS ELECTRICOS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>67</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>190</IDColector>
+			<IDConvenio>86</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>500.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>6</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR INST.COSTARRICENSE DE ELECTRI</Empresa>
+			<Convenio>BNCR COBRO DE SERVICIOS ELECTRICOS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>68</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>191</IDColector>
+			<IDConvenio>87</IDConvenio>
+			<LimiteSuperior>25000.00</LimiteSuperior>
+			<Porcentaje>2.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>7</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR RACSA PRUEBA MUSMANNI</Empresa>
+			<Convenio>BNCR 1-SERVICIOS TELEMATICOS RACSA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>69</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>191</IDColector>
+			<IDConvenio>87</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>500.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>7</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR RACSA PRUEBA MUSMANNI</Empresa>
+			<Convenio>BNCR 1-SERVICIOS TELEMATICOS RACSA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>70</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>192</IDColector>
+			<IDConvenio>88</IDConvenio>
+			<LimiteSuperior>35000.00</LimiteSuperior>
+			<Porcentaje>2.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>8</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR INST. COST. DE ACUEDUCTOS Y ALCANTARILLA</Empresa>
+			<Convenio>BNCR COBRO RECIBOS DE AGUA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>71</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>192</IDColector>
+			<IDConvenio>88</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>700.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>8</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR INST. COST. DE ACUEDUCTOS Y ALCANTARILLA</Empresa>
+			<Convenio>BNCR COBRO RECIBOS DE AGUA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>72</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>193</IDColector>
+			<IDConvenio>89</IDConvenio>
+			<LimiteSuperior>26.67</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>0.80</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>2</Moneda>
+			<BNCRColector>10</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR SERVICIOS DIRECTOS DE SATELITE</Empresa>
+			<Convenio>BNCR SKY TELEVISI?N</Convenio>
+		</Fila>
+		<Fila>
+			<ID>73</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>193</IDColector>
+			<IDConvenio>89</IDConvenio>
+			<LimiteSuperior>133.00</LimiteSuperior>
+			<Porcentaje>3.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>2</Moneda>
+			<BNCRColector>10</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR SERVICIOS DIRECTOS DE SATELITE</Empresa>
+			<Convenio>BNCR SKY TELEVISI?N</Convenio>
+		</Fila>
+		<Fila>
+			<ID>74</ID>
+			<IDAlterno>3</IDAlterno>
+			<IDColector>193</IDColector>
+			<IDConvenio>89</IDConvenio>
+			<LimiteSuperior>499999999.99</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>4.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>2</Moneda>
+			<BNCRColector>10</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR SERVICIOS DIRECTOS DE SATELITE</Empresa>
+			<Convenio>BNCR SKY TELEVISI?N</Convenio>
+		</Fila>
+		<Fila>
+			<ID>75</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>194</IDColector>
+			<IDConvenio>90</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>3.25</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>11</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR TIGO</Empresa>
+			<Convenio>BNCR PAGOS TIGO</Convenio>
+		</Fila>
+		<Fila>
+			<ID>76</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>195</IDColector>
+			<IDConvenio>91</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>3.50</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>31</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COLEGIO DE CONTADORES PRIVADOS</Empresa>
+			<Convenio>BNCR PAGO DE COLEGIATURA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>77</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>196</IDColector>
+			<IDConvenio>92</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>2.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>95</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COLEGIO DE PERIODISTAS DE</Empresa>
+			<Convenio>BNCR COLEGIATURA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>78</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>197</IDColector>
+			<IDConvenio>93</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>3.50</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>96</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COLEGIO DE CONTADORES PUBLICOS DE</Empresa>
+			<Convenio>BNCR COLEGIATURA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>79</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>198</IDColector>
+			<IDConvenio>94</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>0.75</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>2</Moneda>
+			<BNCRColector>203</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR CONDOVAC-DESARROLLO LA COST</Empresa>
+			<Convenio>BNCR 1-CUOTA DE MANTENIMIENTO DOLARES</Convenio>
+		</Fila>
+		<Fila>
+			<ID>80</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>199</IDColector>
+			<IDConvenio>95</IDConvenio>
+			<LimiteSuperior>16666.66</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>500.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>355</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR SISEA SISTEMAS INTE</Empresa>
+			<Convenio>BNCR MONITOREO DE ALARMAS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>81</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>199</IDColector>
+			<IDConvenio>95</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>3.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>355</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR SISEA SISTEMAS INTE</Empresa>
+			<Convenio>BNCR MONITOREO DE ALARMAS</Convenio>
+		</Fila>
+		<Fila>
+			<ID>82</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>200</IDColector>
+			<IDConvenio>96</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>1.05</MontoFijo>
+			<CodigoComision>2</CodigoComision>
+			<DescripcionComision>MONTO FIJO</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>424</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR COLEGIO LINCOLN</Empresa>
+			<Convenio>BNCR MENSUALIDAD</Convenio>
+		</Fila>
+		<Fila>
+			<ID>84</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>204</IDColector>
+			<IDConvenio>103</IDConvenio>
+			<LimiteSuperior>35000.00</LimiteSuperior>
+			<Porcentaje>2.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>41</BNCRColector>
+			<BNCRConvenio>2</BNCRConvenio>
+			<Empresa>BNCR CONSEJO DE SEGURIDAD VIAL (CO</Empresa>
+			<Convenio>BNCR 2-PRUEBA TEORICA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>85</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>204</IDColector>
+			<IDConvenio>103</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>700.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>41</BNCRColector>
+			<BNCRConvenio>2</BNCRConvenio>
+			<Empresa>BNCR CONSEJO DE SEGURIDAD VIAL (CO</Empresa>
+			<Convenio>BNCR 2-PRUEBA TEORICA</Convenio>
+		</Fila>
+		<Fila>
+			<ID>86</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>205</IDColector>
+			<IDConvenio>104</IDConvenio>
+			<LimiteSuperior>15000.00</LimiteSuperior>
+			<Porcentaje>0.00</Porcentaje>
+			<MontoFijo>450.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>24</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR CABLE VISION DE C.R.</Empresa>
+			<Convenio>BNCR COBRO MENSUAL</Convenio>
+		</Fila>
+		<Fila>
+			<ID>87</ID>
+			<IDAlterno>2</IDAlterno>
+			<IDColector>205</IDColector>
+			<IDConvenio>104</IDConvenio>
+			<LimiteSuperior>99999999.00</LimiteSuperior>
+			<Porcentaje>3.00</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>4</CodigoComision>
+			<DescripcionComision>ESCALONADA FIJA</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>24</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR CABLE VISION DE C.R.</Empresa>
+			<Convenio>BNCR COBRO MENSUAL</Convenio>
+		</Fila>
+		<Fila>
+			<ID>83</ID>
+			<IDAlterno>1</IDAlterno>
+			<IDColector>201</IDColector>
+			<IDConvenio>98</IDConvenio>
+			<LimiteSuperior>0.00</LimiteSuperior>
+			<Porcentaje>2.50</Porcentaje>
+			<MontoFijo>0.00</MontoFijo>
+			<CodigoComision>1</CodigoComision>
+			<DescripcionComision>PORCENTUAL</DescripcionComision>
+			<MinimoComision>0.00</MinimoComision>
+			<Moneda>1</Moneda>
+			<BNCRColector>150</BNCRColector>
+			<BNCRConvenio>1</BNCRConvenio>
+			<Empresa>BNCR MUNICIPALIDAD DE SAN JO</Empresa>
+			<Convenio>BNCR COBRO COLEGIATURA COL ING AGRONOMOS</Convenio>
+		</Fila>
+	</Resultado>
+</Consulta_ComisionesBNCROutput>

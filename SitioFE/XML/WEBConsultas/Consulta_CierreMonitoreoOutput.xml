@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<Consulta_CierreMonitoreoOutput>
+<Resultados>
+<Fila>
+<Convenio>CONVENIO OBRERO PATRONAL (1)</Convenio>
+<Fecha>2015/01/13</Fecha>
+<Estado>Abierta</Estado>
+<Mensaje>Hubo alguna diferencia o excepcion aunque si se realizo el Cierre En linea. Por favor, asegurese de Enviar el Archivo TXT del dia</Mensaje>
+<Monto>389399.0000</Monto>
+<CantidadPagos>6</CantidadPagos>
+</Fila>
+</Resultados>
+<Resultados>
+<Fila>
+<Convenio>CONVENIO TRABAJADOR INDEPENDIENTE (2)</Convenio>
+<Fecha>2015/01/13</Fecha>
+<Estado>Abierta</Estado>
+<Mensaje>Hubo alguna diferencia o excepcion aunque si se realizo el Cierre En linea. Por favor, asegurese de Enviar el Archivo TXT del dia</Mensaje>
+<Monto>2312232.0000</Monto>
+<CantidadPagos>42</CantidadPagos>
+</Fila>
+</Resultados>
+<Resultados>
+<Fila>
+<Convenio>CONVENIO ASEGURADO VOLUNTARIO (3)</Convenio>
+<Fecha>2015/01/13</Fecha>
+<Estado>Abierta</Estado>
+<Mensaje>Hubo alguna diferencia o excepcion aunque si se realizo el Cierre En linea. Por favor, asegurese de Enviar el Archivo TXT del dia</Mensaje>
+<Monto>479461.0000</Monto>
+<CantidadPagos>24</CantidadPagos>
+</Fila>
+</Resultados>
+</Consulta_CierreMonitoreoOutput>

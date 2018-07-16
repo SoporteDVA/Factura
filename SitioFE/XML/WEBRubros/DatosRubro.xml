@@ -1,0 +1,41 @@
+
+<DatosRubroOutput>
+	<TiposDatos>
+		<TipoDato>
+			<Valor>Texto</Valor>
+		</TipoDato>
+		<TipoDato>
+			<Valor>Money</Valor>
+		</TipoDato>
+		<TipoDato>
+			<Valor>Numero</Valor>
+		</TipoDato>
+		<TipoDato>
+			<Valor>Mensaje</Valor>
+		</TipoDato>
+	</TiposDatos>
+	<Formatos>
+		<Formato>
+			<Valor>AAAAA</Valor>
+		</Formato>
+		<Formato>
+			<Valor>###,###.00</Valor>
+		</Formato>
+		<Formato>
+			<Valor>###</Valor>
+		</Formato>
+		<Formato>
+			<Valor>AAAAAABBBBB</Valor>
+		</Formato>
+	</Formatos>
+	<IDColector>1</IDColector>
+	<DescripcionColector>CAJA COSTARRICENSE DEL SEGURO SOCIAL (CCSS)</DescripcionColector>
+	<IDConvenio>1</IDConvenio>
+	<DescripcionConvenio>CONVENIO OBRERO PATRONAL (1)</DescripcionConvenio>
+	<SinComision>0</SinComision>
+	<DescripcionSinComision>NO</DescripcionSinComision>
+	<Informativo>0</Informativo>
+	<DescripcionInformativo>NO</DescripcionInformativo>
+	<SumaImpuesto>0</SumaImpuesto>
+	<DescripcionSumaImpuesto>NO</DescripcionSumaImpuesto>
+</DatosRubroOutput>

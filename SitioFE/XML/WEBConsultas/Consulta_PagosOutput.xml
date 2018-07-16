@@ -1,0 +1,27 @@
+<BNCR_RevisaTransaccionesOutput>
+<Resultados>
+<Fila>
+<Colector>96</Colector>
+<DColector>BNCR ICETELECOMUNICACIONES</DColector>
+<Convenio>1</Convenio>
+<DCConvenio>BNCR COBRO DE RECIBOS TELEFONICOS </DCConvenio>
+<NumeroFactura>00000000000000201406 </NumeroFactura>
+<NumeroDocumento>15001916 </NumeroDocumento>
+<Fecha>2015-06-29</Fecha>
+<Estado>PG </Estado>
+<ColectorBNCR>2 </ColectorBNCR>
+<ConvenioBNCR>1 </ConvenioBNCR>
+<EstadoBNCR>1 </EstadoBNCR>
+<DocumentoBNCR>15001916 </DocumentoBNCR>
+<Informacion>Pagado</Informacion>
+<MontoLocal>4790.0000</MontoLocal>
+<MontoBNCR>4790.0000</MontoBNCR>
+<MonedaBNCR>COL</MonedaBNCR>
+<MonedaLocal>COL</MonedaLocal>
+<PeriodoLocal>00201405 </PeriodoLocal>
+<PeriodoBNCR>201405 </PeriodoBNCR>
+<NumeroLocal>22456018 </NumeroLocal>
+<NumeroBNCR>22456018 </NumeroBNCR>
+</Fila>
+</Resultados>
+</BNCR_RevisaTransaccionesOutput>

@@ -1,0 +1,151 @@
+<ConsultaTotalesBNCROutput>
+	<Resultados>
+		<TotalesBNCR>
+			<CantidadColectores>8</CantidadColectores>
+			<Totales>
+				<TipoColector>
+					<NColector>2</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>1</nTotalTransacciones>
+					<nMontoTotal>3915.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>3</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>110465.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>6</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>1</nTotalTransacciones>
+					<nMontoTotal>52358.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>31</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>7</nTotalTransacciones>
+					<nMontoTotal>38244.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>95</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>18600.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>96</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>4</nTotalTransacciones>
+					<nMontoTotal>46352.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>355</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>2</nTotalTransacciones>
+					<nMontoTotal>27000.00</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>424</NColector>
+					<NCodConvenio>1</NCodConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>2131275.34</nMontoTotal>
+				</TipoColector>
+			</Totales>
+		</TotalesBNCR>
+		<TotalesDAVIVIENDA>
+			<CantidadColectores>8</CantidadColectores>
+			<Totales>
+				<TipoColector>
+					<NColector>2</NColector>
+					<NColectorLocal>96</NColectorLocal>
+					<NombreColector>BNCR ICETELECOMUNICACIONES</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR COBRO DE RECIBOS TELEFONICOS</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>1</nTotalTransacciones>
+					<nMontoTotal>3915.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>3</NColector>
+					<NColectorLocal>97</NColectorLocal>
+					<NombreColector>BNCR COMPANIA NACIONAL DE FUERZA Y LUZ</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR RECIBOS DE ELECTRICIDAD CNFL</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>110465.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>6</NColector>
+					<NColectorLocal>99</NColectorLocal>
+					<NombreColector>BNCR INST.COSTARRICENSE DE ELECTRICIDAD</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR COBRO DE SERVICIOS ELECTRICOS</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>1</nTotalTransacciones>
+					<nMontoTotal>52358.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>31</NColector>
+					<NColectorLocal>104</NColectorLocal>
+					<NombreColector>BNCR COLEGIO DE CONTADORES PRIVADOS DE CR</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR PAGO DE COLEGIATURA</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>7</nTotalTransacciones>
+					<nMontoTotal>38244.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>95</NColector>
+					<NColectorLocal>105</NColectorLocal>
+					<NombreColector>BNCR COLEGIO DE PERIODISTAS DE C.R.</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR COLEGIATURA</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>18600.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>96</NColector>
+					<NColectorLocal>106</NColectorLocal>
+					<NombreColector>BNCR COLEGIO DE CONTADORES PUBLICOS DE C.R.</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR COLEGIATURA</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>4</nTotalTransacciones>
+					<nMontoTotal>46352.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>355</NColector>
+					<NColectorLocal>108</NColectorLocal>
+					<NombreColector>BNCR SISEA SISTEMAS INTE</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR MONITOREO DE ALARMAS</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>2</nTotalTransacciones>
+					<nMontoTotal>27000.0000</nMontoTotal>
+				</TipoColector>
+				<TipoColector>
+					<NColector>424</NColector>
+					<NColectorLocal>109</NColectorLocal>
+					<NombreColector>BNCR COLEGIO LINCOLN</NombreColector>
+					<NCodConvenio>1</NCodConvenio>
+					<NombreConvenio>BNCR MENSUALIDAD</NombreConvenio>
+					<strCodMoneda>COL</strCodMoneda>
+					<nTotalTransacciones>3</nTotalTransacciones>
+					<nMontoTotal>2131275.3400</nMontoTotal>
+				</TipoColector>
+			</Totales>
+		</TotalesDAVIVIENDA>
+		<Fecha>04/06/2015</Fecha>
+	</Resultados>
+</ConsultaTotalesBNCROutput>
