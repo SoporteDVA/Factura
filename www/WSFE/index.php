@@ -925,7 +925,7 @@ function ObtieneFactura($clave, $token)
              $ClaveR = $EstadoC->{'clave'};
              $FechaR = $EstadoC->{'fecha'};
              $EmisorR = $EstadoC->{'emisor'};
-             $Emisordata = json_decode($EmisorR);
+             $Emisordata = $EmisorR;
                 $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
                 $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
                 $NombreEmi = $Emisordata->{'nombre'};
