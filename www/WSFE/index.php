@@ -820,21 +820,20 @@ $receptorIdentificacion)
         
         $builtHeader = array(
             'Authorization: ' . $token,
-            'Content-Type: application/json',
+            //'Content-Type: application/json',
             'offset' => $PosicionInicial,
             'limit' => $Cantidad,
             'emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
             'receptor' =>$receptorIdentificacion
              );
-    
-                 
+                   
            
 
         $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
-        //curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
         //curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         $respuesta = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
