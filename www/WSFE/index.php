@@ -922,12 +922,15 @@ function ObtieneFactura($clave, $token)
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
             } else {
              $EstadoC = json_decode($result);
-              $ClaveR = $EstadoC->{'clave'};
-            //  $FechaR = $EstadoC->{'fecha'};
-            // $IndestadoR = $EstadoC->{'ind-estado'};
-            // $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
-            // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
-            return $ClaveR;
+             $ClaveR = $EstadoC->{'clave'};
+             $FechaR = $EstadoC->{'fecha'};
+             $EmisorR = $EstadoC->{'emisor'};
+             $Emisordata = json_decode($EmisorR);
+                $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
+                $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
+                $NombreEmi = $Emisordata->{'nombre'};
+             return array($ClaveR, $FechaR, $EmisorR, $TipoIDEmisor,$IdEmisor,$NombreEmi);
+            //return $ClaveR;
             }
         
 
@@ -1259,8 +1262,16 @@ $ns);
 
 $soapclient->register('ObtieneFactura',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
-array('Comprobante' => 'xsd:string'),
+array('Comprobante' => 'xsd:string',
+'Comprobante1' => 'xsd:string',
+'Comprobante2' => 'xsd:string',
+'Comprobante3' => 'xsd:string',
+'Comprobante4' => 'xsd:string'),
 $ns);
+
+
+
+
 
 if (isset($HTTP_RAW_POST_DATA)) {
     $input = $HTTP_RAW_POST_DATA;
