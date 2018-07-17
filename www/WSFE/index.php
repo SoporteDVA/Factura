@@ -926,12 +926,12 @@ function ObtieneFactura($clave, $token)
              $FechaR = $EstadoC->{'fecha'};
              $EmisorR = $EstadoC->{'emisor'};
              $Emisordata =  json_encode($EmisorR);
-
+             $EmisorC = json_decode($Emisordata);
          
-                // $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
+            $TipoIDEmisor = $EmisorC->{'tipoIdentificacion'};
                 // $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
                 // $NombreEmi = $Emisordata->{'nombre'};
-             return array($ClaveR,  $Emisordata );
+             return array($ClaveR,   $TipoIDEmisor);
             //return $ClaveR;
             }
         
