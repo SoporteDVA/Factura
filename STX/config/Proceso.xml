@@ -1,65 +1,65 @@
 <?xml version="1.0" standalone="yes"?>
-<ProcesoDS xmlns="http://www.infowarecr.com/stx/ProcesoDS.xsd">
-  <Proceso>
-    <ID>0</ID>
-    <Nombre>Echo</Nombre>
-    <Diagrama>Echo.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Util</Categoria>
-    <UltimaModificacion>16/07/2018 3:06:06 PM</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>1</ID>
-    <Nombre>Fecha</Nombre>
-    <Diagrama>Fecha.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Util</Categoria>
-    <UltimaModificacion>16/07/2018 4:09:23 PM</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>29</ID>
-    <Nombre>Encripta</Nombre>
-    <Diagrama>Encripta.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Util</Categoria>
-    <UltimaModificacion>16/07/2018 6:54:56 PM</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>3</ID>
-    <Nombre>Desencripta</Nombre>
-    <Diagrama>Desencripta.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Util</Categoria>
-    <UltimaModificacion>16/07/2018 18:55:12</UltimaModificacion>
-  </Proceso>
-  <Proceso>
-    <ID>300</ID>
-    <Nombre>aaa</Nombre>
-    <Diagrama>aaa.xml</Diagrama>
-    <Descripcion />
-    <Categoria />
-    <UltimaModificacion>16/07/2018 7:23:51 PM</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-<<<<<<< HEAD
-    <ID>400</ID>
-    <Nombre>BBBB</Nombre>
-    <Diagrama>BBBB.xml</Diagrama>
-    <Descripcion />
-    <Categoria />
-    <UltimaModificacion>16/07/2018 19:27:42</UltimaModificacion>
-=======
-    <ID>301</ID>
-    <Nombre>ccc</Nombre>
-    <Diagrama>ccc.xml</Diagrama>
-    <Descripcion />
-    <Categoria />
-    <UltimaModificacion>16/07/2018 7:29:57 PM</UltimaModificacion>
->>>>>>> 747fda65f0767a4e18a8b7cbf26db5dd8c31399c
-    <Llaves />
-  </Proceso>
+<ProcesoDS xmlns = "http://www.infowarecr.com/stx/ProcesoDS.xsd">
+    <Proceso>
+        <ID>0</ID>
+        <Nombre>Echo</Nombre>
+        <Diagrama>Echo.xml</Diagrama>
+        <Descripcion/>
+        <Categoria>Util</Categoria>
+        <UltimaModificacion>16/07/2018 3:06:06 PM</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
+    <Proceso>
+        <ID>1</ID>
+        <Nombre>Fecha</Nombre>
+        <Diagrama>Fecha.xml</Diagrama>
+        <Descripcion/>
+        <Categoria>Util</Categoria>
+        <UltimaModificacion>16/07/2018 4:09:23 PM</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
+    <Proceso>
+        <ID>29</ID>
+        <Nombre>Encripta</Nombre>
+        <Diagrama>Encripta.xml</Diagrama>
+        <Descripcion/>
+        <Categoria>Util</Categoria>
+        <UltimaModificacion>16/07/2018 6:54:56 PM</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
+    <Proceso>
+        <ID>3</ID>
+        <Nombre>Desencripta</Nombre>
+        <Diagrama>Desencripta.xml</Diagrama>
+        <Descripcion/>
+        <Categoria>Util</Categoria>
+        <UltimaModificacion>16/07/2018 18:55:12</UltimaModificacion>
+    </Proceso>
+    <Proceso>
+        <ID>300</ID>
+        <Nombre>aaa</Nombre>
+        <Diagrama>aaa.xml</Diagrama>
+        <Descripcion/>
+        <Categoria/>
+        <UltimaModificacion>16/07/2018 7:23:51 PM</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
+    <Proceso>
+        <ID>400</ID>
+        <Nombre>BBBB</Nombre>
+        <Diagrama>BBBB.xml</Diagrama>
+        <Descripcion/>
+        <Categoria/>
+        <UltimaModificacion>16/07/2018 19:27:42</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
+    <Proceso>
+        <ID>301</ID>
+        <Nombre>ccc</Nombre>
+        <Diagrama>ccc.xml</Diagrama>
+        <Descripcion/>
+        <Categoria/>
+        <UltimaModificacion>16/07/2018 7:29:57 PM</UltimaModificacion>
+        <Llaves/>
+    </Proceso>
 </ProcesoDS>
