@@ -842,6 +842,7 @@ $receptorIdentificacion)
              return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
              } else {
              
+
              
              $salida = json_to_xml($result);
             
@@ -858,8 +859,18 @@ $receptorIdentificacion)
 include("XML/Serializer.php");
 
 function json_to_xml($json) {
-    $serializer = new XML_Serializer();
+
+    $serializer_options = array (
+        'addDecl' => TRUE,
+        'encoding' => 'UTF-8',
+        'indent' => ' ',
+        'rootName' => 'TramaOutput',
+        'mode' => 'simplexml'
+      );
+    $serializer = new XML_Serializer($serializer_options);
     $obj = json_decode($json);
+
+         
 
     if ($serializer->serialize($obj)) {
         return $serializer->getSerializedData();
@@ -929,7 +940,7 @@ function ObtieneFactura($clave, $token)
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
             } else {
              $EstadoC = json_decode($result);
-             $ClaveR = $EstadoC->{'clave'};
+             /* $ClaveR = $EstadoC->{'clave'};
              $FechaR = $EstadoC->{'fecha'};
              $EmisorR = $EstadoC->{'emisor'};
              $ReceptorR = $EstadoC->{'receptor'};
@@ -949,9 +960,13 @@ function ObtieneFactura($clave, $token)
 
              $TipoIDReceptor = $ReceptorC->{'tipoIdentificacion'};
              $IdReceptor =  $ReceptorC->{'numeroIdentificacion'};
-             $NombreReceptor = $ReceptorC->{'nombre'};
+             $NombreReceptor = $ReceptorC->{'nombre'}; */
 
-             return array($ClaveR,$FechaR, $TipoIDEmisor,$IdEmisor,$NombreEmi,$TipoIDReceptor,$IdReceptor,$NombreReceptor);
+             //return array($ClaveR,$FechaR, $TipoIDEmisor,$IdEmisor,$NombreEmi,$TipoIDReceptor,$IdReceptor,$NombreReceptor);
+            
+             $salida = json_to_xml($result);
+            
+             return $salida;
             
             }
         
@@ -959,19 +974,7 @@ function ObtieneFactura($clave, $token)
         
     }
 
-    function array_to_xml( $data, &$xml_data ) {
-        foreach( $data as $key => $value ) {
-            if( is_numeric($key) ){
-                $key = 'item'.$key; //dealing with <0/>..<n/> issues
-            }
-            if( is_array($value) ) {
-                $subnode = $xml_data->addChild($key);
-                array_to_xml($value, $subnode);
-            } else {
-                $xml_data->addChild("$key",htmlspecialchars("$value"));
-            }
-         }
-    }
+    
 
 // Publicación de los Servicios en SOAP
 
@@ -1301,14 +1304,16 @@ $ns);
 
 $soapclient->register('ObtieneFactura',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
-array('Comprobante' => 'xsd:string',
-'Fecha' => 'xsd:string',
+array('Comprobante' => 'xsd:string'
+//,
+/* 'Fecha' => 'xsd:string',
 'TipoIDEmisor' => 'xsd:string',
 'IDEmisor' => 'xsd:string',
 'NombreEmisor' => 'xsd:string',
 'TipoIDReceptor' => 'xsd:string',
 'IDReceptor' => 'xsd:string',
-'NombreReceptor' => 'xsd:string'),
+'NombreReceptor' => 'xsd:string' */
+),
 $ns);
 
 
