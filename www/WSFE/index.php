@@ -843,41 +843,17 @@ $receptorIdentificacion)
              } else {
              $EstadoC = json_decode($result);
              $Resultados = json_encode($EstadoC);
+
+             $xml = new SimpleXMLElement('<root/>');
+             $ResyuXML->arrayToXml($EstadoC, $xml);
+
              
-            //  $ClaveR = $EstadoC->{'clave'};
-            //  $FechaR = $EstadoC->{'fecha'};
-            //  $IndestadoR = $EstadoC->{'ind-estado'};
-            //  $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
-
-             //$someObject = $EstadoC ; // 
-             
-            //  foreach($someObject as $key => $value) {
-            //    //echo $value->clave . ", " . $value->fecha . "<br>";
-            //    $value -> clave;
-            //    return $value;
-            //  }
-
-            // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
-
-            return $Resultados;
+           
+            return $ResyuXML;
+            
              }
 
-        /* $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_HEADER, true);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-        //curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
-        $respuesta = curl_exec($curl);
-        $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-
-
-        $Estado =$respuesta;
-        //$arrayResp->{'Status'};
-
-        curl_close($curl);
-
-        return $Estado; */
+        
 
         
         
@@ -972,6 +948,26 @@ function ObtieneFactura($clave, $token)
 
         
     }
+
+//     *
+//  * Convert an array to XML
+//  * @param array $array
+//  * @param SimpleXMLElement $xml
+
+function arrayToXml($array, &$xml){
+    foreach ($array as $key => $value) {
+        if(is_array($value)){
+            if(is_int($key)){
+                $key = "e";
+            }
+            $label = $xml->addChild($key);
+            $this->arrayToXml($value, $label);
+        }
+        else {
+            $xml->addChild($key, $value);
+        }
+    }
+}
 
 // Publicación de los Servicios en SOAP
 
