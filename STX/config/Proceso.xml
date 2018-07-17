@@ -20,11 +20,19 @@
   </Proceso>
   <Proceso>
     <ID>2</ID>
+    <Nombre>Encripta</Nombre>
+    <Diagrama>Encripta.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>16/07/2018 6:54:56 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>3</ID>
     <Nombre>Desencripta</Nombre>
     <Diagrama>Desencripta.xml</Diagrama>
     <Descripcion />
     <Categoria>Util</Categoria>
     <UltimaModificacion>16/07/2018 18:55:12</UltimaModificacion>
-    <Llaves />
-  </Proceso>
+  </Proceso>  
 </ProcesoDS>
