@@ -25,25 +25,7 @@
     <Nombre>Bitacora</Nombre>
     <Tipo>Infoware.STX.Middleware.Servidores.MSSql</Tipo>
     <Descripcion>Servidor Base de Datos</Descripcion>
-    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
-&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
-  &lt;Activo&gt;false&lt;/Activo&gt;
-  &lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;
-  &lt;TimeOut&gt;15000&lt;/TimeOut&gt;
-  &lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;
-  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
-  &lt;Alarma /&gt;
-  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
-  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
-  &lt;RollBack&gt;false&lt;/RollBack&gt;
-  &lt;SoloLectura&gt;false&lt;/SoloLectura&gt;
-  &lt;Servidor&gt;127.0.0.1&lt;/Servidor&gt;
-  &lt;BaseDatos&gt;FacturaElectronica&lt;/BaseDatos&gt;
-  &lt;Usuario&gt;sa&lt;/Usuario&gt;
-  &lt;Clave&gt;local&lt;/Clave&gt;
-  &lt;Puerto&gt;1433&lt;/Puerto&gt;
-  &lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;
-&lt;/PropiedadesServidor&gt;</Propiedades>
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;Activo&gt;false&lt;/Activo&gt;&lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;&lt;TimeOut&gt;15000&lt;/TimeOut&gt;&lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;&lt;CodePage&gt;UTF-8&lt;/CodePage&gt;&lt;Alarma /&gt;&lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;&lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;&lt;RollBack&gt;false&lt;/RollBack&gt;&lt;SoloLectura&gt;false&lt;/SoloLectura&gt;&lt;Servidor&gt;167.114.58.131&lt;/Servidor&gt;&lt;BaseDatos&gt;Factura&lt;/BaseDatos&gt;&lt;Usuario&gt;sa&lt;/Usuario&gt;&lt;Clave&gt;[2380.28515.24940.12594.13102]&lt;/Clave&gt;&lt;Puerto&gt;1433&lt;/Puerto&gt;&lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;&lt;/PropiedadesServidor&gt;</Propiedades>
     <PermiteRedefinir>false</PermiteRedefinir>
     <Ubicacion>Infoware.STX.Middleware, Version=4.0.5297.22077, Culture=neutral, PublicKeyToken=null</Ubicacion>
     <UltimaModificacion>10/07/2018 17:54:48</UltimaModificacion>
