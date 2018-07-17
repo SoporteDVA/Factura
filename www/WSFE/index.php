@@ -841,25 +841,35 @@ $receptorIdentificacion)
              $error = error_get_last();
              return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
              } else {
-             $EstadoC = json_decode($result);
-             $Resultados = json_encode($EstadoC);
-
-             $xml = new SimpleXMLElement('<root/>');
-             $ResyuXML->arrayToXml($EstadoC, $xml);
-
              
-           
-            return $ResyuXML;
+             
+             $salida = json_to_xml($result);
             
+             return $salida;
+
+
              }
 
-        
-
-        
-        
     
         
     }
+
+
+include("XML/Serializer.php");
+
+function json_to_xml($json) {
+    $serializer = new XML_Serializer();
+    $obj = json_decode($json);
+
+    if ($serializer->serialize($obj)) {
+        return $serializer->getSerializedData();
+    }
+    else {
+        return null;
+    }
+}
+
+    
 
 function ConsultaComprobante($clave, $token)
     {
@@ -949,25 +959,19 @@ function ObtieneFactura($clave, $token)
         
     }
 
-//     *
-//  * Convert an array to XML
-//  * @param array $array
-//  * @param SimpleXMLElement $xml
-
-function arrayToXml($array, &$xml){
-    foreach ($array as $key => $value) {
-        if(is_array($value)){
-            if(is_int($key)){
-                $key = "e";
+    function array_to_xml( $data, &$xml_data ) {
+        foreach( $data as $key => $value ) {
+            if( is_numeric($key) ){
+                $key = 'item'.$key; //dealing with <0/>..<n/> issues
             }
-            $label = $xml->addChild($key);
-            $this->arrayToXml($value, $label);
-        }
-        else {
-            $xml->addChild($key, $value);
-        }
+            if( is_array($value) ) {
+                $subnode = $xml_data->addChild($key);
+                array_to_xml($value, $subnode);
+            } else {
+                $xml_data->addChild("$key",htmlspecialchars("$value"));
+            }
+         }
     }
-}
 
 // Publicación de los Servicios en SOAP
 
