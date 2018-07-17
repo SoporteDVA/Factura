@@ -838,7 +838,7 @@ $receptorIdentificacion)
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($curl, CURLOPT_GETFIELDS, $data);
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
         $respuesta = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
