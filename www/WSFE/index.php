@@ -820,7 +820,11 @@ $receptorIdentificacion)
         
         $builtHeader = array(
             'Authorization: ' . $token,
-            'Content-Type: application/json'
+            'Content-Type: application/json',
+            'offset' => $PosicionInicial,//Test: 'api-stag' Production: 'api-prod'
+            'limit' => $Cantidad,//always empty
+            'emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
+            'receptor' =>$receptorIdentificacion
              );
     
               
@@ -828,14 +832,14 @@ $receptorIdentificacion)
         $data = array('offset' => $PosicionInicial,//Test: 'api-stag' Production: 'api-prod'
                       'limit' => $Cantidad,//always empty
                       'emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
-                      'receptor' =>$receptorIdentificacion,//si se  envia es en formato tipoid mas cedula de 12.  01000109660018
+                      'receptor' =>$receptorIdentificacion//si se  envia es en formato tipoid mas cedula de 12.  01000109660018
                       );
 
         $options = array(
             'http' => array(
                 'header'  =>  $builtHeader,
-                'method'  => 'GET',
-                'content' => http_build_query($data)
+                'method'  => 'GET'//,
+                //'content' => http_build_query($data)
             )
         );
 
