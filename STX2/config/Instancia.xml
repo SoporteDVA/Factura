@@ -16,13 +16,13 @@
   &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
   &lt;RollBack&gt;false&lt;/RollBack&gt;
   &lt;SoloLectura&gt;false&lt;/SoloLectura&gt;
-  &lt;Servidor&gt;127.0.0.1&lt;/Servidor&gt;
+  &lt;Servidor&gt;167.114.58.131&lt;/Servidor&gt;
   &lt;BaseDatos&gt;Factura&lt;/BaseDatos&gt;
   &lt;Usuario&gt;sa&lt;/Usuario&gt;
   &lt;Clave&gt;Local123.&lt;/Clave&gt;
   &lt;Puerto&gt;1433&lt;/Puerto&gt;
   &lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;
 &lt;/PropiedadesServidor&gt;</Propiedades>
-    <UltimaModificacion>16/07/2018 3:02:33 PM</UltimaModificacion>
+    <UltimaModificacion>17/07/2018 9:11:35 AM</UltimaModificacion>
   </Instancia>
 </InstanciaDS>
