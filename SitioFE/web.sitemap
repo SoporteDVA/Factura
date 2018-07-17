@@ -3,7 +3,12 @@
 	<siteMapNode url="default.aspx" title="Inicio" description="Intranet" roles="*">
 		<siteMapNode title="Organizacion" description="Estructura y Seguridad" roles="*">
 		<siteMapNode title="Entidades" url="Transaccion.aspx?Transaccion=ConsultaEntidades&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>
-			<siteMapNode title="Usuario y Perfiles" url="Transaccion.aspx?Transaccion=ConsultaUsuarios&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBUsuarios/ConsultaUsuarios.xsl"></siteMapNode>			
+		<siteMapNode title="Usuarios y Perfiles" url="Transaccion.aspx?Transaccion=ConsultaUsuarios&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBUsuarios/ConsultaUsuarios.xsl"></siteMapNode>			
+		</siteMapNode>
+		<siteMapNode title="Catalogos" description="Catalogo de Datos Maestros" roles="*">
+		<siteMapNode title="Articulos" url="Transaccion.aspx?Transaccion=ConsultaArticulos&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>		
+		<siteMapNode title="Clientes" url="Transaccion.aspx?Transaccion=ConsultaClientes&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>
+		<siteMapNode title="Proveedores" url="Transaccion.aspx?Transaccion=ConsultaProveedores&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBUsuarios/ConsultaUsuarios.xsl"></siteMapNode>			
 		</siteMapNode>		
 	</siteMapNode>
 </siteMap>
