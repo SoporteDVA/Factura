@@ -926,10 +926,10 @@ function ObtieneFactura($clave, $token)
              $FechaR = $EstadoC->{'fecha'};
              $EmisorR = $EstadoC->{'emisor'};
              $Emisordata = $EmisorR;
-                $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
-                $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
-                $NombreEmi = $Emisordata->{'nombre'};
-             return array($ClaveR, $FechaR, $EmisorR, $TipoIDEmisor,$IdEmisor,$NombreEmi);
+                // $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
+                // $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
+                // $NombreEmi = $Emisordata->{'nombre'};
+             return array($ClaveR,$EmisorR );
             //return $ClaveR;
             }
         
@@ -957,11 +957,16 @@ $ns);
 //$condVenta ,$plazoCredito ,$medioPago ,$codMoneda ,$tipoCambio ,$totalServGravados ,$totalServExentos ,$totalMercGravadas ,$totalMercExentas ,
 //$totalGravados ,$totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$otros,$detalles
 #Configuramos el array para los detalles
-$soapclient->wsdl->addComplexType('detalleA', 'complexType', 'struct', 'all', '', 
-array(
-'linea' => array('linea' => 'linea', 'type' => 'xsd:int')
-)
+$soapclient->wsdl->
+addComplexType('detalleA', 'complexType', 'struct', 'all', '', 
+array('linea' => array('linea' => 'linea', 'type' => 'xsd:int')));
+
+$soapclient->wsdl->
+addComplexType('EmisorTC', 'complexType', 'struct', 'all', '', 
+array('tipoIdentificacion' => array('tipoIdentificacion' => 'tipoIdentificacion', 'type' => 'xsd:string'))
+
 );
+
 /*{"1":{
     "cantidad":"1",
     "unidadMedida":"Sp",
@@ -1263,10 +1268,7 @@ $ns);
 $soapclient->register('ObtieneFactura',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
 array('Comprobante' => 'xsd:string',
-'Comprobante1' => 'xsd:string',
-'Comprobante2' => 'xsd:string',
-'Comprobante3' => 'xsd:string',
-'Comprobante4' => 'xsd:string'),
+'tipoIdentificacion' => 'xsd:EmisorTC'),
 $ns);
 
 
