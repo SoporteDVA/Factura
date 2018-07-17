@@ -845,12 +845,12 @@ $receptorIdentificacion)
              $Resultados = json_encode($EstadoC);
 
              $xml = new SimpleXMLElement('<root/>');
-             $ResyuXML->arrayToXml($EstadoC, $xml);
+             $ResyuXML= $this->arrayToXml($EstadoC, $xml);
 
              
            
             return $ResyuXML;
-            
+
              }
 
         
@@ -954,7 +954,7 @@ function ObtieneFactura($clave, $token)
 //  * @param array $array
 //  * @param SimpleXMLElement $xml
 
-function arrayToXml($array, &$xml){
+function arrayToXml($array, $xml){
     foreach ($array as $key => $value) {
         if(is_array($value)){
             if(is_int($key)){
