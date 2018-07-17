@@ -843,7 +843,7 @@ $receptorIdentificacion)
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 
-        $Estado = $status;
+        $Estado =$respuesta;
         //$arrayResp->{'Status'};
 
         curl_close($curl);
