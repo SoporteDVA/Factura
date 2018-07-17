@@ -922,12 +922,12 @@ function ObtieneFactura($clave, $token)
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
             } else {
              $EstadoC = json_decode($result);
-            //  $ClaveR = $EstadoC->{'clave'};
+              $ClaveR = $EstadoC->{'clave'};
             //  $FechaR = $EstadoC->{'fecha'};
             // $IndestadoR = $EstadoC->{'ind-estado'};
             // $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
             // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
-            return $EstadoC;
+            return $ClaveR;
             }
         
 
