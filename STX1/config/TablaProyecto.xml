@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<TablaProyectoDS xmlns="http://www.infowarecr.com/stx/TablaProyectoDS.xsd">
+  <TablaProyecto>
+    <ID>0</ID>
+    <Nombre>Estados</Nombre>
+    <ValorPredeterminado>Activo</ValorPredeterminado>
+    <Descripcion />
+    <UltimaModificacion>16/07/2018 3:04:58 PM</UltimaModificacion>
+  </TablaProyecto>
+</TablaProyectoDS>

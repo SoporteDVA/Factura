@@ -1,0 +1,24 @@
+
+
+Transaccion=162901181
+Nombre=FacturaSQL
+Inicio=2018/07/16 16:29:01.239
+Fin=2018/07/16 16:29:02.387
+Entrada=<TareaInput><SP>Fecha</SP></TareaInput>
+Salida=Network error IOException: Connection refused: connect
+
+
+Transaccion=163242370
+Nombre=FacturaSQL
+Inicio=2018/07/16 16:32:42.402
+Fin=2018/07/16 16:32:43.754
+Entrada=<TareaInput><SP>Fecha</SP></TareaInput>
+Salida=<?xml version="1.0" encoding="UTF-8"?><TareaOutput><Fila><Fecha>2018-07-16 16:32:43.753</Fecha></Fila></TareaOutput>
+
+
+Transaccion=163447959
+Nombre=FacturaSQL
+Inicio=2018/07/16 16:34:47.959
+Fin=2018/07/16 16:34:47.977
+Entrada=<TareaInput><SP>Fecha</SP></TareaInput>
+Salida=<?xml version="1.0" encoding="UTF-8"?><TareaOutput><Fila><Fecha>2018-07-16 16:34:47.977</Fecha></Fila></TareaOutput>

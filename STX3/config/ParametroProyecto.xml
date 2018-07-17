@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<ParametroProyectoDS xmlns="http://www.infowarecr.com/stx/ParametroProyectoDS.xsd">
+  <ParametroProyecto>
+    <ID>0</ID>
+    <Nombre>OK</Nombre>
+    <Valor>00</Valor>
+    <Descripcion />
+    <UltimaModificacion>16/07/2018 3:04:29 PM</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>1</ID>
+    <Nombre>Error</Nombre>
+    <Valor>99</Valor>
+    <Descripcion />
+    <UltimaModificacion>16/07/2018 3:04:38 PM</UltimaModificacion>
+  </ParametroProyecto>
+</ParametroProyectoDS>
