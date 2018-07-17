@@ -831,23 +831,34 @@ $receptorIdentificacion)
                       'receptor' =>$receptorIdentificacion//si se  envia es en formato tipoid mas cedula de 12.  01000109660018
                       );
 
-        $options = array(
-            'http' => array(
-                'header'  =>  $builtHeader,
-                'method'  => 'GET',
-                'content' => http_build_query($data)
-            )
-        );
-
-        $context  = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);        
-        if (!$result = file_get_contents($url, false, $context)) {
-        $error = error_get_last();
-        return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-        } else {
         
-        $Resultado = json_encode($result);
-        return $Resultado;
+
+        $curl = curl_init($url);
+        curl_setopt($curl, CURLOPT_HEADER, true);
+        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
+        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
+        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        $respuesta = curl_exec($curl);
+        $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+
+        $Estado = $status;
+        //$arrayResp->{'Status'};
+
+        curl_close($curl);
+
+        return $Estado;
+
+        // $context  = stream_context_create($options);
+        // $result = file_get_contents($url, false, $context);        
+        // if (!$result = file_get_contents($url, false, $context)) {
+        // $error = error_get_last();
+        // return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
+        // } else {
+        
+        // $Resultado = json_encode($result);
+        // return $Resultado;
         
         // $token = json_decode($result);
         // $Tokenn = 'bearer ' . $token->{'access_token'};
@@ -858,7 +869,7 @@ $receptorIdentificacion)
         // $id_token = $token->{'id_token'};
         //return array($Tokenn, $expires_in, $refresh_expires_in, $refresh_token, $token_type, $id_token);
         
-    }
+    
         
     }
 
