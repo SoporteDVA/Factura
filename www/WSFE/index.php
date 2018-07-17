@@ -928,10 +928,10 @@ function ObtieneFactura($clave, $token)
              $Emisordata =  json_encode($EmisorR);
 
          
-                 $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
+                // $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
                 // $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
                 // $NombreEmi = $Emisordata->{'nombre'};
-             return array($ClaveR, $TipoIDEmisor );
+             return array($ClaveR,  $Emisordata );
             //return $ClaveR;
             }
         
