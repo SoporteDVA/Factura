@@ -826,10 +826,41 @@ $receptorIdentificacion)
             'offset: ' .$PosicionInicial,
             'limit: ' .$Cantidad            
              );
-                   
-           
 
-        $curl = curl_init($url);
+             $options = array(
+                'http' => array(
+                    'header'  => $builtHeader,
+                    'method'  => 'GET'
+                )
+            );
+
+                   
+             $context  = stream_context_create($options);
+             $result = file_get_contents($url, false, $context);        
+             if (!$result = file_get_contents($url, false, $context)) {
+             $error = error_get_last();
+             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
+             } else {
+             $EstadoC = json_decode($result);
+             
+             
+            //  $ClaveR = $EstadoC->{'clave'};
+            //  $FechaR = $EstadoC->{'fecha'};
+            //  $IndestadoR = $EstadoC->{'ind-estado'};
+            //  $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
+
+             $someObject = $EstadoC ; // 
+             
+             foreach($someObject as $key => $value) {
+               //echo $value->clave . ", " . $value->fecha . "<br>";
+               $value -> clave;
+               return $value;
+             }
+
+            // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
+             }
+
+        /* $curl = curl_init($url);
         curl_setopt($curl, CURLOPT_HEADER, true);
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
@@ -844,26 +875,9 @@ $receptorIdentificacion)
 
         curl_close($curl);
 
-        return $Estado;
+        return $Estado; */
 
-        // $context  = stream_context_create($options);
-        // $result = file_get_contents($url, false, $context);        
-        // if (!$result = file_get_contents($url, false, $context)) {
-        // $error = error_get_last();
-        // return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-        // } else {
         
-        // $Resultado = json_encode($result);
-        // return $Resultado;
-        
-        // $token = json_decode($result);
-        // $Tokenn = 'bearer ' . $token->{'access_token'};
-        // $expires_in = $token->{'expires_in'};
-		// $refresh_expires_in = $token->{'refresh_expires_in'};
-        // $refresh_token = $token->{'refresh_token'};
-		// $token_type = $token->{'token_type'};
-        // $id_token = $token->{'id_token'};
-        //return array($Tokenn, $expires_in, $refresh_expires_in, $refresh_token, $token_type, $id_token);
         
     
         
