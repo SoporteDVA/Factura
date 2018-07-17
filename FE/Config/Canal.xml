@@ -1,0 +1,26 @@
+<CanalDS version="0.0.0" xmlns="http://www.infowarecr.com/stx/CanalDS.xsd">
+  <Canal>
+    <ID>1</ID>
+    <Nombre>FE</Nombre>
+    <Tipo>Infoware.STX.Middleware.Canales.CanalTCP</Tipo>
+    <UltimaModificacion>2018-06-29T18:23:39.734602-06:00</UltimaModificacion>
+    <Descripcion>Publica los metodos para consumo del proyecto FE</Descripcion>
+    <Propiedades xmlns="">
+      <Activo>true</Activo>
+      <Trabajadores>10</Trabajadores>
+      <TimeOut>15000</TimeOut>
+      <ModoTransaccion>false</ModoTransaccion>
+      <LogLevel>Verbose</LogLevel>
+      <CodePage>UTF-8</CodePage>
+      <Alarma />
+      <TiempoInactivo>300000</TiempoInactivo>
+      <IntervaloAlarma>3600</IntervaloAlarma>
+      <Comportamiento>esperarConexiones</Comportamiento>
+      <Tipo>xml</Tipo>
+      <Puerto>3051</Puerto>
+      <EnviarFinRegistro>true</EnviarFinRegistro>
+      <ObtenerFinRegistro>true</ObtenerFinRegistro>
+    </Propiedades>
+    <Ubicacion>Infoware.STX.Middleware.Canales.CanalTCP, Infoware.STX.Middleware, Version=4.0.5297.22077, Culture=neutral, PublicKeyToken=null</Ubicacion>
+  </Canal>
+</CanalDS>

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FirmaXML</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>28/6/2018</CreationDate>
+  <ModificationDate>28/6/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="300" Top="250">
+            <Message>
+              <Properties>
+                <Property name="p12Url" />
+                <Property name="pinP12" />
+                <Property name="inXml" />
+                <Property name="tipoDoc" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1100" Top="250">
+            <Name>FirmaXMLOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="xmlOUT" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FirmaXMLOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="545.3418" Top="250" update="False" server="ConectorDGTD">
+            <Name>Firma</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="signFE">
+                  <Properties>
+                    <Property name="p12Url" />
+                    <Property name="pinP12" />
+                    <Property name="inXml" />
+                    <Property name="tipoDoc" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="signFEResponse">
+                  <Properties>
+                    <Property name="xmlOUT" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <SequenceFlow ID="23" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="FirmaXMLInput/p12Url" to="FirmaInput/signFE/p12Url" />
+              <Assignment type="Variable" from="FirmaXMLInput/pinP12" to="FirmaInput/signFE/pinP12" />
+              <Assignment type="Variable" from="FirmaXMLInput/inXml" to="FirmaInput/signFE/inXml" />
+              <Assignment type="Variable" from="FirmaXMLInput/tipoDoc" to="FirmaInput/signFE/tipoDoc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="30" Source="10" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="FirmaOutput/signFEResponse/xmlOUT" to="FirmaXMLOutput/xmlOUT" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

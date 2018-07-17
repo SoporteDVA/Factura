@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>EnviaFAC</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>28/06/2018</CreationDate>
+  <ModificationDate>28/06/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="5" Top="35">
+            <Message>
+              <Properties>
+                <Property name="clave" />
+                <Property name="fecha" />
+                <Property name="emi_tipoid" />
+                <Property name="emi_identificacion" />
+                <Property name="recp_tipoid" />
+                <Property name="recp_identificacion" />
+                <Property name="XMLIN" />
+                <Property name="token" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="835" Top="35">
+            <Name>EnviaFACOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>EnviaFACOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="380" Top="35">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="835" Top="245">
+            <Name>EnviaFACFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>EnviaFACFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="230" Top="35" update="False" server="ConectorDGTD">
+            <Name>EnviaFac</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="EnviaFAC">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="fecha" />
+                    <Property name="emi_tipoid" />
+                    <Property name="emi_identificacion" />
+                    <Property name="recp_tipoid" />
+                    <Property name="recp_identificacion" />
+                    <Property name="XMLIN" />
+                    <Property name="token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="EnviaFACResponse">
+                  <Properties>
+                    <Property name="Estado" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="39" IdTop="40" IdLeft="43" IdBottom="42" IdRight="41" Left="570" Top="35">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="23" Source="1" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaFACInput" to="EnviaFacInput/EnviaFAC" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="20" Target="12" />
+          <SequenceFlow ID="26" Source="11" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="EnviaFACFault/Estado" />
+              <Assignment type="Variable" from="EnviaFacFault/Error" to="EnviaFACFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="44" Source="10" Target="43" ConditionExpression="?" />
+          <SequenceFlow ID="45" Source="41" Target="7" ConditionExpression=" variable(EnviaFacOutput/EnviaFACResponse/Estado)=202">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaFacOutput/EnviaFACResponse/Estado" to="EnviaFACOutput/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="46" Source="42" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaFacOutput/EnviaFACResponse/Estado" to="EnviaFACFault/Estado" />
+              <Assignment type="Variable" from="EnviaFacOutput/EnviaFACResponse/Estado" to="EnviaFACFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

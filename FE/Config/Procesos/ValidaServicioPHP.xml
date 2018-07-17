@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ValidaServicioPHP</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>26/6/2018</CreationDate>
+  <ModificationDate>26/6/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="145" Top="150">
+            <Message>
+              <Properties>
+                <Property name="Nombre" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="705" Top="150">
+            <Name>ValidaServicioPHPOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Saludo" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ValidaServicioPHPOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="270" Top="150" update="False" server="ConectorDGTD">
+            <Name>Tarea</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="mostrarMensaje">
+                  <Properties>
+                    <Property name="Nombre" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="mostrarMensajeResponse">
+                  <Properties>
+                    <Property name="Saludo" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Fault">
+                  <Properties>
+                    <Property name="faultcode" />
+                    <Property name="faultstring" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="440" Top="150">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="705" Top="270">
+            <Name>ValidaServicioPHPFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ValidaServicioPHPFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="23" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ValidaServicioPHPInput/Nombre" to="TareaInput/mostrarMensaje/Nombre" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="10" Target="17" />
+          <SequenceFlow ID="25" Source="15" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput/mostrarMensajeResponse/Saludo" to="ValidaServicioPHPOutput/Saludo" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="16" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="TareaFault/Fault/faultcode" to="ValidaServicioPHPFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Fault/faultstring" to="ValidaServicioPHPFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

@@ -1,0 +1,353 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FacturaCORE</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>28/6/2018</CreationDate>
+  <ModificationDate>28/6/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="NumeroConsecutivo" />
+                <Property name="FechaEmision" />
+                <Property name="Nombre" />
+                <Property name="Tipo" />
+                <Property name="Numero" />
+                <Property name="NombreComercial" />
+                <Property name="Provincia" />
+                <Property name="Canton" />
+                <Property name="Distrito" />
+                <Property name="Barrio" />
+                <Property name="OtrasSenas" />
+                <Property name="CodigoPais" />
+                <Property name="NumTelefono" />
+                <Property name="CodigoPaisF" />
+                <Property name="NumTelefonoF" />
+                <Property name="CorreoElectronico" />
+                <Property name="NombreR" />
+                <Property name="CorreoElectronicoR" />
+                <Property name="CondicionVenta" />
+                <Property name="PlazoCredito" />
+                <Property name="MedioPago" />
+                <Property name="DetalleServicio">
+                  <Properties>
+                    <Property name="LineaDetalle">
+                      <Properties>
+                        <Property name="NumeroLinea" />
+                        <Property name="Cantidad" />
+                        <Property name="UnidadMedida" />
+                        <Property name="Detalle" />
+                        <Property name="PrecioUnitario" />
+                        <Property name="MontoTotal" />
+                        <Property name="SubTotal" />
+                        <Property name="MontoTotalLinea" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+                <Property name="CodigoMoneda" />
+                <Property name="TipoCambio" />
+                <Property name="TotalServGravados" />
+                <Property name="TotalSerExentos" />
+                <Property name="TotalMercanciasGravadas" />
+                <Property name="TotalMercanciasExentas" />
+                <Property name="TotalGravado" />
+                <Property name="TotalExento" />
+                <Property name="TotalVenta" />
+                <Property name="TotalDescuentos" />
+                <Property name="TotalVentaNeta" />
+                <Property name="TotalImpuesto" />
+                <Property name="TotalComprobante" />
+                <Property name="NumeroResolucion" />
+                <Property name="FechaResolucion" />
+                <Property name="Otros" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="860" Top="30">
+            <Name>Factura</Name>
+            <Message>
+              <Properties>
+                <Property name="FacturaElectronica" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>Factura</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Transformation ID="8" IdTop="0" IdLeft="10" IdBottom="0" IdRight="9" Left="384.3425" Top="30">
+            <Name>FacturaElectronica</Name>
+            <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <FacturaElectronicaOutput>
+                  <Clave>
+                    <xsl:value-of select="FacturaCOREInput/Clave" />
+                  </Clave>
+                  <NumeroConsecutivo>
+                    <xsl:value-of select="FacturaCOREInput/NumeroConsecutivo" />
+                  </NumeroConsecutivo>
+                  <FechaEmision>
+                    <xsl:value-of select="FacturaCOREInput/FechaEmision" />
+                  </FechaEmision>
+                  <Emisor>
+                    <Nombre>
+                      <xsl:value-of select="FacturaCOREInput/Nombre" />
+                    </Nombre>
+                    <Identificacion>
+                      <Tipo>
+                        <xsl:value-of select="FacturaCOREInput/Tipo" />
+                      </Tipo>
+                      <Numero>
+                        <xsl:value-of select="FacturaCOREInput/Numero" />
+                      </Numero>
+                    </Identificacion>
+                    <NombreComercial>
+                      <xsl:value-of select="FacturaCOREInput/NombreComercial" />
+                    </NombreComercial>
+                    <Ubicacion>
+                      <Provincia>
+                        <xsl:value-of select="FacturaCOREInput/Provincia" />
+                      </Provincia>
+                      <Canton>
+                        <xsl:value-of select="FacturaCOREInput/Canton" />
+                      </Canton>
+                      <Distrito>
+                        <xsl:value-of select="FacturaCOREInput/Distrito" />
+                      </Distrito>
+                      <Barrio>
+                        <xsl:value-of select="FacturaCOREInput/Barrio" />
+                      </Barrio>
+                      <OtrasSenas>
+                        <xsl:value-of select="FacturaCOREInput/OtrasSenas" />
+                      </OtrasSenas>
+                    </Ubicacion>
+                    <Telefono>
+                      <CodigoPais>
+                        <xsl:value-of select="FacturaCOREInput/CodigoPais" />
+                      </CodigoPais>
+                      <NumTelefono>
+                        <xsl:value-of select="FacturaCOREInput/NumTelefono" />
+                      </NumTelefono>
+                    </Telefono>
+                    <Fax>
+                      <CodigoPais>
+                        <xsl:value-of select="FacturaCOREInput/CodigoPaisF" />
+                      </CodigoPais>
+                      <NumTelefono>
+                        <xsl:value-of select="FacturaCOREInput/NumTelefonoF" />
+                      </NumTelefono>
+                    </Fax>
+                    <CorreoElectronico>
+                      <xsl:value-of select="FacturaCOREInput/CorreoElectronico" />
+                    </CorreoElectronico>
+                  </Emisor>
+                  <Receptor>
+                    <Nombre>
+                      <xsl:value-of select="FacturaCOREInput/NombreR" />
+                    </Nombre>
+                    <CorreoElectronico>
+                      <xsl:value-of select="FacturaCOREInput/CorreoElectronicoR" />
+                    </CorreoElectronico>
+                  </Receptor>
+                  <CondicionVenta>
+                    <xsl:value-of select="FacturaCOREInput/CondicionVenta" />
+                  </CondicionVenta>
+                  <PlazoCredito>
+                    <xsl:value-of select="FacturaCOREInput/PlazoCredito" />
+                  </PlazoCredito>
+                  <MedioPago>
+                    <xsl:value-of select="FacturaCOREInput/MedioPago" />
+                  </MedioPago>
+                  <DetalleServicio>
+                    <xsl:for-each select="FacturaCOREInput/DetalleServicio/LineaDetalle">
+                      <LineaDetalle>
+                        <NumeroLinea>
+                          <xsl:value-of select="NumeroLinea" />
+                        </NumeroLinea>
+                        <Cantidad>
+                          <xsl:value-of select="Cantidad" />
+                        </Cantidad>
+                        <UnidadMedida>
+                          <xsl:value-of select="UnidadMedida" />
+                        </UnidadMedida>
+                        <Detalle>
+                          <xsl:value-of select="Detalle" />
+                        </Detalle>
+                        <PrecioUnitario>
+                          <xsl:value-of select="PrecioUnitario" />
+                        </PrecioUnitario>
+                        <MontoTotal>
+                          <xsl:value-of select="MontoTotal" />
+                        </MontoTotal>
+                        <SubTotal>
+                          <xsl:value-of select="SubTotal" />
+                        </SubTotal>
+                        <MontoTotalLinea>
+                          <xsl:value-of select="MontoTotalLinea" />
+                        </MontoTotalLinea>
+                      </LineaDetalle>
+                    </xsl:for-each>
+                  </DetalleServicio>
+                  <ResumenFactura>
+                    <CodigoMoneda>
+                      <xsl:value-of select="FacturaCOREInput/CodigoMoneda" />
+                    </CodigoMoneda>
+                    <TipoCambio>
+                      <xsl:value-of select="FacturaCOREInput/TipoCambio" />
+                    </TipoCambio>
+                    <TotalServGravados>
+                      <xsl:value-of select="FacturaCOREInput/TotalServGravados" />
+                    </TotalServGravados>
+                    <TotalServExentos>
+                      <xsl:value-of select="FacturaCOREInput/TotalServExentos" />
+                    </TotalServExentos>
+                    <TotalMercanciasGravadas>
+                      <xsl:value-of select="FacturaCOREInput/TotalMercanciasGravadas" />
+                    </TotalMercanciasGravadas>
+                    <TotalMercanciasExentas>
+                      <xsl:value-of select="FacturaCOREInput/TotalMercanciasExentas" />
+                    </TotalMercanciasExentas>
+                    <TotalGravado>
+                      <xsl:value-of select="FacturaCOREInput/TotalGravado" />
+                    </TotalGravado>
+                    <TotalExento>
+                      <xsl:value-of select="FacturaCOREInput/TotalExento" />
+                    </TotalExento>
+                    <TotalVenta>
+                      <xsl:value-of select="FacturaCOREInput/TotalVenta" />
+                    </TotalVenta>
+                    <TotalDescuentos>
+                      <xsl:value-of select="FacturaCOREInput/TotalDescuentos" />
+                    </TotalDescuentos>
+                    <TotalVentaNeta>
+                      <xsl:value-of select="FacturaCOREInput/TotalVentaNeta" />
+                    </TotalVentaNeta>
+                    <TotalImpuesto>
+                      <xsl:value-of select="FacturaCOREInput/TotalVentaNeta" />
+                    </TotalImpuesto>
+                    <TotalComprobante>
+                      <xsl:value-of select="FacturaCOREInput/TotalComprobante" />
+                    </TotalComprobante>
+                  </ResumenFactura>
+                  <Normativa>
+                    <NumeroResolucion>
+                      <xsl:value-of select="FacturaCOREInput/NumeroResolucion" />
+                    </NumeroResolucion>
+                    <FechaResolucion>
+                      <xsl:value-of select="FacturaCOREInput/FechaResolucion" />
+                    </FechaResolucion>
+                  </Normativa>
+                  <Otros>
+                    <xsl:value-of select="FacturaCOREInput/Otros" />
+                  </Otros>
+                </FacturaElectronicaOutput>
+              </xsl:template>
+            </xsl:stylesheet>
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="NumeroConsecutivo" />
+                <Property name="FechaEmision" />
+                <Property name="Emisor">
+                  <Properties>
+                    <Property name="Nombre" />
+                    <Property name="Identificacion">
+                      <Properties>
+                        <Property name="Tipo" />
+                        <Property name="Numero" />
+                      </Properties>
+                    </Property>
+                    <Property name="NombreComercial" />
+                    <Property name="Ubicacion">
+                      <Properties>
+                        <Property name="Provincia" />
+                        <Property name="Canton" />
+                        <Property name="Distrito" />
+                        <Property name="Barrio" />
+                        <Property name="OtrasSenas" />
+                      </Properties>
+                    </Property>
+                    <Property name="Telefono">
+                      <Properties>
+                        <Property name="CodigoPais" />
+                        <Property name="NumTelefono" />
+                      </Properties>
+                    </Property>
+                    <Property name="Fax">
+                      <Properties>
+                        <Property name="CodigoPais" />
+                        <Property name="NumTelefono" />
+                      </Properties>
+                    </Property>
+                    <Property name="CorreoElectronico" />
+                  </Properties>
+                </Property>
+                <Property name="Receptor">
+                  <Properties>
+                    <Property name="Nombre" />
+                    <Property name="CorreoElectronico" />
+                  </Properties>
+                </Property>
+                <Property name="CondicionVenta" />
+                <Property name="PlazoCredito" />
+                <Property name="MedioPago" />
+                <Property name="DetalleServicio">
+                  <Properties>
+                    <Property name="LineaDetalle">
+                      <Properties>
+                        <Property name="NumeroLinea" />
+                        <Property name="Cantidad" />
+                        <Property name="UnidadMedida" />
+                        <Property name="Detalle" />
+                        <Property name="PrecioUnitario" />
+                        <Property name="MontoTotal" />
+                        <Property name="SubTotal" />
+                        <Property name="MontoTotalLinea" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+                <Property name="ResumenFactura">
+                  <Properties>
+                    <Property name="CodigoMoneda" />
+                    <Property name="TipoCambio" />
+                    <Property name="TotalServGravados" />
+                    <Property name="TotalServExentos" />
+                    <Property name="TotalMercanciasGravadas" />
+                    <Property name="TotalMercanciasExentas" />
+                    <Property name="TotalGravado" />
+                    <Property name="TotalExento" />
+                    <Property name="TotalVenta" />
+                    <Property name="TotalDescuentos" />
+                    <Property name="TotalVentaNeta" />
+                    <Property name="TotalImpuesto" />
+                    <Property name="TotalComprobante" />
+                  </Properties>
+                </Property>
+                <Property name="Normativa">
+                  <Properties>
+                    <Property name="Otros" />
+                    <Property name="NumeroResolucion" />
+                    <Property name="FechaResolucion" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+          </Transformation>
+          <SequenceFlow ID="11" Source="1" Target="10" />
+          <SequenceFlow ID="12" Source="9" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from="    reemplazar( (reemplazar( xml(FacturaElectronicaOutput) , &quot;&lt;FacturaElectronicaOutput&gt;&quot; , parametro(NSFAC) )) , &quot;&lt;/FacturaElectronicaOutput&gt;&quot; , &quot;&lt;/FacturaElectronica&gt;&quot; )" to="Factura/FacturaElectronica" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

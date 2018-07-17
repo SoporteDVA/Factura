@@ -1,0 +1,10 @@
+<?xml version="1.0" standalone="yes"?>
+<TablaProyectoDS xmlns="http://www.infowarecr.com/stx/TablaProyectoDS.xsd">
+  <TablaProyecto>
+    <ID>0</ID>
+    <Nombre>Estados</Nombre>
+    <ValorPredeterminado>1000</ValorPredeterminado>
+    <Descripcion>Tabla de estados de correcto y error</Descripcion>
+    <UltimaModificacion>26/6/2018 17:34:10</UltimaModificacion>
+  </TablaProyecto>
+</TablaProyectoDS>

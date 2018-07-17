@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<InstanciaDS xmlns="http://www.infowarecr.com/stx/InstanciaDS.xsd">
+  <Instancia>
+    <ID>0</ID>
+    <Servidor>0</Servidor>
+    <Descripcion />
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;false&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;true&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;10000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;
+  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;Uri&gt;http://localhost/WSFE/index.php?wsdl&lt;/Uri&gt;
+  &lt;Puerto&gt;80&lt;/Puerto&gt;
+  &lt;SoapAction&gt;http://127.0.0.1/ServicioFE&lt;/SoapAction&gt;
+  &lt;XmlNameSpace&gt;http://127.0.0.1/ServicioFE&lt;/XmlNameSpace&gt;
+  &lt;SoapVersion&gt;Default&lt;/SoapVersion&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
+    <UltimaModificacion>26/6/2018 18:00:06</UltimaModificacion>
+  </Instancia>
+  <Instancia>
+    <ID>1</ID>
+    <Servidor>1</Servidor>
+    <Descripcion />
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;false&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;true&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;30000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;
+  &lt;CodePage&gt;json&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;Uri&gt;http://corefecr.com:1601/Facturacion/Firmar/&lt;/Uri&gt;
+  &lt;Puerto&gt;80&lt;/Puerto&gt;
+  &lt;UrlFormat&gt;normal&lt;/UrlFormat&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
+    <UltimaModificacion>2/7/2018 12:10:52</UltimaModificacion>
+  </Instancia>
+  <Instancia>
+    <ID>2</ID>
+    <Servidor>2</Servidor>
+    <Descripcion />
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;false&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;15000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;
+  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;RollBack&gt;false&lt;/RollBack&gt;
+  &lt;SoloLectura&gt;false&lt;/SoloLectura&gt;
+  &lt;Servidor&gt;127.0.0.1&lt;/Servidor&gt;
+  &lt;BaseDatos&gt;FacturaElectronica&lt;/BaseDatos&gt;
+  &lt;Usuario&gt;sa&lt;/Usuario&gt;
+  &lt;Clave&gt;local&lt;/Clave&gt;
+  &lt;Puerto&gt;1433&lt;/Puerto&gt;
+  &lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
+    <UltimaModificacion>10/07/2018 17:55:56</UltimaModificacion>
+  </Instancia>
+</InstanciaDS>

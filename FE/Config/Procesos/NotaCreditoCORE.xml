@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>NotaCreditoCORE</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>11/07/2018</CreationDate>
+  <ModificationDate>11/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="861" Top="31">
+            <Name>NotaCredito</Name>
+            <Message>
+              <Properties>
+                <Property name="FacturaElectronica" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>NotaCredito</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="101" Top="31">
+            <Message>
+              <Properties>
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="meisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="recenprotNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="otros" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="detalles" />
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="296" Top="31" update="False" server="ConectorDGTD">
+            <Name>Tarea</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="genXMLNC">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="consecutivo" />
+                    <Property name="fechaEmision" />
+                    <Property name="emisorNombre" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="meisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
+                    <Property name="receptorNombre" />
+                    <Property name="receptorTipoIdentif" />
+                    <Property name="recenprotNumIdentif" />
+                    <Property name="receptorProvincia" />
+                    <Property name="receptorCanton" />
+                    <Property name="receptorDistrito" />
+                    <Property name="receptorBarrio" />
+                    <Property name="receptorOtrasSenas" />
+                    <Property name="receptorCodPaisTel" />
+                    <Property name="receptorTel" />
+                    <Property name="receptorCodPaisFax" />
+                    <Property name="receptorFax" />
+                    <Property name="receptorEmail" />
+                    <Property name="condVenta" />
+                    <Property name="plazoCredito" />
+                    <Property name="medioPago" />
+                    <Property name="codMoneda" />
+                    <Property name="tipoCambio" />
+                    <Property name="totalServGravados" />
+                    <Property name="totalServExentos" />
+                    <Property name="totalMercGravadas" />
+                    <Property name="totalMercExentas" />
+                    <Property name="totalGravados" />
+                    <Property name="totalExentos" />
+                    <Property name="totalVentas" />
+                    <Property name="totalDescuentos" />
+                    <Property name="totalVentasNeta" />
+                    <Property name="totalImp" />
+                    <Property name="totalComprobante" />
+                    <Property name="otros" />
+                    <Property name="infoRefeTipoDoc" />
+                    <Property name="infoRefeNumero" />
+                    <Property name="infoRefeFechaEmision" />
+                    <Property name="infoRefeCodigo" />
+                    <Property name="infoRefeRazon" />
+                    <Property name="detalles" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="genXMLNCResponse">
+                  <Properties>
+                    <Property name="NotaCredito" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="476" Top="31">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="856" Top="181">
+            <Name>NotaCreditoCOREFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>NotaCreditoCOREFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="23" Source="16" Target="22">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="NotaCreditoCOREFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Error" to="NotaCreditoCOREFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="4" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput/genXMLNCResponse/NotaCredito" to="NotaCredito/FacturaElectronica" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="25" Source="10" Target="17" />
+          <SequenceFlow ID="26" Source="6" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="NotaCreditoCOREInput" to="TareaInput/genXMLNC" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

@@ -1,0 +1,19 @@
+<?xml version="1.0" standalone="yes"?>
+<ParametroTablaProyectoDS xmlns="http://www.infowarecr.com/stx/ParametroTablaProyectoDS.xsd">
+  <ParametroTablaProyecto>
+    <ID>0</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>OK</Nombre>
+    <Valor>00</Valor>
+    <Descripcion>Estado de tabla Correcto</Descripcion>
+    <UltimaModificacion>26/6/2018 17:34:31</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>1</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>ERROR</Nombre>
+    <Valor>99</Valor>
+    <Descripcion>Estado de tabla Error</Descripcion>
+    <UltimaModificacion>26/6/2018 17:34:51</UltimaModificacion>
+  </ParametroTablaProyecto>
+</ParametroTablaProyectoDS>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaFactura</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>28/06/2018</CreationDate>
+  <ModificationDate>28/06/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="155" Top="60">
+            <Message>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="985" Top="60">
+            <Name>ConsultaFacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR">
+                  <Properties>
+                    <Property name="MensajeHacienda">
+                      <Properties>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaFacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="990" Top="255">
+            <Name>ConsultaFacturaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaFacturaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="385" Top="60" update="False" server="ConectorDGTD">
+            <Name>ConsultaEstado</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="ConsultaComprobante">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ConsultaComprobanteResponse">
+                  <Properties>
+                    <Property name="ClaveR" />
+                    <Property name="FechaR" />
+                    <Property name="IndestadoR" />
+                    <Property name="RespuestaxmlR" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="620" Top="60">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="18" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturaInput/clave" to="ConsultaEstadoInput/ConsultaComprobante/clave" />
+              <Assignment type="Variable" from="ConsultaFacturaInput/token" to="ConsultaEstadoInput/ConsultaComprobante/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="23" />
+          <SequenceFlow ID="25" Source="21" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/ClaveR" to="ConsultaFacturaOutput/ClaveR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/FechaR" to="ConsultaFacturaOutput/FechaR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/IndestadoR" to="ConsultaFacturaOutput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaEstadoOutput/CheckFACResponse/RespuestaxmlR)) " to="ConsultaFacturaOutput/RespuestaxmlR" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="22" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="ConsultaFacturaFault/Estado" />
+              <Assignment type="Variable" from="ConsultaEstadoFault/Error" to="ConsultaFacturaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

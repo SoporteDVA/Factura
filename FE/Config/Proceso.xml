@@ -1,0 +1,111 @@
+<?xml version="1.0" standalone="yes"?>
+<ProcesoDS xmlns="http://www.infowarecr.com/stx/ProcesoDS.xsd">
+  <Proceso>
+    <ID>0</ID>
+    <Nombre>Fecha</Nombre>
+    <Diagrama>Fecha.xml</Diagrama>
+    <Descripcion>Obtiene la fecha Servidor Actual</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>26/6/2018 17:37:53</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>1</ID>
+    <Nombre>ValidaServicioPHP</Nombre>
+    <Diagrama>ValidaServicioPHP.xml</Diagrama>
+    <Descripcion>Servicio para validar el estado del servicio web php</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>26/6/2018 18:09:26</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>2</ID>
+    <Nombre>TokenLocal</Nombre>
+    <Diagrama>TokenLocal.xml</Diagrama>
+    <Descripcion>Permite obtener el Token de DGTD por medio del servicio PHP</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>26/6/2018 19:08:31</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>3</ID>
+    <Nombre>Factura</Nombre>
+    <Diagrama>Factura.xml</Diagrama>
+    <Descripcion>Metodo de generacion de Factura Digital</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>26/6/2018 19:36:21</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>4</ID>
+    <Nombre>FacturaCORE</Nombre>
+    <Diagrama>FacturaCORE.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>28/6/2018 13:04:45</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>5</ID>
+    <Nombre>EnviaFAC</Nombre>
+    <Diagrama>EnviaFAC.xml</Diagrama>
+    <Descripcion />
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>28/6/2018 16:35:31</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>6</ID>
+    <Nombre>FirmaXML</Nombre>
+    <Diagrama>FirmaXML.xml</Diagrama>
+    <Descripcion>Agrega el certificado a la factura XML</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>28/6/2018 16:52:39</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>7</ID>
+    <Nombre>ConsultaFactura</Nombre>
+    <Diagrama>ConsultaFactura.xml</Diagrama>
+    <Descripcion>Consulta el Estado de la factura en HACIENDA</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>28/6/2018 19:02:50</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>8</ID>
+    <Nombre>FirmaFactura</Nombre>
+    <Diagrama>FirmaFactura.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>29/6/2018 18:05:44</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>9</ID>
+    <Nombre>FEObtenerDocumento</Nombre>
+    <Diagrama>FEObtenerDocumento.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>10/07/2018 19:05:11</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>10</ID>
+    <Nombre>NotaCreditoCORE</Nombre>
+    <Diagrama>NotaCreditoCORE.xml</Diagrama>
+    <Descripcion>Crea el XML de la Nota Credito</Descripcion>
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>11/07/2018 15:59:56</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>11</ID>
+    <Nombre>NotaDebitoCORE</Nombre>
+    <Diagrama>NotaDebitoCORE.xml</Diagrama>
+    <Descripcion>Crea XML de la Nota de Debito</Descripcion>
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>11/07/2018 16:13:37</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+</ProcesoDS>

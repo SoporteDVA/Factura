@@ -1,0 +1,11 @@
+<?xml version="1.0" standalone="yes"?>
+<ProyectoDS xmlns="http://www.infowarecr.com/stx/ProyectoDS.xsd">
+  <Proyecto>
+    <ID>0</ID>
+    <Nombre>FE</Nombre>
+    <Creado>2018-06-26T17:31:31.8939842-06:00</Creado>
+    <Modificado>2018-06-26T17:31:59.2957758-06:00</Modificado>
+    <Descripcion>Servicio para la integracion de la factura electronica</Descripcion>
+    <UltimaModificacion>26/6/2018 17:31:31</UltimaModificacion>
+  </Proyecto>
+</ProyectoDS>

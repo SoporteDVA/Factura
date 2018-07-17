@@ -1,0 +1,59 @@
+<?xml version="1.0" standalone="yes"?>
+<ParametroProyectoDS xmlns="http://www.infowarecr.com/stx/ParametroProyectoDS.xsd">
+  <ParametroProyecto>
+    <ID>0</ID>
+    <Nombre>OK</Nombre>
+    <Valor>00</Valor>
+    <Descripcion>Parametro de resultado OK</Descripcion>
+    <UltimaModificacion>26/6/2018 17:33:44</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>1</ID>
+    <Nombre>username</Nombre>
+    <Valor>cpf-01-0966-0018@stag.comprobanteselectronicos.go.cr</Valor>
+    <Descripcion />
+    <UltimaModificacion>26/6/2018 19:07:05</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>2</ID>
+    <Nombre>password</Nombre>
+    <Valor>)w^gFV&gt;2;P;^2^.f-H}X</Valor>
+    <Descripcion />
+    <UltimaModificacion>26/6/2018 19:07:30</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>3</ID>
+    <Nombre>NSFAC</Nombre>
+    <Valor>&lt;?xml version="1.0" encoding="utf-8"?&gt;&lt;FacturaElectronica xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica FacturaElectronica_V.4.2.xsd"&gt;</Valor>
+    <Descripcion />
+    <UltimaModificacion>28/6/2018 15:23:10</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>4</ID>
+    <Nombre>NormativaHac</Nombre>
+    <Valor>DGT-R-48-2016</Valor>
+    <Descripcion>Normativa Vigente de Hacienda</Descripcion>
+    <UltimaModificacion>28/6/2018 16:05:29</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>5</ID>
+    <Nombre>FechaResHac</Nombre>
+    <Valor>07-10-2016 08:00:00</Valor>
+    <Descripcion>Fecha de Resolucion</Descripcion>
+    <UltimaModificacion>28/6/2018 16:06:17</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>6</ID>
+    <Nombre>xml</Nombre>
+    <Valor>&lt;FacturaElectronica xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica FacturaElectronica_V.4.2.xsd"&gt;</Valor>
+    <Descripcion />
+    <UltimaModificacion>29/6/2018 19:25:36</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>7</ID>
+    <Nombre>detalle</Nombre>
+    <Valor>{"1":{"cantidad":"1","unidadMedida":"Sp","detalle":"DESARROLLO","precioUnitario":"65","montoTotal":"65","subtotal":"65","montoTotalLinea":"65"}}</Valor>
+    <Descripcion />
+    <UltimaModificacion>10/07/2018 15:36:33</UltimaModificacion>
+  </ParametroProyecto>
+</ParametroProyectoDS>
