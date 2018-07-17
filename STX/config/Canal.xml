@@ -3,7 +3,7 @@
     <ID>1</ID>
     <Nombre>FacturaCajas</Nombre>
     <Tipo>Infoware.STX.Middleware.Canales.CanalTCP</Tipo>
-    <UltimaModificacion>2018-07-16T16:12:37.102112-06:00</UltimaModificacion>
+    <UltimaModificacion>2018-07-16T18:56:03.429758-06:00</UltimaModificacion>
     <Descripcion>Publica los metodos para la intranet de Factura</Descripcion>
     <Propiedades xmlns="">
       <Activo>true</Activo>
