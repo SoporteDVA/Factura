@@ -925,14 +925,27 @@ function ObtieneFactura($clave, $token)
              $ClaveR = $EstadoC->{'clave'};
              $FechaR = $EstadoC->{'fecha'};
              $EmisorR = $EstadoC->{'emisor'};
+             $ReceptorR = $EstadoC->{'receptor'};
+             $NotasCredito=$EstadoC->{'notasCredito'};
+             $NotasDebito=$EstadoC->{'notasDebito'};
+
+
              $Emisordata =  json_encode($EmisorR);
              $EmisorC = json_decode($Emisordata);
          
              $TipoIDEmisor = $EmisorC->{'tipoIdentificacion'};
              $IdEmisor =  $EmisorC->{'numeroIdentificacion'};
              $NombreEmi = $EmisorC->{'nombre'};
-             return array($ClaveR,$FechaR, $TipoIDEmisor,$IdEmisor,$NombreEmi);
-            //return $ClaveR;
+
+             $Receptordata =  json_encode($ReceptorR);
+             $ReceptorC = json_decode($Receptordata);
+
+             $TipoIDReceptor = $ReceptorC->{'tipoIdentificacion'};
+             $IdReceptor =  $ReceptorC->{'numeroIdentificacion'};
+             $NombreReceptor = $ReceptorC->{'nombre'};
+
+             return array($ClaveR,$FechaR, $TipoIDEmisor,$IdEmisor,$NombreEmi,$TipoIDReceptor,$IdReceptor,$NombreReceptor);
+            
             }
         
 
@@ -1273,7 +1286,10 @@ array('Comprobante' => 'xsd:string',
 'Fecha' => 'xsd:string',
 'TipoIDEmisor' => 'xsd:string',
 'IDEmisor' => 'xsd:string',
-'NombreEmisor' => 'xsd:string'),
+'NombreEmisor' => 'xsd:string',
+'TipoIDReceptor' => 'xsd:string',
+'IDReceptor' => 'xsd:string',
+'NombreReceptor' => 'xsd:string'),
 $ns);
 
 
