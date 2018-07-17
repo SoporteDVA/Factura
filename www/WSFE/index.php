@@ -687,10 +687,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
 function genXMLMR($clave,$NumeroCedulaEmisor,$fechaEmisionDoc,$Mensaje,$DetalleMensaje,$MontoTotalImpuesto,$TotalFactura,
 $NumeroCedulaReceptor, $NumeroConsecutivoReceptor) 
 {
-
-
-
-    
+  
 
     $xmlString = '<?xml version="1.0" encoding="utf-8"?>
 <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
@@ -813,54 +810,55 @@ return $Estado;
 //FUNCION QUE OBTIENE TODOS LOS COMPROBANTES EMITIDOS POR UN EMISOR HACIA 
 //CUALQUIER RECEPTOR O UN RECEPTOR ESPECIFICO 
 
-function ObtieneComprobantes($token,$PosicionInicial,$Cantidad,$emisorTipoIdentif,$emisorIdentificacion,$receptorTipoIdentif,
+function ObtieneComprobantes($token,
+$PosicionInicial,
+$Cantidad,
+$emisorIdentificacion,
 $receptorIdentificacion)
     {
         $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes';//URL del SandBox
         
+        $builtHeader = array(
+            'Authorization: ' . $token,
+            'Content-Type: application/json'
+             );
+    
+              
         
-      $datos = array(
-        
-        'offset' => $PosicionInicial,
-        'limit' => $Cantidad,
-        'emisor' => $emisorTipoIdentif.$emisorIdentificacion,
-        'receptor'=> $receptorTipoIdentif.$receptorIdentificacion
-        );
-        //$datosJ= http_build_query($datos);
-        $mensaje = json_encode($datos);
-        $header = array(
-        'Authorization: ' . $token,
-        'Accept: application/json',
-        'method'  => 'GET'
-      
-        
+        $data = array('offset' => $PosicionInicial,//Test: 'api-stag' Production: 'api-prod'
+                      'limit' => $Cantidad,//always empty
+                      'emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
+                      'receptor' =>$receptorIdentificacion,//si se  envia es en formato tipoid mas cedula de 12.  01000109660018
+                      );
+
+        $options = array(
+            'http' => array(
+                'header'  =>  $builtHeader,
+                'method'  => 'GET',
+                'content' => http_build_query($data)
+            )
         );
 
-        $context  = stream_context_create($mensaje);
+        $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);        
         if (!$result = file_get_contents($url, false, $context)) {
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
-        $EstadoC = json_decode($result);
         
-        return $mensaje;
-        }
-        // $curl = curl_init($url);
-        // curl_setopt($curl, CURLOPT_HEADER, true);
-        // curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        // curl_setopt($curl, CURLOPT_HTTPHEADER,$header);
-        // curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-        // curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
-        // $respuesta = curl_exec($curl);
-        // $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+        $Resultado = json_encode($result);
+        return $Resultado;
         
-        // $envio=curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+        // $token = json_decode($result);
+        // $Tokenn = 'bearer ' . $token->{'access_token'};
+        // $expires_in = $token->{'expires_in'};
+		// $refresh_expires_in = $token->{'refresh_expires_in'};
+        // $refresh_token = $token->{'refresh_token'};
+		// $token_type = $token->{'token_type'};
+        // $id_token = $token->{'id_token'};
+        //return array($Tokenn, $expires_in, $refresh_expires_in, $refresh_token, $token_type, $id_token);
         
-        // $Estado = $status;
-        // //$arrayResp->{'Status'};
-        // curl_close($curl);
-        // return $respuesta;
+    }
         
     }
 
@@ -1261,9 +1259,7 @@ array(
 'token'=>'xsd:string',
 'PosicionInicial' => 'xsd:string',
 'Cantidad' => 'xsd:string',
-'emisorTipoIdentif' => 'xsd:string',
 'emisorIdentificacion' => 'xsd:string',
-'receptorTipoIdentif' => 'xsd:string',
 'receptorIdentificacion' => 'xsd:string'
   ),
 array(
