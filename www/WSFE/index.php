@@ -823,7 +823,7 @@ $receptorIdentificacion)
             //'Content-Type: application/json',
             'offset' => $PosicionInicial,
             'limit' => $Cantidad,
-            'emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
+            'Emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
             'receptor' =>$receptorIdentificacion
              );
                    
