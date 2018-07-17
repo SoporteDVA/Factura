@@ -5,11 +5,25 @@
     <Nombre>FacturaSQL</Nombre>
     <Tipo>Infoware.STX.Middleware.Servidores.MSSql</Tipo>
     <Descripcion>Conecta a la Base de datos del sistema</Descripcion>
-<<<<<<< HEAD
-    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;Activo&gt;false&lt;/Activo&gt;&lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;&lt;TimeOut&gt;40000&lt;/TimeOut&gt;&lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;&lt;CodePage&gt;UTF-8&lt;/CodePage&gt;&lt;Alarma /&gt;&lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;&lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;&lt;RollBack&gt;false&lt;/RollBack&gt;&lt;SoloLectura&gt;false&lt;/SoloLectura&gt;&lt;Servidor&gt;127.0.0.1&lt;/Servidor&gt;&lt;BaseDatos&gt;Factura&lt;/BaseDatos&gt;&lt;Usuario&gt;sa&lt;/Usuario&gt;&lt;Clave&gt;[XIB1dIBGSEpG]&lt;/Clave&gt;&lt;Puerto&gt;1433&lt;/Puerto&gt;&lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;&lt;/PropiedadesServidor&gt;</Propiedades>
-=======
-    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;&lt;Activo&gt;false&lt;/Activo&gt;&lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;&lt;TimeOut&gt;40000&lt;/TimeOut&gt;&lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;&lt;CodePage&gt;UTF-8&lt;/CodePage&gt;&lt;Alarma /&gt;&lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;&lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;&lt;RollBack&gt;false&lt;/RollBack&gt;&lt;SoloLectura&gt;false&lt;/SoloLectura&gt;&lt;Servidor&gt;167.114.58.131&lt;/Servidor&gt;&lt;BaseDatos&gt;Factura&lt;/BaseDatos&gt;&lt;Usuario&gt;sa&lt;/Usuario&gt;&lt;Clave&gt;[XIB1dIBGSEpG]&lt;/Clave&gt;&lt;Puerto&gt;1433&lt;/Puerto&gt;&lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;&lt;/PropiedadesServidor&gt;</Propiedades>
->>>>>>> de2fe3c0ed40344da669f7f10512dd1aaad9f4c1
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;false&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;false&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;40000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Verbose&lt;/LogLevel&gt;
+  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;RollBack&gt;false&lt;/RollBack&gt;
+  &lt;SoloLectura&gt;false&lt;/SoloLectura&gt;
+  &lt;Servidor&gt;127.0.0.1&lt;/Servidor&gt;
+  &lt;BaseDatos&gt;Factura&lt;/BaseDatos&gt;
+  &lt;Usuario&gt;sa&lt;/Usuario&gt;
+  &lt;Clave&gt;Local123.&lt;/Clave&gt;
+  &lt;Puerto&gt;1433&lt;/Puerto&gt;
+  &lt;AutenticacionWindows&gt;false&lt;/AutenticacionWindows&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
     <PermiteRedefinir>false</PermiteRedefinir>
     <Ubicacion>Infoware.STX.Middleware, Version=4.0.6513.10567, Culture=neutral, PublicKeyToken=null</Ubicacion>
     <UltimaModificacion>16/07/2018 3:01:06 PM</UltimaModificacion>
