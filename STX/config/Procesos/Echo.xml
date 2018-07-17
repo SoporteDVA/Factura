@@ -28,7 +28,7 @@
           </Start>
           <SequenceFlow ID="8" Source="6" Target="4">
             <Assignments>
-              <Assignment type="Expression" from="&quot;Hola&quot;" to="EchoOutput/Mensaje" />
+              <Assignment type="Expression" from="&quot;Hola es Lola&quot;" to="EchoOutput/Mensaje" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
