@@ -71,7 +71,7 @@
           <SequenceFlow ID="19" Source="10" Target="17" />
           <SequenceFlow ID="20" Source="15" Target="4" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="TareaOutput/Fila/Fecha" to="FechaOutput/Fecha" />
+              <Assignment type="Expression" from="&quot;Hoy es &quot;+  variable(TareaOutput/Fila/Fecha)" to="FechaOutput/Fecha" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="26" Source="16" Target="25">
