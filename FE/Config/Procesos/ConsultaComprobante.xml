@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaComprobante</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/07/2018</CreationDate>
+  <ModificationDate>17/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="70" Top="110">
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+              </Properties>
+            </Message>
+          </Start>
+          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="222.0508" Top="110" update="False" NombreProceso="TokenLocal">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="416.6276" Top="110" update="False" NombreProceso="ObtieneFactura">
+            <Name>ConsultaFactura</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notaCredito" />
+                            <Property name="notaDebito" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="585" Top="110">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="335" Top="110">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="910" Top="110">
+            <Name>ConsultaComprobanteOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notaCredito" />
+                            <Property name="notaDebito" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaComprobanteOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="910" Top="340">
+            <Name>ConsultaComprobanteFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaComprobanteFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="33" Source="1" Target="7" />
+          <SequenceFlow ID="34" Source="5" Target="22" />
+          <SequenceFlow ID="35" Source="20" Target="12" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaComprobanteInput/Clave" to="ConsultaFacturaInput/Clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacturaInput/Token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="36" Source="10" Target="17" />
+          <SequenceFlow ID="37" Source="15" Target="27" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturaOutput" to="ConsultaComprobanteOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="16" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturaFault" to="ConsultaComprobanteFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="39" Source="21" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault/Estado" to="ConsultaComprobanteFault/Estado" />
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="ConsultaComprobanteFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

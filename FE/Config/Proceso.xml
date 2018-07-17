@@ -108,4 +108,22 @@
     <UltimaModificacion>11/07/2018 16:13:37</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>12</ID>
+    <Nombre>ObtieneFactura</Nombre>
+    <Diagrama>ObtieneFactura.xml</Diagrama>
+    <Descripcion>Obtiene una factura especifica de Hacienda</Descripcion>
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>17/07/2018 16:34:54</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>13</ID>
+    <Nombre>ConsultaComprobante</Nombre>
+    <Diagrama>ConsultaComprobante.xml</Diagrama>
+    <Descripcion>Permite consultar un solo comprobante por medio de la clave</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>17/07/2018 16:53:16</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

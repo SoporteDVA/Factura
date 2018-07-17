@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ObtieneFactura</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/07/2018</CreationDate>
+  <ModificationDate>17/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="170" Top="245">
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Token" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="905" Top="245">
+            <Name>ObtieneFacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notaCredito" />
+                            <Property name="notaDebito" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ObtieneFacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="572.959" Top="245">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="352.9134" Top="245" update="False" server="ConectorDGTD">
+            <Name>ObtieneFac</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="ObtieneFactura">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notaCredito" />
+                            <Property name="notaDebito" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <End ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="910" Top="430">
+            <Name>ObtieneFacturaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ObtieneFacturaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="18" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="ObtieneFacturaInput/Clave" to="ObtieneFacInput/ObtieneFactura/clave" />
+              <Assignment type="Variable" from="ObtieneFacturaInput/Token" to="ObtieneFacInput/ObtieneFactura/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="19" Source="15" Target="12" />
+          <SequenceFlow ID="20" Source="10" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ObtieneFacOutput" to="ObtieneFacturaOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="11" Target="25">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="ObtieneFacturaFault/Estado" />
+              <Assignment type="Variable" from="ObtieneFacFault/Error" to="ObtieneFacturaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
