@@ -2,7 +2,7 @@
 <siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
 	<siteMapNode url="default.aspx" title="Inicio" description="Intranet" roles="*">
 		<siteMapNode title="Org" description="Estructura y Seguridad" roles="Organizacion">
-		<siteMapNode title="Entidades" url="Transaccion.aspx?Transaccion=ConsultaEntidades&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>
+		<siteMapNode title="EntidadesO" url="Transaccion.aspx?Transaccion=ConsultaEntidades&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBOficinas/ConsultaOficinas.xsl"></siteMapNode>
 			<siteMapNode title="Usuario y Perfiles" url="Transaccion.aspx?Transaccion=ConsultaUsuarios&amp;servidorSTX=infoware.STX.Cajas&amp;Filtro=~/XML/WEBUsuarios/ConsultaUsuarios.xsl"></siteMapNode>			
 		</siteMapNode>		
 	</siteMapNode>

@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="500" Top="65">
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="570" Top="125">
             <Name>EchoOutput</Name>
             <Message>
               <Properties>
@@ -28,7 +28,7 @@
           </Start>
           <SequenceFlow ID="8" Source="6" Target="4">
             <Assignments>
-              <Assignment type="Expression" from="&quot;Hola&quot;" to="EchoOutput/Mensaje" />
+              <Assignment type="Expression" from="&quot;Hola es Lola y Lola es Hola&quot;" to="EchoOutput/Mensaje" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
