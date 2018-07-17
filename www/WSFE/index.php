@@ -924,8 +924,8 @@ function ObtieneFactura($clave, $token)
              $EstadoC = json_decode($result);
              $ClaveR = $EstadoC->{'clave'};
              $FechaR = $EstadoC->{'fecha'};
-            // $EmisorR = $EstadoC->{'emisor'};
-             //$Emisordata = $EmisorR;
+             $EmisorR = $EstadoC->{'emisor'};
+             $Emisordata =  json_decode($EmisorR);
                 // $TipoIDEmisor =  $Emisordata->{'tipoIdentificacion'};
                 // $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
                 // $NombreEmi = $Emisordata->{'nombre'};
@@ -1268,7 +1268,7 @@ $ns);
 $soapclient->register('ObtieneFactura',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
 array('Comprobante' => 'xsd:string',
-'tipoIdentificacion' => 'xsd:string'),
+'Fecha' => 'xsd:string'),
 $ns);
 
 
