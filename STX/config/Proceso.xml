@@ -44,4 +44,13 @@
     <UltimaModificacion>16/07/2018 7:23:51 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>400</ID>
+    <Nombre>BBBB</Nombre>
+    <Diagrama>BBBB.xml</Diagrama>
+    <Descripcion />
+    <Categoria />
+    <UltimaModificacion>16/07/2018 19:27:42</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
