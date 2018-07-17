@@ -820,11 +820,11 @@ $receptorIdentificacion)
         
         $builtHeader = array(
             'Authorization: ' . $token,
-            //'Content-Type: application/json',
-            'offset' => $PosicionInicial,
-            'limit' => $Cantidad,
-            'Emisor' => $emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
-            'receptor' =>$receptorIdentificacion
+            'Content-Type: application/json',
+            'emisor:' .$emisorIdentificacion, //se debe enviar en formato tipoid mas cedula de 12.  01000109660018
+            'receptor: ' .$receptorIdentificacion,
+            'offset: ' .$PosicionInicial,
+            'limit: ' .$Cantidad            
              );
                    
            
