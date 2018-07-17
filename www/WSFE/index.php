@@ -842,22 +842,24 @@ $receptorIdentificacion)
              return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
              } else {
              $EstadoC = json_decode($result);
-             
+             $Resultados = json_encode($EstadoC);
              
             //  $ClaveR = $EstadoC->{'clave'};
             //  $FechaR = $EstadoC->{'fecha'};
             //  $IndestadoR = $EstadoC->{'ind-estado'};
             //  $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
 
-             $someObject = $EstadoC ; // 
+             //$someObject = $EstadoC ; // 
              
-             foreach($someObject as $key => $value) {
-               //echo $value->clave . ", " . $value->fecha . "<br>";
-               $value -> clave;
-               return $value;
-             }
+            //  foreach($someObject as $key => $value) {
+            //    //echo $value->clave . ", " . $value->fecha . "<br>";
+            //    $value -> clave;
+            //    return $value;
+            //  }
 
             // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
+
+            return $Resultados;
              }
 
         /* $curl = curl_init($url);
