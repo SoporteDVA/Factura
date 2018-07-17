@@ -3,7 +3,7 @@
     <ID>1</ID>
     <Nombre>FacturaCajas</Nombre>
     <Tipo>Infoware.STX.Middleware.Canales.CanalTCP</Tipo>
-    <UltimaModificacion>2018-07-16T18:57:06.060087-06:00</UltimaModificacion>
+    <UltimaModificacion>2018-07-16T19:17:53.376409-06:00</UltimaModificacion>
     <Descripcion>Publica los metodos para la intranet de Factura</Descripcion>
     <Propiedades xmlns="">
       <Activo>true</Activo>
@@ -21,6 +21,6 @@
       <EnviarFinRegistro>true</EnviarFinRegistro>
       <ObtenerFinRegistro>true</ObtenerFinRegistro>
     </Propiedades>
-    <Ubicacion>Infoware.STX.Middleware.Canales.CanalTCP, Infoware.STX.Middleware, Version=4.0.5297.22077, Culture=neutral, PublicKeyToken=null</Ubicacion>
+    <Ubicacion>Infoware.STX.Middleware.Canales.CanalTCP, Infoware.STX.Middleware, Version=4.0.6513.10567, Culture=neutral, PublicKeyToken=null</Ubicacion>
   </Canal>
 </CanalDS>

@@ -12,4 +12,8 @@
     <Canal>1</Canal>
     <Proceso>2</Proceso>
   </ProcesoPermitido>
+  <ProcesoPermitido>
+    <Canal>1</Canal>
+    <Proceso>3</Proceso>
+  </ProcesoPermitido>
 </ProcesoPermitidoDS>
