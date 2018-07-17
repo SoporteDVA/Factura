@@ -816,7 +816,7 @@ $Cantidad,
 $emisorIdentificacion,
 $receptorIdentificacion)
     {
-        $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes';//URL del SandBox
+        $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes';//URL del SandBox
         
         $builtHeader = array(
             'Authorization: ' . $token,
@@ -838,7 +838,7 @@ $receptorIdentificacion)
         curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($curl, CURLOPT_HTTPHEADER, $builtHeader);
         curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $data);
+        curl_setopt($curl, CURLOPT_GETFIELDS, $data);
         $respuesta = curl_exec($curl);
         $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
