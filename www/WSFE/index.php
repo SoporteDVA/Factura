@@ -903,29 +903,32 @@ function ObtieneFactura($clave, $token)
     {
         $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/'.$clave;//URL del SandBox
         
-        $header = array(
+              $builtHeader = array(
             'Authorization: ' . $token,
             'Content-Type: application/json'
-         );
-
-        
-        
-
-        $curl = curl_init($url);
-        curl_setopt($curl, CURLOPT_HEADER, true);
-        curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($curl, CURLOPT_HTTPHEADER,$header);
-        curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "GET");
-        curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
-        $respuesta = curl_exec($curl);
-        //$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
-        
-        $envio=curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
-        
-//$Estado = $status;
-        //$arrayResp->{'Status'};
-        curl_close($curl);
-        return $respuesta;
+             );
+    
+            $options = array(
+                'http' => array(
+                    'header'  => $builtHeader,
+                    'method'  => 'GET'
+                )
+            );
+    
+            $context  = stream_context_create($options);
+            $result = file_get_contents($url, false, $context);        
+            if (!$result = file_get_contents($url, false, $context)) {
+            $error = error_get_last();
+            return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
+            } else {
+             $EstadoC = json_decode($result);
+            //  $ClaveR = $EstadoC->{'clave'};
+            //  $FechaR = $EstadoC->{'fecha'};
+            // $IndestadoR = $EstadoC->{'ind-estado'};
+            // $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
+            // return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
+            return $EstadoC;
+            }
         
 
         
