@@ -928,10 +928,10 @@ function ObtieneFactura($clave, $token)
              $Emisordata =  json_encode($EmisorR);
              $EmisorC = json_decode($Emisordata);
          
-            $TipoIDEmisor = $EmisorC->{'tipoIdentificacion'};
-                // $IdEmisor =  $Emisordata->{'numeroIdentificacion'};
-                // $NombreEmi = $Emisordata->{'nombre'};
-             return array($ClaveR,   $TipoIDEmisor);
+             $TipoIDEmisor = $EmisorC->{'tipoIdentificacion'};
+             $IdEmisor =  $EmisorC->{'numeroIdentificacion'};
+             $NombreEmi = $EmisorC->{'nombre'};
+             return array($ClaveR,$FechaR, $TipoIDEmisor,$IdEmisor,$NombreEmi);
             //return $ClaveR;
             }
         
@@ -1269,8 +1269,11 @@ $ns);
 
 $soapclient->register('ObtieneFactura',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
-array('Comprobante' => 'xsd:string',
-'Fecha' => 'xsd:string'),
+array('Comprobante' => 'xsd:string',,
+'Fecha' => 'xsd:string'
+'TipoIDEmisor' => 'xsd:string',
+'IDEmisor' => 'xsd:string',
+'NombreEmisor' => 'xsd:string'),
 $ns);
 
 
