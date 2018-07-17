@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Desencripta</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>16/07/2018</CreationDate>
+  <ModificationDate>16/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="205" Top="200">
+            <Message>
+              <Properties>
+                <Property name="Encriptado" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="810" Top="200">
+            <Name>DesencriptaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Desencriptado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>DesencriptaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="8" Source="1" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from="fromB64(variable(DesencriptaInput/Encriptado)" to="DesencriptaOutput/Desencriptado" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

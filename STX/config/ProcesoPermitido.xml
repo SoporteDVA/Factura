@@ -8,4 +8,8 @@
     <Canal>1</Canal>
     <Proceso>1</Proceso>
   </ProcesoPermitido>
+  <ProcesoPermitido>
+    <Canal>1</Canal>
+    <Proceso>2</Proceso>
+  </ProcesoPermitido>
 </ProcesoPermitidoDS>

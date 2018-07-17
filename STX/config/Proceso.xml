@@ -18,4 +18,13 @@
     <UltimaModificacion>16/07/2018 4:09:23 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>2</ID>
+    <Nombre>Desencripta</Nombre>
+    <Diagrama>Desencripta.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>16/07/2018 18:55:12</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
