@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ObtieneComprobantesTodos</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/07/2018</CreationDate>
+  <ModificationDate>17/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="8" IdTop="0" IdLeft="0" IdBottom="10" IdRight="9" Left="70" Top="45">
+            <Message>
+              <Properties>
+                <Property name="token" />
+                <Property name="PosicionInicial" />
+                <Property name="Cantidad" />
+                <Property name="emisorIdentificacion" />
+                <Property name="receptorIdentificacion" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="11" IdTop="12" IdLeft="15" IdBottom="14" IdRight="13" Left="895" Top="45">
+            <Name>ObtieneFacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ObtieneComprobantesResponse" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ObtieneFacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="16" IdTop="17" IdLeft="20" IdBottom="19" IdRight="18" Left="540" Top="45">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <Task ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="301.6667" Top="45" update="False" server="ConectorDGTD">
+            <Name>ObtieneFacs</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="ObtieneComprobantes">
+                  <Properties>
+                    <Property name="token" />
+                    <Property name="PosicionInicial" />
+                    <Property name="Cantidad" />
+                    <Property name="emisorIdentificacion" />
+                    <Property name="receptorIdentificacion" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneComprobantesResponse" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <End ID="29" IdTop="30" IdLeft="33" IdBottom="32" IdRight="31" Left="900" Top="295">
+            <Name>ObtieneComprobantesTodosFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ObtieneComprobantesTodosFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="26" Source="9" Target="25">
+            <Assignments>
+              <Assignment type="Variable" from="ObtieneComprobantesTodosInput" to="ObtieneFacsInput/ObtieneComprobantes" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="27" Source="23" Target="20" />
+          <SequenceFlow ID="28" Source="18" Target="15" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ObtieneFacsOutput/ObtieneComprobantesResponse" to="ObtieneFacturaOutput/ObtieneComprobantesResponse" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="34" Source="19" Target="33">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="ObtieneComprobantesTodosFault/Estado" />
+              <Assignment type="Variable" from="ObtieneFacsFault/Error" to="ObtieneComprobantesTodosFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

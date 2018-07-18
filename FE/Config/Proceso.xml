@@ -126,4 +126,22 @@
     <UltimaModificacion>17/07/2018 16:53:16</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>14</ID>
+    <Nombre>ObtieneComprobantesTodos</Nombre>
+    <Diagrama>ObtieneComprobantesTodos.xml</Diagrama>
+    <Descripcion>Permite consultar un bloque de comprobantes o facturas</Descripcion>
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>17/07/2018 6:02:31 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>15</ID>
+    <Nombre>ConsultaComprobantesTodos</Nombre>
+    <Diagrama>ConsultaComprobantesTodos.xml</Diagrama>
+    <Descripcion>Consulta Bloque de comprobantes</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>17/07/2018 6:11:24 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaComprobantesTodos</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/07/2018</CreationDate>
+  <ModificationDate>17/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="TipoIDEmisor" />
+                <Property name="IDEmisor" />
+                <Property name="TipoIDReceptor" />
+                <Property name="IDReceptor" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="730" Top="30">
+            <Name>ConsultaComprobantesTodosOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Salida" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaComprobantesTodosOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="172.0508" Top="30" update="False" NombreProceso="TokenLocal">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="295" Top="30">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="381.8685" Top="30" update="False" NombreProceso="ObtieneComprobantesTodos">
+            <Name>Compro</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="token" />
+                <Property name="PosicionInicial" />
+                <Property name="Cantidad" />
+                <Property name="emisorIdentificacion" />
+                <Property name="receptorIdentificacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneComprobantesResponse" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="520" Top="30">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="730" Top="185">
+            <Name>ConsultaComprobantesTodosFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaComprobantesTodosFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="33" Source="1" Target="12" />
+          <SequenceFlow ID="34" Source="10" Target="17" />
+          <SequenceFlow ID="35" Source="15" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TokenOutput/Token" to="ComproInput/token" />
+              <Assignment type="Expression" from="1" to="ComproInput/PosicionInicial" />
+              <Assignment type="Expression" from="20" to="ComproInput/Cantidad" />
+              <Assignment type="Expression" from=" variable(ConsultaComprobantesTodosInput/TipoIDEmisor)+ rellenar(  variable(ConsultaComprobantesTodosInput/IDEmisor) , &quot;0&quot; , 12 )" to="ComproInput/emisorIdentificacion" />
+              <Assignment type="Expression" from=" variable(ConsultaComprobantesTodosInput/TipoIDReceptor)+ rellenar(  variable(ConsultaComprobantesTodosInput/IDReceptor) , 0 , 12 )" to="ComproInput/receptorIdentificacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="36" Source="20" Target="27" />
+          <SequenceFlow ID="37" Source="25" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ComproOutput/ObtieneComprobantesResponse" to="ConsultaComprobantesTodosOutput/Salida" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="26" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="ComproFault" to="ConsultaComprobantesTodosFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="39" Source="16" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault" to="ConsultaComprobantesTodosFault" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
