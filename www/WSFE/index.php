@@ -863,7 +863,7 @@ function json_to_xml($json) {
     $serializer_options = array (
         'addDecl' => TRUE,
         'encoding' => 'UTF-8',
-        'indent' => ' ',
+        'indent' => '',
         'rootName' => 'TramaOutput',
         'mode' => 'simplexml'
       );
@@ -904,12 +904,9 @@ function ConsultaComprobante($clave, $token)
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
-        $EstadoC = json_decode($result);
-        $ClaveR = $EstadoC->{'clave'};
-        $FechaR = $EstadoC->{'fecha'};
-        $IndestadoR = $EstadoC->{'ind-estado'};
-        $RespuestaxmlR = $EstadoC->{'respuesta-xml'};
-        return array($ClaveR, $FechaR, $IndestadoR, $RespuestaxmlR);
+            $salida = json_to_xml($result);
+            
+            return $salida;
         }
 
         
@@ -1276,7 +1273,7 @@ $ns);
 
 $soapclient->register('ConsultaComprobante',
 array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
-array('ClaveR' => 'xsd:string','FechaR' => 'xsd:string','IndestadoR' => 'xsd:string','RespuestaxmlR' => 'xsd:string'),
+array('Respuesta' => 'xsd:string'),
 $ns);
 
 //CONSULTA TODOS LOS COMPROBANTES EMITIDOS POR EL EMISOR 
