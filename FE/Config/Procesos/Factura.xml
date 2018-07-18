@@ -199,7 +199,25 @@
                 <Property name="ClaveR" />
                 <Property name="FechaR" />
                 <Property name="IndestadoR" />
-                <Property name="RespuestaxmlR" />
+                <Property name="RespuestaxmlR">
+                  <Properties>
+                    <Property name="MensajeHacienda">
+                      <Properties>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
               </Properties>
             </OutputMessage>
             <FaultMessage>

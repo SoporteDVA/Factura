@@ -79,10 +79,18 @@
               <Properties>
                 <Property name="ConsultaComprobanteResponse">
                   <Properties>
-                    <Property name="ClaveR" />
-                    <Property name="FechaR" />
-                    <Property name="IndestadoR" />
-                    <Property name="RespuestaxmlR" />
+                    <Property name="Respuesta">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="ind-estado" />
+                            <Property name="respuesta-xml" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
                   </Properties>
                 </Property>
               </Properties>
@@ -105,10 +113,10 @@
           <SequenceFlow ID="24" Source="15" Target="23" />
           <SequenceFlow ID="25" Source="21" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/ClaveR" to="ConsultaFacturaOutput/ClaveR" />
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/FechaR" to="ConsultaFacturaOutput/FechaR" />
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/IndestadoR" to="ConsultaFacturaOutput/IndestadoR" />
-              <Assignment type="Expression" from="fromB64(variable(ConsultaEstadoOutput/CheckFACResponse/RespuestaxmlR)) " to="ConsultaFacturaOutput/RespuestaxmlR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/clave" to="ConsultaFacturaOutput/ClaveR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/fecha" to="ConsultaFacturaOutput/FechaR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/ind-estado" to="ConsultaFacturaOutput/IndestadoR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/respuesta-xml" to="ConsultaFacturaOutput/RespuestaxmlR/MensajeHacienda/Clave" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="26" Source="22" Target="12">
