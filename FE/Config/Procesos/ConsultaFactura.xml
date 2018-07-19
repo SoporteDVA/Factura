@@ -17,7 +17,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="985" Top="60">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1165" Top="60">
             <Name>ConsultaFacturaOutput</Name>
             <Message>
               <Properties>
@@ -43,6 +43,7 @@
                     </Property>
                   </Properties>
                 </Property>
+                <Property name="Campo" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -101,9 +102,95 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="620" Top="60">
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="570" Top="60">
             <Name>ok</Name>
           </ExclusiveGateway>
+          <Transformation ID="42" IdTop="0" IdLeft="44" IdBottom="0" IdRight="43" Left="635" Top="60">
+            <Name>Transformacion</Name>
+            <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <TransformacionOutput>
+                  <RespuestaxmlR>
+                    <xsl:value-of select="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/respuesta-xml" />
+                  </RespuestaxmlR>
+                </TransformacionOutput>
+              </xsl:template>
+            </xsl:stylesheet>
+            <Message>
+              <Properties>
+                <Property name="RespuestaxmlR" />
+              </Properties>
+            </Message>
+          </Transformation>
+          <Transformation ID="77" IdTop="0" IdLeft="79" IdBottom="0" IdRight="78" Left="915" Top="60">
+            <Name>ArmaXML</Name>
+            <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <ArmaXMLOutput>
+                  <RespuestaxmlR>
+                    <MensajeHacienda>
+                      <Clave>
+                        <xsl:value-of select="Globales" />
+                      </Clave>
+                      <NombreEmisor>
+                        <xsl:value-of select="Globales/MensajeHacienda/NombreEmisor" />
+                      </NombreEmisor>
+                      <TipoIdentificacionEmisor>
+                        <xsl:value-of select="Globales/MensajeHacienda/TipoIdentificacionEmisor" />
+                      </TipoIdentificacionEmisor>
+                      <NumeroCedulaEmisor>
+                        <xsl:value-of select="Globales/MensajeHacienda/NumeroCedulaEmisor" />
+                      </NumeroCedulaEmisor>
+                      <NombreReceptor>
+                        <xsl:value-of select="Globales/MensajeHacienda/NombreReceptor" />
+                      </NombreReceptor>
+                      <TipoIdentificacionReceptor>
+                        <xsl:value-of select="Globales/MensajeHacienda/TipoIdentificacionReceptor" />
+                      </TipoIdentificacionReceptor>
+                      <NumeroCedulaReceptor>
+                        <xsl:value-of select="Globales/MensajeHacienda/NumeroCedulaReceptor" />
+                      </NumeroCedulaReceptor>
+                      <Mensaje>
+                        <xsl:value-of select="Globales/MensajeHacienda/Mensaje" />
+                      </Mensaje>
+                      <DetalleMensaje>
+                        <xsl:value-of select="Globales/MensajeHacienda/DetalleMensaje" />
+                      </DetalleMensaje>
+                      <MontoTotalImpuesto>
+                        <xsl:value-of select="Globales/MensajeHacienda/MontoTotalImpuesto" />
+                      </MontoTotalImpuesto>
+                      <TotalFactura>
+                        <xsl:value-of select="Globales/MensajeHacienda/TotalFactura" />
+                      </TotalFactura>
+                    </MensajeHacienda>
+                  </RespuestaxmlR>
+                </ArmaXMLOutput>
+              </xsl:template>
+            </xsl:stylesheet>
+            <Message>
+              <Properties>
+                <Property name="RespuestaxmlR">
+                  <Properties>
+                    <Property name="MensajeHacienda">
+                      <Properties>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+          </Transformation>
           <SequenceFlow ID="18" Source="1" Target="17">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacturaInput/clave" to="ConsultaEstadoInput/ConsultaComprobante/clave" />
@@ -111,18 +198,25 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="23" />
-          <SequenceFlow ID="25" Source="21" Target="7" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/clave" to="ConsultaFacturaOutput/ClaveR" />
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/fecha" to="ConsultaFacturaOutput/FechaR" />
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/ind-estado" to="ConsultaFacturaOutput/IndestadoR" />
-              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/respuesta-xml" to="ConsultaFacturaOutput/RespuestaxmlR/MensajeHacienda/Clave" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="26" Source="22" Target="12">
             <Assignments>
               <Assignment type="Expression" from="99" to="ConsultaFacturaFault/Estado" />
               <Assignment type="Variable" from="ConsultaEstadoFault/Error" to="ConsultaFacturaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="45" Source="21" Target="44" ConditionExpression="?" />
+          <SequenceFlow ID="80" Source="43" Target="79">
+            <Assignments>
+              <Assignment type="Expression" from="fromB64(variable(TransformacionOutput/RespuestaxmlR)) " to="Globales" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="81" Source="78" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/clave" to="ConsultaFacturaOutput/ClaveR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/fecha" to="ConsultaFacturaOutput/FechaR" />
+              <Assignment type="Variable" from="ConsultaEstadoOutput/ConsultaComprobanteResponse/Respuesta/TramaOutput/ind-estado" to="ConsultaFacturaOutput/IndestadoR" />
+              <Assignment type="Variable" from="Globales" to="ConsultaFacturaOutput/RespuestaxmlR" />
+              <Assignment type="Expression" from="fromB64(variable(TransformacionOutput/RespuestaxmlR)) " to="ConsultaFacturaOutput/Campo" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
