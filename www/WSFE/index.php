@@ -731,8 +731,8 @@ xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
 function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
     require 'Firmador/Firmadohaciendacr.php';
     //modules_loader("files");
-    $p12Url = 'Firmas/010966001806.p12';
-    $pinP12 = '1977';
+    $p12Url = 'Firmas/060082019712.p12';
+    $pinP12 = '2018';
     $inXml = $inXml;
     $tipoDoc = 'FE';
     $tipoDocumento;

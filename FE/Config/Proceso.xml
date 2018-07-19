@@ -144,31 +144,5 @@
     <UltimaModificacion>17/07/2018 6:11:24 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
-  <Proceso>
-    <ID>16</ID>
-    <Nombre>MensajeAceptacionDocumentos</Nombre>
-    <Diagrama>MensajeAceptacionDocumentos.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Movimientos</Categoria>
-    <UltimaModificacion>19/07/2018 11:56:15</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>17</ID>
-    <Nombre>MensajeReceptor</Nombre>
-    <Diagrama>MensajeReceptor.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Movimientos/Core</Categoria>
-    <UltimaModificacion>19/07/2018 14:00:51</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>18</ID>
-    <Nombre>FirmaMR</Nombre>
-    <Diagrama>FirmaMR.xml</Diagrama>
-    <Descripcion>Proceso que firma el Mensaje del Receptor</Descripcion>
-    <Categoria>ProcesosPHP</Categoria>
-    <UltimaModificacion>19/07/2018 15:02:12</UltimaModificacion>
-    <Llaves />
-  </Proceso>
+
 </ProcesoDS>
