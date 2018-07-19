@@ -688,7 +688,8 @@ function genXMLMR($clave,$NumeroCedulaEmisor,$fechaEmisionDoc,$Mensaje,$DetalleM
 $NumeroCedulaReceptor, $NumeroConsecutivoReceptor) 
 {
   
-
+ /*Si el documento enviado a Hacienda no tiene impuestos cuando se arma el
+xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
     if ($MontoTotalImpuesto==0 or $MontoTotalImpuesto=="" ) {
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
