@@ -56,4 +56,18 @@
     <Descripcion />
     <UltimaModificacion>10/07/2018 15:36:33</UltimaModificacion>
   </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>8</ID>
+    <Nombre>passwordvm</Nombre>
+    <Valor>)76.Sw*e8&gt;H.Y}j}!!&amp;2</Valor>
+    <Descripcion>Password del Receptor</Descripcion>
+    <UltimaModificacion>19/07/2018 12:43:53</UltimaModificacion>
+  </ParametroProyecto>
+  <ParametroProyecto>
+    <ID>9</ID>
+    <Nombre>usernamevm</Nombre>
+    <Valor>cpf-06-0082-0197@stag.comprobanteselectronicos.go.cr</Valor>
+    <Descripcion>Usuario del Receptor</Descripcion>
+    <UltimaModificacion>19/07/2018 12:47:06</UltimaModificacion>
+  </ParametroProyecto>
 </ParametroProyectoDS>

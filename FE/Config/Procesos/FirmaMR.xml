@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FirmaMR</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>19/07/2018</CreationDate>
+  <ModificationDate>19/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="15" Top="30">
+            <Message>
+              <Properties>
+                <Property name="p12Url" />
+                <Property name="pinP12" />
+                <Property name="inXml" />
+                <Property name="tipoDoc" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="610" Top="35">
+            <Name>FirmaMROutput</Name>
+            <Message>
+              <Properties>
+                <Property name="xmlOUT" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FirmaMROutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="175.3418" Top="110" update="False" server="ConectorDGTD">
+            <Name>Firma</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="signMR">
+                  <Properties>
+                    <Property name="p12Url" />
+                    <Property name="pinP12" />
+                    <Property name="inXml" />
+                    <Property name="tipoDoc" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="signMR">
+                  <Properties>
+                    <Property name="xmlOUT" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <SequenceFlow ID="20" Source="2" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="FirmaMRInput/p12Url" to="FirmaInput/signMR/p12Url" />
+              <Assignment type="Variable" from="FirmaMRInput/pinP12" to="FirmaInput/signMR/pinP12" />
+              <Assignment type="Variable" from="FirmaMRInput/inXml" to="FirmaInput/signMR/inXml" />
+              <Assignment type="Variable" from="FirmaMRInput/tipoDoc" to="FirmaInput/signMR/tipoDoc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="27" Source="10" Target="6">
+            <Assignments>
+              <Assignment type="Variable" from="FirmaOutput/signMR/xmlOUT" to="FirmaMROutput/xmlOUT" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
