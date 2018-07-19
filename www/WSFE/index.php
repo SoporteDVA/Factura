@@ -688,21 +688,42 @@ function genXMLMR($clave,$NumeroCedulaEmisor,$fechaEmisionDoc,$Mensaje,$DetalleM
 $NumeroCedulaReceptor, $NumeroConsecutivoReceptor) 
 {
   
+ /*Si el documento enviado a Hacienda no tiene impuestos cuando se arma el
+xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
+    if ($MontoTotalImpuesto==0 or $MontoTotalImpuesto=="" ) {
 
-    $xmlString = '<?xml version="1.0" encoding="utf-8"?>
-<MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
-    <Clave>' . $clave . '</Clave>
-    <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
-    <FechaEmisionDoc>' . $fechaEmisionDoc . '</FechaEmisionDoc>
-    <Mensaje>' . $Mensaje . '</Mensaje>
-    <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
-	<MontoTotalImpuesto>' . $MontoTotalImpuesto . '</MontoTotalImpuesto>
-	<TotalFactura>' . $TotalFactura . '</TotalFactura>
-	<NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-	<NumeroConsecutivoReceptor>' . $NumeroConsecutivoReceptor . '</NumeroConsecutivoReceptor>
-</MensajeReceptor>';
-$arrayResp = base64_encode($xmlString);
-return $arrayResp;
+        $xmlString = '<?xml version="1.0" encoding="utf-8"?>
+        <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
+            <Clave>' . $clave . '</Clave>
+            <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
+            <FechaEmisionDoc>' . $fechaEmisionDoc . '</FechaEmisionDoc>
+            <Mensaje>' . $Mensaje . '</Mensaje>
+            <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
+            <TotalFactura>' . $TotalFactura . '</TotalFactura>
+            <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
+            <NumeroConsecutivoReceptor>' . $NumeroConsecutivoReceptor . '</NumeroConsecutivoReceptor>
+        </MensajeReceptor>';
+        $arrayResp = base64_encode($xmlString);
+        return $arrayResp;
+        
+    } else {
+      
+        $xmlString2 = '<?xml version="1.0" encoding="utf-8"?>
+        <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
+            <Clave>' . $clave . '</Clave>
+            <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
+            <FechaEmisionDoc>' . $fechaEmisionDoc . '</FechaEmisionDoc>
+            <Mensaje>' . $Mensaje . '</Mensaje>
+            <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
+            <MontoTotalImpuesto>' . $MontoTotalImpuesto . '</MontoTotalImpuesto>
+            <TotalFactura>' . $TotalFactura . '</TotalFactura>
+            <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
+            <NumeroConsecutivoReceptor>' . $NumeroConsecutivoReceptor . '</NumeroConsecutivoReceptor>
+        </MensajeReceptor>';
+        $arrayResp2 = base64_encode($xmlString2);
+        return $arrayResp2;
+
+    }
 }
 
 //FUNCION QUE FIRMA EL XML
