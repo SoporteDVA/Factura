@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>MensajeAceptacionDocumentos</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>19/07/2018</CreationDate>
+  <ModificationDate>19/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties />
+            </Message>
+          </Start>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="173.8867" Top="80" update="False" server="ConectorDGTD">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="tokenAuth">
+                  <Properties>
+                    <Property name="usuarioFE" />
+                    <Property name="Pass" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="tokenAuthResponse">
+                  <Properties>
+                    <Property name="Token" />
+                    <Property name="Expires_in" />
+                    <Property name="Refresh_expires_in" />
+                    <Property name="Refresh_token" />
+                    <Property name="token_type" />
+                    <Property name="ID_token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Fault">
+                  <Properties>
+                    <Property name="faultcode" />
+                    <Property name="faultactor" />
+                    <Property name="faultstring" />
+                    <Property name="detail" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <End ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="1010" Top="35">
+            <Name>MensajeAceptacionDocumentosOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Respusta" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>MensajeAceptacionDocumentosOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="26" IdTop="27" IdLeft="30" IdBottom="29" IdRight="28" Left="380.9505" Top="80" update="False" NombreProceso="MensajeReceptor">
+            <Name>TramaMR</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="NumeroCedulaEmisor" />
+                <Property name="FechaEmisionDoc" />
+                <Property name="Mensaje" />
+                <Property name="DetalleMensaje" />
+                <Property name="MontoTotalImpuesto" />
+                <Property name="TotalFactura" />
+                <Property name="NumeroCedulaReceptor" />
+                <Property name="NumeroConsecutivoReceptor" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Mensaje" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="280" Top="80">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="38" IdTop="39" IdLeft="42" IdBottom="41" IdRight="40" Left="755" Top="315">
+            <Name>MensajeAceptacionDocumentosFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respusta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>MensajeAceptacionDocumentosFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="43" IdTop="44" IdLeft="47" IdBottom="46" IdRight="45" Left="515" Top="80">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="13" Source="2" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(usernamevm)" to="TokenInput/tokenAuth/usuarioFE" />
+              <Assignment type="Expression" from=" parametro(passwordvm)" to="TokenInput/tokenAuth/Pass" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="36" Source="10" Target="35" />
+          <SequenceFlow ID="37" Source="33" Target="30" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;50619071800010966001800100001011522774443107756443&quot;" to="TramaMRInput/Clave" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="TramaMRInput/NumeroCedulaEmisor" />
+              <Assignment type="Expression" from="hora( &quot;yyyy-MM-dd&quot; )+&quot;T&quot;+hora( &quot;HH:mm:ss&quot; )+&quot;-06:00&quot;" to="TramaMRInput/FechaEmisionDoc" />
+              <Assignment type="Expression" from="1" to="TramaMRInput/Mensaje" />
+              <Assignment type="Expression" from="&quot;Prueba&quot;" to="TramaMRInput/DetalleMensaje" />
+              <Assignment type="Expression" from="0" to="TramaMRInput/MontoTotalImpuesto" />
+              <Assignment type="Expression" from="65" to="TramaMRInput/TotalFactura" />
+              <Assignment type="Expression" from="&quot;600820197&quot;" to="TramaMRInput/NumeroCedulaReceptor" />
+              <Assignment type="Expression" from="&quot;00100001011522774443&quot;" to="TramaMRInput/NumeroConsecutivoReceptor" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="48" Source="28" Target="47" />
+          <SequenceFlow ID="55" Source="45" Target="23" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TramaMROutput/Mensaje" to="MensajeAceptacionDocumentosOutput/Respusta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="56" Source="46" Target="42">
+            <Assignments>
+              <Assignment type="Variable" from="TramaMRFault" to="MensajeAceptacionDocumentosFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="57" Source="34" Target="42" />
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
