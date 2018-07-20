@@ -144,5 +144,13 @@
     <UltimaModificacion>17/07/2018 6:11:24 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
-
+  <Proceso>
+    <ID>16</ID>
+    <Nombre>TokenRefresh</Nombre>
+    <Diagrama>TokenRefresh.xml</Diagrama>
+    <Descripcion>Obtiene el token refresh</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>19/07/2018 17:48:01</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
