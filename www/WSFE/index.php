@@ -56,6 +56,50 @@ function tokenAuth($usuarioFE, $Pass)
         
     }
 
+
+    //Obtiene el token refresh
+
+    function tokenRefreshAuth($usuarioFE, $Pass,$RToken)
+    {
+        $url = 'https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token';//access token url
+        $data = array('client_id' => 'api-stag',//Test: 'api-stag' Production: 'api-prod'
+                      'client_secret' => '',//always empty
+                      'grant_type' => 'refresh_token', //always 'refresh_token'
+                      //go to https://www.hacienda.go.cr/ATV/login.aspx to generate a username and password credentials
+                      'refresh_token' =>$RToken,
+                      'username' => $usuarioFE,//'cpf-01-1160-0029@stag.comprobanteselectronicos.go.cr', 
+                      'password' => $Pass,//'{_+beoH@cx_[l@t##1c/', 
+                      'scope' =>'');//always empty
+        // use key 'http' even if you send the request to https://...
+        $options = array(
+            'http' => array(
+                'header'  => "Content-type: application/x-www-form-urlencoded\r\n",
+                'method'  => 'POST',
+                'content' => http_build_query($data)
+            )
+        );
+
+        $context  = stream_context_create($options);
+        $result = file_get_contents($url, false, $context);        
+        if (!$result = file_get_contents($url, false, $context)) {
+        $error = error_get_last();
+        return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
+        } else {
+        $token = json_decode($result);
+        $Tokenn = 'bearer ' . $token->{'access_token'};
+        $expires_in = $token->{'expires_in'};
+		$refresh_expires_in = $token->{'refresh_expires_in'};
+        $refresh_token = $token->{'refresh_token'};
+		$token_type = $token->{'token_type'};
+        $id_token = $token->{'id_token'};
+        return array($Tokenn, $expires_in, $refresh_expires_in, $refresh_token, $token_type, $id_token);
+        }
+
+        
+    }
+
+    //GENERA EL XML DE LA FACTURA
+
     function genXMLFe($clave,$consecutivo ,$fechaEmision ,$emisorNombre ,$emisorTipoIdentif ,$emisorNumIdentif ,
     $nombreComercial ,$emisorProv ,$meisorCanton ,$emisorDistrito ,$emisorBarrio ,$emisorOtrasSenas ,$emisorCodPaisTel ,
     $emisorTel ,$emisorCodPaisFax ,$emisorFax ,$emisorEmail ,$receptorNombre ,$receptorTipoIdentif ,$recenprotNumIdentif ,
@@ -1062,6 +1106,11 @@ $soapclient->wsdl->schemaTargetNamespace = $ns;
 
 $soapclient->register('tokenAuth',
 array('usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string' ),
+array('Token' => 'xsd:string', 'Expires_in'=> 'xsd:string', 'Refresh_expires_in'=> 'xsd:string', 'Refresh_token'=> 'xsd:string', 'token_type'=> 'xsd:string', 'ID_token'=> 'xsd:string'),
+$ns);
+
+$soapclient->register('tokenRefreshAuth',
+array('usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string','RToken'=>'xsd:string' ),
 array('Token' => 'xsd:string', 'Expires_in'=> 'xsd:string', 'Refresh_expires_in'=> 'xsd:string', 'Refresh_token'=> 'xsd:string', 'token_type'=> 'xsd:string', 'ID_token'=> 'xsd:string'),
 $ns);
 

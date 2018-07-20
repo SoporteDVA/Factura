@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>TokenRefresh</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>19/07/2018</CreationDate>
+  <ModificationDate>19/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="51" Top="56">
+            <Message>
+              <Properties />
+            </Message>
+          </Start>
+          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="640" Top="170" update="False" server="ConectorDGTD">
+            <Name>Tarea</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="tokenRefreshAuth">
+                  <Properties>
+                    <Property name="usuarioFE" />
+                    <Property name="Pass" />
+                    <Property name="RToken" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="tokenRefreshAuthResponse">
+                  <Properties>
+                    <Property name="Token" />
+                    <Property name="Expires_in" />
+                    <Property name="Refresh_expires_in" />
+                    <Property name="Refresh_token" />
+                    <Property name="token_type" />
+                    <Property name="ID_token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Fault">
+                  <Properties>
+                    <Property name="faultcode" />
+                    <Property name="faultactor" />
+                    <Property name="faultstring" />
+                    <Property name="detail" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1065" Top="170">
+            <Name>TokenRefreshOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>TokenRefreshOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="800" Top="170">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="1000" Top="340">
+            <Name>TokenRefreshFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>TokenRefreshFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="51" IdTop="52" IdLeft="55" IdBottom="54" IdRight="53" Left="346.3053" Top="170" update="False" NombreProceso="TokenLocal">
+            <Name>ObtToken</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="500.3678" Top="170">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="23" Source="5" Target="17" />
+          <SequenceFlow ID="24" Source="16" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="TareaFault/Fault/faultcode" to="TokenRefreshFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Fault/faultstring" to="TokenRefreshFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="25" Source="15" Target="12" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput/tokenRefreshAuthResponse" to="TokenRefreshOutput" />
+              <Assignment type="Expression" from="hora( &quot;yyyy-MM-dd&quot; )+&quot;T&quot;+hora( &quot;HH:mm:ss&quot; )+&quot;-06:00&quot;" to="TokenRefreshOutput/FechaFormato" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="56" Source="1" Target="55" />
+          <SequenceFlow ID="62" Source="53" Target="61" />
+          <SequenceFlow ID="63" Source="59" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(username)" to="TareaInput/tokenRefreshAuth/usuarioFE" />
+              <Assignment type="Expression" from=" parametro(password)" to="TareaInput/tokenRefreshAuth/Pass" />
+              <Assignment type="Variable" from="ObtTokenOutput/Refresh_token" to="TareaInput/tokenRefreshAuth/RToken" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="64" Source="60" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="ObtTokenFault/Estado" to="TokenRefreshFault/Estado" />
+              <Assignment type="Variable" from="ObtTokenFault/Respuesta" to="TokenRefreshFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
