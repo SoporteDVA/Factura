@@ -314,11 +314,11 @@
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="FacturaXMLInput/fechaEmision" />
               <Assignment type="Expression" from="&quot;JOHN GILBERT ALFARO FALLAS&quot;" to="FacturaXMLInput/emisorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;83838464&quot;" to="FacturaXMLInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;600820197&quot;" to="FacturaXMLInput/emisorNumIdentif" />
               <Assignment type="Expression" from="&quot;Jhon Gilbert&quot;" to="FacturaXMLInput/nombreComercial" />
               <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="FacturaXMLInput/meisorCanton" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;04&quot;" to="FacturaXMLInput/emisorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorBarrio" />
               <Assignment type="Expression" from="&quot;parque&quot;" to="FacturaXMLInput/emisorOtrasSenas" />
               <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/emisorCodPaisTel" />
@@ -424,8 +424,8 @@
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from="&quot;jgilberth&quot;" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Expression" from="&quot;600820197&quot;" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
             </Assignments>

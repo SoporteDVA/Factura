@@ -887,6 +887,51 @@ return $Estado;
 }
 
 
+
+//FUNCION QUE ENVIA EL MENSAJE RECEPTOR
+function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $ConsecutivoReceptor ) {
+    
+    $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion';//URL del SandBox
+    $datos = array(
+    'clave' => $clave,
+    'fecha' => $fecha,
+    'emisor' => array(
+        'tipoIdentificacion' => $emi_tipoid,
+        'numeroIdentificacion' => $emi_identificacion
+    ),
+    'receptor' => array(
+        'tipoIdentificacion' => $recp_tipoid,
+        'numeroIdentificacion' => $recp_identificacion
+    ),
+    'ConsecutivoReceptor'=>$ConsecutivoReceptor,
+    'comprobanteXml' => $XMLIN
+    );
+    //$datosJ= http_build_query($datos);
+    $mensaje = json_encode($datos);
+    $header = array(
+    //'Authorization: ' . $token,
+    'Content-Type: application/json'
+    );
+    $curl = curl_init($url);
+    curl_setopt($curl, CURLOPT_HEADER, true);
+    curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+    curl_setopt($curl, CURLOPT_HTTPHEADER, $header);
+    curl_setopt($curl, CURLOPT_CUSTOMREQUEST, "POST");
+    curl_setopt($curl, CURLOPT_POSTFIELDS, $mensaje);
+    $respuesta = curl_exec($curl);
+    $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+    
+    
+    $Estado = $status;
+    //$arrayResp->{'Status'};
+    
+    curl_close($curl);
+    
+    return $Estado;
+    
+    }
+
+
 //FUNCION QUE OBTIENE TODOS LOS COMPROBANTES EMITIDOS POR UN EMISOR HACIA 
 //CUALQUIER RECEPTOR O UN RECEPTOR ESPECIFICO 
 
@@ -1352,6 +1397,12 @@ $soapclient->register('signMR', array(
 ), $ns);
 $soapclient->register('EnviaFAC',
 array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','token'=>'xsd:string' ),
+array('Estado' => 'xsd:string'),
+$ns);
+
+
+$soapclient->register('EnviaMR',
+array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','ConsecutivoReceptor'=>'xsd:string' ),
 array('Estado' => 'xsd:string'),
 $ns);
 
