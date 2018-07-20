@@ -312,33 +312,33 @@
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="FacturaXMLInput/clave" />
               <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="FacturaXMLInput/consecutivo" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="FacturaXMLInput/fechaEmision" />
-              <Assignment type="Expression" from="&quot;JOHN GILBERT ALFARO FALLAS&quot;" to="FacturaXMLInput/emisorNombre" />
+              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="FacturaXMLInput/emisorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;600820197&quot;" to="FacturaXMLInput/emisorNumIdentif" />
-              <Assignment type="Expression" from="&quot;Jhon Gilbert&quot;" to="FacturaXMLInput/nombreComercial" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="FacturaXMLInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;Alonso&quot;" to="FacturaXMLInput/nombreComercial" />
               <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/meisorCanton" />
-              <Assignment type="Expression" from="&quot;04&quot;" to="FacturaXMLInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="FacturaXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorBarrio" />
               <Assignment type="Expression" from="&quot;parque&quot;" to="FacturaXMLInput/emisorOtrasSenas" />
               <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/emisorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;83838464&quot;" to="FacturaXMLInput/emisorTel" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/emisorTel" />
               <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/emisorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;83838464&quot;" to="FacturaXMLInput/emisorFax" />
-              <Assignment type="Expression" from="&quot;lic.jgalfaro@gmail.com&quot;" to="FacturaXMLInput/emisorEmail" />
-              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="FacturaXMLInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/emisorFax" />
+              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="FacturaXMLInput/emisorEmail" />
+              <Assignment type="Expression" from="&quot;Geinner Romero&quot;" to="FacturaXMLInput/receptorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;109660018&quot;" to="FacturaXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="FacturaXMLInput/recenprotNumIdentif" />
               <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/receptorProvincia" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorBarrio" />
               <Assignment type="Expression" from="&quot;centro&quot;" to="FacturaXMLInput/receptorOtrasSenas" />
               <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/receptorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/receptorTel" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="FacturaXMLInput/receptorTel" />
               <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/receptorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/receptorFax" />
-              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="FacturaXMLInput/receptorEmail" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="FacturaXMLInput/receptorFax" />
+              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="FacturaXMLInput/receptorEmail" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/condVenta" />
               <Assignment type="Expression" from="&quot;0&quot;" to="FacturaXMLInput/plazoCredito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/medioPago" />
