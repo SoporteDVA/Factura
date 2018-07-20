@@ -153,4 +153,40 @@
     <UltimaModificacion>19/07/2018 17:48:01</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>17</ID>
+    <Nombre>MensajeReceptor</Nombre>
+    <Diagrama>MensajeReceptor.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>20/07/2018 11:11:06</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>18</ID>
+    <Nombre>MensajeReceptorCORE</Nombre>
+    <Diagrama>MensajeReceptorCORE.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>20/07/2018 11:15:16</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>19</ID>
+    <Nombre>FirmaMR</Nombre>
+    <Diagrama>FirmaMR.xml</Diagrama>
+    <Descripcion>Firma el xml </Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>20/07/2018 11:19:53</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>20</ID>
+    <Nombre>EnviaMR</Nombre>
+    <Diagrama>EnviaMR.xml</Diagrama>
+    <Descripcion />
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>20/07/2018 11:22:27</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

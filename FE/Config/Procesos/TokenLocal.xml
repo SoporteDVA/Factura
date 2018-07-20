@@ -102,8 +102,8 @@
           </SequenceFlow>
           <SequenceFlow ID="86" Source="1" Target="7">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(usernamevm)" to="TareaInput/tokenAuth/usuarioFE" />
-              <Assignment type="Expression" from=" parametro(passwordvm)" to="TareaInput/tokenAuth/Pass" />
+              <Assignment type="Expression" from=" parametro(username)" to="TareaInput/tokenAuth/usuarioFE" />
+              <Assignment type="Expression" from=" parametro(password)" to="TareaInput/tokenAuth/Pass" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>EnviaMR</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>20/07/2018</CreationDate>
+  <ModificationDate>20/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="6" Top="36">
+            <Message>
+              <Properties>
+                <Property name="clave" />
+                <Property name="fecha" />
+                <Property name="emi_tipoid" />
+                <Property name="emi_identificacion" />
+                <Property name="recp_tipoid" />
+                <Property name="recp_identificacion" />
+                <Property name="XMLIN" />
+                <Property name="consecutivoReceptor" />
+                <Property name="token" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="836" Top="36">
+            <Name>EnviaMROutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>EnviaMROutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="381" Top="36">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="836" Top="246">
+            <Name>EnviaMRFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>EnviaMRFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="227.2988" Top="36" update="False" server="ConectorDGTD">
+            <Name>EnviaMRE</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="EnviaMR">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="fecha" />
+                    <Property name="emi_tipoid" />
+                    <Property name="emi_identificacion" />
+                    <Property name="recp_tipoid" />
+                    <Property name="recp_identificacion" />
+                    <Property name="XMLIN" />
+                    <Property name="consecutivoReceptor" />
+                    <Property name="token" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="EnviaMRResponse">
+                  <Properties>
+                    <Property name="Estado" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="571" Top="36">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="28" Source="1" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaMRInput" to="EnviaMREInput/EnviaMR" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="29" Source="20" Target="12" />
+          <SequenceFlow ID="30" Source="11" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="EnviaMRFault/Estado" />
+              <Assignment type="Variable" from="EnviaMREOutput/EnviaMRResponse/Estado" to="EnviaMRFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="31" Source="10" Target="27" ConditionExpression="?" />
+          <SequenceFlow ID="32" Source="25" Target="7" ConditionExpression=" variable(EnviaMREOutput/EnviaMRResponse/Estado)=202">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaMREOutput/EnviaMRResponse/Estado" to="EnviaMROutput/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="33" Source="26" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="EnviaMRFault/Estado" />
+              <Assignment type="Variable" from="EnviaMREOutput/EnviaMRResponse/Estado" to="EnviaMRFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

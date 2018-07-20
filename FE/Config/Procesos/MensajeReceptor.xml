@@ -9,56 +9,12 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="20">
             <Message>
-              <Properties>
-                <Property name="Clave" />
-                <Property name="NumeroCedulaEmisor" />
-                <Property name="FechaEmisionDoc" />
-                <Property name="Mensaje" />
-                <Property name="DetalleMensaje" />
-                <Property name="MontoTotalImpuesto" />
-                <Property name="TotalFactura" />
-                <Property name="NumeroCedulaReceptor" />
-                <Property name="NumeroConsecutivoReceptor" />
-              </Properties>
+              <Properties />
             </Message>
           </Start>
-          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="177.3633" Top="100" update="False" server="ConectorDGTD">
-            <Name>MensajeR</Name>
-            <InputMessage>
-              <Properties>
-                <Property name="genXMLMR">
-                  <Properties>
-                    <Property name="Clave" />
-                    <Property name="NumeroCedulaEmisor" />
-                    <Property name="FechaEmisionDoc" />
-                    <Property name="Mensaje" />
-                    <Property name="DetalleMensaje" />
-                    <Property name="MontoTotalImpuesto" />
-                    <Property name="TotalFactura" />
-                    <Property name="NumeroCedulaReceptor" />
-                    <Property name="NumeroConsecutivoReceptor" />
-                  </Properties>
-                </Property>
-              </Properties>
-            </InputMessage>
-            <OutputMessage>
-              <Properties>
-                <Property name="genXMLMRResponse">
-                  <Properties>
-                    <Property name="MensajeReceptor" />
-                  </Properties>
-                </Property>
-              </Properties>
-            </OutputMessage>
-            <FaultMessage>
-              <Properties>
-                <Property name="Error" />
-              </Properties>
-            </FaultMessage>
-          </Task>
-          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="525" Top="255">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1130" Top="435">
             <Name>MensajeReceptorFault</Name>
             <Message>
               <Properties>
@@ -71,7 +27,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="520" Top="35">
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1130" Top="5">
             <Name>MensajeReceptorOutput</Name>
             <Message>
               <Properties>
@@ -83,26 +39,222 @@
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="321.4811" Top="100">
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="1060" Top="100">
             <Name>Ok</Name>
           </ExclusiveGateway>
-          <SequenceFlow ID="18" Source="2" Target="7">
-            <Assignments>
-              <Assignment type="Variable" from="MensajeReceptorInput" to="MensajeRInput/genXMLMR" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="24" Source="5" Target="23" />
+          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="83.85417" Top="100" update="False" NombreProceso="FEObtenerDocumento">
+            <Name>Consecutivo</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Servicio" />
+                <Property name="TipoDoc" />
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="Fecha" />
+                <Property name="Situacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Consecutivo" />
+                <Property name="Detalles" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="36" IdTop="37" IdLeft="40" IdBottom="39" IdRight="38" Left="230" Top="100">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="42" IdTop="43" IdLeft="46" IdBottom="45" IdRight="44" Left="317.0508" Top="100" update="False" NombreProceso="TokenLocal">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="430" Top="100">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="54" IdTop="55" IdLeft="58" IdBottom="57" IdRight="56" Left="514.2708" Top="100" update="False" NombreProceso="MensajeReceptorCORE">
+            <Name>GenXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="NumeroCedulaEmisor" />
+                <Property name="FechaEmisionDoc" />
+                <Property name="Mensaje" />
+                <Property name="DetalleMensaje" />
+                <Property name="MontoTotalImpuesto" />
+                <Property name="TotalFactura" />
+                <Property name="NumeroCedulaReceptor" />
+                <Property name="NumeroConsecutivoReceptor" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Mensaje" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="71" IdTop="72" IdLeft="75" IdBottom="74" IdRight="73" Left="640" Top="100">
+            <Name>3</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="77" IdTop="78" IdLeft="81" IdBottom="80" IdRight="79" Left="709.7982" Top="100" update="False" NombreProceso="FirmaMR">
+            <Name>FirmaXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="p12Url" />
+                <Property name="pinP12" />
+                <Property name="inXml" />
+                <Property name="tipoDoc" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="xmlOUT" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="83" IdTop="84" IdLeft="87" IdBottom="86" IdRight="85" Left="835" Top="100">
+            <Name>4</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="89" IdTop="90" IdLeft="93" IdBottom="92" IdRight="91" Left="920" Top="100" update="False" NombreProceso="EnviaMR">
+            <Name>EnviaMR</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="fecha" />
+                <Property name="emi_tipoid" />
+                <Property name="emi_identificacion" />
+                <Property name="recp_tipoid" />
+                <Property name="recp_identificacion" />
+                <Property name="XMLIN" />
+                <Property name="consecutivoReceptor" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="25" Source="21" Target="16" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="MensajeROutput/genXMLMRResponse/MensajeReceptor" to="MensajeReceptorOutput/Mensaje" />
+              <Assignment type="Variable" from="EnviaMROutput/Estado" to="MensajeReceptorOutput/Mensaje" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="26" Source="22" Target="12">
             <Assignments>
               <Assignment type="Expression" from="99" to="MensajeReceptorFault/Estado" />
-              <Assignment type="Variable" from="MensajeRFault/Error" to="MensajeReceptorFault/Respuesta" />
+              <Assignment type="Variable" from="EnviaMRFault/Respuesta" to="MensajeReceptorFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
+          <SequenceFlow ID="35" Source="2" Target="34">
+            <Assignments>
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Expression" from="5" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="&quot;CCE&quot;" to="ConsecutivoInput/TipoDoc" />
+              <Assignment type="Expression" from="&quot;jgilberth&quot;" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="41" Source="32" Target="40" />
+          <SequenceFlow ID="47" Source="38" Target="46" ConditionExpression="?" />
+          <SequenceFlow ID="53" Source="44" Target="52" />
+          <SequenceFlow ID="59" Source="50" Target="58" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;50619071800060082019700100001011622774448107756448&quot;" to="GenXMLInput/Clave" />
+              <Assignment type="Expression" from="&quot;600820197&quot;" to="GenXMLInput/NumeroCedulaEmisor" />
+              <Assignment type="Expression" from=" variable(TokenOutput/FechaFormato)" to="GenXMLInput/FechaEmisionDoc" />
+              <Assignment type="Expression" from="1" to="GenXMLInput/Mensaje" />
+              <Assignment type="Expression" from="&quot;Aceptacion Documento Prueba&quot;" to="GenXMLInput/DetalleMensaje" />
+              <Assignment type="Expression" from="0" to="GenXMLInput/MontoTotalImpuesto" />
+              <Assignment type="Expression" from="65" to="GenXMLInput/TotalFactura" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="GenXMLInput/NumeroCedulaReceptor" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="GenXMLInput/NumeroConsecutivoReceptor" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="63" Source="39" Target="11">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoFault" to="MensajeReceptorFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="70" Source="51" Target="11">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="MensajeReceptorFault/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="76" Source="56" Target="75" />
+          <SequenceFlow ID="82" Source="73" Target="81" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="FirmaXMLInput/p12Url" />
+              <Assignment type="Expression" from="&quot;1977&quot;" to="FirmaXMLInput/pinP12" />
+              <Assignment type="Variable" from="GenXMLOutput/Mensaje" to="FirmaXMLInput/inXml" />
+              <Assignment type="Expression" from="&quot;CCE&quot;" to="FirmaXMLInput/tipoDoc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="88" Source="79" Target="87" />
+          <SequenceFlow ID="94" Source="85" Target="93" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;50619071800060082019700100001011622774448107756448&quot;" to="EnviaMRInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="EnviaMRInput/fecha" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="EnviaMRInput/emi_tipoid" />
+              <Assignment type="Variable" from="GenXMLInput/NumeroCedulaEmisor" to="EnviaMRInput/emi_identificacion" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="EnviaMRInput/recp_tipoid" />
+              <Assignment type="Variable" from="GenXMLInput/NumeroCedulaReceptor" to="EnviaMRInput/recp_identificacion" />
+              <Assignment type="Variable" from="FirmaXMLOutput/xmlOUT" to="EnviaMRInput/XMLIN" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="EnviaMRInput/consecutivoReceptor" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="EnviaMRInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="95" Source="91" Target="23" />
+          <SequenceFlow ID="96" Source="86" Target="11">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="MensajeReceptorFault/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="97" Source="74" Target="11" />
         </GraphicalElements>
       </Process>
     </Pool>

@@ -729,7 +729,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
 //GENERA XML MENSAJE RECEPTOR
 
 function genXMLMR($clave,$NumeroCedulaEmisor,$fechaEmisionDoc,$Mensaje,$DetalleMensaje,$MontoTotalImpuesto,$TotalFactura,
-$NumeroCedulaReceptor, $NumeroConsecutivoReceptor) 
+$NumeroCedulaReceptor, $ConsecutivoReceptor) 
 {
   
  /*Si el documento enviado a Hacienda no tiene impuestos cuando se arma el
@@ -745,14 +745,14 @@ xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
             <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-            <NumeroConsecutivoReceptor>' . $NumeroConsecutivoReceptor . '</NumeroConsecutivoReceptor>
+         <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
         </MensajeReceptor>';
         $arrayResp = base64_encode($xmlString);
         return $arrayResp;
         
     } else {
       
-        $xmlString2 = '<?xml version="1.0" encoding="utf-8"?>
+        $xmlString2 ='<?xml version="1.0" encoding="utf-8"?>
         <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
             <Clave>' . $clave . '</Clave>
             <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
@@ -762,8 +762,8 @@ xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
             <MontoTotalImpuesto>' . $MontoTotalImpuesto . '</MontoTotalImpuesto>
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-            <NumeroConsecutivoReceptor>' . $NumeroConsecutivoReceptor . '</NumeroConsecutivoReceptor>
-        </MensajeReceptor>';
+            <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
+         </MensajeReceptor>';
         $arrayResp2 = base64_encode($xmlString2);
         return $arrayResp2;
 
@@ -834,8 +834,8 @@ function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
 function signMR($p12Url,$pinP12,$inXml,$tipoDoc) {
     require 'Firmador/Firmadohaciendacr.php';
     //modules_loader("files");
-    $p12Url = 'Firmas/060082019712.p12';
-    $pinP12 = '2018';
+    $p12Url = 'Firmas/010966001806.p12';
+    $pinP12 = '1977';
     $inXml = $inXml;
     $tipoDoc = 'CCE';
     $tipoDocumento;
@@ -933,7 +933,7 @@ return $Estado;
 
 
 //FUNCION QUE ENVIA EL MENSAJE RECEPTOR
-function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $ConsecutivoReceptor ) {
+function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $consecutivoReceptor,$token) {
     
     $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion';//URL del SandBox
     $datos = array(
@@ -947,13 +947,13 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
         'tipoIdentificacion' => $recp_tipoid,
         'numeroIdentificacion' => $recp_identificacion
     ),
-    'ConsecutivoReceptor'=>$ConsecutivoReceptor,
+    'consecutivoReceptor'=>$consecutivoReceptor,
     'comprobanteXml' => $XMLIN
     );
     //$datosJ= http_build_query($datos);
     $mensaje = json_encode($datos);
     $header = array(
-    //'Authorization: ' . $token,
+    'Authorization: ' . $token,
     'Content-Type: application/json'
     );
     $curl = curl_init($url);
@@ -971,7 +971,7 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
     
     curl_close($curl);
     
-    return $Estado;
+    return $respuesta;
     
     }
 
@@ -1428,7 +1428,7 @@ $soapclient->register('genXMLMR', array(
         'MontoTotalImpuesto' => 'xsd:string',
         'TotalFactura' => 'xsd:string',
         'NumeroCedulaReceptor' => 'xsd:string',
-        'NumeroConsecutivoReceptor' => 'xsd:string',
+        'ConsecutivoReceptor' => 'xsd:string',
     ), array(
         'MensajeReceptor' => 'xsd:string'
     ), $ns);   
@@ -1451,7 +1451,7 @@ $ns);
 
 
 $soapclient->register('EnviaMR',
-array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','ConsecutivoReceptor'=>'xsd:string' ),
+array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','consecutivoReceptor'=>'xsd:string','token'=>'xsd:string' ),
 array('Estado' => 'xsd:string'),
 $ns);
 
