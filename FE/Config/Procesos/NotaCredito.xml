@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>NotaCredito</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>20/07/2018</CreationDate>
+  <ModificationDate>20/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="1236" Top="116">
+            <Name>FacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="RespuestaXML" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="231" Top="116" update="False" NombreProceso="TokenLocal">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <End ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="1121" Top="396">
+            <Name>FacturaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Error" />
+                <Property name="RespuestaXML" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FacturaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="341" Top="116">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="428.972" Top="116" update="False" NombreProceso="NotaCreditoCORE">
+            <Name>NCXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="meisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="recenprotNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="otros" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="detalles" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="FacturaElectronica" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="551" Top="116">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="776" Top="116">
+            <Name>3</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="866" Top="116" update="False" NombreProceso="EnviaFAC">
+            <Name>Envia</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="fecha" />
+                <Property name="emi_tipoid" />
+                <Property name="emi_identificacion" />
+                <Property name="recp_tipoid" />
+                <Property name="recp_identificacion" />
+                <Property name="XMLIN" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="986" Top="116">
+            <Name>4</Name>
+          </ExclusiveGateway>
+          <Start ID="45" IdTop="0" IdLeft="0" IdBottom="47" IdRight="46" Left="31" Top="31">
+            <Message>
+              <Properties />
+            </Message>
+          </Start>
+          <Subprocess ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="642.2858" Top="116" update="False" NombreProceso="FirmaXML">
+            <Name>Firmar</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="p12Url" />
+                <Property name="pinP12" />
+                <Property name="inXml" />
+                <Property name="tipoDoc" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="xmlOUT" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="53" IdTop="54" IdLeft="57" IdBottom="56" IdRight="55" Left="953.5358" Top="226" update="False" NombreProceso="ConsultaFactura">
+            <Name>ConsultaFac</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR">
+                  <Properties>
+                    <Property name="MensajeHacienda">
+                      <Properties>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="58" IdTop="59" IdLeft="62" IdBottom="61" IdRight="60" Left="986" Top="321">
+            <Name>5</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="63" IdTop="64" IdLeft="67" IdBottom="66" IdRight="65" Left="1056.368" Top="116" update="False" NombreProceso="ConsultaFactura">
+            <Name>ConsultaFacOK</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR">
+                  <Properties>
+                    <Property name="MensajeHacienda">
+                      <Properties>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+                <Property name="Campo" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="68" IdTop="69" IdLeft="72" IdBottom="71" IdRight="70" Left="71" Top="106" update="False" NombreProceso="FEObtenerDocumento">
+            <Name>Consecutivo</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Servicio" />
+                <Property name="TipoDoc" />
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="Fecha" />
+                <Property name="Situacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Consecutivo" />
+                <Property name="Detalles" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="73" IdTop="74" IdLeft="77" IdBottom="76" IdRight="75" Left="136" Top="186">
+            <Name>OKC</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="78" Source="7" Target="19" />
+          <SequenceFlow ID="79" Source="18" Target="13">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="FacturaFault/Error" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="80" Source="17" Target="24" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="NCXMLInput/clave" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="NCXMLInput/consecutivo" />
+              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="NCXMLInput/fechaEmision" />
+              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="NCXMLInput/emisorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="NCXMLInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;Alonso&quot;" to="NCXMLInput/nombreComercial" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/emisorProv" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="NCXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorBarrio" />
+              <Assignment type="Expression" from="&quot;parque&quot;" to="NCXMLInput/emisorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/emisorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="NCXMLInput/emisorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/emisorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="NCXMLInput/emisorFax" />
+              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="NCXMLInput/emisorEmail" />
+              <Assignment type="Expression" from="&quot;Geinner Romero&quot;" to="NCXMLInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="NCXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/receptorProvincia" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorBarrio" />
+              <Assignment type="Expression" from="&quot;centro&quot;" to="NCXMLInput/receptorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/receptorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="NCXMLInput/receptorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/receptorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="NCXMLInput/receptorFax" />
+              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="NCXMLInput/receptorEmail" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/condVenta" />
+              <Assignment type="Expression" from="&quot;0&quot;" to="NCXMLInput/plazoCredito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/medioPago" />
+              <Assignment type="Expression" from="&quot;USD&quot;" to="NCXMLInput/codMoneda" />
+              <Assignment type="Expression" from="&quot;570.6&quot;" to="NCXMLInput/tipoCambio" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalServGravados" />
+              <Assignment type="Expression" from="65" to="NCXMLInput/totalServExentos" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalMercGravadas" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalMercExentas" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalGravados" />
+              <Assignment type="Expression" from="65" to="NCXMLInput/totalExentos" />
+              <Assignment type="Expression" from="65" to="NCXMLInput/totalVentas" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalDescuentos" />
+              <Assignment type="Expression" from="65" to="NCXMLInput/totalVentasNeta" />
+              <Assignment type="Expression" from="0" to="NCXMLInput/totalImp" />
+              <Assignment type="Expression" from="65" to="NCXMLInput/totalComprobante" />
+              <Assignment type="Expression" from="&quot;PRUEBA NOTA DE CREDITO&quot;" to="NCXMLInput/otros" />
+              <Assignment type="Expression" from="01" to="NCXMLInput/infoRefeTipoDoc" />
+              <Assignment type="Expression" from="50619071800010966001800100001011522774440107756440" to="NCXMLInput/infoRefeNumero" />
+              <Assignment type="Expression" from="&quot;2018-07-19T11:06:41-06:00&quot;" to="NCXMLInput/infoRefeFechaEmision" />
+              <Assignment type="Expression" from="02" to="NCXMLInput/infoRefeCodigo" />
+              <Assignment type="Expression" from="&quot;Monto de la factura erroneo&quot;" to="NCXMLInput/infoRefeRazon" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="NCXMLInput/detalles" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="81" Source="22" Target="29" />
+          <SequenceFlow ID="82" Source="28" Target="13" />
+          <SequenceFlow ID="83" Source="33" Target="13">
+            <Assignments>
+              <Assignment type="Expression" from="99" to="FacturaFault/Error" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="84" Source="32" Target="39" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="NCXMLInput/clave" to="EnviaInput/clave" />
+              <Assignment type="Variable" from="NCXMLInput/fechaEmision" to="EnviaInput/fecha" />
+              <Assignment type="Variable" from="NCXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
+              <Assignment type="Variable" from="NCXMLInput/emisorNumIdentif" to="EnviaInput/emi_identificacion" />
+              <Assignment type="Variable" from="NCXMLInput/receptorTipoIdentif" to="EnviaInput/recp_tipoid" />
+              <Assignment type="Variable" from="NCXMLInput/recenprotNumIdentif" to="EnviaInput/recp_identificacion" />
+              <Assignment type="Variable" from="FirmarOutput/xmlOUT" to="EnviaInput/XMLIN" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="EnviaInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="85" Source="37" Target="44" />
+          <SequenceFlow ID="86" Source="27" Target="52" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="FirmarInput/p12Url" />
+              <Assignment type="Expression" from="&quot;1977&quot;" to="FirmarInput/pinP12" />
+              <Assignment type="Variable" from="NCXMLOutput/FacturaElectronica" to="FirmarInput/inXml" />
+              <Assignment type="Expression" from="&quot;NC&quot;" to="FirmarInput/tipoDoc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="87" Source="50" Target="34" />
+          <SequenceFlow ID="88" Source="43" Target="54">
+            <Assignments>
+              <Assignment type="Variable" from="NCXMLInput/clave" to="ConsultaFacInput/clave" />
+              <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="89" Source="56" Target="59" />
+          <SequenceFlow ID="90" Source="61" Target="14">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="FacturaFault/Error" />
+              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="FacturaFault/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="91" Source="60" Target="11" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="FacturaFault/Error" />
+              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="FacturaFault/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="92" Source="42" Target="67" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="NCXMLInput/clave" to="ConsultaFacOKInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="93" Source="65" Target="4">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="FacturaOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="FacturaOutput/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="94" Source="46" Target="69">
+            <Assignments>
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Expression" from="3" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="&quot;NC&quot;" to="ConsecutivoInput/TipoDoc" />
+              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="95" Source="71" Target="74" />
+          <SequenceFlow ID="96" Source="75" Target="9" ConditionExpression="?" />
+          <SequenceFlow ID="97" Source="76" Target="13">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="FacturaFault/Error" />
+              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="FacturaFault/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
