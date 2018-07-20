@@ -189,4 +189,13 @@
     <UltimaModificacion>20/07/2018 11:22:27</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>21</ID>
+    <Nombre>NotaCredito</Nombre>
+    <Diagrama>NotaCredito.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>20/07/2018 17:45:47</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
