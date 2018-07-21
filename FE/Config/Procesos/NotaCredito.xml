@@ -332,7 +332,7 @@
               <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/emisorCodPaisFax" />
               <Assignment type="Expression" from="&quot;86091954&quot;" to="NCXMLInput/emisorFax" />
               <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="NCXMLInput/emisorEmail" />
-              <Assignment type="Expression" from="&quot;Geinner Romero&quot;" to="NCXMLInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;Geinner Romero Lopez&quot;" to="NCXMLInput/receptorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorTipoIdentif" />
               <Assignment type="Expression" from="&quot;111970739&quot;" to="NCXMLInput/recenprotNumIdentif" />
               <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/receptorProvincia" />
@@ -363,10 +363,10 @@
               <Assignment type="Expression" from="65" to="NCXMLInput/totalComprobante" />
               <Assignment type="Expression" from="&quot;PRUEBA NOTA DE CREDITO&quot;" to="NCXMLInput/otros" />
               <Assignment type="Expression" from="01" to="NCXMLInput/infoRefeTipoDoc" />
-              <Assignment type="Expression" from="50619071800010966001800100001011522774440107756440" to="NCXMLInput/infoRefeNumero" />
-              <Assignment type="Expression" from="&quot;2018-07-19T11:06:41-06:00&quot;" to="NCXMLInput/infoRefeFechaEmision" />
+              <Assignment type="Expression" from="50620071800010966001800100001011522774446107756446" to="NCXMLInput/infoRefeNumero" />
+              <Assignment type="Expression" from="&quot;2018-07-20T18:21:23-06:00&quot;" to="NCXMLInput/infoRefeFechaEmision" />
               <Assignment type="Expression" from="02" to="NCXMLInput/infoRefeCodigo" />
-              <Assignment type="Expression" from="&quot;Monto de la factura erroneo&quot;" to="NCXMLInput/infoRefeRazon" />
+              <Assignment type="Expression" from="&quot;Correccion del nombre del Receptor&quot;" to="NCXMLInput/infoRefeRazon" />
               <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="NCXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>

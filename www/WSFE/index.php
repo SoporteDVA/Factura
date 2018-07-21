@@ -778,7 +778,7 @@ function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
     $p12Url = 'Firmas/010966001806.p12';
     $pinP12 = '1977';
     $inXml = $inXml;
-    $tipoDoc = 'FE';
+    $tipoDoc = $tipoDoc;
     $tipoDocumento;
     $tipos = array("FE", "ND", "NC", "TE","CCE","CPCE","RCE");
     if (in_array($tipoDoc, $tipos)) {

@@ -162,7 +162,7 @@
           <ExclusiveGateway ID="115" IdTop="116" IdLeft="119" IdBottom="118" IdRight="117" Left="985" Top="115">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Start ID="129" IdTop="0" IdLeft="0" IdBottom="131" IdRight="130" Left="30" Top="30">
+          <Start ID="129" IdTop="0" IdLeft="0" IdBottom="131" IdRight="130" Left="25" Top="35">
             <Message>
               <Properties />
             </Message>
@@ -424,8 +424,8 @@
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Expression" from="&quot;jgilberth&quot;" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Expression" from="&quot;600820197&quot;" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
             </Assignments>

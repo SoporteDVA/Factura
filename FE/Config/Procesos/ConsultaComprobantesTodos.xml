@@ -101,8 +101,8 @@
           <SequenceFlow ID="35" Source="15" Target="22" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="TokenOutput/Token" to="ComproInput/token" />
-              <Assignment type="Expression" from="1" to="ComproInput/PosicionInicial" />
-              <Assignment type="Expression" from="20" to="ComproInput/Cantidad" />
+              <Assignment type="Expression" from="10" to="ComproInput/PosicionInicial" />
+              <Assignment type="Expression" from="50" to="ComproInput/Cantidad" />
               <Assignment type="Expression" from=" variable(ConsultaComprobantesTodosInput/TipoIDEmisor)+ rellenar(  variable(ConsultaComprobantesTodosInput/IDEmisor) , &quot;0&quot; , 12 )" to="ComproInput/emisorIdentificacion" />
               <Assignment type="Expression" from=" variable(ConsultaComprobantesTodosInput/TipoIDReceptor)+ rellenar(  variable(ConsultaComprobantesTodosInput/IDReceptor) , 0 , 12 )" to="ComproInput/receptorIdentificacion" />
             </Assignments>
