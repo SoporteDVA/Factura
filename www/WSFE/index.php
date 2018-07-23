@@ -745,14 +745,14 @@ xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
             <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-            <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
+            <NumeroConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumeroConsecutivoReceptor>
         </MensajeReceptor>';
         $arrayResp = base64_encode($xmlString);
         return $arrayResp;
         
     } else {
       
-        $xmlString2 ='<?xml version="1.0" encoding="utf-8"?>
+       $xmlString2 ='<?xml version="2.0" encoding="utf-8"?>
         <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
             <Clave>' . $clave . '</Clave>
             <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
@@ -762,9 +762,9 @@ xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
             <MontoTotalImpuesto>' . $MontoTotalImpuesto . '</MontoTotalImpuesto>
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-            <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
+            <NumeroConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumeroConsecutivoReceptor>
         </MensajeReceptor>';
-        $arrayResp2 = base64_encode($xmlString2);
+          $arrayResp2 = base64_encode($xmlString2);
         return $arrayResp2;
 
     }

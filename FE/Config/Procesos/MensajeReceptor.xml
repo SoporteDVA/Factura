@@ -27,7 +27,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1130" Top="5">
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1230" Top="5">
             <Name>MensajeReceptorOutput</Name>
             <Message>
               <Properties>
@@ -39,7 +39,7 @@
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="1060" Top="100">
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="1030" Top="100">
             <Name>Ok</Name>
           </ExclusiveGateway>
           <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="83.85417" Top="100" update="False" NombreProceso="FEObtenerDocumento">
@@ -177,23 +177,128 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <SequenceFlow ID="25" Source="21" Target="16" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="EnviaMROutput/Estado" to="MensajeReceptorOutput/Mensaje" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="26" Source="22" Target="12">
-            <Assignments>
-              <Assignment type="Expression" from="99" to="MensajeReceptorFault/Estado" />
-              <Assignment type="Variable" from="EnviaMRFault/Respuesta" to="MensajeReceptorFault/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
+          <Subprocess ID="103" IdTop="104" IdLeft="107" IdBottom="106" IdRight="105" Left="1124.414" Top="170" update="False" NombreProceso="ConsultaComprobante">
+            <Name>ConsultaC</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Clave" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasCredito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasDebito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="125" IdTop="126" IdLeft="129" IdBottom="128" IdRight="127" Left="930.5533" Top="300" update="False" NombreProceso="ConsultaComprobante">
+            <Name>ConsultaCE</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Clave" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneFacturaResponse">
+                  <Properties>
+                    <Property name="Comprobante">
+                      <Properties>
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasCredito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasDebito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="35" Source="2" Target="34">
             <Assignments>
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
               <Assignment type="Expression" from="5" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;CCE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Expression" from="&quot;jgilberth&quot;" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
               <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
@@ -237,7 +342,7 @@
           <SequenceFlow ID="88" Source="79" Target="87" />
           <SequenceFlow ID="94" Source="85" Target="93" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Expression" from="&quot;50619071800060082019700100001011622774448107756448&quot;" to="EnviaMRInput/clave" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="EnviaMRInput/clave" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="EnviaMRInput/fecha" />
               <Assignment type="Expression" from="&quot;01&quot;" to="EnviaMRInput/emi_tipoid" />
               <Assignment type="Variable" from="GenXMLInput/NumeroCedulaEmisor" to="EnviaMRInput/emi_identificacion" />
@@ -255,6 +360,26 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="97" Source="74" Target="11" />
+          <SequenceFlow ID="108" Source="21" Target="107" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="variable(EnviaMRInput/clave)+&quot;-&quot;+ variable(GenXMLInput/NumeroConsecutivoReceptor) " to="ConsultaCInput/Clave" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="109" Source="105" Target="16">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="MensajeReceptorOutput/Mensaje" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="133" Source="22" Target="126">
+            <Assignments>
+              <Assignment type="Expression" from="variable(EnviaMRInput/clave)+&quot;-&quot;+ variable(GenXMLInput/NumeroConsecutivoReceptor) " to="ConsultaCEInput/Clave" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="134" Source="128" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="MensajeReceptorFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
         </GraphicalElements>
       </Process>
     </Pool>

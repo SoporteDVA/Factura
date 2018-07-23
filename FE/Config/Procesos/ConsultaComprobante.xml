@@ -16,7 +16,7 @@
               </Properties>
             </Message>
           </Start>
-          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="222.0508" Top="110" update="False" NombreProceso="TokenLocal">
+          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="175" Top="110" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties />
