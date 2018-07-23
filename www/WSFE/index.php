@@ -734,7 +734,7 @@ $NumeroCedulaReceptor, $ConsecutivoReceptor)
   
  /*Si el documento(FE,NC,CD) enviado a Hacienda no tenia impuestos cuando se arma el
 xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
-    if ($MontoTotalImpuesto==0 or $MontoTotalImpuesto=="" ) {
+    if ($MontoTotalImpuesto=="" ) {
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
         <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
@@ -971,7 +971,7 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
     
     curl_close($curl);
     
-    return $respuesta;
+    return $mensaje;
     
     }
 
@@ -1073,9 +1073,9 @@ function ConsultaComprobante($clave, $token)
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
-            $salida = json_to_xml($result);
+            //$salida = json_to_xml($result);
             
-            return $salida;
+            return $result;//$salida;
         }
 
         
