@@ -1,16 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BPD>
-  <Name>NotaCredito</Name>
+  <Name>NotaDebito</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>20/07/2018</CreationDate>
-  <ModificationDate>20/07/2018</ModificationDate>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="1236" Top="116">
-            <Name>NotaCreditoOutput</Name>
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="1237" Top="117">
+            <Name>NotaDebitoOutput</Name>
             <Message>
               <Properties>
                 <Property name="Estado" />
@@ -18,11 +18,11 @@
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
-            <OutputName>NotaCreditoOutput</OutputName>
+            <OutputName>NotaDebitoOutput</OutputName>
             <Template>
             </Template>
           </End>
-          <Subprocess ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="231" Top="116" update="False" NombreProceso="TokenLocal">
+          <Subprocess ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="232" Top="117" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties />
@@ -45,8 +45,8 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <End ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="1121" Top="396">
-            <Name>NotaCreditoFault</Name>
+          <End ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="1122" Top="397">
+            <Name>NotaDebitoFault</Name>
             <Message>
               <Properties>
                 <Property name="Error" />
@@ -54,15 +54,15 @@
               </Properties>
             </Message>
             <EndResult>Error</EndResult>
-            <OutputName>NotaCreditoFault</OutputName>
+            <OutputName>NotaDebitoFault</OutputName>
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="341" Top="116">
+          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="342" Top="117">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="428.972" Top="116" update="False" NombreProceso="NotaCreditoCORE">
-            <Name>NCXML</Name>
+          <Subprocess ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="429.972" Top="117" update="False" NombreProceso="NotaDebitoCORE">
+            <Name>NDXML</Name>
             <InputMessage>
               <Properties>
                 <Property name="clave" />
@@ -132,13 +132,13 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="551" Top="116">
+          <ExclusiveGateway ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="552" Top="117">
             <Name>2</Name>
           </ExclusiveGateway>
-          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="776" Top="116">
+          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="777" Top="117">
             <Name>3</Name>
           </ExclusiveGateway>
-          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="866" Top="116" update="False" NombreProceso="EnviaFAC">
+          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="867" Top="117" update="False" NombreProceso="EnviaFAC">
             <Name>Envia</Name>
             <InputMessage>
               <Properties>
@@ -164,15 +164,15 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="986" Top="116">
+          <ExclusiveGateway ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="987" Top="117">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Start ID="45" IdTop="0" IdLeft="0" IdBottom="47" IdRight="46" Left="31" Top="31">
+          <Start ID="45" IdTop="0" IdLeft="0" IdBottom="47" IdRight="46" Left="35" Top="25">
             <Message>
               <Properties />
             </Message>
           </Start>
-          <Subprocess ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="642.2858" Top="116" update="False" NombreProceso="FirmaXML">
+          <Subprocess ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="643.2858" Top="117" update="False" NombreProceso="FirmaXML">
             <Name>Firmar</Name>
             <InputMessage>
               <Properties>
@@ -191,7 +191,7 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="53" IdTop="54" IdLeft="57" IdBottom="56" IdRight="55" Left="953.5358" Top="226" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="53" IdTop="54" IdLeft="57" IdBottom="56" IdRight="55" Left="954.5358" Top="227" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFac</Name>
             <InputMessage>
               <Properties>
@@ -232,10 +232,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="58" IdTop="59" IdLeft="62" IdBottom="61" IdRight="60" Left="986" Top="321">
+          <ExclusiveGateway ID="58" IdTop="59" IdLeft="62" IdBottom="61" IdRight="60" Left="987" Top="322">
             <Name>5</Name>
           </ExclusiveGateway>
-          <Subprocess ID="63" IdTop="64" IdLeft="67" IdBottom="66" IdRight="65" Left="1056.368" Top="116" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="63" IdTop="64" IdLeft="67" IdBottom="66" IdRight="65" Left="1057.368" Top="117" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
@@ -277,7 +277,7 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="68" IdTop="69" IdLeft="72" IdBottom="71" IdRight="70" Left="71" Top="106" update="False" NombreProceso="FEObtenerDocumento">
+          <Subprocess ID="68" IdTop="69" IdLeft="72" IdBottom="71" IdRight="70" Left="72" Top="107" update="False" NombreProceso="FEObtenerDocumento">
             <Name>Consecutivo</Name>
             <InputMessage>
               <Properties>
@@ -304,87 +304,87 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="73" IdTop="74" IdLeft="77" IdBottom="76" IdRight="75" Left="136" Top="186">
+          <ExclusiveGateway ID="73" IdTop="74" IdLeft="77" IdBottom="76" IdRight="75" Left="137" Top="187">
             <Name>OKC</Name>
           </ExclusiveGateway>
           <SequenceFlow ID="78" Source="7" Target="19" />
           <SequenceFlow ID="79" Source="18" Target="13">
             <Assignments>
-              <Assignment type="Variable" from="TokenFault/Respuesta" to="NotaCreditoFault/Error" />
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="NotaDebitoFault/Error" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="80" Source="17" Target="24" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="NCXMLInput/clave" />
-              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="NCXMLInput/consecutivo" />
-              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="NCXMLInput/fechaEmision" />
-              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="NCXMLInput/emisorNombre" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;109660018&quot;" to="NCXMLInput/emisorNumIdentif" />
-              <Assignment type="Expression" from="&quot;Alonso&quot;" to="NCXMLInput/nombreComercial" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="NCXMLInput/meisorCanton" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorDistrito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorBarrio" />
-              <Assignment type="Expression" from="&quot;parque&quot;" to="NCXMLInput/emisorOtrasSenas" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/emisorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="NCXMLInput/emisorTel" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/emisorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="NCXMLInput/emisorFax" />
-              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="NCXMLInput/emisorEmail" />
-              <Assignment type="Expression" from="&quot;Geinner Romero Lopez&quot;" to="NCXMLInput/receptorNombre" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;111970739&quot;" to="NCXMLInput/recenprotNumIdentif" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/receptorProvincia" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorCanton" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorDistrito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorBarrio" />
-              <Assignment type="Expression" from="&quot;centro&quot;" to="NCXMLInput/receptorOtrasSenas" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/receptorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;66558899&quot;" to="NCXMLInput/receptorTel" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="NCXMLInput/receptorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;66558899&quot;" to="NCXMLInput/receptorFax" />
-              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="NCXMLInput/receptorEmail" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/condVenta" />
-              <Assignment type="Expression" from="&quot;0&quot;" to="NCXMLInput/plazoCredito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/medioPago" />
-              <Assignment type="Expression" from="&quot;USD&quot;" to="NCXMLInput/codMoneda" />
-              <Assignment type="Expression" from="&quot;570.6&quot;" to="NCXMLInput/tipoCambio" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalServGravados" />
-              <Assignment type="Expression" from="65" to="NCXMLInput/totalServExentos" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalMercGravadas" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalMercExentas" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalGravados" />
-              <Assignment type="Expression" from="65" to="NCXMLInput/totalExentos" />
-              <Assignment type="Expression" from="65" to="NCXMLInput/totalVentas" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalDescuentos" />
-              <Assignment type="Expression" from="65" to="NCXMLInput/totalVentasNeta" />
-              <Assignment type="Expression" from="0" to="NCXMLInput/totalImp" />
-              <Assignment type="Expression" from="65" to="NCXMLInput/totalComprobante" />
-              <Assignment type="Expression" from="&quot;PRUEBA NOTA DE CREDITO&quot;" to="NCXMLInput/otros" />
-              <Assignment type="Expression" from="01" to="NCXMLInput/infoRefeTipoDoc" />
-              <Assignment type="Expression" from="50620071800010966001800100001011522774446107756446" to="NCXMLInput/infoRefeNumero" />
-              <Assignment type="Expression" from="&quot;2018-07-20T18:21:23-06:00&quot;" to="NCXMLInput/infoRefeFechaEmision" />
-              <Assignment type="Expression" from="02" to="NCXMLInput/infoRefeCodigo" />
-              <Assignment type="Expression" from="&quot;Correccion del nombre del Receptor&quot;" to="NCXMLInput/infoRefeRazon" />
-              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="NCXMLInput/detalles" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="NDXMLInput/clave" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="NDXMLInput/consecutivo" />
+              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="NDXMLInput/fechaEmision" />
+              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="NDXMLInput/emisorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/emisorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="NDXMLInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;Alonso&quot;" to="NDXMLInput/nombreComercial" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="NDXMLInput/emisorProv" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="NDXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/emisorBarrio" />
+              <Assignment type="Expression" from="&quot;parque&quot;" to="NDXMLInput/emisorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NDXMLInput/emisorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="NDXMLInput/emisorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NDXMLInput/emisorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="NDXMLInput/emisorFax" />
+              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="NDXMLInput/emisorEmail" />
+              <Assignment type="Expression" from="&quot;Geinner Romero Lopez&quot;" to="NDXMLInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/receptorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="NDXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="NDXMLInput/receptorProvincia" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/receptorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/receptorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/receptorBarrio" />
+              <Assignment type="Expression" from="&quot;centro&quot;" to="NDXMLInput/receptorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NDXMLInput/receptorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="NDXMLInput/receptorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="NDXMLInput/receptorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="NDXMLInput/receptorFax" />
+              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="NDXMLInput/receptorEmail" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/condVenta" />
+              <Assignment type="Expression" from="&quot;0&quot;" to="NDXMLInput/plazoCredito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="NDXMLInput/medioPago" />
+              <Assignment type="Expression" from="&quot;USD&quot;" to="NDXMLInput/codMoneda" />
+              <Assignment type="Expression" from="&quot;570.6&quot;" to="NDXMLInput/tipoCambio" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalServGravados" />
+              <Assignment type="Expression" from="65" to="NDXMLInput/totalServExentos" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalMercGravadas" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalMercExentas" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalGravados" />
+              <Assignment type="Expression" from="65" to="NDXMLInput/totalExentos" />
+              <Assignment type="Expression" from="65" to="NDXMLInput/totalVentas" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalDescuentos" />
+              <Assignment type="Expression" from="65" to="NDXMLInput/totalVentasNeta" />
+              <Assignment type="Expression" from="0" to="NDXMLInput/totalImp" />
+              <Assignment type="Expression" from="65" to="NDXMLInput/totalComprobante" />
+              <Assignment type="Expression" from="&quot;PRUEBA NOTA DE DEBITO&quot;" to="NDXMLInput/otros" />
+              <Assignment type="Expression" from="01" to="NDXMLInput/infoRefeTipoDoc" />
+              <Assignment type="Expression" from="50620071800010966001800100001011522774446107756446" to="NDXMLInput/infoRefeNumero" />
+              <Assignment type="Expression" from="&quot;2018-07-20T18:21:23-06:00&quot;" to="NDXMLInput/infoRefeFechaEmision" />
+              <Assignment type="Expression" from="02" to="NDXMLInput/infoRefeCodigo" />
+              <Assignment type="Expression" from="&quot;Correccion del nombre del Receptor&quot;" to="NDXMLInput/infoRefeRazon" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="NDXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="81" Source="22" Target="29" />
           <SequenceFlow ID="82" Source="28" Target="13" />
           <SequenceFlow ID="83" Source="33" Target="13">
             <Assignments>
-              <Assignment type="Expression" from="99" to="NotaCreditoFault/Error" />
+              <Assignment type="Expression" from="99" to="NotaDebitoFault/Error" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="84" Source="32" Target="39" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="NCXMLInput/clave" to="EnviaInput/clave" />
-              <Assignment type="Variable" from="NCXMLInput/fechaEmision" to="EnviaInput/fecha" />
-              <Assignment type="Variable" from="NCXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
-              <Assignment type="Variable" from="NCXMLInput/emisorNumIdentif" to="EnviaInput/emi_identificacion" />
-              <Assignment type="Variable" from="NCXMLInput/receptorTipoIdentif" to="EnviaInput/recp_tipoid" />
-              <Assignment type="Variable" from="NCXMLInput/recenprotNumIdentif" to="EnviaInput/recp_identificacion" />
+              <Assignment type="Variable" from="NDXMLInput/clave" to="EnviaInput/clave" />
+              <Assignment type="Variable" from="NDXMLInput/fechaEmision" to="EnviaInput/fecha" />
+              <Assignment type="Variable" from="NDXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
+              <Assignment type="Variable" from="NDXMLInput/emisorNumIdentif" to="EnviaInput/emi_identificacion" />
+              <Assignment type="Variable" from="NDXMLInput/receptorTipoIdentif" to="EnviaInput/recp_tipoid" />
+              <Assignment type="Variable" from="NDXMLInput/recenprotNumIdentif" to="EnviaInput/recp_identificacion" />
               <Assignment type="Variable" from="FirmarOutput/xmlOUT" to="EnviaInput/XMLIN" />
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaInput/token" />
             </Assignments>
@@ -394,47 +394,47 @@
             <Assignments>
               <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="FirmarInput/p12Url" />
               <Assignment type="Expression" from="&quot;1977&quot;" to="FirmarInput/pinP12" />
-              <Assignment type="Variable" from="NCXMLOutput/FacturaElectronica" to="FirmarInput/inXml" />
-              <Assignment type="Expression" from="&quot;NC&quot;" to="FirmarInput/tipoDoc" />
+              <Assignment type="Variable" from="NDXMLOutput/FacturaElectronica" to="FirmarInput/inXml" />
+              <Assignment type="Expression" from="&quot;ND&quot;" to="FirmarInput/tipoDoc" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="87" Source="50" Target="34" />
           <SequenceFlow ID="88" Source="43" Target="54">
             <Assignments>
-              <Assignment type="Variable" from="NCXMLInput/clave" to="ConsultaFacInput/clave" />
+              <Assignment type="Variable" from="NDXMLInput/clave" to="ConsultaFacInput/clave" />
               <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="89" Source="56" Target="59" />
           <SequenceFlow ID="90" Source="61" Target="14">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="NotaCreditoFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="NotaDebitoFault/Error" />
+              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="NotaDebitoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="91" Source="60" Target="11" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="NotaCreditoFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="NotaCreditoFault/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="NotaDebitoFault/Error" />
+              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="NotaDebitoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="92" Source="42" Target="67" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="NCXMLInput/clave" to="ConsultaFacOKInput/clave" />
+              <Assignment type="Variable" from="NDXMLInput/clave" to="ConsultaFacOKInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="93" Source="65" Target="4">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="NotaCreditoOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="NotaCreditoOutput/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="NotaDebitoOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="NotaDebitoOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="94" Source="46" Target="69">
             <Assignments>
               <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Expression" from="3" to="ConsecutivoInput/Servicio" />
-              <Assignment type="Expression" from="&quot;NC&quot;" to="ConsecutivoInput/TipoDoc" />
+              <Assignment type="Expression" from="2" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="&quot;ND&quot;" to="ConsecutivoInput/TipoDoc" />
               <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
               <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
@@ -445,8 +445,8 @@
           <SequenceFlow ID="96" Source="75" Target="9" ConditionExpression="?" />
           <SequenceFlow ID="97" Source="76" Target="13">
             <Assignments>
-              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="NotaCreditoFault/Error" />
-              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
+              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="NotaDebitoFault/Error" />
+              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="NotaDebitoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

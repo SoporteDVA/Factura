@@ -198,4 +198,13 @@
     <UltimaModificacion>20/07/2018 17:45:47</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>22</ID>
+    <Nombre>NotaDebito</Nombre>
+    <Diagrama>NotaDebito.xml</Diagrama>
+    <Descripcion>Metodo que envia la NotaDedito a hacienda</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 14:20:46</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
