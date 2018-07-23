@@ -43,8 +43,18 @@
                                 <Property name="nombre" />
                               </Properties>
                             </Property>
-                            <Property name="notaCredito" />
-                            <Property name="notaDebito" />
+                            <Property name="notasCredito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasDebito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
                           </Properties>
                         </Property>
                       </Properties>
@@ -97,8 +107,18 @@
                                 <Property name="nombre" />
                               </Properties>
                             </Property>
-                            <Property name="notaCredito" />
-                            <Property name="notaDebito" />
+                            <Property name="notasCredito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasDebito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
                           </Properties>
                         </Property>
                       </Properties>
