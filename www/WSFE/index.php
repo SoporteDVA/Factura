@@ -732,8 +732,8 @@ function genXMLMR($clave,$NumeroCedulaEmisor,$fechaEmisionDoc,$Mensaje,$DetalleM
 $NumeroCedulaReceptor, $ConsecutivoReceptor) 
 {
   
- /*Si el documento enviado a Hacienda no tiene impuestos cuando se arma el
-xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
+ /*Si el documento(FE,NC,CD) enviado a Hacienda no tenia impuestos cuando se arma el
+xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
     if ($MontoTotalImpuesto==0 or $MontoTotalImpuesto=="" ) {
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
@@ -745,7 +745,7 @@ xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
             <DetalleMensaje>' . $DetalleMensaje . '</DetalleMensaje>
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
-         <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
+            <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
         </MensajeReceptor>';
         $arrayResp = base64_encode($xmlString);
         return $arrayResp;
@@ -763,7 +763,7 @@ xml el tag se omite no lo pinta, de lo contrario se incluye en el xml*/
             <TotalFactura>' . $TotalFactura . '</TotalFactura>
             <NumeroCedulaReceptor>' . $NumeroCedulaReceptor . '</NumeroCedulaReceptor>
             <NumerConsecutivoReceptor>' . $ConsecutivoReceptor . '</NumerConsecutivoReceptor>
-         </MensajeReceptor>';
+        </MensajeReceptor>';
         $arrayResp2 = base64_encode($xmlString2);
         return $arrayResp2;
 
