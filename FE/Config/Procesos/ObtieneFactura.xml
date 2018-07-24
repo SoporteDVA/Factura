@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="170" Top="245">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="140" Top="60">
             <Message>
               <Properties>
                 <Property name="Clave" />
@@ -17,7 +17,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="905" Top="245">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="875" Top="60">
             <Name>ObtieneFacturaOutput</Name>
             <Message>
               <Properties>
@@ -68,10 +68,10 @@
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="572.959" Top="245">
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="545" Top="60">
             <Name>ok</Name>
           </ExclusiveGateway>
-          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="352.9134" Top="245" update="False" server="ConectorDGTD">
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="325" Top="60" update="False" server="ConectorDGTD">
             <Name>ObtieneFac</Name>
             <InputMessage>
               <Properties>
@@ -133,7 +133,7 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <End ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="910" Top="430">
+          <End ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="880" Top="245">
             <Name>ObtieneFacturaFault</Name>
             <Message>
               <Properties>

@@ -9,26 +9,28 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="70" Top="110">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="50" Top="50">
             <Message>
               <Properties>
                 <Property name="Clave" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
               </Properties>
             </Message>
           </Start>
-          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="175" Top="110" update="False" NombreProceso="TokenLocal">
+          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="190" Top="110" update="False" NombreProceso="Token">
             <Name>Token</Name>
             <InputMessage>
-              <Properties />
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Token" />
-                <Property name="Expires_in" />
-                <Property name="Refresh_expires_in" />
-                <Property name="Refresh_token" />
-                <Property name="token_type" />
-                <Property name="ID_token" />
                 <Property name="FechaFormato" />
               </Properties>
             </OutputMessage>
@@ -39,52 +41,34 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="416.6276" Top="110" update="False" NombreProceso="ObtieneFactura">
+          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="416.6276" Top="110" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFactura</Name>
             <InputMessage>
               <Properties>
-                <Property name="Clave" />
-                <Property name="Token" />
+                <Property name="clave" />
+                <Property name="token" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="ObtieneFacturaResponse">
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR">
                   <Properties>
-                    <Property name="Comprobante">
+                    <Property name="MensajeHacienda">
                       <Properties>
-                        <Property name="TramaOutput">
-                          <Properties>
-                            <Property name="clave" />
-                            <Property name="fecha" />
-                            <Property name="emisor">
-                              <Properties>
-                                <Property name="tipoIdentificacion" />
-                                <Property name="numeroIdentificacion" />
-                                <Property name="nombre" />
-                              </Properties>
-                            </Property>
-                            <Property name="receptor">
-                              <Properties>
-                                <Property name="tipoIdentificacion" />
-                                <Property name="numeroIdentificacion" />
-                                <Property name="nombre" />
-                              </Properties>
-                            </Property>
-                            <Property name="notasCredito">
-                              <Properties>
-                                <Property name="clave" />
-                                <Property name="fecha" />
-                              </Properties>
-                            </Property>
-                            <Property name="notasDebito">
-                              <Properties>
-                                <Property name="clave" />
-                                <Property name="fecha" />
-                              </Properties>
-                            </Property>
-                          </Properties>
-                        </Property>
+                        <Property name="Clave" />
+                        <Property name="NombreEmisor" />
+                        <Property name="TipoIdentificacionEmisor" />
+                        <Property name="NumeroCedulaEmisor" />
+                        <Property name="NombreReceptor" />
+                        <Property name="TipoIdentificacionReceptor" />
+                        <Property name="NumeroCedulaReceptor" />
+                        <Property name="Mensaje" />
+                        <Property name="DetalleMensaje" />
+                        <Property name="MontoTotalImpuesto" />
+                        <Property name="TotalFactura" />
                       </Properties>
                     </Property>
                   </Properties>
@@ -168,12 +152,19 @@
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="33" Source="1" Target="7" />
+          <SequenceFlow ID="33" Source="1" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
+              <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
+              <Assignment type="Variable" from="ConsultaComprobanteInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="ConsultaComprobanteInput/Identificacion" to="TokenInput/Identificacion" />
+            </Assignments>
+          </SequenceFlow>
           <SequenceFlow ID="34" Source="5" Target="22" />
           <SequenceFlow ID="35" Source="20" Target="12" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaComprobanteInput/Clave" to="ConsultaFacturaInput/Clave" />
-              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacturaInput/Token" />
+              <Assignment type="Variable" from="ConsultaComprobanteInput/Clave" to="ConsultaFacturaInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacturaInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="36" Source="10" Target="17" />

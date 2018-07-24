@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="300" Top="250">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="235" Top="60">
             <Message>
               <Properties>
                 <Property name="p12Url" />
@@ -31,7 +31,7 @@
             <Template>
             </Template>
           </End>
-          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="545.3418" Top="250" update="False" server="ConectorDGTD">
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="525" Top="175" update="False" server="ConectorDGTD">
             <Name>Firma</Name>
             <InputMessage>
               <Properties>
@@ -60,6 +60,22 @@
               </Properties>
             </FaultMessage>
           </Task>
+          <ExclusiveGateway ID="34" IdTop="35" IdLeft="38" IdBottom="37" IdRight="36" Left="750" Top="175">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <End ID="44" IdTop="45" IdLeft="48" IdBottom="47" IdRight="46" Left="1045" Top="360">
+            <Name>FirmaXMLFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FirmaXMLFault</OutputName>
+            <Template>
+            </Template>
+          </End>
           <SequenceFlow ID="23" Source="1" Target="12">
             <Assignments>
               <Assignment type="Variable" from="FirmaXMLInput/p12Url" to="FirmaInput/signFE/p12Url" />
@@ -68,9 +84,16 @@
               <Assignment type="Variable" from="FirmaXMLInput/tipoDoc" to="FirmaInput/signFE/tipoDoc" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="30" Source="10" Target="7">
+          <SequenceFlow ID="42" Source="10" Target="38" />
+          <SequenceFlow ID="43" Source="36" Target="4" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="FirmaOutput/signFEResponse/xmlOUT" to="FirmaXMLOutput/xmlOUT" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="49" Source="37" Target="45">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FirmaXMLFault/Estado" />
+              <Assignment type="Variable" from="FirmaFault/Error" to="FirmaXMLFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

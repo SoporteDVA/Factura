@@ -1,28 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BPD>
-  <Name>Factura</Name>
+  <Name>EnviaFactura</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>27/06/2018</CreationDate>
-  <ModificationDate>27/06/2018</ModificationDate>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="42" IdTop="43" IdLeft="46" IdBottom="45" IdRight="44" Left="1235" Top="115">
-            <Name>FacturaOutput</Name>
-            <Message>
-              <Properties>
-                <Property name="Estado" />
-                <Property name="RespuestaXML" />
-              </Properties>
-            </Message>
-            <EndResult>Message</EndResult>
-            <OutputName>FacturaOutput</OutputName>
-            <Template>
-            </Template>
-          </End>
-          <Subprocess ID="47" IdTop="48" IdLeft="51" IdBottom="50" IdRight="49" Left="230" Top="115" update="False" NombreProceso="Token">
+          <Subprocess ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="281" Top="226" update="False" NombreProceso="Token">
             <Name>Token</Name>
             <InputMessage>
               <Properties>
@@ -45,23 +32,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <End ID="53" IdTop="54" IdLeft="57" IdBottom="56" IdRight="55" Left="1120" Top="395">
-            <Name>FacturaFault</Name>
-            <Message>
-              <Properties>
-                <Property name="Error" />
-                <Property name="RespuestaXML" />
-              </Properties>
-            </Message>
-            <EndResult>Error</EndResult>
-            <OutputName>FacturaFault</OutputName>
-            <Template>
-            </Template>
-          </End>
-          <ExclusiveGateway ID="64" IdTop="65" IdLeft="68" IdBottom="67" IdRight="66" Left="340" Top="115">
+          <ExclusiveGateway ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="376" Top="171">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="71" IdTop="72" IdLeft="75" IdBottom="74" IdRight="73" Left="415" Top="115" update="False" NombreProceso="FacturaCORE">
+          <Subprocess ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="431" Top="116" update="False" NombreProceso="FacturaCORE">
             <Name>FacturaXML</Name>
             <InputMessage>
               <Properties>
@@ -127,13 +101,13 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="80" IdTop="81" IdLeft="84" IdBottom="83" IdRight="82" Left="550" Top="115">
+          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="575" Top="120">
             <Name>2</Name>
           </ExclusiveGateway>
-          <ExclusiveGateway ID="99" IdTop="100" IdLeft="103" IdBottom="102" IdRight="101" Left="775" Top="115">
+          <ExclusiveGateway ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="776" Top="116">
             <Name>3</Name>
           </ExclusiveGateway>
-          <Subprocess ID="106" IdTop="107" IdLeft="110" IdBottom="109" IdRight="108" Left="865" Top="115" update="False" NombreProceso="EnviaFAC">
+          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="866" Top="116" update="False" NombreProceso="EnviaFAC">
             <Name>Envia</Name>
             <InputMessage>
               <Properties>
@@ -159,15 +133,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="115" IdTop="116" IdLeft="119" IdBottom="118" IdRight="117" Left="985" Top="115">
+          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="986" Top="116">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Start ID="129" IdTop="0" IdLeft="0" IdBottom="131" IdRight="130" Left="25" Top="35">
-            <Message>
-              <Properties />
-            </Message>
-          </Start>
-          <Subprocess ID="133" IdTop="134" IdLeft="137" IdBottom="136" IdRight="135" Left="641.2858" Top="115" update="False" NombreProceso="FirmaXML">
+          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="660" Top="120" update="False" NombreProceso="FirmaXML">
             <Name>Firmar</Name>
             <InputMessage>
               <Properties>
@@ -183,10 +152,13 @@
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="140" IdTop="141" IdLeft="144" IdBottom="143" IdRight="142" Left="952.5358" Top="225" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="953.5358" Top="225" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFac</Name>
             <InputMessage>
               <Properties>
@@ -227,10 +199,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="146" IdTop="147" IdLeft="150" IdBottom="149" IdRight="148" Left="985" Top="320">
+          <ExclusiveGateway ID="45" IdTop="46" IdLeft="49" IdBottom="48" IdRight="47" Left="986" Top="321">
             <Name>5</Name>
           </ExclusiveGateway>
-          <Subprocess ID="163" IdTop="164" IdLeft="167" IdBottom="166" IdRight="165" Left="1055.368" Top="115" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="1056.368" Top="116" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
@@ -243,25 +215,7 @@
                 <Property name="ClaveR" />
                 <Property name="FechaR" />
                 <Property name="IndestadoR" />
-                <Property name="RespuestaxmlR">
-                  <Properties>
-                    <Property name="MensajeHacienda">
-                      <Properties>
-                        <Property name="Clave" />
-                        <Property name="NombreEmisor" />
-                        <Property name="TipoIdentificacionEmisor" />
-                        <Property name="NumeroCedulaEmisor" />
-                        <Property name="NombreReceptor" />
-                        <Property name="TipoIdentificacionReceptor" />
-                        <Property name="NumeroCedulaReceptor" />
-                        <Property name="Mensaje" />
-                        <Property name="DetalleMensaje" />
-                        <Property name="MontoTotalImpuesto" />
-                        <Property name="TotalFactura" />
-                      </Properties>
-                    </Property>
-                  </Properties>
-                </Property>
+                <Property name="RespuestaxmlR" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -271,7 +225,7 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="176" IdTop="177" IdLeft="180" IdBottom="179" IdRight="178" Left="70" Top="105" update="False" NombreProceso="FEObtenerDocumento">
+          <Subprocess ID="55" IdTop="56" IdLeft="59" IdBottom="58" IdRight="57" Left="178.7214" Top="121" update="False" NombreProceso="FEObtenerDocumento">
             <Name>Consecutivo</Name>
             <InputMessage>
               <Properties>
@@ -298,16 +252,100 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="182" IdTop="183" IdLeft="186" IdBottom="185" IdRight="184" Left="135" Top="185">
+          <ExclusiveGateway ID="60" IdTop="61" IdLeft="64" IdBottom="63" IdRight="62" Left="201" Top="226">
             <Name>OKC</Name>
           </ExclusiveGateway>
-          <SequenceFlow ID="69" Source="49" Target="68" />
-          <SequenceFlow ID="70" Source="67" Target="56">
-            <Assignments>
-              <Assignment type="Variable" from="TokenFault/Respuesta" to="FacturaFault/Error" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="76" Source="66" Target="75" ConditionExpression="?">
+          <Subprocess ID="65" IdTop="66" IdLeft="69" IdBottom="68" IdRight="67" Left="85" Top="35" update="False" NombreProceso="Perfil">
+            <Name>Perfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="70" IdTop="71" IdLeft="74" IdBottom="73" IdRight="72" Left="87.18814" Top="121">
+            <Name>OKP</Name>
+          </ExclusiveGateway>
+          <Start ID="89" IdTop="0" IdLeft="0" IdBottom="91" IdRight="90" Left="10" Top="5">
+            <Message>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Servicio" />
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="Situacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="1245" Top="385">
+            <Name>EnviaFacturaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>EnviaFacturaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="98" IdTop="99" IdLeft="102" IdBottom="101" IdRight="100" Left="1285" Top="120">
+            <Name>EnviaFacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="RespuestaXML" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>EnviaFacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="114" IdTop="115" IdLeft="118" IdBottom="117" IdRight="116" Left="1181.872" Top="175" update="False" NombreProceso="DesencriptaOrdena">
+            <Name>XML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="TramaXML" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="MensajeHacienda">
+                  <Properties>
+                    <Property name="Clave" />
+                    <Property name="NombreEmisor" />
+                    <Property name="TipoIdentificacionEmisor" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <SequenceFlow ID="75" Source="2" Target="9" />
+          <SequenceFlow ID="76" Source="7" Target="14" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="FacturaXMLInput/clave" />
               <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="FacturaXMLInput/consecutivo" />
@@ -359,14 +397,8 @@
               <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="FacturaXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="85" Source="73" Target="84" />
-          <SequenceFlow ID="86" Source="83" Target="56" />
-          <SequenceFlow ID="105" Source="102" Target="56">
-            <Assignments>
-              <Assignment type="Expression" from="99" to="FacturaFault/Error" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="111" Source="101" Target="110" ConditionExpression="?">
+          <SequenceFlow ID="77" Source="12" Target="19" />
+          <SequenceFlow ID="78" Source="22" Target="29" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="EnviaInput/clave" />
               <Assignment type="Variable" from="FacturaXMLInput/fechaEmision" to="EnviaInput/fecha" />
@@ -378,71 +410,101 @@
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="120" Source="108" Target="119" />
-          <SequenceFlow ID="138" Source="82" Target="137" ConditionExpression="?">
+          <SequenceFlow ID="79" Source="27" Target="34" />
+          <SequenceFlow ID="80" Source="17" Target="39" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="FirmarInput/p12Url" />
-              <Assignment type="Expression" from="&quot;1977&quot;" to="FirmarInput/pinP12" />
+              <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmarInput/p12Url" />
+              <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmarInput/pinP12" />
               <Assignment type="Variable" from="FacturaXMLOutput/FacturaElectronica" to="FirmarInput/inXml" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="FirmarInput/tipoDoc" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="139" Source="135" Target="103" />
-          <SequenceFlow ID="145" Source="118" Target="141">
+          <SequenceFlow ID="81" Source="37" Target="24" />
+          <SequenceFlow ID="82" Source="33" Target="41">
             <Assignments>
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="ConsultaFacInput/clave" />
               <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="151" Source="143" Target="147" />
-          <SequenceFlow ID="152" Source="149" Target="57">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="FacturaFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="FacturaFault/RespuestaXML" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="153" Source="148" Target="54" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="FacturaFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="FacturaFault/RespuestaXML" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="171" Source="117" Target="167" ConditionExpression="?">
+          <SequenceFlow ID="83" Source="43" Target="46" />
+          <SequenceFlow ID="84" Source="32" Target="54" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="ConsultaFacOKInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="172" Source="165" Target="46">
+          <SequenceFlow ID="85" Source="58" Target="61" />
+          <SequenceFlow ID="86" Source="62" Target="4" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="FacturaOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="FacturaOutput/RespuestaXML" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
+              <Assignment type="Variable" from="PerfilInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="PerfilInput/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="181" Source="130" Target="177">
+          <SequenceFlow ID="87" Source="68" Target="71" />
+          <SequenceFlow ID="88" Source="72" Target="59" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Expression" from="1" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Cliente" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Servicio" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Expression" from="&quot;109660018&quot;" to="ConsecutivoInput/Identificacion" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
-              <Assignment type="Expression" from="1" to="ConsecutivoInput/Situacion" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Usuario" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Identificacion" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from="hora(&quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="187" Source="179" Target="183" />
-          <SequenceFlow ID="188" Source="184" Target="51" ConditionExpression="?">
+          <SequenceFlow ID="92" Source="90" Target="69">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
-              <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
-              <Assignment type="Expression" from="aalpizar" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Expression" from="109660018" to="TokenInput/Identificacion" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Usuario" to="PerfilInput/UsuarioLocal" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Identificacion" to="PerfilInput/Identificacion" />
+              <Assignment type="Expression" from=" parametro(username)" to="PerfilInput/UsuarioHacienda" />
+              <Assignment type="Expression" from=" parametro(password)" to="PerfilInput/PasswordHacienda" />
+              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="PerfilInput/LocalizacionP12" />
+              <Assignment type="Expression" from="&quot;1977&quot;" to="PerfilInput/PinArchivo" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="189" Source="185" Target="56">
+          <SequenceFlow ID="106" Source="73" Target="96" />
+          <SequenceFlow ID="107" Source="63" Target="96">
             <Assignments>
-              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="FacturaFault/Error" />
-              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="FacturaFault/RespuestaXML" />
+              <Assignment type="Variable" from="ConsecutivoFault" to="EnviaFacturaFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="108" Source="8" Target="96">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault" to="EnviaFacturaFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="109" Source="48" Target="97">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacFault" to="EnviaFacturaFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="110" Source="23" Target="96">
+            <Assignments>
+              <Assignment type="Variable" from="FirmarFault" to="EnviaFacturaFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="111" Source="18" Target="96">
+            <Assignments>
+              <Assignment type="Variable" from="FacturaXMLFault" to="EnviaFacturaFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="113" Source="47" Target="94" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="EnviaFacturaFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="EnviaFacturaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="122" Source="52" Target="115">
+            <Assignments>
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="123" Source="116" Target="102">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
+              <Assignment type="Variable" from="XMLOutput" to="EnviaFacturaOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

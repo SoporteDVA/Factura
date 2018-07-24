@@ -11,7 +11,10 @@
         <GraphicalElements>
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="50" Top="55">
             <Message>
-              <Properties />
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+              </Properties>
             </Message>
           </Start>
           <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="270" Top="165" update="False" server="ConectorDGTD">
@@ -102,8 +105,8 @@
           </SequenceFlow>
           <SequenceFlow ID="86" Source="1" Target="7">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(username)" to="TareaInput/tokenAuth/usuarioFE" />
-              <Assignment type="Expression" from=" parametro(password)" to="TareaInput/tokenAuth/Pass" />
+              <Assignment type="Variable" from="TokenLocalInput/Usuario" to="TareaInput/tokenAuth/usuarioFE" />
+              <Assignment type="Variable" from="TokenLocalInput/Password" to="TareaInput/tokenAuth/Pass" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

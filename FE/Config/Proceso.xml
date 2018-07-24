@@ -73,15 +73,6 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>8</ID>
-    <Nombre>FirmaFactura</Nombre>
-    <Diagrama>FirmaFactura.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Movimientos/Core</Categoria>
-    <UltimaModificacion>29/6/2018 18:05:44</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>9</ID>
     <Nombre>FEObtenerDocumento</Nombre>
     <Diagrama>FEObtenerDocumento.xml</Diagrama>
@@ -205,6 +196,51 @@
     <Descripcion>Metodo que envia la NotaDedito a hacienda</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>23/07/2018 14:20:46</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>23</ID>
+    <Nombre>Token</Nombre>
+    <Diagrama>Token.xml</Diagrama>
+    <Descripcion>Permite obtener token inicial y almacenarloa nivel de refresh</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 3:54:52 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>24</ID>
+    <Nombre>Perfil</Nombre>
+    <Diagrama>Perfil.xml</Diagrama>
+    <Descripcion>Permite Obtener los valores del usuario indicado</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>23/07/2018 4:20:26 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>25</ID>
+    <Nombre>EnviaFactura</Nombre>
+    <Diagrama>EnviaFactura.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 5:38:37 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>26</ID>
+    <Nombre>ConsultaDocumento</Nombre>
+    <Diagrama>ConsultaDocumento.xml</Diagrama>
+    <Descripcion>Permite consultar todo tipo de documento en base al GET del MH</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 6:16:33 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>27</ID>
+    <Nombre>DesencriptaOrdena</Nombre>
+    <Diagrama>DesencriptaOrdena.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>23/07/2018 7:45:08 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
 </ProcesoDS>

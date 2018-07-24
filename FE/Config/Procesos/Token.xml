@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Token</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="45" Top="45">
+            <Message>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1165" Top="110">
+            <Name>TokenOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>TokenOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="38" IdTop="39" IdLeft="42" IdBottom="41" IdRight="40" Left="311.1035" Top="235" update="False" NombreProceso="TokenLocal">
+            <Name>TokenMH</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <SequenceFlow ID="96" Source="1" Target="42">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(username)" to="TokenMHInput/Usuario" />
+              <Assignment type="Expression" from=" parametro(password)" to="TokenMHInput/Password" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="100" Source="40" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="TokenMHOutput/Token" to="TokenOutput/Token" />
+              <Assignment type="Variable" from="TokenMHOutput/FechaFormato" to="TokenOutput/FechaFormato" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

@@ -1073,9 +1073,9 @@ function ConsultaComprobante($clave, $token)
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
-            //$salida = json_to_xml($result);
+            $salida = json_to_xml($result);
             
-            return $result;//$salida;
+            return $salida;
         }
 
         
