@@ -75,7 +75,10 @@
           <Subprocess ID="42" IdTop="43" IdLeft="46" IdBottom="45" IdRight="44" Left="317.0508" Top="100" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
-              <Properties />
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+              </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>

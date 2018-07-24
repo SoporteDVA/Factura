@@ -157,18 +157,9 @@
     <ID>18</ID>
     <Nombre>MensajeReceptorCORE</Nombre>
     <Diagrama>MensajeReceptorCORE.xml</Diagrama>
-    <Descripcion />
+    <Descripcion>Crea el XML del Mensaje Receptor</Descripcion>
     <Categoria>Movimientos/Core</Categoria>
     <UltimaModificacion>20/07/2018 11:15:16</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>19</ID>
-    <Nombre>FirmaMR</Nombre>
-    <Diagrama>FirmaMR.xml</Diagrama>
-    <Descripcion>Firma el xml </Descripcion>
-    <Categoria>ProcesosPHP</Categoria>
-    <UltimaModificacion>20/07/2018 11:19:53</UltimaModificacion>
     <Llaves />
   </Proceso>
   <Proceso>
