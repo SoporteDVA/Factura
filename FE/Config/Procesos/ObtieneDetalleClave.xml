@@ -1,24 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BPD>
-  <Name>ObtieneFactura</Name>
+  <Name>ObtieneDetalleClave</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>17/07/2018</CreationDate>
-  <ModificationDate>17/07/2018</ModificationDate>
+  <CreationDate>24/07/2018</CreationDate>
+  <ModificationDate>24/07/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="140" Top="60">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="70" Top="130">
             <Message>
               <Properties>
-                <Property name="Clave" />
-                <Property name="Token" />
+                <Property name="clave" />
+                <Property name="token" />
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="875" Top="60">
-            <Name>ObtieneFacturaOutput</Name>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1335" Top="130">
+            <Name>ObtieneDetalleClaveOutput</Name>
             <Message>
               <Properties>
                 <Property name="ObtieneFacturaResponse">
@@ -64,15 +64,15 @@
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
-            <OutputName>ObtieneFacturaOutput</OutputName>
+            <OutputName>ObtieneDetalleClaveOutput</OutputName>
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="545" Top="60">
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="680" Top="130">
             <Name>ok</Name>
           </ExclusiveGateway>
-          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="325" Top="60" update="False" server="ConectorDGTD">
-            <Name>ObtieneFac</Name>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="308.6686" Top="130" update="False" server="ConectorDGTD">
+            <Name>DetalleCompr</Name>
             <InputMessage>
               <Properties>
                 <Property name="ObtieneFactura">
@@ -133,8 +133,8 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <End ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="880" Top="245">
-            <Name>ObtieneFacturaFault</Name>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="1340" Top="315">
+            <Name>ObtieneDetalleClaveFault</Name>
             <Message>
               <Properties>
                 <Property name="Estado" />
@@ -142,26 +142,26 @@
               </Properties>
             </Message>
             <EndResult>Error</EndResult>
-            <OutputName>ObtieneFacturaFault</OutputName>
+            <OutputName>ObtieneDetalleClaveFault</OutputName>
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="18" Source="1" Target="17">
+          <SequenceFlow ID="24" Source="15" Target="12" />
+          <SequenceFlow ID="25" Source="10" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ObtieneFacturaInput/Clave" to="ObtieneFacInput/ObtieneFactura/clave" />
-              <Assignment type="Variable" from="ObtieneFacturaInput/Token" to="ObtieneFacInput/ObtieneFactura/token" />
+              <Assignment type="Variable" from="DetalleComprOutput" to="ObtieneDetalleClaveOutput" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="19" Source="15" Target="12" />
-          <SequenceFlow ID="20" Source="10" Target="7" ConditionExpression="?">
+          <SequenceFlow ID="26" Source="11" Target="22">
             <Assignments>
-              <Assignment type="Variable" from="ObtieneFacOutput" to="ObtieneFacturaOutput" />
+              <Assignment type="Expression" from="99" to="ObtieneDetalleClaveFault/Estado" />
+              <Assignment type="Variable" from="DetalleComprFault/Error" to="ObtieneDetalleClaveFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="26" Source="11" Target="25">
+          <SequenceFlow ID="76" Source="1" Target="17">
             <Assignments>
-              <Assignment type="Expression" from="99" to="ObtieneFacturaFault/Estado" />
-              <Assignment type="Variable" from="ObtieneFacFault/Error" to="ObtieneFacturaFault/Respuesta" />
+              <Assignment type="Variable" from="ObtieneDetalleClaveInput/clave" to="DetalleComprInput/ObtieneFactura/clave" />
+              <Assignment type="Variable" from="ObtieneDetalleClaveInput/token" to="DetalleComprInput/ObtieneFactura/token" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

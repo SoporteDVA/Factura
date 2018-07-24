@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BPD>
-  <Name>ConsultaComprobante</Name>
+  <Name>DetalleComprobante</Name>
   <Version>1.0.0.2</Version>
   <CreationDate>17/07/2018</CreationDate>
   <ModificationDate>17/07/2018</ModificationDate>
@@ -41,8 +41,8 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="416.6276" Top="110" update="False" NombreProceso="ConsultaFactura">
-            <Name>ConsultaFactura</Name>
+          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="418.3984" Top="110" update="False" NombreProceso="ObtieneDetalleClave">
+            <Name>ConsultaDetalle</Name>
             <InputMessage>
               <Properties>
                 <Property name="clave" />
@@ -51,24 +51,42 @@
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="ClaveR" />
-                <Property name="FechaR" />
-                <Property name="IndestadoR" />
-                <Property name="RespuestaxmlR">
+                <Property name="ObtieneFacturaResponse">
                   <Properties>
-                    <Property name="MensajeHacienda">
+                    <Property name="Comprobante">
                       <Properties>
-                        <Property name="Clave" />
-                        <Property name="NombreEmisor" />
-                        <Property name="TipoIdentificacionEmisor" />
-                        <Property name="NumeroCedulaEmisor" />
-                        <Property name="NombreReceptor" />
-                        <Property name="TipoIdentificacionReceptor" />
-                        <Property name="NumeroCedulaReceptor" />
-                        <Property name="Mensaje" />
-                        <Property name="DetalleMensaje" />
-                        <Property name="MontoTotalImpuesto" />
-                        <Property name="TotalFactura" />
+                        <Property name="TramaOutput">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                            <Property name="emisor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="receptor">
+                              <Properties>
+                                <Property name="tipoIdentificacion" />
+                                <Property name="numeroIdentificacion" />
+                                <Property name="nombre" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasCredito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                            <Property name="notasDebito">
+                              <Properties>
+                                <Property name="clave" />
+                                <Property name="fecha" />
+                              </Properties>
+                            </Property>
+                          </Properties>
+                        </Property>
                       </Properties>
                     </Property>
                   </Properties>
@@ -89,7 +107,7 @@
             <Name>1</Name>
           </ExclusiveGateway>
           <End ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="910" Top="110">
-            <Name>ConsultaComprobanteOutput</Name>
+            <Name>DetalleComprobanteOutput</Name>
             <Message>
               <Properties>
                 <Property name="ObtieneFacturaResponse">
@@ -135,12 +153,12 @@
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
-            <OutputName>ConsultaComprobanteOutput</OutputName>
+            <OutputName>DetalleComprobanteOutput</OutputName>
             <Template>
             </Template>
           </End>
           <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="910" Top="340">
-            <Name>ConsultaComprobanteFault</Name>
+            <Name>DetalleComprobanteFault</Name>
             <Message>
               <Properties>
                 <Property name="Estado" />
@@ -148,7 +166,7 @@
               </Properties>
             </Message>
             <EndResult>Error</EndResult>
-            <OutputName>ConsultaComprobanteFault</OutputName>
+            <OutputName>DetalleComprobanteFault</OutputName>
             <Template>
             </Template>
           </End>
@@ -156,32 +174,32 @@
             <Assignments>
               <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
               <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
-              <Assignment type="Variable" from="ConsultaComprobanteInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Variable" from="ConsultaComprobanteInput/Identificacion" to="TokenInput/Identificacion" />
+              <Assignment type="Variable" from="DetalleComprobanteInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="DetalleComprobanteInput/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="34" Source="5" Target="22" />
           <SequenceFlow ID="35" Source="20" Target="12" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaComprobanteInput/Clave" to="ConsultaFacturaInput/clave" />
-              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacturaInput/token" />
+              <Assignment type="Variable" from="DetalleComprobanteInput/Clave" to="ConsultaDetalleInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaDetalleInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="36" Source="10" Target="17" />
           <SequenceFlow ID="37" Source="15" Target="27" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacturaOutput" to="ConsultaComprobanteOutput" />
+              <Assignment type="Variable" from="ConsultaDetalleOutput" to="DetalleComprobanteOutput" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="38" Source="16" Target="32">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacturaFault" to="ConsultaComprobanteFault" />
+              <Assignment type="Variable" from="ConsultaDetalleFault" to="DetalleComprobanteFault" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="39" Source="21" Target="32">
             <Assignments>
-              <Assignment type="Variable" from="TokenFault/Estado" to="ConsultaComprobanteFault/Estado" />
-              <Assignment type="Variable" from="TokenFault/Respuesta" to="ConsultaComprobanteFault/Respuesta" />
+              <Assignment type="Variable" from="TokenFault/Estado" to="DetalleComprobanteFault/Estado" />
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="DetalleComprobanteFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

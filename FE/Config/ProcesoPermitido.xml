@@ -10,35 +10,11 @@
   </ProcesoPermitido>
   <ProcesoPermitido>
     <Canal>1</Canal>
-    <Proceso>2</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>4</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>5</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>6</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
     <Proceso>13</Proceso>
   </ProcesoPermitido>
   <ProcesoPermitido>
     <Canal>1</Canal>
     <Proceso>15</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>16</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>7</Proceso>
   </ProcesoPermitido>
   <ProcesoPermitido>
     <Canal>1</Canal>
@@ -63,9 +39,5 @@
   <ProcesoPermitido>
     <Canal>1</Canal>
     <Proceso>26</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
-    <Proceso>3</Proceso>
   </ProcesoPermitido>
 </ProcesoPermitidoDS>
