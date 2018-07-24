@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>DetalleComprobantesBloque</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/07/2018</CreationDate>
+  <ModificationDate>17/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="TipoIDEmisor" />
+                <Property name="IDEmisor" />
+                <Property name="TipoIDReceptor" />
+                <Property name="IDReceptor" />
+                <Property name="PosicionInicial" />
+                <Property name="Cantidad" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="730" Top="30">
+            <Name>DetalleComprobantesBloqueOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Resultado">
+                  <Properties>
+                    <Property name="TramaOutput">
+                      <Properties>
+                        <Property name="clave" />
+                        <Property name="fecha" />
+                        <Property name="emisor">
+                          <Properties>
+                            <Property name="tipoIdentificacion" />
+                            <Property name="numeroIdentificacion" />
+                            <Property name="nombre" />
+                          </Properties>
+                        </Property>
+                        <Property name="receptor">
+                          <Properties>
+                            <Property name="tipoIdentificacion" />
+                            <Property name="numeroIdentificacion" />
+                            <Property name="nombre" />
+                          </Properties>
+                        </Property>
+                        <Property name="notasDebito">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                          </Properties>
+                        </Property>
+                        <Property name="notasCredito">
+                          <Properties>
+                            <Property name="clave" />
+                            <Property name="fecha" />
+                          </Properties>
+                        </Property>
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>DetalleComprobantesBloqueOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="172.0508" Top="30" update="False" NombreProceso="Token">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="295" Top="30">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="372.5228" Top="30" update="False" NombreProceso="ObtieneDetalleTodos">
+            <Name>ObDetalles</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="token" />
+                <Property name="PosicionInicial" />
+                <Property name="Cantidad" />
+                <Property name="emisorIdentificacion" />
+                <Property name="receptorIdentificacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ObtieneComprobantesResponse" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="520" Top="30">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="730" Top="185">
+            <Name>DetalleComprobantesBloqueFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>DetalleComprobantesBloqueFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="33" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
+              <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="34" Source="10" Target="17" />
+          <SequenceFlow ID="35" Source="15" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TokenOutput/Token" to="ObDetallesInput/token" />
+              <Assignment type="Variable" from="DetalleComprobantesBloqueInput/PosicionInicial" to="ObDetallesInput/PosicionInicial" />
+              <Assignment type="Variable" from="DetalleComprobantesBloqueInput/Cantidad" to="ObDetallesInput/Cantidad" />
+              <Assignment type="Expression" from=" variable(DetalleComprobantesBloqueInput/TipoIDEmisor)+ rellenar(  variable(DetalleComprobantesBloqueInput/IDEmisor) , &quot;0&quot; , 12 )" to="ObDetallesInput/emisorIdentificacion" />
+              <Assignment type="Expression" from=" variable(DetalleComprobantesBloqueInput/TipoIDReceptor)+ rellenar(  variable(DetalleComprobantesBloqueInput/IDReceptor) , 0 , 12 )" to="ObDetallesInput/receptorIdentificacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="36" Source="20" Target="27" />
+          <SequenceFlow ID="37" Source="25" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ObDetallesOutput/ObtieneComprobantesResponse" to="DetalleComprobantesBloqueOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="26" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="ObDetallesFault/Estado" to="DetalleComprobantesBloqueFault/Estado" />
+              <Assignment type="Variable" from="ObDetallesFault/Respuesta" to="DetalleComprobantesBloqueFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="39" Source="16" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault" to="DetalleComprobantesBloqueFault" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

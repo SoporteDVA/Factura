@@ -28,15 +28,6 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>3</ID>
-    <Nombre>Factura</Nombre>
-    <Diagrama>Factura.xml</Diagrama>
-    <Descripcion>Metodo de generacion de Factura Digital</Descripcion>
-    <Categoria>Movimientos</Categoria>
-    <UltimaModificacion>26/6/2018 19:36:21</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>4</ID>
     <Nombre>FacturaCORE</Nombre>
     <Diagrama>FacturaCORE.xml</Diagrama>
@@ -100,18 +91,9 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>12</ID>
-    <Nombre>ObtieneFactura</Nombre>
-    <Diagrama>ObtieneFactura.xml</Diagrama>
-    <Descripcion>Obtiene una factura especifica de Hacienda</Descripcion>
-    <Categoria>Movimientos/Core</Categoria>
-    <UltimaModificacion>17/07/2018 16:34:54</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>13</ID>
-    <Nombre>ConsultaComprobante</Nombre>
-    <Diagrama>ConsultaComprobante.xml</Diagrama>
+    <Nombre>DetalleComprobante</Nombre>
+    <Diagrama>DetalleComprobante.xml</Diagrama>
     <Descripcion>Permite consultar un solo comprobante por medio de la clave</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>17/07/2018 16:53:16</UltimaModificacion>
@@ -119,17 +101,17 @@
   </Proceso>
   <Proceso>
     <ID>14</ID>
-    <Nombre>ObtieneComprobantesTodos</Nombre>
-    <Diagrama>ObtieneComprobantesTodos.xml</Diagrama>
+    <Nombre>ObtieneDetalleTodos</Nombre>
+    <Diagrama>ObtieneDetalleTodos.xml</Diagrama>
     <Descripcion>Permite consultar un bloque de comprobantes o facturas</Descripcion>
-    <Categoria>Movimientos/Core</Categoria>
+    <Categoria>ProcesosPHP</Categoria>
     <UltimaModificacion>17/07/2018 6:02:31 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
   <Proceso>
     <ID>15</ID>
-    <Nombre>ConsultaComprobantesTodos</Nombre>
-    <Diagrama>ConsultaComprobantesTodos.xml</Diagrama>
+    <Nombre>DetalleComprobantesBloque</Nombre>
+    <Diagrama>DetalleComprobantesBloque.xml</Diagrama>
     <Descripcion>Consulta Bloque de comprobantes</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>17/07/2018 6:11:24 PM</UltimaModificacion>
@@ -232,6 +214,15 @@
     <Descripcion />
     <Categoria>Movimientos/Core</Categoria>
     <UltimaModificacion>23/07/2018 7:45:08 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>28</ID>
+    <Nombre>ObtieneDetalleClave</Nombre>
+    <Diagrama>ObtieneDetalleClave.xml</Diagrama>
+    <Descripcion>Obtiene el documento de Hacienda ,muestra las notas de  Credito y Debito si las tiene</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>24/07/2018 10:02:06</UltimaModificacion>
     <Llaves />
   </Proceso>
 </ProcesoDS>
