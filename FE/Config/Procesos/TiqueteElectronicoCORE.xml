@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>TiqueteElectronicoCORE</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>24/07/2018</CreationDate>
+  <ModificationDate>24/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="meisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="recenprotNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="otros" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="detalles" />
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="6" IdTop="7" IdLeft="10" IdBottom="9" IdRight="8" Left="184.2578" Top="30" update="False" server="ConectorDGTD">
+            <Name>CreaXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="genXMLTe">
+                  <Properties>
+                    <Property name="clave" />
+                    <Property name="consecutivo" />
+                    <Property name="fechaEmision" />
+                    <Property name="emisorNombre" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="meisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
+                    <Property name="receptorNombre" />
+                    <Property name="receptorTipoIdentif" />
+                    <Property name="recenprotNumIdentif" />
+                    <Property name="receptorProvincia" />
+                    <Property name="receptorCanton" />
+                    <Property name="receptorDistrito" />
+                    <Property name="receptorBarrio" />
+                    <Property name="receptorOtrasSenas" />
+                    <Property name="receptorCodPaisTel" />
+                    <Property name="receptorTel" />
+                    <Property name="receptorCodPaisFax" />
+                    <Property name="receptorFax" />
+                    <Property name="receptorEmail" />
+                    <Property name="condVenta" />
+                    <Property name="plazoCredito" />
+                    <Property name="medioPago" />
+                    <Property name="codMoneda" />
+                    <Property name="tipoCambio" />
+                    <Property name="totalServGravados" />
+                    <Property name="totalServExentos" />
+                    <Property name="totalMercGravadas" />
+                    <Property name="totalMercExentas" />
+                    <Property name="totalGravados" />
+                    <Property name="totalExentos" />
+                    <Property name="totalVentas" />
+                    <Property name="totalDescuentos" />
+                    <Property name="totalVentasNeta" />
+                    <Property name="totalImp" />
+                    <Property name="totalComprobante" />
+                    <Property name="otros" />
+                    <Property name="infoRefeTipoDoc" />
+                    <Property name="infoRefeNumero" />
+                    <Property name="infoRefeFechaEmision" />
+                    <Property name="infoRefeCodigo" />
+                    <Property name="infoRefeRazon" />
+                    <Property name="detalles" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="genXMLTeResponse">
+                  <Properties>
+                    <Property name="Tiquete" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="12" IdTop="13" IdLeft="16" IdBottom="15" IdRight="14" Left="320" Top="30">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="535" Top="275">
+            <Name>TiqueteElectronicoCOREFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>TiqueteElectronicoCOREFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="545" Top="30">
+            <Name>TiqueteElectronicoCOREOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="FacturaElectronica" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>TiqueteElectronicoCOREOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="11" Source="1" Target="10">
+            <Assignments>
+              <Assignment type="Variable" from="TiqueteElectronicoCOREInput" to="CreaXMLInput/genXMLTe" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="17" Source="8" Target="16" />
+          <SequenceFlow ID="36" Source="14" Target="28" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="CreaXMLOutput/genXMLTeResponse/Tiquete" to="TiqueteElectronicoCOREOutput/FacturaElectronica" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="37" Source="15" Target="22">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="TiqueteElectronicoCOREFault/Estado" />
+              <Assignment type="Variable" from="CreaXMLFault/Error" to="TiqueteElectronicoCOREFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
