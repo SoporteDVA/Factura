@@ -260,7 +260,7 @@ function tokenAuth($usuarioFE, $Pass)
 
 function genXMLTe($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
 $nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
-$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $recenprotNumIdentif,
+$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $receptorNumIdentif,
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
 $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
@@ -277,62 +277,60 @@ $detalles = json_decode($detalles);
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
         <TiqueteElectronico xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2007/XMLSchema-versioning" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico">
-            <Clave>' . $clave . '</Clave>
-            <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
-            <FechaEmision>' . $fechaEmision . '</FechaEmision>
-            <Emisor>
-                <Nombre>' . $emisorNombre . '</Nombre>
-                <Identificacion>
-                    <Tipo>' . $emisorTipoIdentif . '</Tipo>
-                    <Numero>' . $emisorNumIdentif . '</Numero>
-                </Identificacion>
-                <NombreComercial>' . $nombreComercial . '</NombreComercial>
-                <Ubicacion>
-                    <Provincia>' . $emisorProv . '</Provincia>
-                    <Canton>' . $meisorCanton . '</Canton>
-                    <Distrito>' . $emisorDistrito . '</Distrito>
-                    <Barrio>' . $emisorBarrio . '</Barrio>
-                    <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
-                </Ubicacion>
-                <Telefono>
-                    <CodigoPais>' . $emisorCodPaisTel . '</CodigoPais>
-                    <NumTelefono>' . $emisorTel . '</NumTelefono>
-                </Telefono>
-                <Fax>
-                    <CodigoPais>' . $emisorCodPaisFax . '</CodigoPais>
-                    <NumTelefono>' . $emisorFax . '</NumTelefono>
-                </Fax>
-                <CorreoElectronico>' . $emisorEmail . '</CorreoElectronico>
-            </Emisor>
-            <Receptor>
-                <Nombre>' . $receptorNombre . '</Nombre>
-                <Identificacion>
-                    <Tipo>' . $receptorTipoIdentif . '</Tipo>
-                    <Numero>' . $recenprotNumIdentif . '</Numero>
-                </Identificacion>
-                <Ubicacion>
-                    <Provincia>' . $receptorProvincia . '</Provincia>
-                    <Canton>' . $receptorCanton . '</Canton>
-                    <Distrito>' . $receptorDistrito . '</Distrito>
-                    <Barrio>' . $receptorBarrio . '</Barrio>
-                    <OtrasSenas>' . $receptorOtrasSenas . '</OtrasSenas>
-                </Ubicacion>
-                <Telefono>
-                    <CodigoPais>' . $receptorCodPaisTel . '</CodigoPais>
-                    <NumTelefono>' . $receptorTel . '</NumTelefono>
-                </Telefono>
-                <Fax>
-                    <CodigoPais>' . $receptorCodPaisFax . '</CodigoPais>
-                    <NumTelefono>' . $receptorFax . '</NumTelefono>
-                </Fax>
-                <CorreoElectronico>' . $receptorEmail . '</CorreoElectronico>
-            </Receptor>
-            <CondicionVenta>' . $condVenta . '</CondicionVenta>
-            <PlazoCredito>' . $plazoCredito . '</PlazoCredito>
-            <MedioPago>' . $medioPago . '</MedioPago>
-            <DetalleServicio>
-            ';
-        //cant - unidad medida - detalle - precio unitario - monto total - subtotal - monto total linea - Monto desc -Naturaleza Desc - Impuesto : Codigo / Tarifa / Monto
+        <Clave>' . $clave . '</Clave>
+        <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
+        <FechaEmision>' . $fechaEmision . '</FechaEmision>
+        <Emisor>
+            <Nombre>' . $emisorNombre . '</Nombre>
+            <Identificacion>
+                <Tipo>' . $emisorTipoIdentif . '</Tipo>
+                <Numero>' . $emisorNumIdentif . '</Numero>
+            </Identificacion>
+            <NombreComercial>' . $nombreComercial . '</NombreComercial>
+            <Ubicacion>
+                <Provincia>' . $emisorProv . '</Provincia>
+                <Canton>' . $meisorCanton . '</Canton>
+                <Distrito>' . $emisorDistrito . '</Distrito>
+                <Barrio>' . $emisorBarrio . '</Barrio>
+                <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
+            </Ubicacion>
+            <Telefono>
+                <CodigoPais>' . $emisorCodPaisTel . '</CodigoPais>
+                <NumTelefono>' . $emisorTel . '</NumTelefono>
+            </Telefono>
+            <Fax>
+                <CodigoPais>' . $emisorCodPaisFax . '</CodigoPais>
+                <NumTelefono>' . $emisorFax . '</NumTelefono>
+            </Fax>
+            <CorreoElectronico>' . $emisorEmail . '</CorreoElectronico>
+        </Emisor>
+        <Receptor>
+            <Nombre>' . $receptorNombre . '</Nombre>
+            <Identificacion>
+                <Tipo>' . $receptorTipoIdentif . '</Tipo>
+                <Numero>' . $receptorNumIdentif . '</Numero>
+            </Identificacion>
+            <Ubicacion>
+                <Provincia>' . $receptorProvincia . '</Provincia>
+                <Canton>' . $receptorCanton . '</Canton>
+                <Distrito>' . $receptorDistrito . '</Distrito>
+                <Barrio>' . $receptorBarrio . '</Barrio>
+                <OtrasSenas>' . $receptorOtrasSenas . '</OtrasSenas>
+            </Ubicacion>
+            <Telefono>
+                <CodigoPais>' . $receptorCodPaisTel . '</CodigoPais>
+                <NumTelefono>' . $receptorTel . '</NumTelefono>
+            </Telefono>
+            <Fax>
+                <CodigoPais>' . $receptorCodPaisFax . '</CodigoPais>
+                <NumTelefono>' . $receptorFax . '</NumTelefono>
+            </Fax>
+            <CorreoElectronico>' . $receptorEmail . '</CorreoElectronico>
+        </Receptor>
+        <CondicionVenta>' . $condVenta . '</CondicionVenta>
+        <PlazoCredito>' . $plazoCredito . '</PlazoCredito>
+        <MedioPago>' . $medioPago . '</MedioPago>
+        <DetalleServicio>';
         
         /* EJEMPLO DE DETALLES
           {
@@ -363,8 +361,7 @@ $detalles = json_decode($detalles);
                     <Tarifa>' . $i->tarifa . '</Tarifa>
                     <Monto>' . $i->monto . '</Monto>';
                     if(isset($i->exoneracion) && $i->exoneracion!=""){
-                        $xmlString .= '
-                        <Exoneracion>
+                        $xmlString .= '<Exoneracion>
                             <TipoDocumento>' . $i->exoneracion->tipoDocumento . '</TipoDocumento>
                             <NumeroDocumento>' . $i->exoneracion->numeroDocumento . '</NumeroDocumento>
                             <NombreInstitucion>' . $i->exoneracion->nombreInstitucion . '</NombreInstitucion>
@@ -383,35 +380,35 @@ $detalles = json_decode($detalles);
             $l++;
         }
         $xmlString .= '</DetalleServicio>
-            <ResumenFactura>
-                <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
-                <TipoCambio>' . $tipoCambio . '</TipoCambio>
-                <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
-                <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
-                <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
-                <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
-                <TotalGravado>' . $totalGravados . '</TotalGravado>
-                <TotalExento>' . $totalExentos . '</TotalExento>
-                <TotalVenta>' . $totalVentas . '</TotalVenta>
-                <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
-                <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
-                <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
-                <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
-                </ResumenFactura>
-            <InformacionReferencia>
-                <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
-                <Numero>' . $infoRefeNumero . '</Numero>
-                <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
-                <Codigo>' . $infoRefeCodigo . '</Codigo>
+        <ResumenFactura>
+            <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
+            <TipoCambio>' . $tipoCambio . '</TipoCambio>
+            <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
+            <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
+            <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
+            <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
+            <TotalGravado>' . $totalGravados . '</TotalGravado>
+            <TotalExento>' . $totalExentos . '</TotalExento>
+            <TotalVenta>' . $totalVentas . '</TotalVenta>
+            <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
+            <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
+            <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
+            <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
+        </ResumenFactura>
+        <InformacionReferencia>
+            <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
+            <Numero>' . $infoRefeNumero . '</Numero>
+            <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
+            <Codigo>' . $infoRefeCodigo . '</Codigo>
             <Razon>' . $infoRefeRazon . '</Razon>
-             </InformacionReferencia>
-            <Normativa>
-                <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
-                <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
-            </Normativa>
-            <Otros>
-                <OtroTexto>' . $otros . '</OtroTexto>
-            </Otros>
+        </InformacionReferencia>
+        <Normativa>
+            <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
+            <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
+        </Normativa>
+        <Otros>
+            <OtroTexto>' . $otros . '</OtroTexto>
+        </Otros>
             </TiqueteElectronico>';
 
             $arrayResp = base64_encode($xmlString);
@@ -435,8 +432,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
     //return $detalles;
 
 
-    $xmlString = '<?xml version = "1.0" encoding = "utf-8"
-        ?>
+    $xmlString = '<?xml version = "1.0" encoding = "utf-8"?>
 <NotaCreditoElectronica xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/notaCreditoElectronica" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/notaCreditoElectronica NotaCreditoElectronica_V4.2.xsd">
     <Clave>' . $clave . '</Clave>
     <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
@@ -1214,7 +1210,7 @@ $soapclient->register('genXMLTe', array(
     'emisorEmail' => 'xsd:string',
     'receptorNombre' => 'xsd:string',
     'receptorTipoIdentif' => 'xsd:string',
-    'recenprotNumIdentif' => 'xsd:string',
+    'receptorNumIdentif' => 'xsd:string',
     'receptorProvincia' => 'xsd:string',
     'receptorCanton' => 'xsd:string',
     'receptorDistrito' => 'xsd:string',

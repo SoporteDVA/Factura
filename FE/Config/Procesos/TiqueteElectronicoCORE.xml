@@ -31,7 +31,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -93,7 +93,7 @@
                     <Property name="emisorEmail" />
                     <Property name="receptorNombre" />
                     <Property name="receptorTipoIdentif" />
-                    <Property name="recenprotNumIdentif" />
+                    <Property name="receptorNumIdentif" />
                     <Property name="receptorProvincia" />
                     <Property name="receptorCanton" />
                     <Property name="receptorDistrito" />

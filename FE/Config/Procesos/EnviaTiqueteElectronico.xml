@@ -73,7 +73,7 @@
           <ExclusiveGateway ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="540" Top="85">
             <Name>OkT</Name>
           </ExclusiveGateway>
-          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="635" Top="85" update="False" NombreProceso="TiqueteElectronicoCORE">
+          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="635" Top="85" update="False" NombreProceso="NotaCreditoCORE">
             <Name>CreaXML</Name>
             <InputMessage>
               <Properties>
@@ -96,7 +96,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -353,7 +353,7 @@
               <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="CreaXMLInput/emisorEmail" />
               <Assignment type="Expression" from="&quot;Geiner Romero&quot;" to="CreaXMLInput/receptorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;111970739&quot;" to="CreaXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="CreaXMLInput/receptorNumIdentif" />
               <Assignment type="Expression" from="1" to="CreaXMLInput/receptorProvincia" />
               <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorDistrito" />
@@ -370,22 +370,22 @@
               <Assignment type="Expression" from="&quot;USD&quot;" to="CreaXMLInput/codMoneda" />
               <Assignment type="Expression" from="&quot;574.00&quot;" to="CreaXMLInput/tipoCambio" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalServGravados" />
-              <Assignment type="Expression" from="&quot;64&quot;" to="CreaXMLInput/totalServExentos" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalServExentos" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalMercGravadas" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalMercExentas" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalGravados" />
-              <Assignment type="Expression" from="&quot;64&quot;" to="CreaXMLInput/totalExentos" />
-              <Assignment type="Expression" from="&quot;64&quot;" to="CreaXMLInput/totalVentas" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalExentos" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalVentas" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalDescuentos" />
-              <Assignment type="Expression" from="&quot;64&quot;" to="CreaXMLInput/totalVentasNeta" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalVentasNeta" />
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalImp" />
-              <Assignment type="Expression" from="&quot;64&quot;" to="CreaXMLInput/totalComprobante" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalComprobante" />
               <Assignment type="Expression" from="&quot;PRUEBA TIQUETE ELECTRONICO&quot;" to="CreaXMLInput/otros" />
               <Assignment type="Expression" from="&quot;04&quot;" to="CreaXMLInput/infoRefeTipoDoc" />
-              <Assignment type="Expression" from="&quot;50624071800010966001800100001051622774500107756500&quot;" to="CreaXMLInput/infoRefeNumero" />
+              <Assignment type="Expression" from="&quot;100&quot;" to="CreaXMLInput/infoRefeNumero" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="CreaXMLInput/infoRefeFechaEmision" />
-              <Assignment type="Expression" from="&quot;03&quot;" to="CreaXMLInput/infoRefeCodigo" />
-              <Assignment type="Expression" from="&quot;Correccion del monto de la Factura&quot;" to="CreaXMLInput/infoRefeRazon" />
+              <Assignment type="Expression" from="&quot;02&quot;" to="CreaXMLInput/infoRefeCodigo" />
+              <Assignment type="Expression" from="&quot;Correccion Texto de Documento&quot;" to="CreaXMLInput/infoRefeRazon" />
               <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="CreaXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>
