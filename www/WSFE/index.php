@@ -258,13 +258,14 @@ function tokenAuth($usuarioFE, $Pass)
 
 }
 
-function genXMLTe($clave,$consecutivo ,$fechaEmision ,$emisorNombre ,$emisorTipoIdentif ,$emisorNumIdentif ,
-$nombreComercial ,$emisorProv ,$meisorCanton ,$emisorDistrito ,$emisorBarrio ,$emisorOtrasSenas ,$emisorCodPaisTel ,
-$emisorTel ,$emisorCodPaisFax ,$emisorFax ,$emisorEmail ,$receptorNombre ,$receptorTipoIdentif ,$recenprotNumIdentif ,
-$receptorProvincia ,$receptorCanton ,$receptorDistrito ,$receptorBarrio ,$receptorOtrasSenas ,$receptorCodPaisTel ,
-$receptorTel ,$receptorCodPaisFax ,$receptorFax ,$receptorEmail ,$condVenta ,$plazoCredito ,$medioPago ,$codMoneda ,
-$tipoCambio ,$totalServGravados ,$totalServExentos ,$totalMercGravadas ,$totalMercExentas ,$totalGravados ,
-$totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$otros,$detalles)
+function genXMLTe($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
+$nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
+$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $recenprotNumIdentif,
+$receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
+$receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
+$tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
+$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, $otros, $infoRefeTipoDoc, $infoRefeNumero,
+ $infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$detalles)
  {
     
      //detalles de la compra
@@ -383,26 +384,33 @@ $detalles = json_decode($detalles);
         }
         $xmlString .= '</DetalleServicio>
             <ResumenFactura>
-            <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
-            <TipoCambio>' . $tipoCambio . '</TipoCambio>
-            <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
-            <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
-            <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
-            <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
-            <TotalGravado>' . $totalGravados . '</TotalGravado>
-            <TotalExento>' . $totalExentos . '</TotalExento>
-            <TotalVenta>' . $totalVentas . '</TotalVenta>
-            <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
-            <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
-            <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
-            <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
-            </ResumenFactura>
+                <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
+                <TipoCambio>' . $tipoCambio . '</TipoCambio>
+                <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
+                <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
+                <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
+                <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
+                <TotalGravado>' . $totalGravados . '</TotalGravado>
+                <TotalExento>' . $totalExentos . '</TotalExento>
+                <TotalVenta>' . $totalVentas . '</TotalVenta>
+                <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
+                <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
+                <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
+                <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
+                </ResumenFactura>
+            <InformacionReferencia>
+                <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
+                <Numero>' . $infoRefeNumero . '</Numero>
+                <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
+                <Codigo>' . $infoRefeCodigo . '</Codigo>
+            <Razon>' . $infoRefeRazon . '</Razon>
+             </InformacionReferencia>
             <Normativa>
-            <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
-            <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
+                <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
+                <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
             </Normativa>
             <Otros>
-            <OtroTexto>' . $otros . '</OtroTexto>
+                <OtroTexto>' . $otros . '</OtroTexto>
             </Otros>
             </TiqueteElectronico>';
 
@@ -752,7 +760,7 @@ xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
         
     } else {
       
-       $xmlString2 ='<?xml version="2.0" encoding="utf-8"?>
+       $xmlString2 ='<?xml version="1.0" encoding="utf-8"?>
         <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
             <Clave>' . $clave . '</Clave>
             <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
@@ -913,7 +921,7 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
     
     curl_close($curl);
     
-    return $mensaje;
+    return $Estado;
     
     }
 
@@ -1204,7 +1212,7 @@ $soapclient->register('genXMLTe', array(
     'emisorCodPaisFax' => 'xsd:string',
     'emisorFax' => 'xsd:string',
     'emisorEmail' => 'xsd:string',
-    'receptorNombre' => 'xsd:string', 
+    'receptorNombre' => 'xsd:string',
     'receptorTipoIdentif' => 'xsd:string',
     'recenprotNumIdentif' => 'xsd:string',
     'receptorProvincia' => 'xsd:string',
@@ -1233,8 +1241,13 @@ $soapclient->register('genXMLTe', array(
     'totalVentasNeta' => 'xsd:string',
     'totalImp' => 'xsd:string',
     'totalComprobante' => 'xsd:string',
-    'otros'=> 'xsd:string',
-    'detalles'=> 'xsd:string'
+    'otros' => 'xsd:string',
+    'infoRefeTipoDoc' => 'xsd:string',
+    'infoRefeNumero' => 'xsd:string',
+    'infoRefeFechaEmision' => 'xsd:string',
+    'infoRefeCodigo' => 'xsd:string',
+    'infoRefeRazon' => 'xsd:string',
+    'detalles' => 'xsd:string',
     ), array(
         'Tiquete' => 'xsd:string'
     ), $ns);

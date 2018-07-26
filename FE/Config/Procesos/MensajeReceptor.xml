@@ -35,7 +35,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1315" Top="5">
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1460" Top="-25">
             <Name>MensajeReceptorOutput</Name>
             <Message>
               <Properties>
@@ -262,6 +262,12 @@
           <ExclusiveGateway ID="140" IdTop="141" IdLeft="144" IdBottom="143" IdRight="142" Left="205" Top="100">
             <Name>OKP</Name>
           </ExclusiveGateway>
+          <ExclusiveGateway ID="169" IdTop="170" IdLeft="173" IdBottom="172" IdRight="171" Left="1240" Top="360">
+            <Name>5</Name>
+          </ExclusiveGateway>
+          <ExclusiveGateway ID="186" IdTop="187" IdLeft="190" IdBottom="189" IdRight="188" Left="1310" Top="100">
+            <Name>6</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="41" Source="32" Target="40" />
           <SequenceFlow ID="47" Source="38" Target="46" ConditionExpression="?">
             <Assignments>
@@ -331,24 +337,10 @@
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaCInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="109" Source="105" Target="16">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaCOutput/ClaveR" to="MensajeReceptorOutput/Clave" />
-              <Assignment type="Variable" from="ConsultaCOutput/FechaR" to="MensajeReceptorOutput/Fecha" />
-              <Assignment type="Variable" from="ConsultaCOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaCOutput/RespuestaxmlR" to="MensajeReceptorOutput/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="133" Source="22" Target="129">
             <Assignments>
               <Assignment type="Expression" from="variable(EnviaMRInput/clave)+&quot;-&quot;+ variable(GenXMLInput/NumeroConsecutivoReceptor)" to="ConsultaCEInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaCEInput/token" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="134" Source="128" Target="12">
-            <Assignments>
-              <Assignment type="Expression" from=" parametro(Error)" to="MensajeReceptorFault/Estado" />
-              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="MensajeReceptorFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="149" Source="142" Target="34" ConditionExpression="?">
@@ -377,6 +369,26 @@
             <Assignments>
               <Assignment type="Expression" from=" parametro(Error)" to="MensajeReceptorFault/Estado" />
               <Assignment type="Expression" from="&quot;Problemas con el Perfil&quot;" to="MensajeReceptorFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="174" Source="128" Target="173" />
+          <SequenceFlow ID="175" Source="171" Target="15" ConditionExpression=" variable(ConsultaCEOutput/IndestadoR)=&quot;aceptado&quot;">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaCEOutput/ClaveR" to="MensajeReceptorOutput/Clave" />
+              <Assignment type="Variable" from="ConsultaCEOutput/FechaR" to="MensajeReceptorOutput/Fecha" />
+              <Assignment type="Variable" from="ConsultaCEOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaCEOutput/RespuestaxmlR" to="MensajeReceptorOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="176" Source="172" Target="11" />
+          <SequenceFlow ID="191" Source="105" Target="190" />
+          <SequenceFlow ID="193" Source="189" Target="9" />
+          <SequenceFlow ID="204" Source="188" Target="16" ConditionExpression=" variable(ConsultaCOutput/IndestadoR)=&quot;aceptado&quot;">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaCOutput/ClaveR" to="MensajeReceptorOutput/Clave" />
+              <Assignment type="Variable" from="ConsultaCOutput/FechaR" to="MensajeReceptorOutput/Fecha" />
+              <Assignment type="Variable" from="ConsultaCOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaCOutput/RespuestaxmlR" to="MensajeReceptorOutput/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
