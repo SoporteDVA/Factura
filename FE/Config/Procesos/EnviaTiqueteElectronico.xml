@@ -473,7 +473,12 @@
               <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="135" Source="131" Target="86" />
+          <SequenceFlow ID="135" Source="131" Target="86">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
         </GraphicalElements>
       </Process>
     </Pool>
