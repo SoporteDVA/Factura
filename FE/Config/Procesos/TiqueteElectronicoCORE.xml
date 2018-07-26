@@ -59,11 +59,6 @@
                 <Property name="totalImp" />
                 <Property name="totalComprobante" />
                 <Property name="otros" />
-                <Property name="infoRefeTipoDoc" />
-                <Property name="infoRefeNumero" />
-                <Property name="infoRefeFechaEmision" />
-                <Property name="infoRefeCodigo" />
-                <Property name="infoRefeRazon" />
                 <Property name="detalles" />
               </Properties>
             </Message>
@@ -121,11 +116,6 @@
                     <Property name="totalImp" />
                     <Property name="totalComprobante" />
                     <Property name="otros" />
-                    <Property name="infoRefeTipoDoc" />
-                    <Property name="infoRefeNumero" />
-                    <Property name="infoRefeFechaEmision" />
-                    <Property name="infoRefeCodigo" />
-                    <Property name="infoRefeRazon" />
                     <Property name="detalles" />
                   </Properties>
                 </Property>
@@ -166,7 +156,7 @@
             <Name>TiqueteElectronicoCOREOutput</Name>
             <Message>
               <Properties>
-                <Property name="FacturaElectronica" />
+                <Property name="Tiquete" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -182,7 +172,7 @@
           <SequenceFlow ID="17" Source="8" Target="16" />
           <SequenceFlow ID="36" Source="14" Target="28" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="CreaXMLOutput/genXMLTeResponse/Tiquete" to="TiqueteElectronicoCOREOutput/FacturaElectronica" />
+              <Assignment type="Variable" from="CreaXMLOutput/genXMLTeResponse/Tiquete" to="TiqueteElectronicoCOREOutput/Tiquete" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="37" Source="15" Target="22">

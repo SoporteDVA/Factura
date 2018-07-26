@@ -73,7 +73,7 @@
           <ExclusiveGateway ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="540" Top="85">
             <Name>OkT</Name>
           </ExclusiveGateway>
-          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="635" Top="85" update="False" NombreProceso="NotaCreditoCORE">
+          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="635" Top="85" update="False" NombreProceso="TiqueteElectronicoCORE">
             <Name>CreaXML</Name>
             <InputMessage>
               <Properties>
@@ -124,17 +124,12 @@
                 <Property name="totalImp" />
                 <Property name="totalComprobante" />
                 <Property name="otros" />
-                <Property name="infoRefeTipoDoc" />
-                <Property name="infoRefeNumero" />
-                <Property name="infoRefeFechaEmision" />
-                <Property name="infoRefeCodigo" />
-                <Property name="infoRefeRazon" />
                 <Property name="detalles" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="FacturaElectronica" />
+                <Property name="Tiquete" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -381,11 +376,6 @@
               <Assignment type="Expression" from="0" to="CreaXMLInput/totalImp" />
               <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalComprobante" />
               <Assignment type="Expression" from="&quot;PRUEBA TIQUETE ELECTRONICO&quot;" to="CreaXMLInput/otros" />
-              <Assignment type="Expression" from="&quot;04&quot;" to="CreaXMLInput/infoRefeTipoDoc" />
-              <Assignment type="Expression" from="&quot;100&quot;" to="CreaXMLInput/infoRefeNumero" />
-              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="CreaXMLInput/infoRefeFechaEmision" />
-              <Assignment type="Expression" from="&quot;02&quot;" to="CreaXMLInput/infoRefeCodigo" />
-              <Assignment type="Expression" from="&quot;Correccion Texto de Documento&quot;" to="CreaXMLInput/infoRefeRazon" />
               <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="CreaXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>
@@ -394,7 +384,7 @@
             <Assignments>
               <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmarXMLInput/p12Url" />
               <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmarXMLInput/pinP12" />
-              <Assignment type="Variable" from="CreaXMLOutput/FacturaElectronica" to="FirmarXMLInput/inXml" />
+              <Assignment type="Variable" from="CreaXMLOutput/Tiquete" to="FirmarXMLInput/inXml" />
               <Assignment type="Expression" from="&quot;TE&quot;" to="FirmarXMLInput/tipoDoc" />
             </Assignments>
           </SequenceFlow>
@@ -406,7 +396,7 @@
               <Assignment type="Variable" from="CreaXMLInput/emisorTipoIdentif" to="EnviaXMLInput/emi_tipoid" />
               <Assignment type="Variable" from="CreaXMLInput/emisorNumIdentif" to="EnviaXMLInput/emi_identificacion" />
               <Assignment type="Variable" from="CreaXMLInput/receptorTipoIdentif" to="EnviaXMLInput/recp_tipoid" />
-              <Assignment type="Variable" from="CreaXMLInput/recenprotNumIdentif" to="EnviaXMLInput/recp_identificacion" />
+              <Assignment type="Variable" from="CreaXMLInput/emisorNumIdentif" to="EnviaXMLInput/recp_identificacion" />
               <Assignment type="Variable" from="FirmarXMLOutput/xmlOUT" to="EnviaXMLInput/XMLIN" />
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaXMLInput/token" />
             </Assignments>

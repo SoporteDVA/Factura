@@ -264,8 +264,7 @@ $emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $recep
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
 $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
-$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, $otros, $infoRefeTipoDoc, $infoRefeNumero,
- $infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$detalles)
+$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, $otros,$detalles)
  {
     
      //detalles de la compra
@@ -395,13 +394,6 @@ $detalles = json_decode($detalles);
             <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
             <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
         </ResumenFactura>
-        <InformacionReferencia>
-            <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
-            <Numero>' . $infoRefeNumero . '</Numero>
-            <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
-            <Codigo>' . $infoRefeCodigo . '</Codigo>
-            <Razon>' . $infoRefeRazon . '</Razon>
-        </InformacionReferencia>
         <Normativa>
             <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
             <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
@@ -1238,11 +1230,6 @@ $soapclient->register('genXMLTe', array(
     'totalImp' => 'xsd:string',
     'totalComprobante' => 'xsd:string',
     'otros' => 'xsd:string',
-    'infoRefeTipoDoc' => 'xsd:string',
-    'infoRefeNumero' => 'xsd:string',
-    'infoRefeFechaEmision' => 'xsd:string',
-    'infoRefeCodigo' => 'xsd:string',
-    'infoRefeRazon' => 'xsd:string',
     'detalles' => 'xsd:string',
     ), array(
         'Tiquete' => 'xsd:string'
