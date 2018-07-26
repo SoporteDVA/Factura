@@ -275,7 +275,7 @@ $detalles = json_decode($detalles);
 //GENERA XML TIQUETE ELECTRONICO
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
-        <TiqueteElectronico xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2007/XMLSchema-versioning" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico">
+        <TiqueteElectronico xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico TiqueteElectrico_V4.2.xsd">
         <Clave>' . $clave . '</Clave>
         <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
         <FechaEmision>' . $fechaEmision . '</FechaEmision>
@@ -1038,8 +1038,12 @@ function ObtieneFactura($clave, $token)
             );
     
             $context  = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);        
-            if (!$result = file_get_contents($url, false, $context)) {
+            $result = file_get_contents($url, false, $context);  
+            $json_data = json_decode($result, true);
+
+            if($json_data === NULL) 
+            
+             {
             $error = error_get_last();
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
             } else {

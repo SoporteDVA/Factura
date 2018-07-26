@@ -396,7 +396,7 @@
               <Assignment type="Variable" from="CreaXMLInput/emisorTipoIdentif" to="EnviaXMLInput/emi_tipoid" />
               <Assignment type="Variable" from="CreaXMLInput/emisorNumIdentif" to="EnviaXMLInput/emi_identificacion" />
               <Assignment type="Variable" from="CreaXMLInput/receptorTipoIdentif" to="EnviaXMLInput/recp_tipoid" />
-              <Assignment type="Variable" from="CreaXMLInput/emisorNumIdentif" to="EnviaXMLInput/recp_identificacion" />
+              <Assignment type="Variable" from="CreaXMLInput/receptorNumIdentif" to="EnviaXMLInput/recp_identificacion" />
               <Assignment type="Variable" from="FirmarXMLOutput/xmlOUT" to="EnviaXMLInput/XMLIN" />
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaXMLInput/token" />
             </Assignments>
