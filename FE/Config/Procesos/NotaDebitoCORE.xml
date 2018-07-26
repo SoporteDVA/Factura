@@ -13,7 +13,7 @@
             <Name>NotaDebito</Name>
             <Message>
               <Properties>
-                <Property name="FacturaElectronica" />
+                <Property name="NotaDebito" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -182,7 +182,7 @@
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="4" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="TareaOutput/genXMLNDResponse/NotaDebito" to="NotaDebito/FacturaElectronica" />
+              <Assignment type="Variable" from="TareaOutput/genXMLNDResponse/NotaDebito" to="NotaDebito/NotaDebito" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="25" Source="10" Target="17" />

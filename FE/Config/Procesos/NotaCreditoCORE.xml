@@ -9,11 +9,11 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="861" Top="31">
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="860" Top="105">
             <Name>NotaCredito</Name>
             <Message>
               <Properties>
-                <Property name="FacturaElectronica" />
+                <Property name="NotaCredito" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -21,7 +21,7 @@
             <Template>
             </Template>
           </End>
-          <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="101" Top="31">
+          <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="100" Top="105">
             <Message>
               <Properties>
                 <Property name="clave" />
@@ -80,7 +80,7 @@
               </Properties>
             </Message>
           </Start>
-          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="296" Top="31" update="False" server="ConectorDGTD">
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="295" Top="105" update="False" server="ConectorDGTD">
             <Name>Tarea</Name>
             <InputMessage>
               <Properties>
@@ -158,10 +158,10 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="476" Top="31">
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="475" Top="105">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="856" Top="181">
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="855" Top="255">
             <Name>NotaCreditoCOREFault</Name>
             <Message>
               <Properties>
@@ -182,7 +182,7 @@
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="4" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="TareaOutput/genXMLNCResponse/NotaCredito" to="NotaCredito/FacturaElectronica" />
+              <Assignment type="Variable" from="TareaOutput/genXMLNCResponse/NotaCredito" to="NotaCredito/NotaCredito" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="25" Source="10" Target="17" />

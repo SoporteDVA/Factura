@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="75" Top="130">
             <Message>
               <Properties>
+                <Property name="IndestadoR" />
                 <Property name="TramaXML" />
               </Properties>
             </Message>
@@ -20,6 +21,7 @@
             <Name>DesencriptaOrdenaOutput</Name>
             <Message>
               <Properties>
+                <Property name="IndestadoR" />
                 <Property name="MensajeHacienda">
                   <Properties>
                     <Property name="Clave" />
@@ -34,9 +36,42 @@
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="8" Source="1" Target="7">
+          <Transformation ID="24" IdTop="0" IdLeft="26" IdBottom="0" IdRight="25" Left="233.6491" Top="130">
+            <Name>Transformacion</Name>
+            <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <TransformacionOutput>
+                  <MensajeHacienda xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeHacienda">
+                    <Clave>
+                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/Clave" />
+                    </Clave>
+                    <NombreEmisor>
+                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/NombreEmisor" />
+                    </NombreEmisor>
+                    <TipoIdentificacionEmisor>
+                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/TipoIdentificacionEmisor" />
+                    </TipoIdentificacionEmisor>
+                  </MensajeHacienda>
+                </TransformacionOutput>
+              </xsl:template>
+            </xsl:stylesheet>
+            <Message>
+              <Properties>
+                <Property name="MensajeHacienda">
+                  <Properties>
+                    <Property name="Clave" />
+                    <Property name="NombreEmisor" />
+                    <Property name="TipoIdentificacionEmisor" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+          </Transformation>
+          <SequenceFlow ID="27" Source="1" Target="26" />
+          <SequenceFlow ID="28" Source="25" Target="7">
             <Assignments>
-              <Assignment type="Variable" from="DesencriptaOrdenaInput/TramaXML" to="DesencriptaOrdenaOutput" />
+              <Assignment type="Variable" from="TransformacionOutput" to="DesencriptaOrdenaOutput" />
+              <Assignment type="Variable" from="DesencriptaOrdenaInput/IndestadoR" to="DesencriptaOrdenaOutput/IndestadoR" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
