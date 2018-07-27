@@ -17,18 +17,12 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="550" Top="130">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="755" Top="130">
             <Name>DesencriptaOrdenaOutput</Name>
             <Message>
               <Properties>
                 <Property name="IndestadoR" />
-                <Property name="MensajeHacienda">
-                  <Properties>
-                    <Property name="Clave" />
-                    <Property name="NombreEmisor" />
-                    <Property name="TipoIdentificacionEmisor" />
-                  </Properties>
-                </Property>
+                <Property name="TramaRespuesta" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -36,42 +30,29 @@
             <Template>
             </Template>
           </End>
-          <Transformation ID="24" IdTop="0" IdLeft="26" IdBottom="0" IdRight="25" Left="233.6491" Top="130">
+          <Transformation ID="24" IdTop="0" IdLeft="26" IdBottom="0" IdRight="25" Left="400" Top="130">
             <Name>Transformacion</Name>
             <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
               <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
                 <TransformacionOutput>
-                  <MensajeHacienda xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeHacienda">
-                    <Clave>
-                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/Clave" />
-                    </Clave>
-                    <NombreEmisor>
-                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/NombreEmisor" />
-                    </NombreEmisor>
-                    <TipoIdentificacionEmisor>
-                      <xsl:value-of select="DesencriptaOrdenaInput/TramaXML/MensajeHacienda/TipoIdentificacionEmisor" />
-                    </TipoIdentificacionEmisor>
-                  </MensajeHacienda>
+                  <xsl:variable name="Trama" select="substring-before(DesencriptaOrdenaInput/TramaXML,'&lt;ds:Signature Id=')" />
+                  <TramaRHacienda>
+                    <xsl:value-of select="substring($Trama,137,1000)" />
+                  </TramaRHacienda>
                 </TransformacionOutput>
               </xsl:template>
             </xsl:stylesheet>
             <Message>
               <Properties>
-                <Property name="MensajeHacienda">
-                  <Properties>
-                    <Property name="Clave" />
-                    <Property name="NombreEmisor" />
-                    <Property name="TipoIdentificacionEmisor" />
-                  </Properties>
-                </Property>
+                <Property name="TramaRHacienda" />
               </Properties>
             </Message>
           </Transformation>
           <SequenceFlow ID="27" Source="1" Target="26" />
-          <SequenceFlow ID="28" Source="25" Target="7">
+          <SequenceFlow ID="40" Source="25" Target="7">
             <Assignments>
-              <Assignment type="Variable" from="TransformacionOutput" to="DesencriptaOrdenaOutput" />
               <Assignment type="Variable" from="DesencriptaOrdenaInput/IndestadoR" to="DesencriptaOrdenaOutput/IndestadoR" />
+              <Assignment type="Variable" from="TransformacionOutput/TramaRHacienda" to="DesencriptaOrdenaOutput/TramaRespuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

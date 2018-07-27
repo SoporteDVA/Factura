@@ -171,25 +171,7 @@
                 <Property name="ClaveR" />
                 <Property name="FechaR" />
                 <Property name="IndestadoR" />
-                <Property name="RespuestaxmlR">
-                  <Properties>
-                    <Property name="MensajeHacienda">
-                      <Properties>
-                        <Property name="Clave" />
-                        <Property name="NombreEmisor" />
-                        <Property name="TipoIdentificacionEmisor" />
-                        <Property name="NumeroCedulaEmisor" />
-                        <Property name="NombreReceptor" />
-                        <Property name="TipoIdentificacionReceptor" />
-                        <Property name="NumeroCedulaReceptor" />
-                        <Property name="Mensaje" />
-                        <Property name="DetalleMensaje" />
-                        <Property name="MontoTotalImpuesto" />
-                        <Property name="TotalFactura" />
-                      </Properties>
-                    </Property>
-                  </Properties>
-                </Property>
+                <Property name="RespuestaxmlR" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -326,18 +308,14 @@
             <Name>XML</Name>
             <InputMessage>
               <Properties>
+                <Property name="IndestadoR" />
                 <Property name="TramaXML" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="MensajeHacienda">
-                  <Properties>
-                    <Property name="Clave" />
-                    <Property name="NombreEmisor" />
-                    <Property name="TipoIdentificacionEmisor" />
-                  </Properties>
-                </Property>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -498,13 +476,14 @@
           </SequenceFlow>
           <SequenceFlow ID="122" Source="52" Target="115">
             <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="123" Source="116" Target="102">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
-              <Assignment type="Variable" from="XMLOutput" to="EnviaFacturaOutput/RespuestaXML" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
