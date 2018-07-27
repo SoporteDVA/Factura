@@ -98,6 +98,24 @@
           <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="665" Top="95">
             <Name>2</Name>
           </ExclusiveGateway>
+          <Subprocess ID="55" IdTop="56" IdLeft="59" IdBottom="58" IdRight="57" Left="825.0162" Top="95" update="False" NombreProceso="DesencriptaOrdena">
+            <Name>ResXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaXML" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="18" Source="1" Target="17">
             <Assignments>
               <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
@@ -120,18 +138,24 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="37" Source="28" Target="35" />
-          <SequenceFlow ID="38" Source="33" Target="7" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaDocumentoTOutput/ClaveR" to="ConsultaDocumentoOutput/Clave" />
-              <Assignment type="Variable" from="ConsultaDocumentoTOutput/FechaR" to="ConsultaDocumentoOutput/Fecha" />
-              <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ConsultaDocumentoOutput/Indestado" />
-              <Assignment type="Variable" from="ConsultaDocumentoTOutput/RespuestaxmlR" to="ConsultaDocumentoOutput/Respuestaxml" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="39" Source="34" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ConsultaDocumentoTFault/Estado" to="ConsultaDocumentoFault/Estado" />
               <Assignment type="Variable" from="ConsultaDocumentoTFault/Respuesta" to="ConsultaDocumentoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="60" Source="33" Target="59" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ResXMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaDocumentoTOutput/RespuestaxmlR)) " to="ResXMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="61" Source="57" Target="6">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/ClaveR" to="ConsultaDocumentoOutput/Clave" />
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/FechaR" to="ConsultaDocumentoOutput/Fecha" />
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ConsultaDocumentoOutput/Indestado" />
+              <Assignment type="Variable" from="ResXMLOutput/TramaRespuesta" to="ConsultaDocumentoOutput/Respuestaxml" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
