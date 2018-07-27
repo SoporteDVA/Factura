@@ -314,13 +314,7 @@
             <OutputMessage>
               <Properties>
                 <Property name="IndestadoR" />
-                <Property name="MensajeHacienda">
-                  <Properties>
-                    <Property name="Clave" />
-                    <Property name="NombreEmisor" />
-                    <Property name="TipoIdentificacionEmisor" />
-                  </Properties>
-                </Property>
+                <Property name="TramaRespuesta" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -481,7 +475,7 @@
           <SequenceFlow ID="229" Source="214" Target="4">
             <Assignments>
               <Assignment type="Variable" from="XMLOutput/IndestadoR" to="NotaCreditoOutput/Estado" />
-              <Assignment type="Variable" from="XMLOutput/MensajeHacienda" to="NotaCreditoOutput/RespuestaXML" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="NotaCreditoOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="322" Source="60" Target="216" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
