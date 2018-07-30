@@ -1,0 +1,249 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Token</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="45" Top="45">
+            <Message>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1165" Top="110">
+            <Name>TokenOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>TokenOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="160" Top="110" update="False" server="Bitacora">
+            <Name>ObtieneTokenDB</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="UsuarioLocal" />
+                    <Property name="Identificacion" />
+                    <Property name="UsuarioHacienda" />
+                    <Property name="PasswordHacienda" />
+                    <Property name="Token" />
+                    <Property name="TokenRefresh" />
+                    <Property name="FechaTokenRefresh" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="17" IdTop="18" IdLeft="21" IdBottom="20" IdRight="19" Left="335" Top="110">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="1165" Top="360">
+            <Name>TokenFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>TokenFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="38" IdTop="39" IdLeft="42" IdBottom="41" IdRight="40" Left="311.1035" Top="235" update="False" NombreProceso="TokenLocal">
+            <Name>TokenMH</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="51" IdTop="52" IdLeft="55" IdBottom="54" IdRight="53" Left="455" Top="235">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="535" Top="235" update="False" NombreProceso="TokenRefresh">
+            <Name>TokenRefreshLocal</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="RefreshToken" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="67" IdTop="68" IdLeft="71" IdBottom="70" IdRight="69" Left="740" Top="235">
+            <Name>3</Name>
+          </ExclusiveGateway>
+          <Task ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="890" Top="235" update="False" server="Bitacora">
+            <Name>GuardarTokenRefresh</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="Token" />
+                <Property name="TokenRefresh" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="UsuarioLocal" />
+                    <Property name="Identificacion" />
+                    <Property name="UsuarioHacienda" />
+                    <Property name="PasswordHacienda" />
+                    <Property name="Token" />
+                    <Property name="TokenRefresh" />
+                    <Property name="FechaTokenRefresh" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="1095" Top="235">
+            <Name>4</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="13" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEObtieneToken&quot;" to="ObtieneTokenDBInput/SP" />
+              <Assignment type="Variable" from="TokenInput/UsuarioLocal" to="ObtieneTokenDBInput/UsuarioLocal" />
+              <Assignment type="Variable" from="TokenInput/Identificacion" to="ObtieneTokenDBInput/Identificacion" />
+              <Assignment type="Variable" from="TokenInput/Usuario" to="ObtieneTokenDBInput/UsuarioHacienda" />
+              <Assignment type="Variable" from="TokenInput/Password" to="ObtieneTokenDBInput/PasswordHacienda" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="22" Source="10" Target="21" />
+          <SequenceFlow ID="43" Source="20" Target="39">
+            <Assignments>
+              <Assignment type="Variable" from="TokenInput/Usuario" to="TokenMHInput/Usuario" />
+              <Assignment type="Variable" from="TokenInput/Password" to="TokenMHInput/Password" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="44" Source="19" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ObtieneTokenDBOutput/Fila/Token" to="TokenOutput/Token" />
+              <Assignment type="Expression" from="hora( &quot;yyyy-MM-dd&quot; )+&quot;T&quot;+hora( &quot;HH:mm:ss&quot; )+&quot;-06:00&quot;" to="TokenOutput/FechaFormato" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="56" Source="40" Target="55" />
+          <SequenceFlow ID="62" Source="53" Target="61" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TokenMHInput/Usuario" to="TokenRefreshLocalInput/Usuario" />
+              <Assignment type="Variable" from="TokenMHInput/Password" to="TokenRefreshLocalInput/Password" />
+              <Assignment type="Variable" from="TokenMHOutput/Refresh_token" to="TokenRefreshLocalInput/RefreshToken" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="66" Source="54" Target="26">
+            <Assignments>
+              <Assignment type="Variable" from="TokenMHFault" to="TokenFault" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="72" Source="59" Target="71" />
+          <SequenceFlow ID="73" Source="70" Target="27">
+            <Assignments>
+              <Assignment type="Variable" from="TokenRefreshLocalFault/Estado" to="TokenFault/Estado" />
+              <Assignment type="Variable" from="TokenRefreshLocalFault/Respuesta" to="TokenFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="84" Source="69" Target="83" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="FEGuardaToken" to="GuardarTokenRefreshInput/SP" />
+              <Assignment type="Variable" from="TokenInput/UsuarioLocal" to="GuardarTokenRefreshInput/UsuarioLocal" />
+              <Assignment type="Variable" from="TokenInput/Identificacion" to="GuardarTokenRefreshInput/Identificacion" />
+              <Assignment type="Variable" from="TokenInput/Usuario" to="GuardarTokenRefreshInput/UsuarioHacienda" />
+              <Assignment type="Variable" from="TokenInput/Password" to="GuardarTokenRefreshInput/PasswordHacienda" />
+              <Assignment type="Variable" from="TokenRefreshLocalOutput/Token" to="GuardarTokenRefreshInput/Token" />
+              <Assignment type="Variable" from="TokenRefreshLocalOutput/Refresh_token" to="GuardarTokenRefreshInput/TokenRefresh" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="90" Source="81" Target="89" />
+          <SequenceFlow ID="91" Source="88" Target="27">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="TokenFault/Estado" />
+              <Assignment type="Variable" from="GuardarTokenRefreshFault/Error" to="TokenFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="92" Source="87" Target="6" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="GuardarTokenRefreshOutput/Fila/Token" to="TokenOutput/Token" />
+              <Assignment type="Expression" from="hora( &quot;yyyy-MM-dd&quot; )+&quot;T&quot;+hora( &quot;HH:mm:ss&quot; )+&quot;-06:00&quot;" to="TokenOutput/FechaFormato" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

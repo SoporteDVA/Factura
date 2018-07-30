@@ -1,27 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <BPD>
-  <Name>NotaCreditoCORE</Name>
+  <Name>TiqueteElectronicoCORE</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>11/07/2018</CreationDate>
-  <ModificationDate>11/07/2018</ModificationDate>
+  <CreationDate>24/07/2018</CreationDate>
+  <ModificationDate>24/07/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
         <Properties />
         <GraphicalElements>
-          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="860" Top="105">
-            <Name>NotaCredito</Name>
-            <Message>
-              <Properties>
-                <Property name="NotaCredito" />
-              </Properties>
-            </Message>
-            <EndResult>Message</EndResult>
-            <OutputName>NotaCredito</OutputName>
-            <Template>
-            </Template>
-          </End>
-          <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="100" Top="105">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
             <Message>
               <Properties>
                 <Property name="clave" />
@@ -43,7 +31,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -71,20 +59,15 @@
                 <Property name="totalImp" />
                 <Property name="totalComprobante" />
                 <Property name="otros" />
-                <Property name="infoRefeTipoDoc" />
-                <Property name="infoRefeNumero" />
-                <Property name="infoRefeFechaEmision" />
-                <Property name="infoRefeCodigo" />
-                <Property name="infoRefeRazon" />
                 <Property name="detalles" />
               </Properties>
             </Message>
           </Start>
-          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="295" Top="105" update="False" server="ConectorDGTD">
-            <Name>Tarea</Name>
+          <Task ID="6" IdTop="7" IdLeft="10" IdBottom="9" IdRight="8" Left="184.2578" Top="30" update="False" server="ConectorDGTD">
+            <Name>CreaXML</Name>
             <InputMessage>
               <Properties>
-                <Property name="genXMLNC">
+                <Property name="genXMLTe">
                   <Properties>
                     <Property name="clave" />
                     <Property name="consecutivo" />
@@ -105,7 +88,7 @@
                     <Property name="emisorEmail" />
                     <Property name="receptorNombre" />
                     <Property name="receptorTipoIdentif" />
-                    <Property name="recenprotNumIdentif" />
+                    <Property name="receptorNumIdentif" />
                     <Property name="receptorProvincia" />
                     <Property name="receptorCanton" />
                     <Property name="receptorDistrito" />
@@ -133,11 +116,6 @@
                     <Property name="totalImp" />
                     <Property name="totalComprobante" />
                     <Property name="otros" />
-                    <Property name="infoRefeTipoDoc" />
-                    <Property name="infoRefeNumero" />
-                    <Property name="infoRefeFechaEmision" />
-                    <Property name="infoRefeCodigo" />
-                    <Property name="infoRefeRazon" />
                     <Property name="detalles" />
                   </Properties>
                 </Property>
@@ -145,9 +123,9 @@
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="genXMLNCResponse">
+                <Property name="genXMLTeResponse">
                   <Properties>
-                    <Property name="NotaCredito" />
+                    <Property name="Tiquete" />
                   </Properties>
                 </Property>
               </Properties>
@@ -158,11 +136,11 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="475" Top="105">
+          <ExclusiveGateway ID="12" IdTop="13" IdLeft="16" IdBottom="15" IdRight="14" Left="320" Top="30">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="855" Top="255">
-            <Name>NotaCreditoCOREFault</Name>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="535" Top="275">
+            <Name>TiqueteElectronicoCOREFault</Name>
             <Message>
               <Properties>
                 <Property name="Estado" />
@@ -170,25 +148,37 @@
               </Properties>
             </Message>
             <EndResult>Error</EndResult>
-            <OutputName>NotaCreditoCOREFault</OutputName>
+            <OutputName>TiqueteElectronicoCOREFault</OutputName>
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="23" Source="16" Target="22">
+          <End ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="545" Top="30">
+            <Name>TiqueteElectronicoCOREOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Tiquete" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>TiqueteElectronicoCOREOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="11" Source="1" Target="10">
             <Assignments>
-              <Assignment type="Expression" from="99" to="NotaCreditoCOREFault/Estado" />
-              <Assignment type="Variable" from="TareaFault/Error" to="NotaCreditoCOREFault/Respuesta" />
+              <Assignment type="Variable" from="TiqueteElectronicoCOREInput" to="CreaXMLInput/genXMLTe" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="24" Source="15" Target="4" ConditionExpression="?">
+          <SequenceFlow ID="17" Source="8" Target="16" />
+          <SequenceFlow ID="36" Source="14" Target="28" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="TareaOutput/genXMLNCResponse/NotaCredito" to="NotaCredito/NotaCredito" />
+              <Assignment type="Variable" from="CreaXMLOutput/genXMLTeResponse/Tiquete" to="TiqueteElectronicoCOREOutput/Tiquete" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="25" Source="10" Target="17" />
-          <SequenceFlow ID="26" Source="6" Target="12">
+          <SequenceFlow ID="37" Source="15" Target="22">
             <Assignments>
-              <Assignment type="Variable" from="NotaCreditoCOREInput" to="TareaInput/genXMLNC" />
+              <Assignment type="Expression" from=" parametro(Error)" to="TiqueteElectronicoCOREFault/Estado" />
+              <Assignment type="Variable" from="CreaXMLFault/Error" to="TiqueteElectronicoCOREFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

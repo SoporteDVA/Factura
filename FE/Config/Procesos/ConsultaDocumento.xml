@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaDocumento</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="65" Top="95">
+            <Message>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="Clave" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1020" Top="40">
+            <Name>ConsultaDocumentoOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Fecha" />
+                <Property name="Indestado" />
+                <Property name="Respuestaxml" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaDocumentoOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="775" Top="390">
+            <Name>ConsultaDocumentoFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaDocumentoFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="182.0508" Top="95" update="False" NombreProceso="Token">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="310" Top="95">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="26" IdTop="27" IdLeft="30" IdBottom="29" IdRight="28" Left="411.0645" Top="95" update="False" NombreProceso="ConsultaFactura">
+            <Name>ConsultaDocumentoT</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="665" Top="95">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="55" IdTop="56" IdLeft="59" IdBottom="58" IdRight="57" Left="825.0162" Top="95" update="False" NombreProceso="DesencriptaOrdena">
+            <Name>ResXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaXML" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <SequenceFlow ID="18" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
+              <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
+              <Assignment type="Variable" from="ConsultaDocumentoInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="ConsultaDocumentoInput/Identificacion" to="TokenInput/Identificacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="23" />
+          <SequenceFlow ID="25" Source="22" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="TokenFault/Estado" to="ConsultaDocumentoFault/Estado" />
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="ConsultaDocumentoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="36" Source="21" Target="30" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoInput/Clave" to="ConsultaDocumentoTInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaDocumentoTInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="37" Source="28" Target="35" />
+          <SequenceFlow ID="39" Source="34" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoTFault/Estado" to="ConsultaDocumentoFault/Estado" />
+              <Assignment type="Variable" from="ConsultaDocumentoTFault/Respuesta" to="ConsultaDocumentoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="60" Source="33" Target="59" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ResXMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaDocumentoTOutput/RespuestaxmlR)) " to="ResXMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="61" Source="57" Target="6">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/ClaveR" to="ConsultaDocumentoOutput/Clave" />
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/FechaR" to="ConsultaDocumentoOutput/Fecha" />
+              <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ConsultaDocumentoOutput/Indestado" />
+              <Assignment type="Variable" from="ResXMLOutput/TramaRespuesta" to="ConsultaDocumentoOutput/Respuestaxml" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

@@ -11,7 +11,10 @@
         <GraphicalElements>
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="50" Top="55">
             <Message>
-              <Properties />
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+              </Properties>
             </Message>
           </Start>
           <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="270" Top="165" update="False" server="ConectorDGTD">
@@ -74,7 +77,7 @@
           <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="430" Top="165">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="630" Top="335">
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="705" Top="350">
             <Name>TokenLocalFault</Name>
             <Message>
               <Properties>
@@ -90,8 +93,8 @@
           <SequenceFlow ID="24" Source="5" Target="17" />
           <SequenceFlow ID="26" Source="16" Target="22">
             <Assignments>
-              <Assignment type="Variable" from="TareaFault/Fault/faultcode" to="TokenLocalFault/Estado" />
-              <Assignment type="Variable" from="TareaFault/Fault/faultstring" to="TokenLocalFault/Respuesta" />
+              <Assignment type="Expression" from=" decision( variable(TareaFault/Fault/faultcode)=&quot;&quot; ,parametro(Error) , variable(TareaFault/Fault/faultcode) )   " to="TokenLocalFault/Estado" />
+              <Assignment type="Expression" from="decision( variable(TareaFault/Fault/faultstring)=&quot;&quot; ,&quot;Problemas con el servicio de Token&quot; , variable(TareaFault/Fault/faultstring) )   " to="TokenLocalFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="65" Source="15" Target="12" ConditionExpression="?">
@@ -102,8 +105,8 @@
           </SequenceFlow>
           <SequenceFlow ID="86" Source="1" Target="7">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(username)" to="TareaInput/tokenAuth/usuarioFE" />
-              <Assignment type="Expression" from=" parametro(password)" to="TareaInput/tokenAuth/Pass" />
+              <Assignment type="Variable" from="TokenLocalInput/Usuario" to="TareaInput/tokenAuth/usuarioFE" />
+              <Assignment type="Variable" from="TokenLocalInput/Password" to="TareaInput/tokenAuth/Pass" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

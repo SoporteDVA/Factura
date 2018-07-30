@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Perfil</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="750" Top="30">
+            <Name>PerfilOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>PerfilOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="19" Source="1" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="PerfilInput/UsuarioLocal" to="PerfilOutput/UsuarioLocal" />
+              <Assignment type="Variable" from="PerfilInput/UsuarioHacienda" to="PerfilOutput/UsuarioHacienda" />
+              <Assignment type="Variable" from="PerfilInput/PasswordHacienda" to="PerfilOutput/PasswordHacienda" />
+              <Assignment type="Variable" from="PerfilInput/LocalizacionP12" to="PerfilOutput/LocalizacionP12" />
+              <Assignment type="Variable" from="PerfilInput/PinArchivo" to="PerfilOutput/PinArchivo" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

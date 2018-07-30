@@ -28,15 +28,6 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>3</ID>
-    <Nombre>Factura</Nombre>
-    <Diagrama>Factura.xml</Diagrama>
-    <Descripcion>Metodo de generacion de Factura Digital</Descripcion>
-    <Categoria>Movimientos</Categoria>
-    <UltimaModificacion>26/6/2018 19:36:21</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>4</ID>
     <Nombre>FacturaCORE</Nombre>
     <Diagrama>FacturaCORE.xml</Diagrama>
@@ -73,15 +64,6 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>8</ID>
-    <Nombre>FirmaFactura</Nombre>
-    <Diagrama>FirmaFactura.xml</Diagrama>
-    <Descripcion />
-    <Categoria>Movimientos/Core</Categoria>
-    <UltimaModificacion>29/6/2018 18:05:44</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>9</ID>
     <Nombre>FEObtenerDocumento</Nombre>
     <Diagrama>FEObtenerDocumento.xml</Diagrama>
@@ -109,18 +91,9 @@
     <Llaves />
   </Proceso>
   <Proceso>
-    <ID>12</ID>
-    <Nombre>ObtieneFactura</Nombre>
-    <Diagrama>ObtieneFactura.xml</Diagrama>
-    <Descripcion>Obtiene una factura especifica de Hacienda</Descripcion>
-    <Categoria>Movimientos/Core</Categoria>
-    <UltimaModificacion>17/07/2018 16:34:54</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>13</ID>
-    <Nombre>ConsultaComprobante</Nombre>
-    <Diagrama>ConsultaComprobante.xml</Diagrama>
+    <Nombre>DetalleComprobante</Nombre>
+    <Diagrama>DetalleComprobante.xml</Diagrama>
     <Descripcion>Permite consultar un solo comprobante por medio de la clave</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>17/07/2018 16:53:16</UltimaModificacion>
@@ -128,17 +101,17 @@
   </Proceso>
   <Proceso>
     <ID>14</ID>
-    <Nombre>ObtieneComprobantesTodos</Nombre>
-    <Diagrama>ObtieneComprobantesTodos.xml</Diagrama>
+    <Nombre>ObtieneDetalleTodos</Nombre>
+    <Diagrama>ObtieneDetalleTodos.xml</Diagrama>
     <Descripcion>Permite consultar un bloque de comprobantes o facturas</Descripcion>
-    <Categoria>Movimientos/Core</Categoria>
+    <Categoria>ProcesosPHP</Categoria>
     <UltimaModificacion>17/07/2018 6:02:31 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
   <Proceso>
     <ID>15</ID>
-    <Nombre>ConsultaComprobantesTodos</Nombre>
-    <Diagrama>ConsultaComprobantesTodos.xml</Diagrama>
+    <Nombre>DetalleComprobantesBloque</Nombre>
+    <Diagrama>DetalleComprobantesBloque.xml</Diagrama>
     <Descripcion>Consulta Bloque de comprobantes</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>17/07/2018 6:11:24 PM</UltimaModificacion>
@@ -157,7 +130,7 @@
     <ID>17</ID>
     <Nombre>MensajeReceptor</Nombre>
     <Diagrama>MensajeReceptor.xml</Diagrama>
-    <Descripcion />
+    <Descripcion>Metodo que envia el XML Mensaje Receptor a MH</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>20/07/2018 11:11:06</UltimaModificacion>
     <Llaves />
@@ -166,18 +139,9 @@
     <ID>18</ID>
     <Nombre>MensajeReceptorCORE</Nombre>
     <Diagrama>MensajeReceptorCORE.xml</Diagrama>
-    <Descripcion />
+    <Descripcion>Crea el XML del Mensaje Receptor</Descripcion>
     <Categoria>Movimientos/Core</Categoria>
     <UltimaModificacion>20/07/2018 11:15:16</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
-    <ID>19</ID>
-    <Nombre>FirmaMR</Nombre>
-    <Diagrama>FirmaMR.xml</Diagrama>
-    <Descripcion>Firma el xml </Descripcion>
-    <Categoria>ProcesosPHP</Categoria>
-    <UltimaModificacion>20/07/2018 11:19:53</UltimaModificacion>
     <Llaves />
   </Proceso>
   <Proceso>
@@ -205,6 +169,78 @@
     <Descripcion>Metodo que envia la NotaDedito a hacienda</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>23/07/2018 14:20:46</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>23</ID>
+    <Nombre>Token</Nombre>
+    <Diagrama>Token.xml</Diagrama>
+    <Descripcion>Permite obtener token inicial y almacenarloa nivel de refresh</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 3:54:52 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>24</ID>
+    <Nombre>Perfil</Nombre>
+    <Diagrama>Perfil.xml</Diagrama>
+    <Descripcion>Permite Obtener los valores del usuario indicado</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>23/07/2018 4:20:26 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>25</ID>
+    <Nombre>EnviaFactura</Nombre>
+    <Diagrama>EnviaFactura.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 5:38:37 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>26</ID>
+    <Nombre>ConsultaDocumento</Nombre>
+    <Diagrama>ConsultaDocumento.xml</Diagrama>
+    <Descripcion>Permite consultar todo tipo de documento en base al GET del MH</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>23/07/2018 6:16:33 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>27</ID>
+    <Nombre>DesencriptaOrdena</Nombre>
+    <Diagrama>DesencriptaOrdena.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>23/07/2018 7:45:08 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>28</ID>
+    <Nombre>ObtieneDetalleClave</Nombre>
+    <Diagrama>ObtieneDetalleClave.xml</Diagrama>
+    <Descripcion>Obtiene el documento de Hacienda ,muestra las notas de  Credito y Debito si las tiene</Descripcion>
+    <Categoria>ProcesosPHP</Categoria>
+    <UltimaModificacion>24/07/2018 10:02:06</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>29</ID>
+    <Nombre>EnviaTiqueteElectronico</Nombre>
+    <Diagrama>EnviaTiqueteElectronico.xml</Diagrama>
+    <Descripcion>Metodo que envia el XML Tiquete Electronico a MH</Descripcion>
+    <Categoria>Movimientos</Categoria>
+    <UltimaModificacion>24/07/2018 15:12:48</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>30</ID>
+    <Nombre>TiqueteElectronicoCORE</Nombre>
+    <Diagrama>TiqueteElectronicoCORE.xml</Diagrama>
+    <Descripcion>Crea el XML del Tiquete Electronico</Descripcion>
+    <Categoria>Movimientos/Core</Categoria>
+    <UltimaModificacion>24/07/2018 15:20:19</UltimaModificacion>
     <Llaves />
   </Proceso>
 </ProcesoDS>

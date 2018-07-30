@@ -3,7 +3,7 @@
     <ID>1</ID>
     <Nombre>FE</Nombre>
     <Tipo>Infoware.STX.Middleware.Canales.CanalTCP</Tipo>
-    <UltimaModificacion>2018-07-23T14:59:21.573570-06:00</UltimaModificacion>
+    <UltimaModificacion>2018-07-24T18:49:11.744748-06:00</UltimaModificacion>
     <Descripcion>Publica los metodos para consumo del proyecto FE</Descripcion>
     <Propiedades xmlns="">
       <Activo>true</Activo>

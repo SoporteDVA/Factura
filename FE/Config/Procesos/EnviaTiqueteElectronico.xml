@@ -1,0 +1,486 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>EnviaTiqueteElectronico</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>24/07/2018</CreationDate>
+  <ModificationDate>24/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="-25" Top="15">
+            <Message>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Servicio" />
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="Situacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+              </Properties>
+            </Message>
+          </Start>
+          <Subprocess ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="35" Top="85" update="False" NombreProceso="Perfil">
+            <Name>Perfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="UsuarioLocal" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="LocalizacionP12" />
+                <Property name="PinArchivo" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="9" IdTop="10" IdLeft="13" IdBottom="12" IdRight="11" Left="110" Top="85">
+            <Name>OkP</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="445" Top="85" update="False" NombreProceso="Token">
+            <Name>Token</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Usuario" />
+                <Property name="Password" />
+                <Property name="UsuarioLocal" />
+                <Property name="Identificacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Token" />
+                <Property name="FechaFormato" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="540" Top="85">
+            <Name>OkT</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="635" Top="85" update="False" NombreProceso="TiqueteElectronicoCORE">
+            <Name>CreaXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="meisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="otros" />
+                <Property name="detalles" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Tiquete" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="36" IdTop="37" IdLeft="40" IdBottom="39" IdRight="38" Left="750" Top="85">
+            <Name>OkC</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="42" IdTop="43" IdLeft="46" IdBottom="45" IdRight="44" Left="835" Top="85" update="False" NombreProceso="FirmaXML">
+            <Name>FirmarXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="p12Url" />
+                <Property name="pinP12" />
+                <Property name="inXml" />
+                <Property name="tipoDoc" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="xmlOUT" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="955" Top="85">
+            <Name>OkF</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="54" IdTop="55" IdLeft="58" IdBottom="57" IdRight="56" Left="1035" Top="85" update="False" NombreProceso="EnviaFAC">
+            <Name>EnviaXML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="fecha" />
+                <Property name="emi_tipoid" />
+                <Property name="emi_identificacion" />
+                <Property name="recp_tipoid" />
+                <Property name="recp_identificacion" />
+                <Property name="XMLIN" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="60" IdTop="61" IdLeft="64" IdBottom="63" IdRight="62" Left="1165" Top="85">
+            <Name>OkE</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="66" IdTop="67" IdLeft="70" IdBottom="69" IdRight="68" Left="1250" Top="85" update="False" NombreProceso="ConsultaFactura">
+            <Name>ConsultaFacOK</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="72" IdTop="73" IdLeft="76" IdBottom="75" IdRight="74" Left="1395" Top="85">
+            <Name>OkCF</Name>
+          </ExclusiveGateway>
+          <End ID="78" IdTop="79" IdLeft="82" IdBottom="81" IdRight="80" Left="1485" Top="20">
+            <Name>EnviaTiqueteElectronicoOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="RespuestaXML" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>EnviaTiqueteElectronicoOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="83" IdTop="84" IdLeft="87" IdBottom="86" IdRight="85" Left="1380" Top="400">
+            <Name>EnviaTiqueteElectronicoFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>EnviaTiqueteElectronicoFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="110" IdTop="111" IdLeft="114" IdBottom="113" IdRight="112" Left="1220" Top="280">
+            <Name>OkFac</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="115" IdTop="116" IdLeft="119" IdBottom="118" IdRight="117" Left="1202.168" Top="210" update="False" NombreProceso="ConsultaFactura">
+            <Name>ConsultaFac</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="clave" />
+                <Property name="token" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ClaveR" />
+                <Property name="FechaR" />
+                <Property name="IndestadoR" />
+                <Property name="RespuestaxmlR" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="123" IdTop="124" IdLeft="127" IdBottom="126" IdRight="125" Left="198.8542" Top="85" update="False" NombreProceso="FEObtenerDocumento">
+            <Name>Consecutivo</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Servicio" />
+                <Property name="TipoDoc" />
+                <Property name="Usuario" />
+                <Property name="Identificacion" />
+                <Property name="Fecha" />
+                <Property name="Situacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="Consecutivo" />
+                <Property name="Detalles" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="128" IdTop="129" IdLeft="132" IdBottom="131" IdRight="130" Left="335" Top="85">
+            <Name>OkCon</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="8" Source="1" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="PerfilInput/UsuarioLocal" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="PerfilInput/Identificacion" />
+              <Assignment type="Expression" from=" parametro(username)" to="PerfilInput/UsuarioHacienda" />
+              <Assignment type="Expression" from=" parametro(password)" to="PerfilInput/PasswordHacienda" />
+              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="PerfilInput/LocalizacionP12" />
+              <Assignment type="Expression" from="&quot;1977&quot;" to="PerfilInput/PinArchivo" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="14" Source="5" Target="13" />
+          <SequenceFlow ID="23" Source="11" Target="127" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Cliente" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Servicio" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="&quot;TE&quot;" to="ConsecutivoInput/TipoDoc" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Situacion" to="ConsecutivoInput/Situacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="29" Source="20" Target="28" />
+          <SequenceFlow ID="35" Source="26" Target="34" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="CreaXMLInput/clave" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="CreaXMLInput/consecutivo" />
+              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="CreaXMLInput/fechaEmision" />
+              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="CreaXMLInput/emisorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/emisorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;109660018&quot;" to="CreaXMLInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;Alonso&quot;" to="CreaXMLInput/nombreComercial" />
+              <Assignment type="Expression" from="1" to="CreaXMLInput/emisorProv" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="CreaXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/emisorBarrio" />
+              <Assignment type="Expression" from="&quot;parque&quot;" to="CreaXMLInput/emisorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="CreaXMLInput/emisorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="CreaXMLInput/emisorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="CreaXMLInput/emisorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;86091954&quot;" to="CreaXMLInput/emisorFax" />
+              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="CreaXMLInput/emisorEmail" />
+              <Assignment type="Expression" from="&quot;Geiner Romero&quot;" to="CreaXMLInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="CreaXMLInput/receptorNumIdentif" />
+              <Assignment type="Expression" from="1" to="CreaXMLInput/receptorProvincia" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorCanton" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorDistrito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/receptorBarrio" />
+              <Assignment type="Expression" from="&quot;centro&quot;" to="CreaXMLInput/receptorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="CreaXMLInput/receptorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="CreaXMLInput/receptorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="CreaXMLInput/receptorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;66558899&quot;" to="CreaXMLInput/receptorFax" />
+              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="CreaXMLInput/receptorEmail" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/condVenta" />
+              <Assignment type="Expression" from="&quot;0&quot;" to="CreaXMLInput/plazoCredito" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/medioPago" />
+              <Assignment type="Expression" from="&quot;USD&quot;" to="CreaXMLInput/codMoneda" />
+              <Assignment type="Expression" from="&quot;574.00&quot;" to="CreaXMLInput/tipoCambio" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalServGravados" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalServExentos" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalMercGravadas" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalMercExentas" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalGravados" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalExentos" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalVentas" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalDescuentos" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalVentasNeta" />
+              <Assignment type="Expression" from="0" to="CreaXMLInput/totalImp" />
+              <Assignment type="Expression" from="&quot;65&quot;" to="CreaXMLInput/totalComprobante" />
+              <Assignment type="Expression" from="&quot;PRUEBA TIQUETE ELECTRONICO&quot;" to="CreaXMLInput/otros" />
+              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="CreaXMLInput/detalles" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="41" Source="32" Target="40" />
+          <SequenceFlow ID="47" Source="38" Target="46" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmarXMLInput/p12Url" />
+              <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmarXMLInput/pinP12" />
+              <Assignment type="Variable" from="CreaXMLOutput/Tiquete" to="FirmarXMLInput/inXml" />
+              <Assignment type="Expression" from="&quot;TE&quot;" to="FirmarXMLInput/tipoDoc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="53" Source="44" Target="52" />
+          <SequenceFlow ID="59" Source="50" Target="58" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="EnviaXMLInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/FechaFormato" to="EnviaXMLInput/fecha" />
+              <Assignment type="Variable" from="CreaXMLInput/emisorTipoIdentif" to="EnviaXMLInput/emi_tipoid" />
+              <Assignment type="Variable" from="CreaXMLInput/emisorNumIdentif" to="EnviaXMLInput/emi_identificacion" />
+              <Assignment type="Variable" from="CreaXMLInput/receptorTipoIdentif" to="EnviaXMLInput/recp_tipoid" />
+              <Assignment type="Variable" from="CreaXMLInput/receptorNumIdentif" to="EnviaXMLInput/recp_identificacion" />
+              <Assignment type="Variable" from="FirmarXMLOutput/xmlOUT" to="EnviaXMLInput/XMLIN" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="EnviaXMLInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="65" Source="56" Target="64" />
+          <SequenceFlow ID="71" Source="62" Target="70" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="CreaXMLInput/clave" to="ConsultaFacOKInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="77" Source="68" Target="76" />
+          <SequenceFlow ID="88" Source="12" Target="86">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Expression" from="&quot;Problemas con el Perfil&quot;" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="89" Source="74" Target="81" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaTiqueteElectronicoOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="EnviaTiqueteElectronicoOutput/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="93" Source="27" Target="86">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Expression" from="&quot;Problemas con el Token&quot;" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="94" Source="39" Target="86">
+            <Assignments>
+              <Assignment type="Variable" from="CreaXMLFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="CreaXMLFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="95" Source="51" Target="86">
+            <Assignments>
+              <Assignment type="Variable" from="FirmarXMLFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="FirmarXMLFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="96" Source="63" Target="119">
+            <Assignments>
+              <Assignment type="Variable" from="CreaXMLInput/clave" to="ConsultaFacInput/clave" />
+              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacInput/token" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="109" Source="75" Target="85">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOKFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="120" Source="118" Target="111" />
+          <SequenceFlow ID="121" Source="113" Target="87">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="122" Source="112" Target="81" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="EnviaTiqueteElectronicoOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="EnviaTiqueteElectronicoOutput/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="133" Source="125" Target="132" />
+          <SequenceFlow ID="134" Source="130" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="TokenInput/Identificacion" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="135" Source="131" Target="86">
+            <Assignments>
+              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
+              <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

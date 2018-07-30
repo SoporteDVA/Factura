@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>DesencriptaOrdena</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>23/07/2018</CreationDate>
+  <ModificationDate>23/07/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="75" Top="130">
+            <Message>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaXML" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="755" Top="130">
+            <Name>DesencriptaOrdenaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>DesencriptaOrdenaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Transformation ID="24" IdTop="0" IdLeft="26" IdBottom="0" IdRight="25" Left="400" Top="130">
+            <Name>Transformacion</Name>
+            <xsl:stylesheet version="1.0" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+              <xsl:template match="variables" xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+                <TransformacionOutput>
+                  <xsl:variable name="Trama" select="substring-before(DesencriptaOrdenaInput/TramaXML,'&lt;ds:Signature Id=')" />
+                  <TramaRHacienda>
+                    <xsl:value-of select="substring($Trama,137,1000)" />
+                  </TramaRHacienda>
+                </TransformacionOutput>
+              </xsl:template>
+            </xsl:stylesheet>
+            <Message>
+              <Properties>
+                <Property name="TramaRHacienda" />
+              </Properties>
+            </Message>
+          </Transformation>
+          <SequenceFlow ID="27" Source="1" Target="26" />
+          <SequenceFlow ID="40" Source="25" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="DesencriptaOrdenaInput/IndestadoR" to="DesencriptaOrdenaOutput/IndestadoR" />
+              <Assignment type="Variable" from="TransformacionOutput/TramaRHacienda" to="DesencriptaOrdenaOutput/TramaRespuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

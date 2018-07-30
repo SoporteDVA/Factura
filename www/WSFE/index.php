@@ -258,13 +258,13 @@ function tokenAuth($usuarioFE, $Pass)
 
 }
 
-function genXMLTe($clave,$consecutivo ,$fechaEmision ,$emisorNombre ,$emisorTipoIdentif ,$emisorNumIdentif ,
-$nombreComercial ,$emisorProv ,$meisorCanton ,$emisorDistrito ,$emisorBarrio ,$emisorOtrasSenas ,$emisorCodPaisTel ,
-$emisorTel ,$emisorCodPaisFax ,$emisorFax ,$emisorEmail ,$receptorNombre ,$receptorTipoIdentif ,$recenprotNumIdentif ,
-$receptorProvincia ,$receptorCanton ,$receptorDistrito ,$receptorBarrio ,$receptorOtrasSenas ,$receptorCodPaisTel ,
-$receptorTel ,$receptorCodPaisFax ,$receptorFax ,$receptorEmail ,$condVenta ,$plazoCredito ,$medioPago ,$codMoneda ,
-$tipoCambio ,$totalServGravados ,$totalServExentos ,$totalMercGravadas ,$totalMercExentas ,$totalGravados ,
-$totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$otros,$detalles)
+function genXMLTe($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
+$nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
+$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $receptorNumIdentif,
+$receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
+$receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
+$tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
+$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, $otros,$detalles)
  {
     
      //detalles de la compra
@@ -275,63 +275,61 @@ $detalles = json_decode($detalles);
 //GENERA XML TIQUETE ELECTRONICO
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
-        <TiqueteElectronico xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2007/XMLSchema-versioning" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico">
-            <Clave>' . $clave . '</Clave>
-            <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
-            <FechaEmision>' . $fechaEmision . '</FechaEmision>
-            <Emisor>
-                <Nombre>' . $emisorNombre . '</Nombre>
-                <Identificacion>
-                    <Tipo>' . $emisorTipoIdentif . '</Tipo>
-                    <Numero>' . $emisorNumIdentif . '</Numero>
-                </Identificacion>
-                <NombreComercial>' . $nombreComercial . '</NombreComercial>
-                <Ubicacion>
-                    <Provincia>' . $emisorProv . '</Provincia>
-                    <Canton>' . $meisorCanton . '</Canton>
-                    <Distrito>' . $emisorDistrito . '</Distrito>
-                    <Barrio>' . $emisorBarrio . '</Barrio>
-                    <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
-                </Ubicacion>
-                <Telefono>
-                    <CodigoPais>' . $emisorCodPaisTel . '</CodigoPais>
-                    <NumTelefono>' . $emisorTel . '</NumTelefono>
-                </Telefono>
-                <Fax>
-                    <CodigoPais>' . $emisorCodPaisFax . '</CodigoPais>
-                    <NumTelefono>' . $emisorFax . '</NumTelefono>
-                </Fax>
-                <CorreoElectronico>' . $emisorEmail . '</CorreoElectronico>
-            </Emisor>
-            <Receptor>
-                <Nombre>' . $receptorNombre . '</Nombre>
-                <Identificacion>
-                    <Tipo>' . $receptorTipoIdentif . '</Tipo>
-                    <Numero>' . $recenprotNumIdentif . '</Numero>
-                </Identificacion>
-                <Ubicacion>
-                    <Provincia>' . $receptorProvincia . '</Provincia>
-                    <Canton>' . $receptorCanton . '</Canton>
-                    <Distrito>' . $receptorDistrito . '</Distrito>
-                    <Barrio>' . $receptorBarrio . '</Barrio>
-                    <OtrasSenas>' . $receptorOtrasSenas . '</OtrasSenas>
-                </Ubicacion>
-                <Telefono>
-                    <CodigoPais>' . $receptorCodPaisTel . '</CodigoPais>
-                    <NumTelefono>' . $receptorTel . '</NumTelefono>
-                </Telefono>
-                <Fax>
-                    <CodigoPais>' . $receptorCodPaisFax . '</CodigoPais>
-                    <NumTelefono>' . $receptorFax . '</NumTelefono>
-                </Fax>
-                <CorreoElectronico>' . $receptorEmail . '</CorreoElectronico>
-            </Receptor>
-            <CondicionVenta>' . $condVenta . '</CondicionVenta>
-            <PlazoCredito>' . $plazoCredito . '</PlazoCredito>
-            <MedioPago>' . $medioPago . '</MedioPago>
-            <DetalleServicio>
-            ';
-        //cant - unidad medida - detalle - precio unitario - monto total - subtotal - monto total linea - Monto desc -Naturaleza Desc - Impuesto : Codigo / Tarifa / Monto
+        <TiqueteElectronico xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/tiqueteElectronico TiqueteElectronico_V4.2.xsd">
+        <Clave>' . $clave . '</Clave>
+        <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
+        <FechaEmision>' . $fechaEmision . '</FechaEmision>
+        <Emisor>
+            <Nombre>' . $emisorNombre . '</Nombre>
+            <Identificacion>
+                <Tipo>' . $emisorTipoIdentif . '</Tipo>
+                <Numero>' . $emisorNumIdentif . '</Numero>
+            </Identificacion>
+            <NombreComercial>' . $nombreComercial . '</NombreComercial>
+            <Ubicacion>
+                <Provincia>' . $emisorProv . '</Provincia>
+                <Canton>' . $meisorCanton . '</Canton>
+                <Distrito>' . $emisorDistrito . '</Distrito>
+                <Barrio>' . $emisorBarrio . '</Barrio>
+                <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
+            </Ubicacion>
+            <Telefono>
+                <CodigoPais>' . $emisorCodPaisTel . '</CodigoPais>
+                <NumTelefono>' . $emisorTel . '</NumTelefono>
+            </Telefono>
+            <Fax>
+                <CodigoPais>' . $emisorCodPaisFax . '</CodigoPais>
+                <NumTelefono>' . $emisorFax . '</NumTelefono>
+            </Fax>
+            <CorreoElectronico>' . $emisorEmail . '</CorreoElectronico>
+        </Emisor>
+        <Receptor>
+            <Nombre>' . $receptorNombre . '</Nombre>
+            <Identificacion>
+                <Tipo>' . $receptorTipoIdentif . '</Tipo>
+                <Numero>' . $receptorNumIdentif . '</Numero>
+            </Identificacion>
+            <Ubicacion>
+                <Provincia>' . $receptorProvincia . '</Provincia>
+                <Canton>' . $receptorCanton . '</Canton>
+                <Distrito>' . $receptorDistrito . '</Distrito>
+                <Barrio>' . $receptorBarrio . '</Barrio>
+                <OtrasSenas>' . $receptorOtrasSenas . '</OtrasSenas>
+            </Ubicacion>
+            <Telefono>
+                <CodigoPais>' . $receptorCodPaisTel . '</CodigoPais>
+                <NumTelefono>' . $receptorTel . '</NumTelefono>
+            </Telefono>
+            <Fax>
+                <CodigoPais>' . $receptorCodPaisFax . '</CodigoPais>
+                <NumTelefono>' . $receptorFax . '</NumTelefono>
+            </Fax>
+            <CorreoElectronico>' . $receptorEmail . '</CorreoElectronico>
+        </Receptor>
+        <CondicionVenta>' . $condVenta . '</CondicionVenta>
+        <PlazoCredito>' . $plazoCredito . '</PlazoCredito>
+        <MedioPago>' . $medioPago . '</MedioPago>
+        <DetalleServicio>';
         
         /* EJEMPLO DE DETALLES
           {
@@ -362,8 +360,7 @@ $detalles = json_decode($detalles);
                     <Tarifa>' . $i->tarifa . '</Tarifa>
                     <Monto>' . $i->monto . '</Monto>';
                     if(isset($i->exoneracion) && $i->exoneracion!=""){
-                        $xmlString .= '
-                        <Exoneracion>
+                        $xmlString .= '<Exoneracion>
                             <TipoDocumento>' . $i->exoneracion->tipoDocumento . '</TipoDocumento>
                             <NumeroDocumento>' . $i->exoneracion->numeroDocumento . '</NumeroDocumento>
                             <NombreInstitucion>' . $i->exoneracion->nombreInstitucion . '</NombreInstitucion>
@@ -382,7 +379,7 @@ $detalles = json_decode($detalles);
             $l++;
         }
         $xmlString .= '</DetalleServicio>
-            <ResumenFactura>
+        <ResumenFactura>
             <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
             <TipoCambio>' . $tipoCambio . '</TipoCambio>
             <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
@@ -396,14 +393,14 @@ $detalles = json_decode($detalles);
             <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
             <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
             <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
-            </ResumenFactura>
-            <Normativa>
+        </ResumenFactura>
+        <Normativa>
             <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
             <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
-            </Normativa>
-            <Otros>
+        </Normativa>
+        <Otros>
             <OtroTexto>' . $otros . '</OtroTexto>
-            </Otros>
+        </Otros>
             </TiqueteElectronico>';
 
             $arrayResp = base64_encode($xmlString);
@@ -427,8 +424,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
     //return $detalles;
 
 
-    $xmlString = '<?xml version = "1.0" encoding = "utf-8"
-        ?>
+    $xmlString = '<?xml version = "1.0" encoding = "utf-8"?>
 <NotaCreditoElectronica xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/notaCreditoElectronica" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/notaCreditoElectronica NotaCreditoElectronica_V4.2.xsd">
     <Clave>' . $clave . '</Clave>
     <NumeroConsecutivo>' . $consecutivo . '</NumeroConsecutivo>
@@ -752,7 +748,7 @@ xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
         
     } else {
       
-       $xmlString2 ='<?xml version="2.0" encoding="utf-8"?>
+       $xmlString2 ='<?xml version="1.0" encoding="utf-8"?>
         <MensajeReceptor xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/mensajeReceptor">
             <Clave>' . $clave . '</Clave>
             <NumeroCedulaEmisor>' . $NumeroCedulaEmisor . '</NumeroCedulaEmisor>
@@ -828,64 +824,6 @@ function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
     return $returnFile;
 }
 
-
-//FUNCION QUE FIRMA EL MENSAJE RECEPTOR
-
-function signMR($p12Url,$pinP12,$inXml,$tipoDoc) {
-    require 'Firmador/Firmadohaciendacr.php';
-    //modules_loader("files");
-    $p12Url = 'Firmas/010966001806.p12';
-    $pinP12 = '1977';
-    $inXml = $inXml;
-    $tipoDoc = 'CCE';
-    $tipoDocumento;
-    $tipos = array("FE", "ND", "NC", "TE","CCE","CPCE","RCE");
-    if (in_array($tipoDoc, $tipos)) {
-        switch ($tipoDoc) {
-            case 'FE': //Factura Electronica
-                $tipoDocumento = "01";
-                break;
-            case 'ND': // Nota de Debito
-                $tipoDocumento = "02";
-                break;
-            case 'NC': // Nota de Credito
-                $tipoDocumento = "03";
-                break;
-            case 'TE': // Tiquete Electronico
-                $tipoDocumento = "04";
-                break;
-            case 'CCE': // Confirmacion Comprabante Electronico
-                $tipoDocumento = "05";
-                break;
-            case 'CPCE': // Confirmacion Parcial Comprbante Electronico
-                $tipoDocumento = "06";
-                break;
-            case 'RCE': // Rechazo Comprobante Electronico
-                $tipoDocumento = "07";
-                break;
-        }
-    } else {
-        return "No se encuentra tipo de documento";
-    }
-
-
-    $fac = new Firmadocr();
-    //$inXmlUrl debe de ser en Base64 
-    //$p12Url es un downloadcode previamente suministrado al subir el certificado en el modulo fileUploader -> subir_certif
-    //Tipo es el tipo de documento 
-    //01 FE
-    //02 ND
-    //03 NC
-    //04 TE
-    //05 06 07 Mensaje Receptor
-
-    $returnFile = $fac->firmar($p12Url, $pinP12, $inXml, $tipoDocumento);
-    //$arrayResp = array(
-      //  "xmlFirmado" => $returnFile
-    //);
-
-    return $returnFile;
-}
 
 
 
@@ -971,7 +909,7 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
     
     curl_close($curl);
     
-    return $mensaje;
+    return $Estado;
     
     }
 
@@ -1073,9 +1011,9 @@ function ConsultaComprobante($clave, $token)
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
-            //$salida = json_to_xml($result);
+            $salida = json_to_xml($result);
             
-            return $result;//$salida;
+            return $salida;
         }
 
         
@@ -1100,8 +1038,12 @@ function ObtieneFactura($clave, $token)
             );
     
             $context  = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);        
-            if (!$result = file_get_contents($url, false, $context)) {
+            $result = file_get_contents($url, false, $context);  
+            $json_data = json_decode($result, true);
+
+            if($json_data === NULL) 
+            
+             {
             $error = error_get_last();
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
             } else {
@@ -1262,9 +1204,9 @@ $soapclient->register('genXMLTe', array(
     'emisorCodPaisFax' => 'xsd:string',
     'emisorFax' => 'xsd:string',
     'emisorEmail' => 'xsd:string',
-    'receptorNombre' => 'xsd:string', 
+    'receptorNombre' => 'xsd:string',
     'receptorTipoIdentif' => 'xsd:string',
-    'recenprotNumIdentif' => 'xsd:string',
+    'receptorNumIdentif' => 'xsd:string',
     'receptorProvincia' => 'xsd:string',
     'receptorCanton' => 'xsd:string',
     'receptorDistrito' => 'xsd:string',
@@ -1291,8 +1233,8 @@ $soapclient->register('genXMLTe', array(
     'totalVentasNeta' => 'xsd:string',
     'totalImp' => 'xsd:string',
     'totalComprobante' => 'xsd:string',
-    'otros'=> 'xsd:string',
-    'detalles'=> 'xsd:string'
+    'otros' => 'xsd:string',
+    'detalles' => 'xsd:string',
     ), array(
         'Tiquete' => 'xsd:string'
     ), $ns);
@@ -1439,11 +1381,7 @@ $soapclient->register('signFE', array(
     'xmlOUT' => 'xsd:string'
 ), $ns);
 
-$soapclient->register('signMR', array(
-    'p12Url' => 'xsd:string','pinP12' => 'xsd:string' ,'inXml' => 'xsd:string','tipoDoc' => 'xsd:string'
-), array(
-    'xmlOUT' => 'xsd:string'
-), $ns);
+
 $soapclient->register('EnviaFAC',
 array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','token'=>'xsd:string' ),
 array('Estado' => 'xsd:string'),
