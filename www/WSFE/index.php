@@ -106,7 +106,8 @@ function tokenAuth($usuarioFE, $Pass)
     $receptorProvincia ,$receptorCanton ,$receptorDistrito ,$receptorBarrio ,$receptorOtrasSenas ,$receptorCodPaisTel ,
     $receptorTel ,$receptorCodPaisFax ,$receptorFax ,$receptorEmail ,$condVenta ,$plazoCredito ,$medioPago ,$codMoneda ,
     $tipoCambio ,$totalServGravados ,$totalServExentos ,$totalMercGravadas ,$totalMercExentas ,$totalGravados ,
-    $totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$otros,$detalles)
+    $totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$infoRefeTipoDoc, $infoRefeNumero,
+    $infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$otros,$detalles)
      {
         
          //detalles de la compra
@@ -221,7 +222,9 @@ function tokenAuth($usuarioFE, $Pass)
             $xmlString .= '</LineaDetalle>';
             $l++;
         }
-        $xmlString .= '</DetalleServicio>
+
+        if ($infoRefeTipoDoc=="" )
+        {$xmlString .= '</DetalleServicio>
             <ResumenFactura>
             <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
             <TipoCambio>' . $tipoCambio . '</TipoCambio>
@@ -244,7 +247,41 @@ function tokenAuth($usuarioFE, $Pass)
             <Otros>
             <OtroTexto>' . $otros . '</OtroTexto>
             </Otros>
-            </FacturaElectronica>';
+            </FacturaElectronica>';}
+
+            ELSE
+
+           { $xmlString .= '</DetalleServicio>
+            <ResumenFactura>
+            <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
+            <TipoCambio>' . $tipoCambio . '</TipoCambio>
+            <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
+            <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
+            <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
+            <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
+            <TotalGravado>' . $totalGravados . '</TotalGravado>
+            <TotalExento>' . $totalExentos . '</TotalExento>
+            <TotalVenta>' . $totalVentas . '</TotalVenta>
+            <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
+            <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
+            <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
+            <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
+            </ResumenFactura>
+            <InformacionReferencia>
+            <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
+            <Numero>' . $infoRefeNumero . '</Numero>
+            <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
+            <Codigo>' . $infoRefeCodigo . '</Codigo>
+            <Razon>' . $infoRefeRazon . '</Razon>
+           </InformacionReferencia>
+            <Normativa>
+            <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
+            <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
+            </Normativa>
+            <Otros>
+            <OtroTexto>' . $otros . '</OtroTexto>
+            </Otros>
+            </FacturaElectronica>';}
        // $arrayResp = array(
          //   "clave" => $clave,
            // "xml" => base64_encode($xmlString)
@@ -264,7 +301,8 @@ $emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $recep
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
 $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
-$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, $otros,$detalles)
+$totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante,$infoRefeTipoDoc, $infoRefeNumero,
+$infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$otros,$detalles)
  {
     
      //detalles de la compra
@@ -378,7 +416,9 @@ $detalles = json_decode($detalles);
             $xmlString .= '</LineaDetalle>';
             $l++;
         }
-        $xmlString .= '</DetalleServicio>
+
+        if ($infoRefeTipoDoc=="" )
+        {$xmlString .= '</DetalleServicio>
         <ResumenFactura>
             <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
             <TipoCambio>' . $tipoCambio . '</TipoCambio>
@@ -401,10 +441,46 @@ $detalles = json_decode($detalles);
         <Otros>
             <OtroTexto>' . $otros . '</OtroTexto>
         </Otros>
-            </TiqueteElectronico>';
+            </TiqueteElectronico>';}
+
+            else
+
+            {$xmlString .= '</DetalleServicio>
+        <ResumenFactura>
+            <CodigoMoneda>' . $codMoneda . '</CodigoMoneda>
+            <TipoCambio>' . $tipoCambio . '</TipoCambio>
+            <TotalServGravados>' . $totalServGravados . '</TotalServGravados>
+            <TotalServExentos>' . $totalServExentos . '</TotalServExentos>
+            <TotalMercanciasGravadas>' . $totalMercGravadas . '</TotalMercanciasGravadas>
+            <TotalMercanciasExentas>' . $totalMercExentas . '</TotalMercanciasExentas>
+            <TotalGravado>' . $totalGravados . '</TotalGravado>
+            <TotalExento>' . $totalExentos . '</TotalExento>
+            <TotalVenta>' . $totalVentas . '</TotalVenta>
+            <TotalDescuentos>' . $totalDescuentos . '</TotalDescuentos>
+            <TotalVentaNeta>' . $totalVentasNeta . '</TotalVentaNeta>
+            <TotalImpuesto>' . $totalImp . '</TotalImpuesto>
+            <TotalComprobante>' . $totalComprobante . '</TotalComprobante>
+        </ResumenFactura>
+            <InformacionReferencia>
+            <TipoDoc>' . $infoRefeTipoDoc . '</TipoDoc>
+            <Numero>' . $infoRefeNumero . '</Numero>
+            <FechaEmision>' . $infoRefeFechaEmision . '</FechaEmision>
+            <Codigo>' . $infoRefeCodigo . '</Codigo>
+            <Razon>' . $infoRefeRazon . '</Razon>
+       </InformacionReferencia>
+        <Normativa>
+            <NumeroResolucion>DGT-R-48-2016</NumeroResolucion>
+            <FechaResolucion>07-10-2016 08:00:00</FechaResolucion>
+        </Normativa>
+        <Otros>
+            <OtroTexto>' . $otros . '</OtroTexto>
+        </Otros>
+            </TiqueteElectronico>';}
 
             $arrayResp = base64_encode($xmlString);
        return $arrayResp;
+
+      
 
     }
 
@@ -1177,6 +1253,11 @@ $soapclient->register('genXMLFe', array(
     'totalVentasNeta' => 'xsd:string',
     'totalImp' => 'xsd:string',
     'totalComprobante' => 'xsd:string',
+    'infoRefeTipoDoc' => 'xsd:string',
+    'infoRefeNumero' => 'xsd:string',
+    'infoRefeFechaEmision' => 'xsd:string',
+    'infoRefeCodigo' => 'xsd:string',
+    'infoRefeRazon' => 'xsd:string',
     'otros'=> 'xsd:string',
     'detalles'=> 'xsd:string'
     ), array(
@@ -1233,6 +1314,11 @@ $soapclient->register('genXMLTe', array(
     'totalVentasNeta' => 'xsd:string',
     'totalImp' => 'xsd:string',
     'totalComprobante' => 'xsd:string',
+    'infoRefeTipoDoc' => 'xsd:string',
+    'infoRefeNumero' => 'xsd:string',
+    'infoRefeFechaEmision' => 'xsd:string',
+    'infoRefeCodigo' => 'xsd:string',
+    'infoRefeRazon' => 'xsd:string',
     'otros' => 'xsd:string',
     'detalles' => 'xsd:string',
     ), array(

@@ -85,6 +85,11 @@
                 <Property name="totalVentasNeta" />
                 <Property name="totalImp" />
                 <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
                 <Property name="otros" />
                 <Property name="detalles" />
               </Properties>
