@@ -123,6 +123,11 @@
                 <Property name="totalVentasNeta" />
                 <Property name="totalImp" />
                 <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
                 <Property name="otros" />
                 <Property name="detalles" />
               </Properties>
@@ -436,7 +441,7 @@
           <SequenceFlow ID="89" Source="74" Target="137" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
-              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="XMLInput/TramaXML" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="93" Source="27" Target="86">
@@ -479,7 +484,7 @@
           <SequenceFlow ID="122" Source="112" Target="140" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
-              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="XMLInput/TramaXML" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="133" Source="125" Target="132" />
