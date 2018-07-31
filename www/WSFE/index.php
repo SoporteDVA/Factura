@@ -1116,13 +1116,18 @@ function ObtieneFactura($clave, $token)
             $context  = stream_context_create($options);
             $result = file_get_contents($url, false, $context);  
             $json_data = json_decode($result, true);
+ 
 
-            if($json_data === NULL) 
+           if($json_data === NULL) 
             
-             {
+            {
             $error = error_get_last();
             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-            } else {
+            } 
+         
+    
+            
+            else {
              $EstadoC = json_decode($result);
              /* $ClaveR = $EstadoC->{'clave'};
              $FechaR = $EstadoC->{'fecha'};
