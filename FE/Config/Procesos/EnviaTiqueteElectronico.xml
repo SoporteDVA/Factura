@@ -222,7 +222,7 @@
           <ExclusiveGateway ID="72" IdTop="73" IdLeft="76" IdBottom="75" IdRight="74" Left="1395" Top="85">
             <Name>OkCF</Name>
           </ExclusiveGateway>
-          <End ID="78" IdTop="79" IdLeft="82" IdBottom="81" IdRight="80" Left="1485" Top="20">
+          <End ID="78" IdTop="79" IdLeft="82" IdBottom="81" IdRight="80" Left="1625" Top="15">
             <Name>EnviaTiqueteElectronicoOutput</Name>
             <Message>
               <Properties>
@@ -304,6 +304,24 @@
           <ExclusiveGateway ID="128" IdTop="129" IdLeft="132" IdBottom="131" IdRight="130" Left="335" Top="85">
             <Name>OkCon</Name>
           </ExclusiveGateway>
+          <Subprocess ID="136" IdTop="137" IdLeft="140" IdBottom="139" IdRight="138" Left="1511.872" Top="280" update="False" NombreProceso="DesencriptaOrdena">
+            <Name>XML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaXML" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="8" Source="1" Target="7">
             <Assignments>
               <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="PerfilInput/UsuarioLocal" />
@@ -415,10 +433,10 @@
               <Assignment type="Expression" from="&quot;Problemas con el Perfil&quot;" to="EnviaTiqueteElectronicoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="89" Source="74" Target="81" ConditionExpression="?">
+          <SequenceFlow ID="89" Source="74" Target="137" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaTiqueteElectronicoOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="EnviaTiqueteElectronicoOutput/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/RespuestaxmlR" to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="93" Source="27" Target="86">
@@ -458,10 +476,10 @@
               <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="122" Source="112" Target="81" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="122" Source="112" Target="140" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="EnviaTiqueteElectronicoOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="EnviaTiqueteElectronicoOutput/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Variable" from="ConsultaFacOutput/RespuestaxmlR" to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="133" Source="125" Target="132" />
@@ -477,6 +495,12 @@
             <Assignments>
               <Assignment type="Variable" from="ConsecutivoFault/Estado" to="EnviaTiqueteElectronicoFault/Estado" />
               <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="141" Source="138" Target="81">
+            <Assignments>
+              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="EnviaTiqueteElectronicoOutput/Estado" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaTiqueteElectronicoOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

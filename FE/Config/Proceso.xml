@@ -157,7 +157,7 @@
     <ID>21</ID>
     <Nombre>NotaCredito</Nombre>
     <Diagrama>NotaCredito.xml</Diagrama>
-    <Descripcion />
+    <Descripcion>Metodo que envia la NotaCredito a Hacienda</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>20/07/2018 17:45:47</UltimaModificacion>
     <Llaves />
@@ -193,7 +193,7 @@
     <ID>25</ID>
     <Nombre>EnviaFactura</Nombre>
     <Diagrama>EnviaFactura.xml</Diagrama>
-    <Descripcion />
+    <Descripcion>Metodo que envia el XML FE al Ministerio de Hacienda</Descripcion>
     <Categoria>Movimientos</Categoria>
     <UltimaModificacion>23/07/2018 5:38:37 PM</UltimaModificacion>
     <Llaves />
