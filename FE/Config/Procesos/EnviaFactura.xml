@@ -473,12 +473,6 @@
               <Assignment type="Variable" from="FacturaXMLFault" to="EnviaFacturaFault" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="113" Source="47" Target="94" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Expression" from=" parametro(Error)" to="EnviaFacturaFault/Estado" />
-              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="EnviaFacturaFault/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="122" Source="52" Target="115">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
@@ -489,6 +483,12 @@
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
               <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="127" Source="47" Target="118" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
