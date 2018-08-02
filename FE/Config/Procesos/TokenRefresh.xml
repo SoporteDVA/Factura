@@ -15,6 +15,8 @@
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="RefreshToken" />
+                <Property name="url" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </Message>
           </Start>
@@ -24,6 +26,7 @@
               <Properties>
                 <Property name="tokenRefreshAuth">
                   <Properties>
+                    <Property name="url" />
                     <Property name="usuarioFE" />
                     <Property name="Pass" />
                     <Property name="RToken" />
@@ -76,7 +79,7 @@
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="525" Top="55">
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="525" Top="56">
             <Name>1</Name>
           </ExclusiveGateway>
           <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="1000" Top="340">
@@ -107,6 +110,7 @@
           </SequenceFlow>
           <SequenceFlow ID="65" Source="1" Target="7">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(TokenRefreshInput/TipoAmbiente)=1 , tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )  " to="TareaInput/tokenRefreshAuth/url" />
               <Assignment type="Variable" from="TokenRefreshInput/Usuario" to="TareaInput/tokenRefreshAuth/usuarioFE" />
               <Assignment type="Variable" from="TokenRefreshInput/Password" to="TareaInput/tokenRefreshAuth/Pass" />
               <Assignment type="Variable" from="TokenRefreshInput/RefreshToken" to="TareaInput/tokenRefreshAuth/RToken" />

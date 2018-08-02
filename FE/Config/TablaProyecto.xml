@@ -7,4 +7,18 @@
     <Descripcion>Tabla de estados de correcto y error</Descripcion>
     <UltimaModificacion>26/6/2018 17:34:10</UltimaModificacion>
   </TablaProyecto>
+  <TablaProyecto>
+    <ID>1</ID>
+    <Nombre>URLsDesarrollo</Nombre>
+    <ValorPredeterminado>0</ValorPredeterminado>
+    <Descripcion />
+    <UltimaModificacion>01/08/2018 11:06:45</UltimaModificacion>
+  </TablaProyecto>
+  <TablaProyecto>
+    <ID>2</ID>
+    <Nombre>URLsProduccion</Nombre>
+    <ValorPredeterminado>0</ValorPredeterminado>
+    <Descripcion>Tabla con los urls de Produccion de Hacienda</Descripcion>
+    <UltimaModificacion>01/08/2018 16:00:16</UltimaModificacion>
+  </TablaProyecto>
 </TablaProyectoDS>

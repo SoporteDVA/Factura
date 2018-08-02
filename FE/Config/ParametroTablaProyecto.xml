@@ -16,4 +16,68 @@
     <Descripcion>Estado de tabla Error</Descripcion>
     <UltimaModificacion>26/6/2018 17:34:51</UltimaModificacion>
   </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>2</ID>
+    <TablaProyecto>1</TablaProyecto>
+    <Nombre>token</Nombre>
+    <Valor>https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token</Valor>
+    <Descripcion>URL Desarrollo para optener token y token refresh</Descripcion>
+    <UltimaModificacion>01/08/2018 11:08:29</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>3</ID>
+    <TablaProyecto>1</TablaProyecto>
+    <Nombre>Envia</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion</Valor>
+    <Descripcion>URL Desarrollo para enviar los diferentes tipos de documentos</Descripcion>
+    <UltimaModificacion>01/08/2018 11:10:24</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>4</ID>
+    <TablaProyecto>1</TablaProyecto>
+    <Nombre>ConsultaEstado</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/</Valor>
+    <Descripcion>URL Desarrollo para consultar el estado del documento enviado a  Hacienda</Descripcion>
+    <UltimaModificacion>01/08/2018 11:14:01</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>5</ID>
+    <TablaProyecto>1</TablaProyecto>
+    <Nombre>ObtieneDetalle</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/</Valor>
+    <Descripcion>URL Desarrollo para obtener el detalle de una  o varias claves</Descripcion>
+    <UltimaModificacion>01/08/2018 11:15:35</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>6</ID>
+    <TablaProyecto>2</TablaProyecto>
+    <Nombre>ConsultaEstado</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr</Valor>
+    <Descripcion>URL Produccion para consultar el estado del documento enviado a  Hacienda</Descripcion>
+    <UltimaModificacion>01/08/2018 11:14:01</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>7</ID>
+    <TablaProyecto>2</TablaProyecto>
+    <Nombre>Envia</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion</Valor>
+    <Descripcion>URL Produccion para enviar los diferentes tipos de documentos</Descripcion>
+    <UltimaModificacion>01/08/2018 11:10:24</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>8</ID>
+    <TablaProyecto>2</TablaProyecto>
+    <Nombre>ObtieneDetalle</Nombre>
+    <Valor>https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/</Valor>
+    <Descripcion>URL Produccion para obtener el detalle de una  o varias claves</Descripcion>
+    <UltimaModificacion>01/08/2018 11:15:35</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>9</ID>
+    <TablaProyecto>2</TablaProyecto>
+    <Nombre>token</Nombre>
+    <Valor>https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token</Valor>
+    <Descripcion>URL Produccion para optener token y token refresh</Descripcion>
+    <UltimaModificacion>01/08/2018 11:08:29</UltimaModificacion>
+  </ParametroTablaProyecto>
 </ParametroTablaProyectoDS>

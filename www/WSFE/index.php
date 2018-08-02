@@ -18,9 +18,9 @@ function parseBase64($invoice)
 }
 
 //Obtiene el token
-function tokenAuth($usuarioFE, $Pass)
+function tokenAuth($url,$usuarioFE, $Pass)
     {
-        $url = 'https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token';//access token url
+        //$url = 'https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token';//access token url
         $data = array('client_id' => 'api-stag',//Test: 'api-stag' Production: 'api-prod'
                       'client_secret' => '',//always empty
                       'grant_type' => 'password', //always 'password'
@@ -59,9 +59,9 @@ function tokenAuth($usuarioFE, $Pass)
 
     //Obtiene el token refresh
 
-    function tokenRefreshAuth($usuarioFE, $Pass,$RToken)
+    function tokenRefreshAuth($url,$usuarioFE, $Pass,$RToken)
     {
-        $url = 'https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token';//access token url
+        //$url = 'https://idp.comprobanteselectronicos.go.cr/auth/realms/rut-stag/protocol/openid-connect/token';//access token url
         $data = array('client_id' => 'api-stag',//Test: 'api-stag' Production: 'api-prod'
                       'client_secret' => '',//always empty
                       'grant_type' => 'refresh_token', //always 'refresh_token'
@@ -903,9 +903,9 @@ function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
 
 
 
-function EnviaFAC($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $token ) {
+function EnviaFAC($url,$clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $token ) {
     
-$url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion';//URL del SandBox
+          //URL del SandBox 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion'
 $datos = array(
 'clave' => $clave,
 'fecha' => $fecha,
@@ -993,13 +993,14 @@ function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $re
 //FUNCION QUE OBTIENE TODOS LOS COMPROBANTES EMITIDOS POR UN EMISOR HACIA 
 //CUALQUIER RECEPTOR O UN RECEPTOR ESPECIFICO 
 
-function ObtieneComprobantes($token,
+function ObtieneComprobantes($url,$token,
 $PosicionInicial,
 $Cantidad,
 $emisorIdentificacion,
 $receptorIdentificacion)
     {
-        $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes';//URL del SandBox
+    
+        //$url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/comprobantes';//URL del SandBox
         
         $builtHeader = array(
             'Authorization: ' . $token,
@@ -1019,8 +1020,13 @@ $receptorIdentificacion)
 
                    
              $context  = stream_context_create($options);
-             $result = file_get_contents($url, false, $context);        
-             if (!$result = file_get_contents($url, false, $context)) {
+             $result = file_get_contents($url, false, $context); 
+             $json_data = json_decode($result, true);
+
+             if($json_data === NULL) 
+          // if (!$result = file_get_contents($url, false, $context))
+             
+              {
              $error = error_get_last();
              return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
              } else {
@@ -1065,10 +1071,11 @@ function json_to_xml($json) {
 
     
 
-function ConsultaComprobante($clave, $token)
+function ConsultaComprobante($url,$clave, $token)
     {
-        $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/'.$clave;//URL del SandBox
-        
+        $urlin=$url.$clave;//URL del SandBox
+        //'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/'
+
         $builtHeader = array(
         'Authorization: ' . $token,
         'Content-Type: application/json'
@@ -1082,8 +1089,8 @@ function ConsultaComprobante($clave, $token)
         );
 
         $context  = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);        
-        if (!$result = file_get_contents($url, false, $context)) {
+        $result = file_get_contents($urlin, false, $context);        
+        if (!$result = file_get_contents($urlin, false, $context)) {
         $error = error_get_last();
         return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
         } else {
@@ -1097,9 +1104,9 @@ function ConsultaComprobante($clave, $token)
 
 //Obtiene de Hacienda la informacion de una factura
 
-function ObtieneFactura($clave, $token)
+function ObtieneFactura($url,$clave, $token)
     {
-        $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/'.$clave;//URL del SandBox
+       $urlin= $url.$clave;//URL del SandBox   'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/'
         
               $builtHeader = array(
             'Authorization: ' . $token,
@@ -1114,7 +1121,7 @@ function ObtieneFactura($clave, $token)
             );
     
             $context  = stream_context_create($options);
-            $result = file_get_contents($url, false, $context);  
+            $result = file_get_contents($urlin, false, $context);  
             $json_data = json_decode($result, true);
  
 
@@ -1173,12 +1180,12 @@ $soapclient->wsdl->schemaTargetNamespace = $ns;
 
 
 $soapclient->register('tokenAuth',
-array('usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string' ),
+array('url' => 'xsd:string','usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string' ),
 array('Token' => 'xsd:string', 'Expires_in'=> 'xsd:string', 'Refresh_expires_in'=> 'xsd:string', 'Refresh_token'=> 'xsd:string', 'token_type'=> 'xsd:string', 'ID_token'=> 'xsd:string'),
 $ns);
 
 $soapclient->register('tokenRefreshAuth',
-array('usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string','RToken'=>'xsd:string' ),
+array('url' => 'xsd:string','usuarioFE' => 'xsd:string', 'Pass'=>'xsd:string','RToken'=>'xsd:string' ),
 array('Token' => 'xsd:string', 'Expires_in'=> 'xsd:string', 'Refresh_expires_in'=> 'xsd:string', 'Refresh_token'=> 'xsd:string', 'token_type'=> 'xsd:string', 'ID_token'=> 'xsd:string'),
 $ns);
 
@@ -1474,7 +1481,7 @@ $soapclient->register('signFE', array(
 
 
 $soapclient->register('EnviaFAC',
-array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','token'=>'xsd:string' ),
+array('url' => 'xsd:string','clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','token'=>'xsd:string' ),
 array('Estado' => 'xsd:string'),
 $ns);
 
@@ -1487,13 +1494,14 @@ $ns);
 //CONSULTA EL ESTADO DEL COMPROBANTE EN HACIENDA
 
 $soapclient->register('ConsultaComprobante',
-array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
+array('url'=>'xsd:string','clave' => 'xsd:string', 'token'=>'xsd:string' ),
 array('Respuesta' => 'xsd:string'),
 $ns);
 
 //CONSULTA TODOS LOS COMPROBANTES EMITIDOS POR EL EMISOR 
 $soapclient->register('ObtieneComprobantes',
 array(
+'url'=>'xsd:string',    
 'token'=>'xsd:string',
 'PosicionInicial' => 'xsd:string',
 'Cantidad' => 'xsd:string',
@@ -1515,7 +1523,7 @@ $ns);
 //OBTIENE FACTURA
 
 $soapclient->register('ObtieneFactura',
-array('clave' => 'xsd:string', 'token'=>'xsd:string' ),
+array('url' => 'xsd:string','clave' => 'xsd:string', 'token'=>'xsd:string' ),
 array('Comprobante' => 'xsd:string'
 //,
 /* 'Fecha' => 'xsd:string',

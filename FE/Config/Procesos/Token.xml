@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="45" Top="45">
             <Message>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -36,6 +37,7 @@
             <Name>TokenMH</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
               </Properties>
@@ -76,6 +78,7 @@
           </ExclusiveGateway>
           <SequenceFlow ID="96" Source="1" Target="42">
             <Assignments>
+              <Assignment type="Variable" from="TokenInput/url" to="TokenMHInput/url" />
               <Assignment type="Expression" from=" parametro(username)" to="TokenMHInput/Usuario" />
               <Assignment type="Expression" from=" parametro(password)" to="TokenMHInput/Password" />
             </Assignments>

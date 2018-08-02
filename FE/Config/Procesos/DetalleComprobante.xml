@@ -15,6 +15,7 @@
                 <Property name="Clave" />
                 <Property name="UsuarioLocal" />
                 <Property name="Identificacion" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </Message>
           </Start>
@@ -22,6 +23,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -45,6 +47,7 @@
             <Name>ConsultaDetalle</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -172,6 +175,7 @@
           </End>
           <SequenceFlow ID="33" Source="1" Target="7">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(DetalleComprobanteInput/TipoAmbiente)=1 , tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )  " to="TokenInput/url" />
               <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
               <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
               <Assignment type="Variable" from="DetalleComprobanteInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
@@ -181,6 +185,7 @@
           <SequenceFlow ID="34" Source="5" Target="22" />
           <SequenceFlow ID="35" Source="20" Target="12" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from="  decision( variable(DetalleComprobanteInput/TipoAmbiente)=1 , tabla(URLsProduccion, ObtieneDetalle) ,  tabla(URLsDesarrollo, ObtieneDetalle) )  " to="ConsultaDetalleInput/url" />
               <Assignment type="Variable" from="DetalleComprobanteInput/Clave" to="ConsultaDetalleInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaDetalleInput/token" />
             </Assignments>

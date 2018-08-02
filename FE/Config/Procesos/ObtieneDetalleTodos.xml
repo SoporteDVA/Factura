@@ -12,6 +12,7 @@
           <Start ID="8" IdTop="0" IdLeft="0" IdBottom="10" IdRight="9" Left="70" Top="45">
             <Message>
               <Properties>
+                <Property name="url" />
                 <Property name="token" />
                 <Property name="PosicionInicial" />
                 <Property name="Cantidad" />
@@ -41,6 +42,7 @@
               <Properties>
                 <Property name="ObtieneComprobantes">
                   <Properties>
+                    <Property name="url" />
                     <Property name="token" />
                     <Property name="PosicionInicial" />
                     <Property name="Cantidad" />

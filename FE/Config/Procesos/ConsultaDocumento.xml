@@ -15,6 +15,7 @@
                 <Property name="UsuarioLocal" />
                 <Property name="Identificacion" />
                 <Property name="Clave" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </Message>
           </Start>
@@ -50,6 +51,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -76,6 +78,7 @@
             <Name>ConsultaDocumentoT</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -118,6 +121,7 @@
           </Subprocess>
           <SequenceFlow ID="18" Source="1" Target="17">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(ConsultaDocumentoInput/TipoAmbiente)=1 , tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )  " to="TokenInput/url" />
               <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
               <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
               <Assignment type="Variable" from="ConsultaDocumentoInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
@@ -133,6 +137,7 @@
           </SequenceFlow>
           <SequenceFlow ID="36" Source="21" Target="30" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(ConsultaDocumentoInput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaDocumentoTInput/url" />
               <Assignment type="Variable" from="ConsultaDocumentoInput/Clave" to="ConsultaDocumentoTInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaDocumentoTInput/token" />
             </Assignments>

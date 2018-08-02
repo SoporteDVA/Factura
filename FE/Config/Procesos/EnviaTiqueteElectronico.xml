@@ -41,6 +41,7 @@
                 <Property name="PasswordHacienda" />
                 <Property name="LocalizacionP12" />
                 <Property name="PinArchivo" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -54,6 +55,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -67,7 +69,10 @@
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="540" Top="85">
@@ -176,6 +181,7 @@
             <Name>EnviaXML</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="fecha" />
                 <Property name="emi_tipoid" />
@@ -205,6 +211,7 @@
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -260,6 +267,7 @@
             <Name>ConsultaFac</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -414,6 +422,7 @@
           <SequenceFlow ID="53" Source="44" Target="52" />
           <SequenceFlow ID="59" Source="50" Target="58" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, Envia) , tabla(URLsDesarrollo, Envia) )   " to="EnviaXMLInput/url" />
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="EnviaXMLInput/clave" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="EnviaXMLInput/fecha" />
               <Assignment type="Variable" from="CreaXMLInput/emisorTipoIdentif" to="EnviaXMLInput/emi_tipoid" />
@@ -427,6 +436,7 @@
           <SequenceFlow ID="65" Source="56" Target="64" />
           <SequenceFlow ID="71" Source="62" Target="70" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaFacOKInput/url" />
               <Assignment type="Variable" from="CreaXMLInput/clave" to="ConsultaFacOKInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
             </Assignments>
@@ -464,6 +474,7 @@
           </SequenceFlow>
           <SequenceFlow ID="96" Source="63" Target="119">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) ) " to="ConsultaFacInput/url" />
               <Assignment type="Variable" from="CreaXMLInput/clave" to="ConsultaFacInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacInput/token" />
             </Assignments>
@@ -490,6 +501,7 @@
           <SequenceFlow ID="133" Source="125" Target="132" />
           <SequenceFlow ID="134" Source="130" Target="22" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
               <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="TokenInput/UsuarioLocal" />

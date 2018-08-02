@@ -87,6 +87,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -100,7 +101,10 @@
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="48" IdTop="49" IdLeft="52" IdBottom="51" IdRight="50" Left="590" Top="100">
@@ -253,6 +257,7 @@
                 <Property name="PasswordHacienda" />
                 <Property name="LocalizacionP12" />
                 <Property name="PinArchivo" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>

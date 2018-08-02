@@ -30,6 +30,7 @@
                 <Property name="PasswordHacienda" />
                 <Property name="LocalizacionP12" />
                 <Property name="PinArchivo" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -44,6 +45,7 @@
               <Assignment type="Variable" from="PerfilInput/PasswordHacienda" to="PerfilOutput/PasswordHacienda" />
               <Assignment type="Variable" from="PerfilInput/LocalizacionP12" to="PerfilOutput/LocalizacionP12" />
               <Assignment type="Variable" from="PerfilInput/PinArchivo" to="PerfilOutput/PinArchivo" />
+              <Assignment type="Expression" from="2" to="PerfilOutput/TipoAmbiente" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

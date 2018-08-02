@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
             <Message>
               <Properties>
+                <Property name="TipoAmbiente" />
                 <Property name="Usuario" />
                 <Property name="Identificacion" />
                 <Property name="TipoIDEmisor" />
@@ -74,6 +75,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -87,16 +89,20 @@
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="295" Top="30">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="372.5228" Top="30" update="False" NombreProceso="ObtieneDetalleTodos">
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="390" Top="30" update="False" NombreProceso="ObtieneDetalleTodos">
             <Name>ObDetalles</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="token" />
                 <Property name="PosicionInicial" />
                 <Property name="Cantidad" />
@@ -134,6 +140,7 @@
           </End>
           <SequenceFlow ID="33" Source="1" Target="12">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(DetalleComprobantesBloqueInput/TipoAmbiente)=1 ,tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )    " to="TokenInput/url" />
               <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
               <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
             </Assignments>
@@ -141,6 +148,7 @@
           <SequenceFlow ID="34" Source="10" Target="17" />
           <SequenceFlow ID="35" Source="15" Target="22" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision(  variable(DetalleComprobantesBloqueInput/TipoAmbiente)=1  , tabla(URLsProduccion, ObtieneDetalle) , tabla(URLsDesarrollo, ObtieneDetalle) )  " to="ObDetallesInput/url" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ObDetallesInput/token" />
               <Assignment type="Variable" from="DetalleComprobantesBloqueInput/PosicionInicial" to="ObDetallesInput/PosicionInicial" />
               <Assignment type="Variable" from="DetalleComprobantesBloqueInput/Cantidad" to="ObDetallesInput/Cantidad" />

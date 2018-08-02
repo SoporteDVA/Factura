@@ -13,6 +13,7 @@
             <Name>Token</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
                 <Property name="UsuarioLocal" />
@@ -106,7 +107,7 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="575" Top="120">
+          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="575" Top="116">
             <Name>2</Name>
           </ExclusiveGateway>
           <ExclusiveGateway ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="776" Top="116">
@@ -116,6 +117,7 @@
             <Name>Envia</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="fecha" />
                 <Property name="emi_tipoid" />
@@ -138,10 +140,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="986" Top="116">
+          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="965" Top="116">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="660" Top="120" update="False" NombreProceso="FirmaXML">
+          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="660" Top="116" update="False" NombreProceso="FirmaXML">
             <Name>Firmar</Name>
             <InputMessage>
               <Properties>
@@ -163,10 +165,11 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="953.5358" Top="225" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="40" IdTop="41" IdLeft="44" IdBottom="43" IdRight="42" Left="932.5358" Top="225" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFac</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -186,13 +189,14 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="45" IdTop="46" IdLeft="49" IdBottom="48" IdRight="47" Left="986" Top="321">
+          <ExclusiveGateway ID="45" IdTop="46" IdLeft="49" IdBottom="48" IdRight="47" Left="965" Top="300">
             <Name>5</Name>
           </ExclusiveGateway>
-          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="1056.368" Top="116" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="1035" Top="116" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -261,13 +265,14 @@
                 <Property name="PasswordHacienda" />
                 <Property name="LocalizacionP12" />
                 <Property name="PinArchivo" />
+                <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
               <Properties />
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="70" IdTop="71" IdLeft="74" IdBottom="73" IdRight="72" Left="87.18814" Top="121">
+          <ExclusiveGateway ID="70" IdTop="71" IdLeft="74" IdBottom="73" IdRight="72" Left="86.18815" Top="121">
             <Name>OKP</Name>
           </ExclusiveGateway>
           <Start ID="89" IdTop="0" IdLeft="0" IdBottom="91" IdRight="90" Left="10" Top="5">
@@ -283,7 +288,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="1245" Top="385">
+          <End ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="1320" Top="385">
             <Name>EnviaFacturaFault</Name>
             <Message>
               <Properties>
@@ -296,7 +301,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="98" IdTop="99" IdLeft="102" IdBottom="101" IdRight="100" Left="1285" Top="120">
+          <End ID="98" IdTop="99" IdLeft="102" IdBottom="101" IdRight="100" Left="1450" Top="115">
             <Name>EnviaFacturaOutput</Name>
             <Message>
               <Properties>
@@ -309,7 +314,7 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="114" IdTop="115" IdLeft="118" IdBottom="117" IdRight="116" Left="1181.872" Top="175" update="False" NombreProceso="DesencriptaOrdena">
+          <Subprocess ID="114" IdTop="115" IdLeft="118" IdBottom="117" IdRight="116" Left="1345" Top="300" update="False" NombreProceso="DesencriptaOrdena">
             <Name>XML</Name>
             <InputMessage>
               <Properties>
@@ -327,6 +332,9 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
+          <ExclusiveGateway ID="173" IdTop="174" IdLeft="177" IdBottom="176" IdRight="175" Left="1210" Top="116">
+            <Name>OkE</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="75" Source="2" Target="9" />
           <SequenceFlow ID="76" Source="7" Target="14" ConditionExpression="?">
             <Assignments>
@@ -383,6 +391,7 @@
           <SequenceFlow ID="77" Source="12" Target="19" />
           <SequenceFlow ID="78" Source="22" Target="29" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from="  decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, Envia) , tabla(URLsDesarrollo, Envia) )   " to="EnviaInput/url" />
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="EnviaInput/clave" />
               <Assignment type="Variable" from="FacturaXMLInput/fechaEmision" to="EnviaInput/fecha" />
               <Assignment type="Variable" from="FacturaXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
@@ -405,6 +414,7 @@
           <SequenceFlow ID="81" Source="37" Target="24" />
           <SequenceFlow ID="82" Source="33" Target="41">
             <Assignments>
+              <Assignment type="Expression" from="  decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaFacInput/url" />
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="ConsultaFacInput/clave" />
               <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
             </Assignments>
@@ -412,6 +422,7 @@
           <SequenceFlow ID="83" Source="43" Target="46" />
           <SequenceFlow ID="84" Source="32" Target="54" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 ,tabla(URLsProduccion, ConsultaEstado)  ,  tabla(URLsDesarrollo, ConsultaEstado) )   " to="ConsultaFacOKInput/url" />
               <Assignment type="Variable" from="FacturaXMLInput/clave" to="ConsultaFacOKInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaFacOKInput/token" />
             </Assignments>
@@ -419,6 +430,7 @@
           <SequenceFlow ID="85" Source="58" Target="61" />
           <SequenceFlow ID="86" Source="62" Target="4" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
               <Assignment type="Variable" from="PerfilInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
@@ -473,22 +485,24 @@
               <Assignment type="Variable" from="FacturaXMLFault" to="EnviaFacturaFault" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="122" Source="52" Target="115">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
-              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="123" Source="116" Target="102">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
+              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
               <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="127" Source="47" Target="118" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="127" Source="47" Target="118" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="181" Source="52" Target="177" />
+          <SequenceFlow ID="184" Source="176" Target="97" />
+          <SequenceFlow ID="248" Source="175" Target="115" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="155" Top="60">
             <Message>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -51,6 +52,7 @@
               <Properties>
                 <Property name="ConsultaComprobante">
                   <Properties>
+                    <Property name="url" />
                     <Property name="clave" />
                     <Property name="token" />
                   </Properties>
@@ -88,6 +90,7 @@
           </ExclusiveGateway>
           <SequenceFlow ID="18" Source="1" Target="17">
             <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturaInput/url" to="ConsultaEstadoInput/ConsultaComprobante/url" />
               <Assignment type="Variable" from="ConsultaFacturaInput/clave" to="ConsultaEstadoInput/ConsultaComprobante/clave" />
               <Assignment type="Variable" from="ConsultaFacturaInput/token" to="ConsultaEstadoInput/ConsultaComprobante/token" />
             </Assignments>

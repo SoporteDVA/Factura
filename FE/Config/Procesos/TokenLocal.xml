@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="50" Top="55">
             <Message>
               <Properties>
+                <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
               </Properties>
@@ -23,6 +24,7 @@
               <Properties>
                 <Property name="tokenAuth">
                   <Properties>
+                    <Property name="url" />
                     <Property name="usuarioFE" />
                     <Property name="Pass" />
                   </Properties>
@@ -105,6 +107,7 @@
           </SequenceFlow>
           <SequenceFlow ID="86" Source="1" Target="7">
             <Assignments>
+              <Assignment type="Variable" from="TokenLocalInput/url" to="TareaInput/tokenAuth/url" />
               <Assignment type="Variable" from="TokenLocalInput/Usuario" to="TareaInput/tokenAuth/usuarioFE" />
               <Assignment type="Variable" from="TokenLocalInput/Password" to="TareaInput/tokenAuth/Pass" />
             </Assignments>
