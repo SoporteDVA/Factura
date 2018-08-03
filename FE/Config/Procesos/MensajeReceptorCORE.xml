@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="40" Top="30">
             <Message>
               <Properties>
                 <Property name="Clave" />

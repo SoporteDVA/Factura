@@ -35,7 +35,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1460" Top="-25">
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="1555" Top="65">
             <Name>MensajeReceptorOutput</Name>
             <Message>
               <Properties>
@@ -169,6 +169,7 @@
             <Name>EnviaMR</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="fecha" />
                 <Property name="emi_tipoid" />
@@ -192,10 +193,11 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="103" IdTop="104" IdLeft="107" IdBottom="106" IdRight="105" Left="1185" Top="100" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="103" IdTop="104" IdLeft="107" IdBottom="106" IdRight="105" Left="1195" Top="100" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaC</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -219,6 +221,7 @@
             <Name>ConsultaCE</Name>
             <InputMessage>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="token" />
               </Properties>
@@ -273,9 +276,28 @@
           <ExclusiveGateway ID="186" IdTop="187" IdLeft="190" IdBottom="189" IdRight="188" Left="1310" Top="100">
             <Name>6</Name>
           </ExclusiveGateway>
+          <Subprocess ID="220" IdTop="221" IdLeft="224" IdBottom="223" IdRight="222" Left="1465" Top="245" update="False" NombreProceso="DesencriptaOrdena">
+            <Name>XML</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaXML" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IndestadoR" />
+                <Property name="TramaRespuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="41" Source="32" Target="40" />
           <SequenceFlow ID="47" Source="38" Target="46" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
               <Assignment type="Variable" from="MensajeReceptorInput/Usuario" to="TokenInput/UsuarioLocal" />
@@ -318,6 +340,7 @@
           <SequenceFlow ID="88" Source="79" Target="87" />
           <SequenceFlow ID="94" Source="85" Target="93" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, Envia) , tabla(URLsDesarrollo, Envia) )   " to="EnviaMRInput/url" />
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="EnviaMRInput/clave" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="EnviaMRInput/fecha" />
               <Assignment type="Expression" from="&quot;01&quot;" to="EnviaMRInput/emi_tipoid" />
@@ -338,12 +361,14 @@
           <SequenceFlow ID="97" Source="74" Target="11" />
           <SequenceFlow ID="108" Source="21" Target="107" ConditionExpression="?">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaCInput/url" />
               <Assignment type="Expression" from="variable(EnviaMRInput/clave)+&quot;-&quot;+ variable(GenXMLInput/NumeroConsecutivoReceptor)" to="ConsultaCInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaCInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="133" Source="22" Target="129">
             <Assignments>
+              <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaCEInput/url" />
               <Assignment type="Expression" from="variable(EnviaMRInput/clave)+&quot;-&quot;+ variable(GenXMLInput/NumeroConsecutivoReceptor)" to="ConsultaCEInput/clave" />
               <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaCEInput/token" />
             </Assignments>
@@ -377,23 +402,37 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="174" Source="128" Target="173" />
-          <SequenceFlow ID="175" Source="171" Target="15" ConditionExpression=" variable(ConsultaCEOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="176" Source="172" Target="11">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaCEOutput/ClaveR" to="MensajeReceptorOutput/Clave" />
-              <Assignment type="Variable" from="ConsultaCEOutput/FechaR" to="MensajeReceptorOutput/Fecha" />
-              <Assignment type="Variable" from="ConsultaCEOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaCEOutput/RespuestaxmlR" to="MensajeReceptorOutput/Respuesta" />
+              <Assignment type="Variable" from="ConsultaCEFault/Estado" to="MensajeReceptorFault/Estado" />
+              <Assignment type="Variable" from="ConsultaCEFault/Respuesta" to="MensajeReceptorFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="176" Source="172" Target="11" />
           <SequenceFlow ID="191" Source="105" Target="190" />
-          <SequenceFlow ID="193" Source="189" Target="9" />
-          <SequenceFlow ID="204" Source="188" Target="16" ConditionExpression=" variable(ConsultaCOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="193" Source="189" Target="9">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaCFault/Estado" to="MensajeReceptorFault/Estado" />
+              <Assignment type="Variable" from="ConsultaCFault/Respuesta" to="MensajeReceptorFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="225" Source="188" Target="224" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaCOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaCOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="226" Source="222" Target="16">
             <Assignments>
               <Assignment type="Variable" from="ConsultaCOutput/ClaveR" to="MensajeReceptorOutput/Clave" />
               <Assignment type="Variable" from="ConsultaCOutput/FechaR" to="MensajeReceptorOutput/Fecha" />
-              <Assignment type="Variable" from="ConsultaCOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
-              <Assignment type="Variable" from="ConsultaCOutput/RespuestaxmlR" to="MensajeReceptorOutput/Respuesta" />
+              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="MensajeReceptorOutput/Estado" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="MensajeReceptorOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="243" Source="171" Target="224" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaCEOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaCEOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

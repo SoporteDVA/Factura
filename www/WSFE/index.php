@@ -947,9 +947,9 @@ return $Estado;
 
 
 //FUNCION QUE ENVIA EL MENSAJE RECEPTOR
-function EnviaMR($clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $consecutivoReceptor,$token) {
+function EnviaMR($url,$clave,$fecha,$emi_tipoid,$emi_identificacion,$recp_tipoid, $recp_identificacion, $XMLIN, $consecutivoReceptor,$token) {
     
-    $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion';//URL del SandBox
+   // $url = 'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion';//URL del SandBox
     $datos = array(
     'clave' => $clave,
     'fecha' => $fecha,
@@ -1487,7 +1487,7 @@ $ns);
 
 
 $soapclient->register('EnviaMR',
-array('clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','consecutivoReceptor'=>'xsd:string','token'=>'xsd:string' ),
+array('url' => 'xsd:string','clave' => 'xsd:string', 'fecha'=>'xsd:string','emi_tipoid'=>'xsd:string','emi_identificacion'=>'xsd:string','recp_tipoid'=>'xsd:string','recp_identificacion'=>'xsd:string','XMLIN'=>'xsd:string','consecutivoReceptor'=>'xsd:string','token'=>'xsd:string' ),
 array('Estado' => 'xsd:string'),
 $ns);
 
