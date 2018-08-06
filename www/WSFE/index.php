@@ -101,8 +101,8 @@ function tokenAuth($url,$usuarioFE, $Pass)
     //GENERA EL XML DE LA FACTURA
 
     function genXMLFe($clave,$consecutivo ,$fechaEmision ,$emisorNombre ,$emisorTipoIdentif ,$emisorNumIdentif ,
-    $nombreComercial ,$emisorProv ,$meisorCanton ,$emisorDistrito ,$emisorBarrio ,$emisorOtrasSenas ,$emisorCodPaisTel ,
-    $emisorTel ,$emisorCodPaisFax ,$emisorFax ,$emisorEmail ,$receptorNombre ,$receptorTipoIdentif ,$recenprotNumIdentif ,
+    $nombreComercial ,$emisorProv ,$emisorCanton ,$emisorDistrito ,$emisorBarrio ,$emisorOtrasSenas ,$emisorCodPaisTel ,
+    $emisorTel ,$emisorCodPaisFax ,$emisorFax ,$emisorEmail ,$receptorNombre ,$receptorTipoIdentif ,$receptorNumIdentif ,
     $receptorProvincia ,$receptorCanton ,$receptorDistrito ,$receptorBarrio ,$receptorOtrasSenas ,$receptorCodPaisTel ,
     $receptorTel ,$receptorCodPaisFax ,$receptorFax ,$receptorEmail ,$condVenta ,$plazoCredito ,$medioPago ,$codMoneda ,
     $tipoCambio ,$totalServGravados ,$totalServExentos ,$totalMercGravadas ,$totalMercExentas ,$totalGravados ,
@@ -129,7 +129,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
                 <NombreComercial>' . $nombreComercial . '</NombreComercial>
                 <Ubicacion>
                     <Provincia>' . $emisorProv . '</Provincia>
-                    <Canton>' . $meisorCanton . '</Canton>
+                    <Canton>' . $emisorCanton . '</Canton>
                     <Distrito>' . $emisorDistrito . '</Distrito>
                     <Barrio>' . $emisorBarrio . '</Barrio>
                     <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
@@ -148,7 +148,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
                 <Nombre>' . $receptorNombre . '</Nombre>
                 <Identificacion>
                     <Tipo>' . $receptorTipoIdentif . '</Tipo>
-                    <Numero>' . $recenprotNumIdentif . '</Numero>
+                    <Numero>' . $receptorNumIdentif . '</Numero>
                 </Identificacion>
                 <Ubicacion>
                     <Provincia>' . $receptorProvincia . '</Provincia>
@@ -1227,7 +1227,7 @@ $soapclient->register('genXMLFe', array(
     'emisorNumIdentif' => 'xsd:string',
     'nombreComercial' => 'xsd:string',
     'emisorProv' => 'xsd:string',
-    'meisorCanton' => 'xsd:string',
+    'emisorCanton' => 'xsd:string',
     'emisorDistrito' => 'xsd:string',
     'emisorBarrio' => 'xsd:string',
     'emisorOtrasSenas' => 'xsd:string',
@@ -1238,7 +1238,7 @@ $soapclient->register('genXMLFe', array(
     'emisorEmail' => 'xsd:string',
     'receptorNombre' => 'xsd:string', 
     'receptorTipoIdentif' => 'xsd:string',
-    'recenprotNumIdentif' => 'xsd:string',
+    'receptorNumIdentif' => 'xsd:string',
     'receptorProvincia' => 'xsd:string',
     'receptorCanton' => 'xsd:string',
     'receptorDistrito' => 'xsd:string',

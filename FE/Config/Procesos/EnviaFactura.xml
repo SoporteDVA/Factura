@@ -48,7 +48,7 @@
                 <Property name="emisorNumIdentif" />
                 <Property name="nombreComercial" />
                 <Property name="emisorProv" />
-                <Property name="meisorCanton" />
+                <Property name="emisorCanton" />
                 <Property name="emisorDistrito" />
                 <Property name="emisorBarrio" />
                 <Property name="emisorOtrasSenas" />
@@ -59,7 +59,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -346,7 +346,7 @@
               <Assignment type="Expression" from="&quot;109660018&quot;" to="FacturaXMLInput/emisorNumIdentif" />
               <Assignment type="Expression" from="&quot;Alonso&quot;" to="FacturaXMLInput/nombreComercial" />
               <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="FacturaXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="FacturaXMLInput/emisorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorBarrio" />
               <Assignment type="Expression" from="&quot;parque&quot;" to="FacturaXMLInput/emisorOtrasSenas" />
@@ -357,7 +357,7 @@
               <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="FacturaXMLInput/emisorEmail" />
               <Assignment type="Expression" from="&quot;Geinner Romero&quot;" to="FacturaXMLInput/receptorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;111970739&quot;" to="FacturaXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="FacturaXMLInput/receptorNumIdentif" />
               <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/receptorProvincia" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorDistrito" />
@@ -397,7 +397,7 @@
               <Assignment type="Variable" from="FacturaXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
               <Assignment type="Variable" from="FacturaXMLInput/emisorNumIdentif" to="EnviaInput/emi_identificacion" />
               <Assignment type="Variable" from="FacturaXMLInput/receptorTipoIdentif" to="EnviaInput/recp_tipoid" />
-              <Assignment type="Variable" from="FacturaXMLInput/recenprotNumIdentif" to="EnviaInput/recp_identificacion" />
+              <Assignment type="Variable" from="FacturaXMLInput/receptorNumIdentif" to="EnviaInput/recp_identificacion" />
               <Assignment type="Variable" from="FirmarOutput/xmlOUT" to="EnviaInput/XMLIN" />
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaInput/token" />
             </Assignments>
