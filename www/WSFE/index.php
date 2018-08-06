@@ -1,7 +1,7 @@
 <?php
 require_once('lib/nusoap.php');
 $soapclient = new soap_server;
-
+error_reporting(E_ALL ^ E_WARNING); 
 
 //Codifica base 64
 function parseBase64($invoice)
@@ -38,11 +38,22 @@ function tokenAuth($url,$usuarioFE, $Pass)
         );
 
         $context  = stream_context_create($options);
-        $result = file_get_contents($url, false, $context);        
+        $result = file_get_contents($url, false, $context); 
+
         if (!$result = file_get_contents($url, false, $context)) {
-        $error = error_get_last();
-        return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-        } else {
+                $error = error_get_last();
+                //print_r(get_headers($url));
+                $headers = get_headers($url);
+                
+                if ($headers['0'] == '') {
+                    $MENSAJE ='Error de conexion o Respuesta vacia';
+                } else  {
+                    $MENSAJE = $headers['0'] ;
+                }        
+                
+                return new soap_fault('99',"Error",$MENSAJE , $error['message']   );
+        } 
+        else {
         $token = json_decode($result);
         $Tokenn = 'bearer ' . $token->{'access_token'};
         $expires_in = $token->{'expires_in'};
@@ -82,8 +93,17 @@ function tokenAuth($url,$usuarioFE, $Pass)
         $context  = stream_context_create($options);
         $result = file_get_contents($url, false, $context);        
         if (!$result = file_get_contents($url, false, $context)) {
-        $error = error_get_last();
-        return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
+            $error = error_get_last();
+            //print_r(get_headers($url));
+            $headers = get_headers($url);
+            
+            if ($headers['0'] == '') {
+                $MENSAJE ='Error de conexion o Respuesta vacia';
+            } else  {
+                $MENSAJE = $headers['0'] ;
+            }        
+            
+            return new soap_fault('99',"Error",$MENSAJE , $error['message']   );
         } else {
         $token = json_decode($result);
         $Tokenn = 'bearer ' . $token->{'access_token'};
@@ -109,11 +129,11 @@ function tokenAuth($url,$usuarioFE, $Pass)
     $totalExentos ,$totalVentas ,$totalDescuentos ,$totalVentasNeta ,$totalImp ,$totalComprobante ,$infoRefeTipoDoc, $infoRefeNumero,
     $infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$otros,$detalles)
      {
-        
+
+ 
          //detalles de la compra
     $detalles = json_decode($detalles);
-    //grace_debug($detalles);
-     
+    //grace_debug($detalles);    
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
         <FacturaElectronica xmlns="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica" xmlns:ds="http://www.w3.org/2000/09/xmldsig#" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://tribunet.hacienda.go.cr/docs/esquemas/2017/v4.2/facturaElectronica FacturaElectronica_V.4.2.xsd">
@@ -304,6 +324,8 @@ $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMe
 $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante,$infoRefeTipoDoc, $infoRefeNumero,
 $infoRefeFechaEmision, $infoRefeCodigo, $infoRefeRazon,$otros,$detalles)
  {
+
+
     
      //detalles de la compra
 $detalles = json_decode($detalles);
@@ -847,8 +869,8 @@ xml el tag se omite, no lo pinta, de lo contrario se incluye en el xml*/
 function signFE($p12Url,$pinP12,$inXml,$tipoDoc) {
     require 'Firmador/Firmadohaciendacr.php';
     //modules_loader("files");
-    $p12Url = 'Firmas/010966001806.p12';
-    $pinP12 = '1977';
+    $p12Url = $p12Url;//'Firmas/010966001806.p12';
+    $pinP12 = $pinP12;//'1977';
     $inXml = $inXml;
     $tipoDoc = $tipoDoc;
     $tipoDocumento;
@@ -1021,15 +1043,22 @@ $receptorIdentificacion)
                    
              $context  = stream_context_create($options);
              $result = file_get_contents($url, false, $context); 
-             $json_data = json_decode($result, true);
-
-             if($json_data === NULL) 
-          // if (!$result = file_get_contents($url, false, $context))
              
-              {
-             $error = error_get_last();
-             return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-             } else {
+             
+             if (!$result = file_get_contents($url, false, $context)) {
+                $error = error_get_last();
+                //print_r(get_headers($url));
+                $headers = get_headers($url);
+                
+                if ($headers['0'] == '') {
+                    $MENSAJE ='Error de conexion o Respuesta vacia';
+                } else  {
+                    $MENSAJE = $headers['0'] ;
+                }        
+                
+                return new soap_fault('99',"Error",$MENSAJE , $error['message']   );
+             }
+              else {
              
 
              
