@@ -12,6 +12,7 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="6" Top="36">
             <Message>
               <Properties>
+                <Property name="url" />
                 <Property name="clave" />
                 <Property name="fecha" />
                 <Property name="emi_tipoid" />
@@ -58,6 +59,7 @@
               <Properties>
                 <Property name="EnviaMR">
                   <Properties>
+                    <Property name="url" />
                     <Property name="clave" />
                     <Property name="fecha" />
                     <Property name="emi_tipoid" />
