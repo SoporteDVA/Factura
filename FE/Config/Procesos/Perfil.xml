@@ -9,27 +9,37 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="65" Top="150">
             <Message>
               <Properties>
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="750" Top="30">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="950" Top="150">
             <Name>PerfilOutput</Name>
             <Message>
               <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
                 <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
                 <Property name="UsuarioHacienda" />
                 <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
               </Properties>
             </Message>
@@ -38,14 +48,83 @@
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="19" Source="1" Target="7">
+          <Task ID="26" IdTop="27" IdLeft="30" IdBottom="29" IdRight="28" Left="376.403" Top="150" update="False" server="Bitacora">
+            <Name>GetPerfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Campo" />
+                    <Property name="IDEmpresa" />
+                    <Property name="NombreEmpresa" />
+                    <Property name="UsuarioLocal" />
+                    <Property name="Acceso" />
+                    <Property name="Identificacion" />
+                    <Property name="Nombre" />
+                    <Property name="Telefono" />
+                    <Property name="Estado" />
+                    <Property name="UsuarioHacienda" />
+                    <Property name="PasswordHacienda" />
+                    <Property name="Sucursal" />
+                    <Property name="Terminal" />
+                    <Property name="UrlP12" />
+                    <Property name="PinP12" />
+                    <Property name="ArchivoP12" />
+                    <Property name="PuedeEnviar" />
+                    <Property name="AplicaNC" />
+                    <Property name="AplicaND" />
+                    <Property name="AceptaFE" />
+                    <Property name="TipoAmbiente" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="600.3679" Top="150">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <End ID="39" IdTop="40" IdLeft="43" IdBottom="42" IdRight="41" Left="960" Top="355">
+            <Name>PerfilFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>PerfilFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="36" Source="1" Target="30">
             <Assignments>
-              <Assignment type="Variable" from="PerfilInput/UsuarioLocal" to="PerfilOutput/UsuarioLocal" />
-              <Assignment type="Variable" from="PerfilInput/UsuarioHacienda" to="PerfilOutput/UsuarioHacienda" />
-              <Assignment type="Variable" from="PerfilInput/PasswordHacienda" to="PerfilOutput/PasswordHacienda" />
-              <Assignment type="Variable" from="PerfilInput/LocalizacionP12" to="PerfilOutput/LocalizacionP12" />
-              <Assignment type="Variable" from="PerfilInput/PinArchivo" to="PerfilOutput/PinArchivo" />
-              <Assignment type="Expression" from="2" to="PerfilOutput/TipoAmbiente" />
+              <Assignment type="Expression" from="&quot;GetPerfil&quot;" to="GetPerfilInput/SP" />
+              <Assignment type="Variable" from="PerfilInput/IDEmpresa" to="GetPerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="PerfilInput/Usuario" to="GetPerfilInput/Usuario" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="37" Source="28" Target="35" />
+          <SequenceFlow ID="38" Source="33" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="GetPerfilOutput/Fila" to="PerfilOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="47" Source="34" Target="43">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="PerfilFault/Estado" />
+              <Assignment type="Variable" from="GetPerfilFault/Error" to="PerfilFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
