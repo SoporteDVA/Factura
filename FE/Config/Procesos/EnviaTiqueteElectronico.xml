@@ -90,7 +90,7 @@
                 <Property name="emisorNumIdentif" />
                 <Property name="nombreComercial" />
                 <Property name="emisorProv" />
-                <Property name="meisorCanton" />
+                <Property name="emisorCanton" />
                 <Property name="emisorDistrito" />
                 <Property name="emisorBarrio" />
                 <Property name="emisorOtrasSenas" />
@@ -368,7 +368,7 @@
               <Assignment type="Expression" from="&quot;109660018&quot;" to="CreaXMLInput/emisorNumIdentif" />
               <Assignment type="Expression" from="&quot;Alonso&quot;" to="CreaXMLInput/nombreComercial" />
               <Assignment type="Expression" from="1" to="CreaXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="CreaXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="CreaXMLInput/emisorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/emisorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="CreaXMLInput/emisorBarrio" />
               <Assignment type="Expression" from="&quot;parque&quot;" to="CreaXMLInput/emisorOtrasSenas" />

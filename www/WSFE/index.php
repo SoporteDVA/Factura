@@ -296,7 +296,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
 }
 
 function genXMLTe($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
-$nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
+$nombreComercial, $emisorProv, $emisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
 $emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $receptorNumIdentif,
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
@@ -326,7 +326,7 @@ $detalles = json_decode($detalles);
             <NombreComercial>' . $nombreComercial . '</NombreComercial>
             <Ubicacion>
                 <Provincia>' . $emisorProv . '</Provincia>
-                <Canton>' . $meisorCanton . '</Canton>
+                <Canton>' . $emisorCanton . '</Canton>
                 <Distrito>' . $emisorDistrito . '</Distrito>
                 <Barrio>' . $emisorBarrio . '</Barrio>
                 <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
@@ -514,7 +514,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
         <NombreComercial>' . $nombreComercial . '</NombreComercial>
         <Ubicacion>
             <Provincia>' . $emisorProv . '</Provincia>
-            <Canton>' . $meisorCanton . '</Canton>
+            <Canton>' . $emisorCanton . '</Canton>
             <Distrito>' . $emisorDistrito . '</Distrito>
             <Barrio>' . $emisorBarrio . '</Barrio>
             <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
@@ -533,7 +533,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
         <Nombre>' . $receptorNombre . '</Nombre>
         <Identificacion>
             <Tipo>' . $receptorTipoIdentif . '</Tipo>
-            <Numero>' . $recenprotNumIdentif . '</Numero>
+            <Numero>' . $receptorNumIdentif . '</Numero>
         </Identificacion>
         <NombreComercial/>
         <Ubicacion>
@@ -645,8 +645,8 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
 //GENERA XML NOTA DEBITO
 
 function genXMLND($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
-$nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
-$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $recenprotNumIdentif,
+$nombreComercial, $emisorProv, $emisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
+$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $receptorNumIdentif,
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
 $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
@@ -671,7 +671,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
             <NombreComercial>' . $nombreComercial . '</NombreComercial>
             <Ubicacion>
                 <Provincia>' . $emisorProv . '</Provincia>
-                <Canton>' . $meisorCanton . '</Canton>
+                <Canton>' . $emisorCanton . '</Canton>
                 <Distrito>' . $emisorDistrito . '</Distrito>
                 <Barrio>' . $emisorBarrio . '</Barrio>
                 <OtrasSenas>' . $emisorOtrasSenas . '</OtrasSenas>
@@ -690,7 +690,7 @@ $totalVentas, $totalDescuentos, $totalVentasNeta, $totalImp, $totalComprobante, 
             <Nombre>' . $receptorNombre . '</Nombre>
             <Identificacion>
                 <Tipo>' . $receptorTipoIdentif . '</Tipo>
-                <Numero>' . $recenprotNumIdentif . '</Numero>
+                <Numero>' . $receptorNumIdentif . '</Numero>
             </Identificacion>
             <Ubicacion>
                 <Provincia>' . $receptorProvincia . '</Provincia>
@@ -1408,7 +1408,7 @@ $soapclient->register('genXMLND', array(
     'emisorNumIdentif' => 'xsd:string',
     'nombreComercial' => 'xsd:string',
     'emisorProv' => 'xsd:string',
-    'meisorCanton' => 'xsd:string',
+    'emisorCanton' => 'xsd:string',
     'emisorDistrito' => 'xsd:string',
     'emisorBarrio' => 'xsd:string',
     'emisorOtrasSenas' => 'xsd:string',
@@ -1419,7 +1419,7 @@ $soapclient->register('genXMLND', array(
     'emisorEmail' => 'xsd:string',
     'receptorNombre' => 'xsd:string',
     'receptorTipoIdentif' => 'xsd:string',
-    'recenprotNumIdentif' => 'xsd:string',
+    'receptorNumIdentif' => 'xsd:string',
     'receptorProvincia' => 'xsd:string',
     'receptorCanton' => 'xsd:string',
     'receptorDistrito' => 'xsd:string',

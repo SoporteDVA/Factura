@@ -20,7 +20,7 @@
                 <Property name="emisorNumIdentif" />
                 <Property name="nombreComercial" />
                 <Property name="emisorProv" />
-                <Property name="meisorCanton" />
+                <Property name="emisorCanton" />
                 <Property name="emisorDistrito" />
                 <Property name="emisorBarrio" />
                 <Property name="emisorOtrasSenas" />
@@ -82,7 +82,7 @@
                     <Property name="emisorNumIdentif" />
                     <Property name="nombreComercial" />
                     <Property name="emisorProv" />
-                    <Property name="meisorCanton" />
+                    <Property name="emisorCanton" />
                     <Property name="emisorDistrito" />
                     <Property name="emisorBarrio" />
                     <Property name="emisorOtrasSenas" />
