@@ -1119,10 +1119,20 @@ function ConsultaComprobante($url,$clave, $token)
 
         $context  = stream_context_create($options);
         $result = file_get_contents($urlin, false, $context);        
-        if (!$result = file_get_contents($urlin, false, $context)) {
-        $error = error_get_last();
-        return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-        } else {
+        if (!$result = file_get_contents($url, false, $context)) {
+            $error = error_get_last();
+            //print_r(get_headers($url));
+            $headers = get_headers($url);
+            
+            if ($headers['0'] == '') {
+                $MENSAJE ='Error de conexion o Respuesta vacia';
+            } else  {
+                $MENSAJE = $headers['0'] ;
+            }        
+            
+            return new soap_fault('99',"Error",$MENSAJE , $error['message']   );
+    }
+     else {
             $salida = json_to_xml($result);
             
             return $salida;
@@ -1154,12 +1164,19 @@ function ObtieneFactura($url,$clave, $token)
             $json_data = json_decode($result, true);
  
 
-           if($json_data === NULL) 
-            
-            {
-            $error = error_get_last();
-            return new soap_fault('99',"Error","Error en el llamado :", $error['message']);
-            } 
+            if (!$result = file_get_contents($url, false, $context)) {
+                $error = error_get_last();
+                //print_r(get_headers($url));
+                $headers = get_headers($url);
+                
+                if ($headers['0'] == '') {
+                    $MENSAJE ='Error de conexion o Respuesta vacia';
+                } else  {
+                    $MENSAJE = $headers['0'] ;
+                }        
+                
+                return new soap_fault('99',"Error",$MENSAJE , $error['message']   );
+        } 
          
     
             
