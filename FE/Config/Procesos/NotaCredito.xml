@@ -74,7 +74,7 @@
                 <Property name="emisorNumIdentif" />
                 <Property name="nombreComercial" />
                 <Property name="emisorProv" />
-                <Property name="meisorCanton" />
+                <Property name="emisorCanton" />
                 <Property name="emisorDistrito" />
                 <Property name="emisorBarrio" />
                 <Property name="emisorOtrasSenas" />
@@ -85,7 +85,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -341,7 +341,7 @@
               <Assignment type="Expression" from="&quot;109660018&quot;" to="NCXMLInput/emisorNumIdentif" />
               <Assignment type="Expression" from="&quot;Alonso&quot;" to="NCXMLInput/nombreComercial" />
               <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="NCXMLInput/meisorCanton" />
+              <Assignment type="Expression" from="&quot;13&quot;" to="NCXMLInput/emisorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorDistrito" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/emisorBarrio" />
               <Assignment type="Expression" from="&quot;parque&quot;" to="NCXMLInput/emisorOtrasSenas" />
@@ -352,7 +352,7 @@
               <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="NCXMLInput/emisorEmail" />
               <Assignment type="Expression" from="&quot;Geinner Romero Lopez&quot;" to="NCXMLInput/receptorNombre" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;111970739&quot;" to="NCXMLInput/recenprotNumIdentif" />
+              <Assignment type="Expression" from="&quot;111970739&quot;" to="NCXMLInput/receptorNumIdentif" />
               <Assignment type="Expression" from="&quot;1&quot;" to="NCXMLInput/receptorProvincia" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorCanton" />
               <Assignment type="Expression" from="&quot;01&quot;" to="NCXMLInput/receptorDistrito" />
@@ -403,7 +403,7 @@
               <Assignment type="Variable" from="NCXMLInput/emisorTipoIdentif" to="EnviaInput/emi_tipoid" />
               <Assignment type="Variable" from="NCXMLInput/emisorNumIdentif" to="EnviaInput/emi_identificacion" />
               <Assignment type="Variable" from="NCXMLInput/receptorTipoIdentif" to="EnviaInput/recp_tipoid" />
-              <Assignment type="Variable" from="NCXMLInput/recenprotNumIdentif" to="EnviaInput/recp_identificacion" />
+              <Assignment type="Variable" from="NCXMLInput/receptorNumIdentif" to="EnviaInput/recp_identificacion" />
               <Assignment type="Variable" from="FirmarOutput/xmlOUT" to="EnviaInput/XMLIN" />
               <Assignment type="Variable" from="TokenOutput/Token" to="EnviaInput/token" />
             </Assignments>

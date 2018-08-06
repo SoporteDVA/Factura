@@ -486,8 +486,8 @@ $detalles = json_decode($detalles);
 
 //GENERA XML NOTA CREDITO
 function genXMLNC($clave, $consecutivo, $fechaEmision, $emisorNombre, $emisorTipoIdentif, $emisorNumIdentif,
-$nombreComercial, $emisorProv, $meisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
-$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $recenprotNumIdentif,
+$nombreComercial, $emisorProv, $emisorCanton, $emisorDistrito, $emisorBarrio, $emisorOtrasSenas, $emisorCodPaisTel,
+$emisorTel, $emisorCodPaisFax, $emisorFax, $emisorEmail, $receptorNombre, $receptorTipoIdentif, $receptorNumIdentif,
 $receptorProvincia, $receptorCanton, $receptorDistrito, $receptorBarrio, $receptorOtrasSenas, $receptorCodPaisTel,
 $receptorTel, $receptorCodPaisFax, $receptorFax, $receptorEmail,$condVenta, $plazoCredito, $medioPago, $codMoneda,
 $tipoCambio, $totalServGravados, $totalServExentos, $totalMercGravadas, $totalMercExentas, $totalGravados, $totalExentos,
@@ -1348,7 +1348,7 @@ $soapclient->register('genXMLNC', array(
 'emisorNumIdentif' => 'xsd:string',
 'nombreComercial' => 'xsd:string',
 'emisorProv' => 'xsd:string',
-'meisorCanton' => 'xsd:string',
+'emisorCanton' => 'xsd:string',
 'emisorDistrito' => 'xsd:string',
 'emisorBarrio' => 'xsd:string',
 'emisorOtrasSenas' => 'xsd:string',
@@ -1359,7 +1359,7 @@ $soapclient->register('genXMLNC', array(
 'emisorEmail' => 'xsd:string',
 'receptorNombre' => 'xsd:string',
 'receptorTipoIdentif' => 'xsd:string',
-'recenprotNumIdentif' => 'xsd:string',
+'receptorNumIdentif' => 'xsd:string',
 'receptorProvincia' => 'xsd:string',
 'receptorCanton' => 'xsd:string',
 'receptorDistrito' => 'xsd:string',

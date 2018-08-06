@@ -32,7 +32,7 @@
                 <Property name="emisorNumIdentif" />
                 <Property name="nombreComercial" />
                 <Property name="emisorProv" />
-                <Property name="meisorCanton" />
+                <Property name="emisorCanton" />
                 <Property name="emisorDistrito" />
                 <Property name="emisorBarrio" />
                 <Property name="emisorOtrasSenas" />
@@ -43,7 +43,7 @@
                 <Property name="emisorEmail" />
                 <Property name="receptorNombre" />
                 <Property name="receptorTipoIdentif" />
-                <Property name="recenprotNumIdentif" />
+                <Property name="receptorNumIdentif" />
                 <Property name="receptorProvincia" />
                 <Property name="receptorCanton" />
                 <Property name="receptorDistrito" />
@@ -94,7 +94,7 @@
                     <Property name="emisorNumIdentif" />
                     <Property name="nombreComercial" />
                     <Property name="emisorProv" />
-                    <Property name="meisorCanton" />
+                    <Property name="emisorCanton" />
                     <Property name="emisorDistrito" />
                     <Property name="emisorBarrio" />
                     <Property name="emisorOtrasSenas" />
@@ -105,7 +105,7 @@
                     <Property name="emisorEmail" />
                     <Property name="receptorNombre" />
                     <Property name="receptorTipoIdentif" />
-                    <Property name="recenprotNumIdentif" />
+                    <Property name="receptorNumIdentif" />
                     <Property name="receptorProvincia" />
                     <Property name="receptorCanton" />
                     <Property name="receptorDistrito" />
