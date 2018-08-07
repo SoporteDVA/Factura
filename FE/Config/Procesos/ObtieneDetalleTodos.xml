@@ -59,7 +59,14 @@
             </OutputMessage>
             <FaultMessage>
               <Properties>
-                <Property name="Error" />
+                <Property name="Fault">
+                  <Properties>
+                    <Property name="faultcode" />
+                    <Property name="faultactor" />
+                    <Property name="faultstring" />
+                    <Property name="detail" />
+                  </Properties>
+                </Property>
               </Properties>
             </FaultMessage>
           </Task>
@@ -89,8 +96,8 @@
           </SequenceFlow>
           <SequenceFlow ID="34" Source="19" Target="33">
             <Assignments>
-              <Assignment type="Expression" from="99" to="ObtieneDetalleTodosFault/Estado" />
-              <Assignment type="Variable" from="ObtieneFacsFault/Error" to="ObtieneDetalleTodosFault/Respuesta" />
+              <Assignment type="Variable" from="ObtieneFacsFault/Fault/faultcode" to="ObtieneDetalleTodosFault/Estado" />
+              <Assignment type="Variable" from="ObtieneFacsFault/Fault/faultstring" to="ObtieneDetalleTodosFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

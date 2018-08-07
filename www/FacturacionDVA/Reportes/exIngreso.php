@@ -1,6 +1,6 @@
 <?php
 // (c) Xavier Nicolay
-// Exemple de génération de devis/facture PDF
+// Exemple de gï¿½nï¿½ration de devis/facture PDF
 
 require('Ingreso.php');
 
@@ -42,18 +42,18 @@ $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
 $pdf->AddPage();
 $pdf->addSociete( $reg_cli->razon_social,
                   "$reg_cli->documento_sucursal: $reg_cli->num_sucursal\n" .
-                  "Dirección:".utf8_decode( "$reg_cli->direccion")."\n".
-                  "Teléfono:".utf8_decode(" $reg_cli->telefono_suc")."\n" .
+                  "Direcciï¿½n:".utf8_decode( "$reg_cli->direccion")."\n".
+                  "Telï¿½fono:".utf8_decode(" $reg_cli->telefono_suc")."\n" .
                   "email : $reg_cli->email_suc ","../$f","$extension");
 $pdf->fact_dev( "$reg_cli->tipo_comprobante ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
 //$pdf->addClient("CL01");
 //$pdf->addPageNumber("1");
-$pdf->addClientAdresse("Razón Social: ".utf8_decode($reg_cli->nombre),"Domicilio: ".utf8_decode($reg_cli->direccion_calle)." - ".$reg_cli->direccion_departamento,$reg_cli->tipo_documento.": ".$reg_cli->num_documento,"Email: ".$reg_cli->email,"Telefono: ".$reg_cli->telefono);
-//$pdf->addReglement("Soluciones Innovadoras Perú S.A.C.");
+$pdf->addClientAdresse("Razï¿½n Social: ".utf8_decode($reg_cli->nombre),"Domicilio: ".utf8_decode($reg_cli->direccion_calle)." - ".$reg_cli->direccion_departamento,$reg_cli->tipo_documento.": ".$reg_cli->num_documento,"Email: ".$reg_cli->email,"Telefono: ".$reg_cli->telefono);
+//$pdf->addReglement("Soluciones Innovadoras Perï¿½ S.A.C.");
 //$pdf->addEcheance("RUC","2147715777");
-//$pdf->addNumTVA("Chongoyape, José Gálvez 1368");
+//$pdf->addNumTVA("Chongoyape, Josï¿½ Gï¿½lvez 1368");
 //$pdf->addReference("Devis ... du ....");
 $cols=array( "CODIGO"    => 23,
              "DESCRIPCION"  => 78,
@@ -96,7 +96,7 @@ $query_ped = $obIngreso->GetDetalleArticulo($_GET["id"]);
 require_once "../ajax/Letras.php";
 
  $V=new EnLetras(); 
- $con_letra=strtoupper($V->ValorEnLetras($reg_cli->total,"NUEVOS SOLES")); 
+ $con_letra=strtoupper($V->ValorEnLetras($reg_cli->total,"Colones")); 
 
 $pdf->addCadreTVAs("---".$con_letra);
 

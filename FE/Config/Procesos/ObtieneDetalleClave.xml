@@ -131,7 +131,14 @@
             </OutputMessage>
             <FaultMessage>
               <Properties>
-                <Property name="Error" />
+                <Property name="Fault">
+                  <Properties>
+                    <Property name="faultcode" />
+                    <Property name="faultactor" />
+                    <Property name="faultstring" />
+                    <Property name="detail" />
+                  </Properties>
+                </Property>
               </Properties>
             </FaultMessage>
           </Task>
@@ -156,8 +163,8 @@
           </SequenceFlow>
           <SequenceFlow ID="26" Source="11" Target="22">
             <Assignments>
-              <Assignment type="Expression" from="99" to="ObtieneDetalleClaveFault/Estado" />
-              <Assignment type="Variable" from="DetalleComprFault/Error" to="ObtieneDetalleClaveFault/Respuesta" />
+              <Assignment type="Variable" from="DetalleComprFault/Fault/faultcode" to="ObtieneDetalleClaveFault/Estado" />
+              <Assignment type="Variable" from="DetalleComprFault/Fault/faultstring" to="ObtieneDetalleClaveFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="76" Source="1" Target="17">

@@ -13,12 +13,9 @@
             <Message>
               <Properties>
                 <Property name="Cliente" />
-                <Property name="Servicio" />
                 <Property name="Usuario" />
-                <Property name="Identificacion" />
+                <Property name="Servicio" />
                 <Property name="Situacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
               </Properties>
             </Message>
           </Start>
@@ -245,26 +242,39 @@
             <Name>Perfil</Name>
             <InputMessage>
               <Properties>
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
                 <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
                 <Property name="UsuarioHacienda" />
                 <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="140" IdTop="141" IdLeft="144" IdBottom="143" IdRight="142" Left="205" Top="100">
@@ -300,8 +310,8 @@
               <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Usuario" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Identificacion" to="TokenInput/Identificacion" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
+              <Assignment type="Variable" from="PerfilOutput/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="53" Source="44" Target="52" />
@@ -331,8 +341,8 @@
           <SequenceFlow ID="76" Source="56" Target="75" />
           <SequenceFlow ID="82" Source="73" Target="81" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmaXMLInput/p12Url" />
-              <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmaXMLInput/pinP12" />
+              <Assignment type="Variable" from="PerfilOutput/UrlP12" to="FirmaXMLInput/p12Url" />
+              <Assignment type="Variable" from="PerfilOutput/PinP12" to="FirmaXMLInput/pinP12" />
               <Assignment type="Variable" from="GenXMLOutput/Mensaje" to="FirmaXMLInput/inXml" />
               <Assignment type="Expression" from="&quot;CCE&quot;" to="FirmaXMLInput/tipoDoc" />
             </Assignments>
@@ -378,20 +388,16 @@
               <Assignment type="Variable" from="MensajeReceptorInput/Cliente" to="ConsecutivoInput/Cliente" />
               <Assignment type="Variable" from="MensajeReceptorInput/Servicio" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;CCE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Usuario" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Identificacion" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/Identificacion" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
               <Assignment type="Variable" from="MensajeReceptorInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="153" Source="1" Target="139">
             <Assignments>
-              <Assignment type="Variable" from="MensajeReceptorInput/Usuario" to="PerfilInput/UsuarioLocal" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Identificacion" to="PerfilInput/Identificacion" />
-              <Assignment type="Expression" from=" parametro(username)" to="PerfilInput/UsuarioHacienda" />
-              <Assignment type="Expression" from=" parametro(password)" to="PerfilInput/PasswordHacienda" />
-              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="PerfilInput/LocalizacionP12" />
-              <Assignment type="Expression" from="&quot;1977&quot;" to="PerfilInput/PinArchivo" />
+              <Assignment type="Variable" from="MensajeReceptorInput/Cliente" to="PerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="MensajeReceptorInput/Usuario" to="PerfilInput/Usuario" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="154" Source="137" Target="141" />

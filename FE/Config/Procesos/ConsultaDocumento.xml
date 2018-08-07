@@ -12,14 +12,13 @@
           <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="65" Top="95">
             <Message>
               <Properties>
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
                 <Property name="Clave" />
-                <Property name="TipoAmbiente" />
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1020" Top="40">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1300" Top="120">
             <Name>ConsultaDocumentoOutput</Name>
             <Message>
               <Properties>
@@ -34,7 +33,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="775" Top="390">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1055" Top="470">
             <Name>ConsultaDocumentoFault</Name>
             <Message>
               <Properties>
@@ -47,20 +46,23 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="182.0508" Top="95" update="False" NombreProceso="Token">
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="460" Top="175" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties>
                 <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
                 <Property name="FechaFormato" />
               </Properties>
             </OutputMessage>
@@ -71,10 +73,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="310" Top="95">
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="590" Top="175">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="26" IdTop="27" IdLeft="30" IdBottom="29" IdRight="28" Left="411.0645" Top="95" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="26" IdTop="27" IdLeft="30" IdBottom="29" IdRight="28" Left="690" Top="175" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaDocumentoT</Name>
             <InputMessage>
               <Properties>
@@ -98,10 +100,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="665" Top="95">
+          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="945" Top="175">
             <Name>2</Name>
           </ExclusiveGateway>
-          <Subprocess ID="55" IdTop="56" IdLeft="59" IdBottom="58" IdRight="57" Left="825.0162" Top="95" update="False" NombreProceso="DesencriptaOrdena">
+          <Subprocess ID="55" IdTop="56" IdLeft="59" IdBottom="58" IdRight="57" Left="1105" Top="175" update="False" NombreProceso="DesencriptaOrdena">
             <Name>ResXML</Name>
             <InputMessage>
               <Properties>
@@ -119,15 +121,48 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
-          <SequenceFlow ID="18" Source="1" Target="17">
-            <Assignments>
-              <Assignment type="Expression" from=" decision( variable(ConsultaDocumentoInput/TipoAmbiente)=1 , tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )  " to="TokenInput/url" />
-              <Assignment type="Expression" from=" parametro(username)" to="TokenInput/Usuario" />
-              <Assignment type="Expression" from=" parametro(password)" to="TokenInput/Password" />
-              <Assignment type="Variable" from="ConsultaDocumentoInput/UsuarioLocal" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Variable" from="ConsultaDocumentoInput/Identificacion" to="TokenInput/Identificacion" />
-            </Assignments>
-          </SequenceFlow>
+          <Subprocess ID="68" IdTop="69" IdLeft="72" IdBottom="71" IdRight="70" Left="214.567" Top="175" update="False" NombreProceso="Perfil">
+            <Name>GetPerfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
+                <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
+                <Property name="TipoAmbiente" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="74" IdTop="75" IdLeft="78" IdBottom="77" IdRight="76" Left="365.3678" Top="175">
+            <Name>OK</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="24" Source="15" Target="23" />
           <SequenceFlow ID="25" Source="22" Target="12">
             <Assignments>
@@ -137,9 +172,9 @@
           </SequenceFlow>
           <SequenceFlow ID="36" Source="21" Target="30" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Expression" from=" decision( variable(ConsultaDocumentoInput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaDocumentoTInput/url" />
+              <Assignment type="Expression" from=" decision( variable(GetPerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,  tabla(URLsDesarrollo, ConsultaEstado) )  " to="ConsultaDocumentoTInput/url" />
               <Assignment type="Variable" from="ConsultaDocumentoInput/Clave" to="ConsultaDocumentoTInput/clave" />
-              <Assignment type="Variable" from="TokenOutput/Token" to="ConsultaDocumentoTInput/token" />
+              <Assignment type="Expression" from=" trim( variable(TokenOutput/Token) ) " to="ConsultaDocumentoTInput/token" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="37" Source="28" Target="35" />
@@ -161,6 +196,26 @@
               <Assignment type="Variable" from="ConsultaDocumentoTOutput/FechaR" to="ConsultaDocumentoOutput/Fecha" />
               <Assignment type="Variable" from="ConsultaDocumentoTOutput/IndestadoR" to="ConsultaDocumentoOutput/Indestado" />
               <Assignment type="Variable" from="ResXMLOutput/TramaRespuesta" to="ConsultaDocumentoOutput/Respuestaxml" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="73" Source="1" Target="72">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaDocumentoInput/IDEmpresa" to="GetPerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="ConsultaDocumentoInput/Usuario" to="GetPerfilInput/Usuario" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="79" Source="70" Target="78" />
+          <SequenceFlow ID="80" Source="76" Target="17" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from=" decision( variable(GetPerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) ,  tabla(URLsDesarrollo, token) )  " to="TokenInput/url" />
+              <Assignment type="Variable" from="GetPerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
+              <Assignment type="Variable" from="GetPerfilOutput/PasswordHacienda" to="TokenInput/Password" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="81" Source="77" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="GetPerfilFault/Estado" to="ConsultaDocumentoFault/Estado" />
+              <Assignment type="Variable" from="GetPerfilFault/Respuesta" to="ConsultaDocumentoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
