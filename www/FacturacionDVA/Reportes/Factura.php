@@ -158,7 +158,7 @@ function addQR( $QR,$ext_QR )
 	$y2 = 8;
 	//Positionnement en bas
 	//$this->Image($logo , 5 ,3, 25 , 25 , $ext_logo);
-	$this->Image($QR , 150 ,30, 50 , 50 , $ext_QR);
+	$this->Image($QR , 150 ,235, 50 , 50 , $ext_QR);
 	
 	
 }
@@ -356,7 +356,7 @@ function addCols( $tab )
 	$r1  = 10;
 	$r2  = $this->w - ($r1 * 2) ;
 	$y1  = 79;
-	$y2  = $this->h - 50 - $y1;
+	$y2  = $this->h - 90 - $y1;
 	$this->SetXY( $r1, $y1 );
 	$this->Rect( $r1, $y1, $r2, $y2, "D");
 	$this->Line( $r1, $y1+6, $r1+$r2, $y1+6);
@@ -448,7 +448,7 @@ function addCadreTVAs($monto)
 	$this->SetFont( "Arial", "B", 8);
 	$r1  = 10;
 	$r2  = $r1 + 120;
-	$y1  = $this->h - 40;
+	$y1  = $this->h - 80;
 	$y2  = $y1+20;
 	$this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2-$y1), 2.5, 'D');
 	//$this->Line( $r1, $y1+4, $r2, $y1+4);
@@ -459,7 +459,8 @@ function addCadreTVAs($monto)
 	//$this->Line( $r1+75, $y1, $r1+75, $y2);  // avant PORT
 	//$this->Line( $r1+91, $y1, $r1+91, $y2);  // avant TOTAUX
 	$this->SetXY( $r1+9, $y1+3);
-	$this->Cell(10,4, "IMPORTE TOTAL CON LETRA");
+	//$this->Cell(10,2, "IMPORTE TOTAL EN LETRAS");
+	//$this->Cell(10,16, "CONFORME RESOLUCION");
 	$this->SetFont( "Arial", "", 8);
 	$this->SetXY( $r1+9, $y1+7);
 	$this->MultiCell(100,4, $monto);
@@ -484,7 +485,7 @@ function addCadreEurosFrancs($impuesto)
 {
 	$r1  = $this->w - 70;
 	$r2  = $r1 + 60;
-	$y1  = $this->h - 40;
+	$y1  = $this->h - 80;
 	$y2  = $y1+20;
 	$this->RoundedRect($r1, $y1, ($r2 - $r1), ($y2-$y1), 2.5, 'D');
 	$this->Line( $r1+20,  $y1, $r1+20, $y2); // avant EUROS
@@ -527,17 +528,19 @@ function addCadreEurosFrancs($impuesto)
 function addTVAs( $igv, $total,$moneda )
 {
 	$this->SetFont('Arial','',8);
-
+	
+	
+		
 	$re  = $this->w - 30;
 	$rf  = $this->w - 29;
-	$y1  = $this->h - 40;
+	$y1  = $this->h - 80;
 	$this->SetFont( "Arial", "", 8);
 	$this->SetXY( $re, $y1+5 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", $total-($total*$igv/($igv+100))), '', '', 'R');
+	$this->Cell( 17,4, sprintf("%0.2F", $total-($total*$igv/($igv+100)))." CRC", '', '', 'R');
 	$this->SetXY( $re, $y1+10 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", ($total*$igv/($igv+100))), '', '', 'R');
+	$this->Cell( 17,4, sprintf("%0.2F", ($total*$igv/($igv+100)))." CRC", '', '', 'R');
 	$this->SetXY( $re, $y1+14.8 );
-	$this->Cell( 17,4, $moneda.sprintf("%0.2F", $total), '', '', 'R');
+	$this->Cell( 17,4, sprintf("%0.2F", $total)." CRC", '', '', 'R');
 	
 }
 

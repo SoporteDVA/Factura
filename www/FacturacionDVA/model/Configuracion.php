@@ -26,13 +26,14 @@
 		public function Eliminar($idglobal){
 			global $conexion;
 			$sql = "DELETE FROM global WHERE idglobal = $idglobal";
+
 			$query = $conexion->query($sql);
 			return $query;
 		}
 
 		public function Listar(){
 			global $conexion;
-			$sql = "SELECT * FROM global";
+			$sql = "SELECT `idglobal`, `empresa`, `nombre_impuesto`, `porcentaje_impuesto`, case when `simbolo_moneda`='$' then `simbolo_moneda` else '¢' end simbolo_moneda , `logo` FROM global";
 			$query = $conexion->query($sql);
 			return $query;
 		}

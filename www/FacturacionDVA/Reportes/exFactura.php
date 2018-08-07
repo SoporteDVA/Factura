@@ -87,7 +87,8 @@ $pdf->addSociete( utf8_decode($reg_cli->razon_social),
                   "../$f",
                   "$extension");
 $pdf->addQR("$qrimage","$extensionQ");
-$pdf->fact_dev( "FACTURA ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
+
+$pdf->fact_dev( "CONSECUTIVO ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
 //$pdf->addClient("CL01");
@@ -138,8 +139,9 @@ require_once "../ajax/Letras.php";
 
  $V=new EnLetras(); 
  $con_letra=strtoupper($V->ValorEnLetras($reg_total->Total,"Colones")); 
+ $Resolucion = "AUTORIZADO MEDIANTE RESOLUCION NUMERO DGR-R-48-2016 DEL 7 OCTUBRE 2016";
 //$pdf->addCadreTVAs("---TRES MILLONES CUATROCIENTOS CINCUENTA Y UN MIL DOSCIENTOS CUARENTA PESOS 00/100 M.N.");
- $pdf->addCadreTVAs("---".$con_letra);
+ $pdf->addCadreTVAs($Resolucion);
 
 
 require_once "../model/Configuracion.php";
