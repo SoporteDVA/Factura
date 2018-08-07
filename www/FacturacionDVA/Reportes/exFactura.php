@@ -81,18 +81,12 @@ $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
 $pdf->AddPage();
 $pdf->addSociete( utf8_decode($reg_cli->razon_social),
                   utf8_decode("$reg_cli->num_sucursal")."\n" .
-<<<<<<< HEAD
                   "Direccion:".utf8_decode(" $reg_cli->direccion")."\n".
                   "Telefono: ".utf8_decode("$reg_cli->telefono_suc")."\n" .
                   "email : $reg_cli->email_suc ",
                   "../$f",
                   "$extension");
 $pdf->addQR("$qrimage","$extensionQ");
-=======
-                  "Direcci�n:".utf8_decode(" $reg_cli->direccion")."\n".
-                  "Tel�fono: ".utf8_decode("$reg_cli->telefono_suc")."\n" .
-                  "email : $reg_cli->email_suc ","../$f","$extension");
->>>>>>> daf972e1bc23b3ee6d9242cc028031401a9df344
 $pdf->fact_dev( "FACTURA ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
