@@ -13,12 +13,9 @@
             <Message>
               <Properties>
                 <Property name="Cliente" />
-                <Property name="Servicio" />
                 <Property name="Usuario" />
-                <Property name="Identificacion" />
+                <Property name="Servicio" />
                 <Property name="Situacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
               </Properties>
             </Message>
           </Start>
@@ -26,26 +23,39 @@
             <Name>Perfil</Name>
             <InputMessage>
               <Properties>
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
                 <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
                 <Property name="UsuarioHacienda" />
                 <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="9" IdTop="10" IdLeft="13" IdBottom="12" IdRight="11" Left="110" Top="85">
@@ -337,12 +347,8 @@
           </Subprocess>
           <SequenceFlow ID="8" Source="1" Target="7">
             <Assignments>
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="PerfilInput/UsuarioLocal" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="PerfilInput/Identificacion" />
-              <Assignment type="Expression" from=" parametro(username)" to="PerfilInput/UsuarioHacienda" />
-              <Assignment type="Expression" from=" parametro(password)" to="PerfilInput/PasswordHacienda" />
-              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="PerfilInput/LocalizacionP12" />
-              <Assignment type="Expression" from="&quot;1977&quot;" to="PerfilInput/PinArchivo" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Cliente" to="PerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="PerfilInput/Usuario" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="14" Source="5" Target="13" />
