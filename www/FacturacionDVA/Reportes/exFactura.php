@@ -1,12 +1,12 @@
 <?php
 // (c) Xavier Nicolay
-// Exemple de gÈnÈration de devis/facture PDF
+// Exemple de gÔøΩnÔøΩration de devis/facture PDF
 
 require('Factura.php');
 
 session_start();
 
-$lo = $_SESSION["logo"];
+//$lo = $_SESSION["logo"];
 
 require_once "../model/Configuracion.php";
 
@@ -37,14 +37,56 @@ $f = "";
       $trozos = explode(".", $archivo); 
       $extension = end($trozos);
 
+//QR
+require "phpqrcode/qrlib.php";    
+	
+	//Declaramos una carpeta temporal para guardar la imagenes generadas
+	$dir = 'temp/';
+	
+	//Si no existe la carpeta la creamos
+	if (!file_exists($dir))
+        mkdir($dir);
+	
+        //Declaramos la ruta y nombre del archivo a generar
+	$filename = $dir.'test.png';
+ 
+        //Parametros de Condiguraci√≥n
+	
+	$tama√±o = 5; //Tama√±o de Pixel
+	$level = 'H'; //Precisi√≥n Baja
+  $framSize = 15; //Tama√±o en blanco
+  $contenido = $reg_cli->clave;
+	//$contenido = "50631071800010966001800100001011522774568107756568"; //Clave 50 campos FE,NC,ND,TE
+	
+        //Enviamos los parametros a la Funci√≥n para generar c√≥digo QR 
+  QRcode::png($contenido, $filename, $level, $tama√±o, $framSize); 
+  
+  $Q = "";
+    
+        $Q = $filename;
+
+      $archivoQ = $Q; 
+      $trozosQ = explode(".", $archivoQ); 
+      $extensionQ = end($trozosQ);
+	
+	   //Mostrar el codigo del QR Generado
+	  // echo '<img src="'.$dir.basename($filename).'" /><hr/>';
+	
+        //Mostramos la imagen generada
+	//echo '<img src="'.$dir.basename($filename).'" /><hr/>';
+      $qrimage= $filename;
+      
 
 $pdf = new PDF_Invoice( 'P', 'mm', 'A4' );
 $pdf->AddPage();
 $pdf->addSociete( utf8_decode($reg_cli->razon_social),
                   utf8_decode("$reg_cli->num_sucursal")."\n" .
-                  "DirecciÛn:".utf8_decode(" $reg_cli->direccion")."\n".
-                  "TelÈfono: ".utf8_decode("$reg_cli->telefono_suc")."\n" .
-                  "email : $reg_cli->email_suc ","../$f","$extension");
+                  "Direccion:".utf8_decode(" $reg_cli->direccion")."\n".
+                  "Telefono: ".utf8_decode("$reg_cli->telefono_suc")."\n" .
+                  "email : $reg_cli->email_suc ",
+                  "../$f",
+                  "$extension");
+$pdf->addQR("$qrimage","$extensionQ");
 $pdf->fact_dev( "FACTURA ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
@@ -52,9 +94,9 @@ $pdf->addDate( $reg_cli->fecha);
 //$pdf->addPageNumber("1");
 
 $pdf->addClientAdresse(utf8_decode($reg_cli->nombre),"Domicilio: ".utf8_decode($reg_cli->direccion_calle)." - ".utf8_decode($reg_cli->direccion_departamento),$reg_cli->doc.": ".$reg_cli->num_documento,"Email: ".$reg_cli->email,"Telefono: ".$reg_cli->telefono);
-//$pdf->addReglement("Soluciones Innovadoras Per˙ S.A.C.");
+//$pdf->addReglement("Soluciones Innovadoras PerÔøΩ S.A.C.");
 //$pdf->addEcheance("RUC","2147715777");
-//$pdf->addNumTVA("Chongoyape, JosÈ G·lvez 1368");
+//$pdf->addNumTVA("Chongoyape, JosÔøΩ GÔøΩlvez 1368");
 //$pdf->addReference("Devis ... du ....");
 $cols=array( "CODIGO"    => 23,
              "DESCRIPCION"  => 78,
@@ -95,9 +137,9 @@ $reg_total = $query_total->fetch_object();
 require_once "../ajax/Letras.php";
 
  $V=new EnLetras(); 
- $con_letra=strtoupper($V->ValorEnLetras($reg_total->Total,"NUEVOS SOLES")); 
+ $con_letra=strtoupper($V->ValorEnLetras($reg_total->Total,"Colones")); 
 //$pdf->addCadreTVAs("---TRES MILLONES CUATROCIENTOS CINCUENTA Y UN MIL DOSCIENTOS CUARENTA PESOS 00/100 M.N.");
-$pdf->addCadreTVAs("---".$con_letra);
+ $pdf->addCadreTVAs("---".$con_letra);
 
 
 require_once "../model/Configuracion.php";
@@ -109,7 +151,8 @@ $query_global = $objConfiguracion->Listar();
 
 $reg_igv = $query_global->fetch_object();
 
-$pdf->addTVAs( $reg_cli->impuesto, $reg_total->Total,"$reg_igv->simbolo_moneda ");
-$pdf->addCadreEurosFrancs("$reg_igv->nombre_impuesto"." $reg_cli->impuesto%");
+$pdf->addTVAs( $reg_cli->impuesto, $reg_total->Total,$reg_igv->simbolo_moneda );
+$pdf->addCadreEurosFrancs("$reg_igv->nombre_impuesto". "$reg_cli->impuesto%");
 $pdf->Output('Reporte de Venta','I');
+
 ?>
