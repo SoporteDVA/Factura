@@ -60,8 +60,8 @@ function ValorEnLetras($x, $Moneda )
        $s = $s . " " . $Frc. "/100"; 
        //$s = $s . " " . $Frc . "/100"; 
     } 
-    $letrass=$Signo . $s . " M.N."; 
-    return ($Signo . $s . " M.N."); 
+    $letrass=$Signo . $s . " "; //Remplace Letra MN por nada para que no aparezca en el pdf
+    return ($Signo . $s . " "); //Remplace Letra MN por nada para que no aparezca en el pdf
     
 } 
 
