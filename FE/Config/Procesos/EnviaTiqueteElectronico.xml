@@ -14,7 +14,6 @@
               <Properties>
                 <Property name="Cliente" />
                 <Property name="Usuario" />
-                <Property name="Servicio" />
                 <Property name="Situacion" />
               </Properties>
             </Message>
@@ -61,20 +60,23 @@
           <ExclusiveGateway ID="9" IdTop="10" IdLeft="13" IdBottom="12" IdRight="11" Left="110" Top="85">
             <Name>OkP</Name>
           </ExclusiveGateway>
-          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="445" Top="85" update="False" NombreProceso="Token">
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="445" Top="85" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties>
                 <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
                 <Property name="FechaFormato" />
               </Properties>
             </OutputMessage>
@@ -354,11 +356,11 @@
           <SequenceFlow ID="14" Source="5" Target="13" />
           <SequenceFlow ID="23" Source="11" Target="127" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Cliente" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Servicio" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Variable" from="PerfilOutput/IDEmpresa" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Expression" from="4" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;TE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/Identificacion" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
               <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
@@ -419,8 +421,8 @@
           <SequenceFlow ID="41" Source="32" Target="40" />
           <SequenceFlow ID="47" Source="38" Target="46" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmarXMLInput/p12Url" />
-              <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmarXMLInput/pinP12" />
+              <Assignment type="Variable" from="PerfilOutput/UrlP12" to="FirmarXMLInput/p12Url" />
+              <Assignment type="Variable" from="PerfilOutput/PinP12" to="FirmarXMLInput/pinP12" />
               <Assignment type="Variable" from="CreaXMLOutput/Tiquete" to="FirmarXMLInput/inXml" />
               <Assignment type="Expression" from="&quot;TE&quot;" to="FirmarXMLInput/tipoDoc" />
             </Assignments>
@@ -498,7 +500,7 @@
               <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="EnviaTiqueteElectronicoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="122" Source="112" Target="140" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="122" Source="112" Target="140" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
@@ -510,8 +512,6 @@
               <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/PasswordHacienda" to="TokenInput/Password" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Usuario" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Variable" from="EnviaTiqueteElectronicoInput/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="135" Source="131" Target="86">

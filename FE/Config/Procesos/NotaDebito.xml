@@ -22,20 +22,23 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="550" Top="255" update="False" NombreProceso="Token">
+          <Subprocess ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="550" Top="255" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties>
                 <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
                 <Property name="FechaFormato" />
               </Properties>
             </OutputMessage>
@@ -50,8 +53,8 @@
             <Name>NotaDebitoFault</Name>
             <Message>
               <Properties>
-                <Property name="Error" />
-                <Property name="RespuestaXML" />
+                <Property name="Estado" />
+                <Property name="Respuesta" />
               </Properties>
             </Message>
             <EndResult>Error</EndResult>
@@ -173,12 +176,8 @@
             <Message>
               <Properties>
                 <Property name="Cliente" />
-                <Property name="Servicio" />
                 <Property name="Usuario" />
-                <Property name="Identificacion" />
                 <Property name="Situacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
               </Properties>
             </Message>
           </Start>
@@ -289,26 +288,39 @@
             <Name>Perfil</Name>
             <InputMessage>
               <Properties>
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
-                <Property name="UsuarioHacienda" />
-                <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
                 <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
                 <Property name="UsuarioHacienda" />
                 <Property name="PasswordHacienda" />
-                <Property name="LocalizacionP12" />
-                <Property name="PinArchivo" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <ExclusiveGateway ID="107" IdTop="108" IdLeft="111" IdBottom="110" IdRight="109" Left="295" Top="150">
@@ -332,6 +344,9 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
+          <ExclusiveGateway ID="312" IdTop="313" IdLeft="316" IdBottom="315" IdRight="314" Left="1555" Top="160">
+            <Name>6</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="78" Source="7" Target="19" />
           <SequenceFlow ID="79" Source="18" Target="13">
             <Assignments>
@@ -418,8 +433,8 @@
           <SequenceFlow ID="85" Source="37" Target="44" />
           <SequenceFlow ID="86" Source="27" Target="52" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="PerfilOutput/LocalizacionP12" to="FirmarInput/p12Url" />
-              <Assignment type="Variable" from="PerfilOutput/PinArchivo" to="FirmarInput/pinP12" />
+              <Assignment type="Variable" from="PerfilOutput/UrlP12" to="FirmarInput/p12Url" />
+              <Assignment type="Variable" from="PerfilOutput/PinP12" to="FirmarInput/pinP12" />
               <Assignment type="Variable" from="NDXMLOutput/NotaDebito" to="FirmarInput/inXml" />
               <Assignment type="Expression" from="&quot;ND&quot;" to="FirmarInput/tipoDoc" />
             </Assignments>
@@ -435,8 +450,8 @@
           <SequenceFlow ID="89" Source="56" Target="59" />
           <SequenceFlow ID="90" Source="61" Target="14">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="NotaDebitoFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="NotaDebitoFault/RespuestaXML" />
+              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="NotaDebitoFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="NotaDebitoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="92" Source="42" Target="67" ConditionExpression="?">
@@ -462,43 +477,46 @@
           </SequenceFlow>
           <SequenceFlow ID="106" Source="46" Target="105">
             <Assignments>
-              <Assignment type="Variable" from="NotaDebitoInput/Usuario" to="PerfilInput/UsuarioLocal" />
-              <Assignment type="Variable" from="NotaDebitoInput/Identificacion" to="PerfilInput/Identificacion" />
-              <Assignment type="Expression" from=" parametro(username)" to="PerfilInput/UsuarioHacienda" />
-              <Assignment type="Expression" from=" parametro(password)" to="PerfilInput/PasswordHacienda" />
-              <Assignment type="Expression" from="&quot;Firmas/010966001806.p12&quot;" to="PerfilInput/LocalizacionP12" />
-              <Assignment type="Expression" from="&quot;1977&quot;" to="PerfilInput/PinArchivo" />
+              <Assignment type="Variable" from="NotaDebitoInput/Cliente" to="PerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="NotaDebitoInput/Usuario" to="PerfilInput/Usuario" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="112" Source="103" Target="111" />
           <SequenceFlow ID="113" Source="109" Target="72" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="NotaDebitoInput/Cliente" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Variable" from="NotaDebitoInput/Servicio" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Variable" from="PerfilOutput/IDEmpresa" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Expression" from="2" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;ND&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Variable" from="NotaDebitoInput/Usuario" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Variable" from="NotaDebitoInput/Identificacion" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/Identificacion" to="ConsecutivoInput/Identificacion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot;)" to="ConsecutivoInput/Fecha" />
               <Assignment type="Variable" from="NotaDebitoInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="114" Source="110" Target="13" />
-          <SequenceFlow ID="213" Source="65" Target="212">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
-              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="214" Source="210" Target="4">
             <Assignments>
               <Assignment type="Variable" from="XMLOutput/IndestadoR" to="NotaDebitoOutput/Estado" />
               <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="NotaDebitoOutput/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="218" Source="60" Target="212" ConditionExpression=" variable(ConsultaFacOutput/IndestadoR)=&quot;aceptado&quot;">
+          <SequenceFlow ID="218" Source="60" Target="212" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR))  " to="XMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="317" Source="65" Target="316" />
+          <SequenceFlow ID="318" Source="314" Target="209" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="319" Source="315" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacOKFault/Estado" to="NotaDebitoFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacOKFault/Respuesta" to="NotaDebitoFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
