@@ -69,21 +69,49 @@
                     <div class="row">
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group has-success">
-                                <label>Departamento:</label>
-                                <input id="txtDireccion_Departamento" type="text" maxlength="45" name="txtDireccion_Departamento" placeholder="Departamento" class="form-control" autofocus="" />
+                                <label>Provincia:</label>
+                                <!-- <input id="txtDireccion_Provincia" type="text" maxlength="45" name="txtDireccion_Provincia" 
+                                class="form-control" placeholder="Provincia" autofocus="" /> -->
+                                <SELECT id="txtDireccion_Provincia" class="form-control" NAME="txtDireccion_Provincia"
+										        onChange="fillSelectFromArray(this.form.txtDireccion_Departamento, ((this.selectedIndex == -1) ? null : canton[this.selectedIndex-1])); fillSelectFromArray(this.form.txtDireccion_Distrito, ((txtDireccion_Departamento.selectedIndex == -1) ? null : distrito[this.selectedIndex-1][0]));">
+											<OPTION VALUE="-1">--- Seleccione ---</OPTION>
+											<OPTION VALUE="1">SAN JOSE</OPTION>
+											<OPTION VALUE="2">ALAJUELA</OPTION>
+											<OPTION VALUE="3">CARTAGO</OPTION>
+											<OPTION VALUE="4">HEREDIA</OPTION>
+											<OPTION VALUE="5">GUANACASTE</OPTION>
+											<OPTION VALUE="6">PUNTARENAS</OPTION>
+											<OPTION VALUE="7">LIMON</OPTION>
+										</SELECT>
                             </div>
                         </div>
+
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group has-success">
-                                <label>Provincia:</label>
-                                <input id="txtDireccion_Provincia" type="text" maxlength="45" name="txtDireccion_Provincia" class="form-control" placeholder="Provincia" autofocus="" />
+                                <label>Canton:</label>
+                                <!-- <input id="txtDireccion_Departamento" type="text" maxlength="45" 
+                                name="txtDireccion_Departamento" placeholder="Canton" class="form-control" autofocus="" /> -->
+                                <SELECT class="form-control" id="txtDireccion_Departamento" NAME="txtDireccion_Departamento" onChange="fillSelectFromArray(this.form.txtDireccion_Distrito, ((this.selectedIndex == -1) ? null : distrito[txtDireccion_Provincia.selectedIndex-1][this.selectedIndex]));">
+                                    <OPTION>&#xA0; &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; 
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</OPTION>
+                                </SELECT>
                             </div>
                         </div>
+                        
                         <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                             <div class="form-group has-success">
                                 <label>Distrito:</label>
-                                <input id="txtDireccion_Distrito" type="text" maxlength="45" name="txtDireccion_Distrito"  class="form-control" placeholder="Distrito" autofocus="" />
+                                <!-- <input id="txtDireccion_Distrito" type="text" maxlength="45"
+                                 name="txtDireccion_Distrito"  class="form-control" placeholder="Distrito" autofocus="" /> -->
+                                 <SELECT class="form-control" id="txtDireccion_Distrito" NAME="txtDireccion_Distrito">
+                                    <OPTION>&#xA0; &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0; 
+  &#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;&#xA0;</OPTION>
+                                </SELECT>
+                                                       
                             </div>
+
+
+
                         </div>
                     </div>
                     
