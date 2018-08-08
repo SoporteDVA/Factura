@@ -252,7 +252,7 @@ switch ($_GET["op"]) {
                     "0"=>'<button type="button" class="btn btn-warning" name="optDetIngBusqueda[]" data-codigo="'.$reg->codigo.'" 
                     data-serie="'.$reg->serie.'" data-nombre="'.$reg->Articulo.'" data-precio-venta="'.$reg->precio_ventapublico.'" 
                     data-stock-actual="'.$reg->stock_actual.'" id="'.$reg->iddetalle_ingreso.'" value="'.$reg->iddetalle_ingreso.'"
-                    data-toggle="tooltip" title="Agregar al carrito"
+                    data-toggle="tooltip" title="Agregar a la Factura"
                     onclick="AgregarPedCarrito('.$reg->iddetalle_ingreso.',\''.$reg->stock_actual.'\',\''.$reg->Articulo.'\',\''.$reg->codigo.'\',\''.$reg->serie.'\',\''.$reg->precio_ventapublico.'\')" >
                     <i class="fa fa-check" ></i> </button>',
                     "1"=>$reg->Articulo,
