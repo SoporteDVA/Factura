@@ -88,10 +88,11 @@ $pdf->addSociete( utf8_decode($reg_cli->razon_social),
                   "$extension");
 $pdf->addQR("$qrimage","$extensionQ");
 
-$pdf->fact_dev( "CONSECUTIVO ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
+$pdf->fact_dev( "Factura Electronica ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
 $pdf->addClave( $reg_cli->clave);
+$pdf->addTIpoVenta( $reg_cli->tipo_venta);
 //$pdf->addClient("CL01");
 //$pdf->addPageNumber("1");
 
@@ -156,7 +157,7 @@ $reg_igv = $query_global->fetch_object();
 
 $pdf->addTVAs( $reg_cli->impuesto, $reg_total->Total,$reg_igv->simbolo_moneda );
 $pdf->addCadreEurosFrancs("$reg_igv->nombre_impuesto". "$reg_cli->impuesto%");
-//$pdf->Output('Reporte de Venta','I');
-$pdf->Output("DocumentosPDF/".$contenido.".pdf");
+$pdf->Output('Factura','I');
+$pdf->Output("DocumentosPDF/".$contenido.".pdf",'F');
 
 ?>
