@@ -91,6 +91,7 @@ $pdf->addQR("$qrimage","$extensionQ");
 $pdf->fact_dev( "CONSECUTIVO ", "$reg_cli->serie_comprobante-$reg_cli->num_comprobante" );
 $pdf->temporaire( "" );
 $pdf->addDate( $reg_cli->fecha);
+$pdf->addClave( $reg_cli->clave);
 //$pdf->addClient("CL01");
 //$pdf->addPageNumber("1");
 

@@ -224,7 +224,22 @@ function addDate( $date )
 	$this->Cell(10,5,$date, 0,0, "C");
 }
 
-
+function addClave( $clave )
+{
+	$r1  = $this->w - 61;
+	$r2  = $r1 + 15;
+	$y1  = 32;
+	$y2  = $y1 ;
+	$mid = $y1 + ($y2 / 2);
+	//$this->RoundedRect($r1, $y1, ($r2 - $r1), $y2, 3.5, 'D');
+	//$this->Line( $r1, $mid, $r2, $mid);
+	$this->SetXY( $r1 + ($r2-$r1)/2 - 5, $y1+5 );
+	$this->SetFont( "Arial", "B", 10);
+	$this->Cell(-71,5, "Clave Numerica", 0, 0, "C");
+	$this->SetXY( $r1 + ($r2-$r1)/2 - 5, $y1+9 );
+	$this->SetFont( "Arial", "", 10);
+	$this->Cell(1,5,$clave, 0,0, "C");
+}
 
 
 function addClient( $ref )
