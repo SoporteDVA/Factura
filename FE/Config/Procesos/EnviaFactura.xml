@@ -288,12 +288,11 @@
           <ExclusiveGateway ID="70" IdTop="71" IdLeft="74" IdBottom="73" IdRight="72" Left="86.18815" Top="121">
             <Name>OKP</Name>
           </ExclusiveGateway>
-          <Start ID="89" IdTop="0" IdLeft="0" IdBottom="91" IdRight="90" Left="10" Top="5">
+          <Start ID="89" IdTop="0" IdLeft="0" IdBottom="91" IdRight="90" Left="15" Top="15">
             <Message>
               <Properties>
                 <Property name="Cliente" />
                 <Property name="Usuario" />
-                <Property name="Servicio" />
                 <Property name="Situacion" />
               </Properties>
             </Message>
@@ -451,7 +450,7 @@
           <SequenceFlow ID="88" Source="72" Target="59" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="EnviaFacturaInput/Cliente" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Servicio" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="ConsecutivoInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/Identificacion" to="ConsecutivoInput/Identificacion" />

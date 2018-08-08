@@ -14,7 +14,6 @@
               <Properties>
                 <Property name="Cliente" />
                 <Property name="Usuario" />
-                <Property name="Servicio" />
                 <Property name="Situacion" />
               </Properties>
             </Message>
@@ -386,7 +385,7 @@
           <SequenceFlow ID="149" Source="142" Target="34" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="MensajeReceptorInput/Cliente" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Variable" from="MensajeReceptorInput/Servicio" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="5" to="ConsecutivoInput/Servicio" />
               <Assignment type="Expression" from="&quot;CCE&quot;" to="ConsecutivoInput/TipoDoc" />
               <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="ConsecutivoInput/Usuario" />
               <Assignment type="Variable" from="PerfilOutput/Identificacion" to="ConsecutivoInput/Identificacion" />
