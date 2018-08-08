@@ -156,6 +156,7 @@ $reg_igv = $query_global->fetch_object();
 
 $pdf->addTVAs( $reg_cli->impuesto, $reg_total->Total,$reg_igv->simbolo_moneda );
 $pdf->addCadreEurosFrancs("$reg_igv->nombre_impuesto". "$reg_cli->impuesto%");
-$pdf->Output('Reporte de Venta','I');
+//$pdf->Output('Reporte de Venta','I');
+$pdf->Output("DocumentosPDF/".$contenido.".pdf");
 
 ?>
