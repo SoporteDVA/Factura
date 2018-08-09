@@ -85,7 +85,7 @@
     <ID>11</ID>
     <Nombre>NotaDebitoCORE</Nombre>
     <Diagrama>NotaDebitoCORE.xml</Diagrama>
-    <Descripcion>Crea XML de la Nota de Debito</Descripcion>
+    <Descripcion>Crea el XML de la Nota de Debito</Descripcion>
     <Categoria>Movimientos/Core</Categoria>
     <UltimaModificacion>11/07/2018 16:13:37</UltimaModificacion>
     <Llaves />
