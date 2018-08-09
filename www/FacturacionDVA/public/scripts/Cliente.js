@@ -123,7 +123,6 @@ function cargarDataCliente(id, tipo_persona,nombre,tipo_documento,num_documento,
 		$("#VerForm").show();// mostramos el formulario
 		$("#btnNuevo").hide();// ocultamos el boton nuevo
 		$("#VerListado").hide();
-
 		$("#txtIdPersona").val(id);// recibimos la variable id a la caja de texto
 		$("#cboTipoPersona").val(tipo_persona);
 	    $("#txtNombre").val(nombre);// recibimos la variable nombre a la caja de texto txtNombre

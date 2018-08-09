@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaDATA</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>08/08/2018</CreationDate>
+  <ModificationDate>08/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="110" Top="170">
+            <Message>
+              <Properties>
+                <Property name="Fecha" />
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="255" Top="170" update="False" server="MYSQL">
+            <Name>Tarea</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="Fecha" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Facturas">
+                  <Properties>
+                    <Property name="idpersona" />
+                    <Property name="tipopersona" />
+                    <Property name="nombre" />
+                    <Property name="tipo_documento" />
+                    <Property name="num_documento" />
+                    <Property name="direccion_departamento" />
+                    <Property name="direccion_provincia" />
+                    <Property name="direccion_distrito" />
+                    <Property name="direccion_calle" />
+                    <Property name="telefono" />
+                    <Property name="email" />
+                    <Property name="numero_cuenta" />
+                    <Property name="estado" />
+                    <Property name="fecha" />
+                    <Property name="razon_social" />
+                    <Property name="num_comprobante" />
+                    <Property name="serie_comprobante" />
+                    <Property name="CedulaSucursal" />
+                    <Property name="num_sucursal" />
+                    <Property name="direccion" />
+                    <Property name="telefono_suc" />
+                    <Property name="email_suc" />
+                    <Property name="representante" />
+                    <Property name="logo" />
+                    <Property name="tipo_pedido" />
+                    <Property name="impuesto" />
+                    <Property name="doc" />
+                    <Property name="clave" />
+                    <Property name="tipo_venta" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="390" Top="170">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="550" Top="265">
+            <Name>ConsultaDATAFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaDATAFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="550" Top="170">
+            <Name>ConsultaDATAOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Facturas">
+                  <Properties>
+                    <Property name="idpersona" />
+                    <Property name="tipopersona" />
+                    <Property name="nombre" />
+                    <Property name="tipo_documento" />
+                    <Property name="num_documento" />
+                    <Property name="direccion_departamento" />
+                    <Property name="direccion_provincia" />
+                    <Property name="direccion_distrito" />
+                    <Property name="direccion_calle" />
+                    <Property name="telefono" />
+                    <Property name="email" />
+                    <Property name="numero_cuenta" />
+                    <Property name="estado" />
+                    <Property name="fecha" />
+                    <Property name="razon_social" />
+                    <Property name="num_comprobante" />
+                    <Property name="serie_comprobante" />
+                    <Property name="CedulaSucursal" />
+                    <Property name="num_sucursal" />
+                    <Property name="direccion" />
+                    <Property name="telefono_suc" />
+                    <Property name="email_suc" />
+                    <Property name="representante" />
+                    <Property name="logo" />
+                    <Property name="tipo_pedido" />
+                    <Property name="impuesto" />
+                    <Property name="doc" />
+                    <Property name="clave" />
+                    <Property name="tipo_venta" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaDATAOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="23" Source="1" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from="ObtieneFacturas" to="TareaInput/SP" />
+              <Assignment type="Variable" from="ConsultaDATAInput/Fecha" to="TareaInput/Fecha" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="5" Target="12" />
+          <SequenceFlow ID="25" Source="10" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput" to="ConsultaDATAOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="11" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDATAFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Error" to="ConsultaDATAFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

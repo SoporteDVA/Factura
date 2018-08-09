@@ -243,4 +243,31 @@
     <UltimaModificacion>24/07/2018 15:20:19</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>31</ID>
+    <Nombre>InterfazarMYSQLFAC</Nombre>
+    <Diagrama>InterfazarMYSQLFAC.xml</Diagrama>
+    <Descripcion>Permite traer las facturas desde mysql</Descripcion>
+    <Categoria>MYSQLData</Categoria>
+    <UltimaModificacion>08/08/2018 6:20:43 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>32</ID>
+    <Nombre>ConsultaDATA</Nombre>
+    <Diagrama>ConsultaDATA.xml</Diagrama>
+    <Descripcion>Consulta todas las facturas en el sistema MYSQL</Descripcion>
+    <Categoria>MYSQLData/Core</Categoria>
+    <UltimaModificacion>08/08/2018 6:23:09 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>33</ID>
+    <Nombre>FEInsertaDocumento</Nombre>
+    <Diagrama>FEInsertaDocumento.xml</Diagrama>
+    <Descripcion>Permite insertar el documento en la tabla de interfaz</Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>08/08/2018 6:51:12 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

@@ -44,4 +44,8 @@
     <Canal>1</Canal>
     <Proceso>29</Proceso>
   </ProcesoPermitido>
+  <ProcesoPermitido>
+    <Canal>1</Canal>
+    <Proceso>32</Proceso>
+  </ProcesoPermitido>
 </ProcesoPermitidoDS>

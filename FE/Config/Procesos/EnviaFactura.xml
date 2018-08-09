@@ -36,7 +36,7 @@
           <ExclusiveGateway ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="376" Top="171">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="431" Top="116" update="False" NombreProceso="FacturaCORE">
+          <Subprocess ID="10" IdTop="11" IdLeft="14" IdBottom="13" IdRight="12" Left="455" Top="115" update="False" NombreProceso="FacturaCORE">
             <Name>FacturaXML</Name>
             <InputMessage>
               <Properties>
@@ -107,13 +107,13 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="575" Top="116">
+          <ExclusiveGateway ID="15" IdTop="16" IdLeft="19" IdBottom="18" IdRight="17" Left="575" Top="115">
             <Name>2</Name>
           </ExclusiveGateway>
-          <ExclusiveGateway ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="776" Top="116">
+          <ExclusiveGateway ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="776" Top="115">
             <Name>3</Name>
           </ExclusiveGateway>
-          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="866" Top="116" update="False" NombreProceso="EnviaFAC">
+          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="866" Top="115" update="False" NombreProceso="EnviaFAC">
             <Name>Envia</Name>
             <InputMessage>
               <Properties>
@@ -140,10 +140,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="965" Top="116">
+          <ExclusiveGateway ID="30" IdTop="31" IdLeft="34" IdBottom="33" IdRight="32" Left="965" Top="115">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="660" Top="116" update="False" NombreProceso="FirmaXML">
+          <Subprocess ID="35" IdTop="36" IdLeft="39" IdBottom="38" IdRight="37" Left="660" Top="115" update="False" NombreProceso="FirmaXML">
             <Name>Firmar</Name>
             <InputMessage>
               <Properties>
@@ -192,7 +192,7 @@
           <ExclusiveGateway ID="45" IdTop="46" IdLeft="49" IdBottom="48" IdRight="47" Left="965" Top="300">
             <Name>5</Name>
           </ExclusiveGateway>
-          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="1035" Top="116" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="1035" Top="115" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
@@ -294,6 +294,59 @@
                 <Property name="Cliente" />
                 <Property name="Usuario" />
                 <Property name="Situacion" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="detalles" />
               </Properties>
             </Message>
           </Start>

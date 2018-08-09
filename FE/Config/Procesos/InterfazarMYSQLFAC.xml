@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>InterfazarMYSQLFAC</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>08/08/2018</CreationDate>
+  <ModificationDate>08/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="115" Top="155">
+            <Message>
+              <Properties>
+                <Property name="Fecha" />
+              </Properties>
+            </Message>
+          </Start>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="425" Top="155">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="220" Top="155" update="False" NombreProceso="ConsultaDATA">
+            <Name>ConsultaFacturas</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Facturas">
+                  <Properties>
+                    <Property name="idpersona" />
+                    <Property name="tipopersona" />
+                    <Property name="nombre" />
+                    <Property name="tipo_documento" />
+                    <Property name="num_documento" />
+                    <Property name="direccion_departamento" />
+                    <Property name="direccion_provincia" />
+                    <Property name="direccion_distrito" />
+                    <Property name="direccion_calle" />
+                    <Property name="telefono" />
+                    <Property name="email" />
+                    <Property name="numero_cuenta" />
+                    <Property name="estado" />
+                    <Property name="fecha" />
+                    <Property name="razon_social" />
+                    <Property name="num_comprobante" />
+                    <Property name="serie_comprobante" />
+                    <Property name="CedulaSucursal" />
+                    <Property name="num_sucursal" />
+                    <Property name="direccion" />
+                    <Property name="telefono_suc" />
+                    <Property name="email_suc" />
+                    <Property name="representante" />
+                    <Property name="logo" />
+                    <Property name="tipo_pedido" />
+                    <Property name="impuesto" />
+                    <Property name="doc" />
+                    <Property name="clave" />
+                    <Property name="tipo_venta" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="542.4186" Top="155" update="False" NombreProceso="FEInsertaDocumento">
+            <Name>InsertaFACS</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="TipoDocumento" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+                <Property name="TipoAmbiente" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="Estado" />
+                <Property name="EstadoDesc" />
+                <Property name="Fecha" />
+                <Property name="FechaCarga" />
+                <Property name="FechaProceso" />
+                <Property name="FechaRecepcion" />
+                <Property name="FechaReproceso" />
+                <Property name="EstadoHacienda" />
+                <Property name="TramaXML" />
+                <Property name="TramaRespuestaConsulta" />
+                <Property name="Situacion" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Insertados" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="800" Top="155">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="885" Top="155">
+            <Message>
+              <Properties />
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>
+            </OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="33" IdTop="34" IdLeft="37" IdBottom="36" IdRight="35" Left="885" Top="270">
+            <Name>InterfazarMYSQLFACFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>InterfazarMYSQLFACFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="38" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarMYSQLFACInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="39" Source="15" Target="12" />
+          <SequenceFlow ID="40" Source="10" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FE&quot;" to="InsertaFACSInput/TipoDocumento" />
+              <Assignment type="Expression" from="1" to="InsertaFACSInput/IDEmpresa" />
+              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="InsertaFACSInput/Usuario" />
+              <Assignment type="Expression" from="2" to="InsertaFACSInput/TipoAmbiente" />
+              <Assignment type="Expression" from="0" to="InsertaFACSInput/clave" />
+              <Assignment type="Variable" from="ConsultaFacturasOutput/Facturas/num_comprobante" to="InsertaFACSInput/consecutivo" />
+              <Assignment type="Variable" from="ConsultaFacturasOutput/Facturas/fecha" to="InsertaFACSInput/fechaEmision" />
+              <Assignment type="Variable" from="ConsultaFacturasOutput/Facturas/representante" to="InsertaFACSInput/emisorNombre" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="41" Source="20" Target="27" />
+          <SequenceFlow ID="42" Source="25" Target="32" ConditionExpression="?" />
+          <SequenceFlow ID="43" Source="26" Target="37" />
+          <SequenceFlow ID="44" Source="11" Target="37">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturasFault" to="InterfazarMYSQLFACFault" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
