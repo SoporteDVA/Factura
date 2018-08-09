@@ -1,15 +1,6 @@
 <?xml version="1.0" standalone="yes"?>
 <ProcesoDS xmlns="http://www.infowarecr.com/stx/ProcesoDS.xsd">
   <Proceso>
-    <ID>0</ID>
-    <Nombre>Fecha</Nombre>
-    <Diagrama>Fecha.xml</Diagrama>
-    <Descripcion>Obtiene la fecha Servidor Actual</Descripcion>
-    <Categoria>Util</Categoria>
-    <UltimaModificacion>26/6/2018 17:37:53</UltimaModificacion>
-    <Llaves />
-  </Proceso>
-  <Proceso>
     <ID>1</ID>
     <Nombre>ValidaServicioPHP</Nombre>
     <Diagrama>ValidaServicioPHP.xml</Diagrama>

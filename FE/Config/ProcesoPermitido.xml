@@ -2,10 +2,6 @@
 <ProcesoPermitidoDS xmlns="http://www.infowarecr.com/stx/ProcesoPermitidoDS.xsd">
   <ProcesoPermitido>
     <Canal>1</Canal>
-    <Proceso>0</Proceso>
-  </ProcesoPermitido>
-  <ProcesoPermitido>
-    <Canal>1</Canal>
     <Proceso>1</Proceso>
   </ProcesoPermitido>
   <ProcesoPermitido>
