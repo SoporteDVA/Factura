@@ -71,4 +71,48 @@
 &lt;/PropiedadesServidor&gt;</Propiedades>
     <UltimaModificacion>09/08/2018 13:14:59</UltimaModificacion>
   </Instancia>
+  <Instancia>
+    <ID>4</ID>
+    <Servidor>4</Servidor>
+    <Descripcion />
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;true&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;true&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;45000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Intermediate&lt;/LogLevel&gt;
+  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;Servidor&gt;mail.corpdva.com&lt;/Servidor&gt;
+  &lt;Seguridad&gt;no&lt;/Seguridad&gt;
+  &lt;Usuario&gt;soporte@corpdva.com&lt;/Usuario&gt;
+  &lt;Clave&gt;Sp123456&lt;/Clave&gt;
+  &lt;Puerto&gt;25&lt;/Puerto&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
+    <UltimaModificacion>09/08/2018 15:49:42</UltimaModificacion>
+  </Instancia>
+  <Instancia>
+    <ID>5</ID>
+    <Servidor>4</Servidor>
+    <Descripcion />
+    <Propiedades>&lt;?xml version="1.0" encoding="utf-16"?&gt;
+&lt;PropiedadesServidor xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"&gt;
+  &lt;Activo&gt;true&lt;/Activo&gt;
+  &lt;ModoTransaccion&gt;true&lt;/ModoTransaccion&gt;
+  &lt;TimeOut&gt;45000&lt;/TimeOut&gt;
+  &lt;LogLevel&gt;Intermediate&lt;/LogLevel&gt;
+  &lt;CodePage&gt;UTF-8&lt;/CodePage&gt;
+  &lt;Alarma /&gt;
+  &lt;TransaccionesFallidas&gt;3&lt;/TransaccionesFallidas&gt;
+  &lt;IntervaloAlarma&gt;3600&lt;/IntervaloAlarma&gt;
+  &lt;Servidor&gt;mail.corpdva.com&lt;/Servidor&gt;
+  &lt;Seguridad&gt;no&lt;/Seguridad&gt;
+  &lt;Usuario&gt;soporte@corpdva.com&lt;/Usuario&gt;
+  &lt;Clave&gt;Sp123456&lt;/Clave&gt;
+  &lt;Puerto&gt;25&lt;/Puerto&gt;
+&lt;/PropiedadesServidor&gt;</Propiedades>
+    <UltimaModificacion>09/08/2018 15:49:44</UltimaModificacion>
+  </Instancia>
 </InstanciaDS>

@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Envia_Correos</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>09/08/2018</CreationDate>
+  <ModificationDate>09/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="0" Top="20">
+            <Message>
+              <Properties>
+                <Property name="De" />
+                <Property name="Para" />
+                <Property name="ConCopia" />
+                <Property name="ConCopiaOculta" />
+                <Property name="Titulo" />
+                <Property name="Contenido" length="1" />
+                <Property name="Adjuntos">
+                  <Properties>
+                    <Property name="Adjunto" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="185.1139" Top="130" update="False" server="Correos">
+            <Name>Mail</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="De" />
+                <Property name="Para" />
+                <Property name="ConCopia" />
+                <Property name="ConCopiaOculta" />
+                <Property name="Titulo" />
+                <Property name="Contenido" length="1" />
+                <Property name="Adjuntos">
+                  <Properties>
+                    <Property name="Adjunto" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Resultado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Mensaje" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="286.4811" Top="130">
+            <Name>Ok</Name>
+          </ExclusiveGateway>
+          <End ID="14" IdTop="15" IdLeft="18" IdBottom="17" IdRight="16" Left="445" Top="260">
+            <Name>Envia_CorreosFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>Envia_CorreosFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="470" Top="20">
+            <Name>Envia_CorreosOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Resultado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>Envia_CorreosOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="13" Source="5" Target="12" />
+          <SequenceFlow ID="24" Source="10" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="MailOutput/Resultado" to="Envia_CorreosOutput/Resultado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="25" Source="11" Target="18">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="Envia_CorreosFault/Estado" />
+              <Assignment type="Variable" from="MailFault/Mensaje" to="Envia_CorreosFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="2" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;soporte@corpdva.com&quot;" to="MailInput/De" />
+              <Assignment type="Variable" from="Envia_CorreosInput/Para" to="MailInput/Para" />
+              <Assignment type="Variable" from="Envia_CorreosInput/ConCopia" to="MailInput/ConCopia" />
+              <Assignment type="Variable" from="Envia_CorreosInput/ConCopiaOculta" to="MailInput/ConCopiaOculta" />
+              <Assignment type="Variable" from="Envia_CorreosInput/Titulo" to="MailInput/Titulo" />
+              <Assignment type="Variable" from="Envia_CorreosInput/Contenido" to="MailInput/Contenido" />
+              <Assignment type="Variable" from="Envia_CorreosInput/Adjuntos" to="MailInput/Adjuntos" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

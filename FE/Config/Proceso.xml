@@ -270,4 +270,13 @@
     <UltimaModificacion>08/08/2018 6:51:12 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>34</ID>
+    <Nombre>Envia_Correos</Nombre>
+    <Diagrama>Envia_Correos.xml</Diagrama>
+    <Descripcion />
+    <Categoria>Correos</Categoria>
+    <UltimaModificacion>09/08/2018 15:46:06</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
