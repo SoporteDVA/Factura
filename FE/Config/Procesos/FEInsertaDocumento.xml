@@ -205,11 +205,11 @@
                     <Property name="EstadoDesc" />
                     <Property name="IDPedido" />
                     <Property name="TipoDocumento" />
-                    <Property name="IDEempresa" />
+                    <Property name="IDEmpresa" />
                     <Property name="Usuario" />
                     <Property name="TipoAmbiente" />
-                    <Property name="Clave" />
-                    <Property name="Consecutivo" />
+                    <Property name="clave" />
+                    <Property name="consecutivo" />
                   </Properties>
                 </Property>
               </Properties>
