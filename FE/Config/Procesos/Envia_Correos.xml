@@ -2,8 +2,8 @@
 <BPD>
   <Name>Envia_Correos</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>09/08/2018</CreationDate>
-  <ModificationDate>09/08/2018</ModificationDate>
+  <CreationDate>9/8/2018</CreationDate>
+  <ModificationDate>9/8/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
@@ -70,7 +70,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="470" Top="20">
+          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="475" Top="20">
             <Name>Envia_CorreosOutput</Name>
             <Message>
               <Properties>
