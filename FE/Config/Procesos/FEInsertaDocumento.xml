@@ -2,14 +2,14 @@
 <BPD>
   <Name>FEInsertaDocumento</Name>
   <Version>1.0.0.2</Version>
-  <CreationDate>08/08/2018</CreationDate>
-  <ModificationDate>08/08/2018</ModificationDate>
+  <CreationDate>10/08/2018</CreationDate>
+  <ModificationDate>10/08/2018</ModificationDate>
   <Pools>
     <Pool ID="0">
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="150" Top="165">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
             <Message>
               <Properties>
                 <Property name="TipoDocumento" />
@@ -82,7 +82,7 @@
               </Properties>
             </Message>
           </Start>
-          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="255" Top="165" update="False" server="Bitacora">
+          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="205" Top="145" update="False" server="Bitacora">
             <Name>Tarea</Name>
             <InputMessage>
               <Properties>
@@ -162,9 +162,9 @@
                   <Properties>
                     <Property name="Estado" />
                     <Property name="EstadoDesc" />
-                    <Property name="IdPedido" />
+                    <Property name="IDPedido" />
                     <Property name="TipoDocumento" />
-                    <Property name="IDEmpresa" />
+                    <Property name="IDEempresa" />
                     <Property name="Usuario" />
                     <Property name="TipoAmbiente" />
                     <Property name="Clave" />
@@ -179,10 +179,7 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="370" Top="165">
-            <Name>1</Name>
-          </ExclusiveGateway>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="475" Top="300">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="485" Top="300">
             <Name>FEInsertaDocumentoFault</Name>
             <Message>
               <Properties>
@@ -195,7 +192,10 @@
             <Template>
             </Template>
           </End>
-          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="695" Top="165">
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="305" Top="145">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="480" Top="30">
             <Name>FEInsertaDocumentoOutput</Name>
             <Message>
               <Properties>
@@ -203,9 +203,9 @@
                   <Properties>
                     <Property name="Estado" />
                     <Property name="EstadoDesc" />
-                    <Property name="IdPedido" />
+                    <Property name="IDPedido" />
                     <Property name="TipoDocumento" />
-                    <Property name="IDEmpresa" />
+                    <Property name="IDEempresa" />
                     <Property name="Usuario" />
                     <Property name="TipoAmbiente" />
                     <Property name="Clave" />
@@ -219,48 +219,56 @@
             <Template>
             </Template>
           </End>
-          <ExclusiveGateway ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="515" Top="165">
-            <Name>Estado</Name>
-          </ExclusiveGateway>
-          <SequenceFlow ID="23" Source="1" Target="7">
+          <SequenceFlow ID="18" Source="5" Target="17" />
+          <SequenceFlow ID="24" Source="15" Target="22" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="FEInsertaDocumentoInput" to="TareaInput" />
+              <Assignment type="Variable" from="TareaOutput" to="FEInsertaDocumentoOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="25" Source="16" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEInsertaDocumentoFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Error" to="FEInsertaDocumentoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="2" Target="7">
+            <Assignments>
               <Assignment type="Expression" from="FeInsertaDocumento" to="TareaInput/SP" />
               <Assignment type="Expression" from="&quot;FE&quot;" to="TareaInput/TipoDocumento" />
               <Assignment type="Expression" from="1" to="TareaInput/IDEmpresa" />
-              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="TareaInput/Usuario" />
-              <Assignment type="Expression" from="1" to="TareaInput/TipoAmbiente" />
-              <Assignment type="Expression" from="123456" to="TareaInput/clave" />
-              <Assignment type="Expression" from="123456" to="TareaInput/consecutivo" />
-              <Assignment type="Expression" from="20180808" to="TareaInput/fechaEmision" />
-              <Assignment type="Expression" from="&quot;Alonso&quot;" to="TareaInput/emisorNombre" />
-              <Assignment type="Expression" from="01" to="TareaInput/emisorTipoIdentif" />
-              <Assignment type="Expression" from="109660018" to="TareaInput/emisorNumIdentif" />
-              <Assignment type="Expression" from="&quot;Alonso&quot;" to="TareaInput/nombreComercial" />
+              <Assignment type="Expression" from="&quot;jlopez&quot;" to="TareaInput/Usuario" />
+              <Assignment type="Expression" from="2" to="TareaInput/TipoAmbiente" />
+              <Assignment type="Expression" from="12345678" to="TareaInput/clave" />
+              <Assignment type="Expression" from="123" to="TareaInput/consecutivo" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/fechaEmision" />
+              <Assignment type="Expression" from="&quot;Jose&quot;" to="TareaInput/emisorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="TareaInput/emisorTipoIdentif" />
+              <Assignment type="Expression" from="123456" to="TareaInput/emisorNumIdentif" />
+              <Assignment type="Expression" from="&quot;PRUEBA&quot;" to="TareaInput/nombreComercial" />
               <Assignment type="Expression" from="1" to="TareaInput/emisorProv" />
-              <Assignment type="Expression" from="01" to="TareaInput/emisorCanton" />
-              <Assignment type="Expression" from="01" to="TareaInput/emisorDistrito" />
-              <Assignment type="Expression" from="01" to="TareaInput/emisorBarrio" />
-              <Assignment type="Expression" from="&quot;tibas&quot;" to="TareaInput/emisorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="TareaInput/emisorCanton" />
+              <Assignment type="Expression" from="&quot;02&quot;" to="TareaInput/emisorDistrito" />
+              <Assignment type="Expression" from="&quot;03&quot;" to="TareaInput/emisorBarrio" />
+              <Assignment type="Expression" from="&quot;Parque&quot;" to="TareaInput/emisorOtrasSenas" />
               <Assignment type="Expression" from="506" to="TareaInput/emisorCodPaisTel" />
-              <Assignment type="Expression" from="88888888" to="TareaInput/emisorTel" />
-              <Assignment type="Expression" from="506" to="TareaInput/emisorCodPaisFax" />
-              <Assignment type="Expression" from="88888888" to="TareaInput/emisorFax" />
-              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="TareaInput/emisorEmail" />
-              <Assignment type="Expression" from="&quot;DVA&quot;" to="TareaInput/receptorNombre" />
-              <Assignment type="Expression" from="02" to="TareaInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="3101123450" to="TareaInput/receptorNumIdentif" />
+              <Assignment type="Expression" from="&quot;22345941&quot;" to="TareaInput/emisorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="TareaInput/emisorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;88888888&quot;" to="TareaInput/emisorFax" />
+              <Assignment type="Expression" from="&quot;correo@correo.com&quot;" to="TareaInput/emisorEmail" />
+              <Assignment type="Expression" from="&quot;Receptor&quot;" to="TareaInput/receptorNombre" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="TareaInput/receptorTipoIdentif" />
+              <Assignment type="Expression" from="&quot;1234567&quot;" to="TareaInput/receptorNumIdentif" />
               <Assignment type="Expression" from="1" to="TareaInput/receptorProvincia" />
-              <Assignment type="Expression" from="01" to="TareaInput/receptorCanton" />
-              <Assignment type="Expression" from="01" to="TareaInput/receptorDistrito" />
-              <Assignment type="Expression" from="01" to="TareaInput/receptorBarrio" />
-              <Assignment type="Expression" from="&quot;San Jose&quot;" to="TareaInput/receptorOtrasSenas" />
-              <Assignment type="Expression" from="506" to="TareaInput/receptorCodPaisTel" />
-              <Assignment type="Expression" from="89000000" to="TareaInput/receptorTel" />
-              <Assignment type="Expression" from="506" to="TareaInput/receptorCodPaisFax" />
-              <Assignment type="Expression" from="66000000" to="TareaInput/receptorFax" />
-              <Assignment type="Expression" from="&quot;dva@corpdva.com&quot;" to="TareaInput/receptorEmail" />
-              <Assignment type="Expression" from="01" to="TareaInput/condVenta" />
+              <Assignment type="Expression" from="&quot;02&quot;" to="TareaInput/receptorCanton" />
+              <Assignment type="Expression" from="&quot;03&quot;" to="TareaInput/receptorDistrito" />
+              <Assignment type="Expression" from="&quot;06&quot;" to="TareaInput/receptorBarrio" />
+              <Assignment type="Expression" from="&quot;Barrio&quot;" to="TareaInput/receptorOtrasSenas" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="TareaInput/receptorCodPaisTel" />
+              <Assignment type="Expression" from="&quot;77777777&quot;" to="TareaInput/receptorTel" />
+              <Assignment type="Expression" from="&quot;506&quot;" to="TareaInput/receptorCodPaisFax" />
+              <Assignment type="Expression" from="&quot;66666666&quot;" to="TareaInput/receptorFax" />
+              <Assignment type="Expression" from="&quot;receptor@receptor.com&quot;" to="TareaInput/receptorEmail" />
+              <Assignment type="Expression" from="&quot;01&quot;" to="TareaInput/condVenta" />
               <Assignment type="Expression" from="0" to="TareaInput/plazoCredito" />
               <Assignment type="Expression" from="1" to="TareaInput/medioPago" />
               <Assignment type="Expression" from="&quot;CRC&quot;" to="TareaInput/codMoneda" />
@@ -268,7 +276,7 @@
               <Assignment type="Expression" from="0" to="TareaInput/totalServGravados" />
               <Assignment type="Expression" from="65" to="TareaInput/totalServExentos" />
               <Assignment type="Expression" from="0" to="TareaInput/totalMercGravadas" />
-              <Assignment type="Expression" from="65" to="TareaInput/totalMercExentas" />
+              <Assignment type="Expression" from="0" to="TareaInput/totalMercExentas" />
               <Assignment type="Expression" from="0" to="TareaInput/totalGravados" />
               <Assignment type="Expression" from="65" to="TareaInput/totalExentos" />
               <Assignment type="Expression" from="65" to="TareaInput/totalVentas" />
@@ -276,37 +284,18 @@
               <Assignment type="Expression" from="65" to="TareaInput/totalVentasNeta" />
               <Assignment type="Expression" from="0" to="TareaInput/totalImp" />
               <Assignment type="Expression" from="65" to="TareaInput/totalComprobante" />
-              <Assignment type="Expression" from="&quot;GRACIAS&quot;" to="TareaInput/otros" />
-              <Assignment type="Expression" from="0" to="TareaInput/Estado" />
-              <Assignment type="Expression" from="&quot;Inicial&quot;" to="TareaInput/EstadoDesc" />
+              <Assignment type="Expression" from="&quot;ASLFDJALSFA&quot;" to="TareaInput/otros" />
+              <Assignment type="Expression" from="&quot;I&quot;" to="TareaInput/Estado" />
+              <Assignment type="Expression" from="&quot;JA;LSKDJFLSAKDJFLASD&quot;" to="TareaInput/EstadoDesc" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/Fecha" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/FechaCarga" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/FechaProceso" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/FechaRecepcion" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/FechaReproceso" />
-              <Assignment type="Expression" from="&quot;Sin procesar&quot;" to="TareaInput/EstadoHacienda" />
-              <Assignment type="Expression" from="&quot;trama&quot;" to="TareaInput/TramaXML" />
-              <Assignment type="Expression" from="&quot;trama&quot;" to="TareaInput/TramaRespuestaConsulta" />
+              <Assignment type="Expression" from="&quot;A&quot;" to="TareaInput/EstadoHacienda" />
+              <Assignment type="Expression" from="&quot;Trama&quot;" to="TareaInput/TramaXML" />
+              <Assignment type="Expression" from="&quot;texto&quot;" to="TareaInput/TramaRespuestaConsulta" />
               <Assignment type="Expression" from="1" to="TareaInput/Situacion" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="24" Source="5" Target="12" />
-          <SequenceFlow ID="26" Source="11" Target="17">
-            <Assignments>
-              <Assignment type="Expression" from=" parametro(Error)" to="FEInsertaDocumentoFault/Estado" />
-              <Assignment type="Variable" from="TareaFault/Error" to="FEInsertaDocumentoFault/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="62" Source="10" Target="61" ConditionExpression="?" />
-          <SequenceFlow ID="63" Source="60" Target="15">
-            <Assignments>
-              <Assignment type="Variable" from="TareaOutput/Fila/Estado" to="FEInsertaDocumentoFault/Estado" />
-              <Assignment type="Variable" from="TareaOutput/Fila/EstadoDesc" to="FEInsertaDocumentoFault/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="64" Source="59" Target="22" ConditionExpression=" variable(TareaOutput/Fila/Estado)=00">
-            <Assignments>
-              <Assignment type="Variable" from="TareaOutput" to="FEInsertaDocumentoOutput" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
