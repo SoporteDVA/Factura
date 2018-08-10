@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ConsultaDetalle</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>09/08/2018</CreationDate>
+  <ModificationDate>09/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="265" Top="170">
+            <Message>
+              <Properties>
+                <Property name="pedidoin" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="985" Top="170">
+            <Name>ConsultaDetalleOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Detalles">
+                  <Properties>
+                    <Property name="idpedido" />
+                    <Property name="cantidad" />
+                    <Property name="precio_venta" />
+                    <Property name="descuento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ConsultaDetalleOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="990" Top="360">
+            <Name>ConsultaDetalleFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ConsultaDetalleFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="760.3679" Top="170">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <Task ID="32" IdTop="33" IdLeft="36" IdBottom="35" IdRight="34" Left="488.2519" Top="170" update="False" server="MYSQL">
+            <Name>Detalles</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="pedidoin" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Detalles">
+                  <Properties>
+                    <Property name="idpedido" />
+                    <Property name="cantidad" />
+                    <Property name="precio_venta" />
+                    <Property name="descuento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <SequenceFlow ID="27" Source="23" Target="12" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="DetallesOutput" to="ConsultaDetalleOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="28" Source="24" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDetalleFault/Estado" />
+              <Assignment type="Variable" from="DetallesFault/Error" to="ConsultaDetalleFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="37" Source="6" Target="36">
+            <Assignments>
+              <Assignment type="Expression" from="ObtieneDetalleFacturas" to="DetallesInput/SP" />
+              <Assignment type="Variable" from="ConsultaDetalleInput/pedidoin" to="DetallesInput/pedidoin" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="34" Target="25" />
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

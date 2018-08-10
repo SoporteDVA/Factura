@@ -16,7 +16,7 @@
               </Properties>
             </Message>
           </Start>
-          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="255" Top="170" update="False" server="MYSQL">
+          <Task ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="335" Top="170" update="False" server="MYSQL">
             <Name>Tarea</Name>
             <InputMessage>
               <Properties>
@@ -42,6 +42,7 @@
                     <Property name="numero_cuenta" />
                     <Property name="estado" />
                     <Property name="fecha" />
+                    <Property name="idpedido" />
                     <Property name="razon_social" />
                     <Property name="num_comprobante" />
                     <Property name="serie_comprobante" />
@@ -54,9 +55,11 @@
                     <Property name="logo" />
                     <Property name="tipo_pedido" />
                     <Property name="impuesto" />
+                    <Property name="total" />
                     <Property name="doc" />
                     <Property name="clave" />
                     <Property name="tipo_venta" />
+                    <Property name="descuento" />
                   </Properties>
                 </Property>
               </Properties>
@@ -67,10 +70,10 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="390" Top="170">
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="560" Top="170">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="550" Top="265">
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="960" Top="310">
             <Name>ConsultaDATAFault</Name>
             <Message>
               <Properties>
@@ -83,7 +86,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="550" Top="170">
+          <End ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="960" Top="170">
             <Name>ConsultaDATAOutput</Name>
             <Message>
               <Properties>
@@ -103,6 +106,7 @@
                     <Property name="numero_cuenta" />
                     <Property name="estado" />
                     <Property name="fecha" />
+                    <Property name="idpedido" />
                     <Property name="razon_social" />
                     <Property name="num_comprobante" />
                     <Property name="serie_comprobante" />
@@ -115,9 +119,11 @@
                     <Property name="logo" />
                     <Property name="tipo_pedido" />
                     <Property name="impuesto" />
+                    <Property name="total" />
                     <Property name="doc" />
                     <Property name="clave" />
                     <Property name="tipo_venta" />
+                    <Property name="descuento" />
                   </Properties>
                 </Property>
               </Properties>
@@ -134,15 +140,15 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="24" Source="5" Target="12" />
-          <SequenceFlow ID="25" Source="10" Target="22" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="TareaOutput" to="ConsultaDATAOutput" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="26" Source="11" Target="17">
             <Assignments>
               <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDATAFault/Estado" />
               <Assignment type="Variable" from="TareaFault/Error" to="ConsultaDATAFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="68" Source="10" Target="22" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput" to="ConsultaDATAOutput" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
