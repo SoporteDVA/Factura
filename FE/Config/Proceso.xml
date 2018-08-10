@@ -270,4 +270,13 @@
     <UltimaModificacion>09/08/2018 15:46:06</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>35</ID>
+    <Nombre>ConsultaDetalle</Nombre>
+    <Diagrama>ConsultaDetalle.xml</Diagrama>
+    <Descripcion>Consulta los Detalles de las facturas en Base de datos</Descripcion>
+    <Categoria>MYSQLData/Core</Categoria>
+    <UltimaModificacion>10/08/2018 13:23:40</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
