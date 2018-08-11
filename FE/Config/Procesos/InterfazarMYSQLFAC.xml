@@ -237,7 +237,7 @@
           <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="685" Top="155">
             <Name>2</Name>
           </ExclusiveGateway>
-          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="1085" Top="155">
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="1210" Top="155">
             <Name>InterfazarMYSQLFACOutput</Name>
             <Message>
               <Properties>
@@ -247,13 +247,26 @@
                       <Properties>
                         <Property name="Estado" />
                         <Property name="EstadoDesc" />
-                        <Property name="IdPedido" />
+                        <Property name="IDPedido" />
                         <Property name="TipoDocumento" />
                         <Property name="IDEmpresa" />
                         <Property name="Usuario" />
                         <Property name="TipoAmbiente" />
                         <Property name="clave" />
                         <Property name="consecutivo" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+                <Property name="Detalle">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                        <Property name="EstadoDesc" />
+                        <Property name="IDPedido" />
+                        <Property name="Clave" />
+                        <Property name="IDDocumento" />
                       </Properties>
                     </Property>
                   </Properties>
@@ -278,8 +291,11 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="51" IdTop="52" IdLeft="55" IdBottom="54" IdRight="53" Left="794.7493" Top="155" update="False" NombreProceso="ConsultaDetalle">
+          <Subprocess ID="51" IdTop="52" IdLeft="55" IdBottom="54" IdRight="53" Left="794.7493" Top="155" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Facturas" assignTime="Before" NombreProceso="ConsultaDetalle">
             <Name>Detalle</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./idpedido" to="DetalleInput/pedidoin" />
+            </Assignments>
             <InputMessage>
               <Properties>
                 <Property name="pedidoin" />
@@ -307,6 +323,76 @@
           <ExclusiveGateway ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="937.959" Top="155">
             <Name>ok</Name>
           </ExclusiveGateway>
+          <Subprocess ID="80" IdTop="81" IdLeft="84" IdBottom="83" IdRight="82" Left="1039.369" Top="155" update="False" loopType="MultiInstance" miCondition="DetalleOutput/Resultados/Detalles" assignTime="Before" NombreProceso="FEInsertaDocumentoDetalle">
+            <Name>InsertaDetalle</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./idpedido" to="InsertaDetalleInput/IDDocumento" />
+              <Assignment type="Expression" from="0" to="InsertaDetalleInput/clave" />
+              <Assignment type="Expression" from="1" to="InsertaDetalleInput/NumeroLinea" />
+              <Assignment type="Expression" from="1" to="InsertaDetalleInput/Codigo" />
+              <Assignment type="Variable" from="./cantidad" to="InsertaDetalleInput/Cantidad" />
+              <Assignment type="Expression" from="&quot;H&quot;" to="InsertaDetalleInput/UnidadMedida" />
+              <Assignment type="Expression" from="&quot;Servicios Profesionales&quot;" to="InsertaDetalleInput/Detalle" />
+              <Assignment type="Variable" from="./precio_venta" to="InsertaDetalleInput/PrecioUnitario" />
+              <Assignment type="Expression" from="65" to="InsertaDetalleInput/MontoTotal" />
+              <Assignment type="Variable" from="./descuento" to="InsertaDetalleInput/MontoDescuento" />
+              <Assignment type="Expression" from="65" to="InsertaDetalleInput/SubTotal" />
+              <Assignment type="Expression" from="0" to="InsertaDetalleInput/Impuesto" />
+              <Assignment type="Variable" from="./precio_venta" to="InsertaDetalleInput/MontoTotalLinea" />
+              <Assignment type="Expression" from="1" to="InsertaDetalleInput/EstadoLinea" />
+              <Assignment type="Expression" from="&quot;A&quot;" to="InsertaDetalleInput/EstadoLineaDesc" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/Fecha" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaCarga" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaProceso" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaRecepcion" />
+              <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaDetalleInput/EstadoHacienda" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="IDDetalle" />
+                <Property name="IDDocumento" />
+                <Property name="clave" />
+                <Property name="NumeroLinea" />
+                <Property name="Codigo" />
+                <Property name="Cantidad" />
+                <Property name="UnidadMedida" />
+                <Property name="Detalle" />
+                <Property name="PrecioUnitario" />
+                <Property name="MontoTotal" />
+                <Property name="MontoDescuento" />
+                <Property name="NaturalezaDescuento" />
+                <Property name="SubTotal" />
+                <Property name="Impuesto" />
+                <Property name="MontoTotalLinea" />
+                <Property name="EstadoLinea" />
+                <Property name="EstadoLineaDesc" />
+                <Property name="Fecha" />
+                <Property name="FechaCarga" />
+                <Property name="FechaProceso" />
+                <Property name="FechaRecepcion" />
+                <Property name="EstadoHacienda" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="EstadoDesc" />
+                    <Property name="IDPedido" />
+                    <Property name="Clave" />
+                    <Property name="IDDocumento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="38" Source="1" Target="17">
             <Assignments>
               <Assignment type="Variable" from="InterfazarMYSQLFACInput/Fecha" to="ConsultaFacturasInput/Fecha" />
@@ -329,11 +415,17 @@
           </SequenceFlow>
           <SequenceFlow ID="56" Source="25" Target="55" ConditionExpression="?" />
           <SequenceFlow ID="62" Source="53" Target="61" />
-          <SequenceFlow ID="63" Source="59" Target="32" ConditionExpression="?" />
           <SequenceFlow ID="64" Source="60" Target="37">
             <Assignments>
               <Assignment type="Variable" from="DetalleFault/Estado" to="InterfazarMYSQLFACFault/Estado" />
               <Assignment type="Variable" from="DetalleFault/Respuesta" to="InterfazarMYSQLFACFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="85" Source="59" Target="84" ConditionExpression="?" />
+          <SequenceFlow ID="86" Source="82" Target="32">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaFACSOutput/Resultados" to="InterfazarMYSQLFACOutput/Resultados" />
+              <Assignment type="Variable" from="InsertaDetalleOutput/Resultados" to="InterfazarMYSQLFACOutput/Detalle" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
