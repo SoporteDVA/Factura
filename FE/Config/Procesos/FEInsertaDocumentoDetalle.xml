@@ -45,6 +45,7 @@
                   <Properties>
                     <Property name="Estado" />
                     <Property name="EstadoDesc" />
+                    <Property name="IDPedido" />
                     <Property name="Clave" />
                     <Property name="IDDocumento" />
                   </Properties>
@@ -90,6 +91,7 @@
                   <Properties>
                     <Property name="Estado" />
                     <Property name="EstadoDesc" />
+                    <Property name="IDPedido" />
                     <Property name="Clave" />
                     <Property name="IDDocumento" />
                   </Properties>
