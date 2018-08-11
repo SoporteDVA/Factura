@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEInsertaDocumentoDetalle</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>10/08/2018</CreationDate>
+  <ModificationDate>10/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="25">
+            <Message>
+              <Properties>
+                <Property name="IDDetalle" />
+                <Property name="IDDocumento" />
+                <Property name="clave" />
+                <Property name="NumeroLinea" />
+                <Property name="Codigo" />
+                <Property name="Cantidad" />
+                <Property name="UnidadMedida" />
+                <Property name="Detalle" />
+                <Property name="PrecioUnitario" />
+                <Property name="MontoTotal" />
+                <Property name="MontoDescuento" />
+                <Property name="NaturalezaDescuento" />
+                <Property name="SubTotal" />
+                <Property name="Impuesto" />
+                <Property name="MontoTotalLinea" />
+                <Property name="EstadoLinea" />
+                <Property name="EstadoLineaDesc" />
+                <Property name="Fecha" />
+                <Property name="FechaCarga" />
+                <Property name="FechaProceso" />
+                <Property name="FechaRecepcion" />
+                <Property name="EstadoHacienda" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="585" Top="40">
+            <Name>FEInsertaDocumentoDetalleOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="EstadoDesc" />
+                    <Property name="Clave" />
+                    <Property name="IDDocumento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEInsertaDocumentoDetalleOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="197.0345" Top="125" update="False" server="Bitacora">
+            <Name>Inserta</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="IDDocumento" />
+                <Property name="clave" />
+                <Property name="NumeroLinea" />
+                <Property name="Codigo" />
+                <Property name="Cantidad" />
+                <Property name="UnidadMedida" />
+                <Property name="Detalle" />
+                <Property name="PrecioUnitario" />
+                <Property name="MontoTotal" />
+                <Property name="MontoDescuento" />
+                <Property name="NaturalezaDescuento" />
+                <Property name="SubTotal" />
+                <Property name="Impuesto" />
+                <Property name="MontoTotalLinea" />
+                <Property name="EstadoLinea" />
+                <Property name="EstadoLineaDesc" />
+                <Property name="Fecha" />
+                <Property name="FechaCarga" />
+                <Property name="FechaProceso" />
+                <Property name="FechaRecepcion" />
+                <Property name="EstadoHacienda" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="EstadoDesc" />
+                    <Property name="Clave" />
+                    <Property name="IDDocumento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="315" Top="125">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <End ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="600" Top="235">
+            <Name>FEInsertaDocumentoDetalleFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEInsertaDocumentoDetalleFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="18" Source="10" Target="17" />
+          <SequenceFlow ID="19" Source="15" Target="6" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaOutput" to="FEInsertaDocumentoDetalleOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="25" Source="16" Target="24">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEInsertaDocumentoDetalleFault/Estado" />
+              <Assignment type="Variable" from="InsertaFault/Error" to="FEInsertaDocumentoDetalleFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="2" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="FeInsertaDetalleDocumento" to="InsertaInput/SP" />
+              <Assignment type="Expression" from="1" to="InsertaInput/IDDocumento" />
+              <Assignment type="Expression" from="10" to="InsertaInput/clave" />
+              <Assignment type="Expression" from="1" to="InsertaInput/NumeroLinea" />
+              <Assignment type="Expression" from="100" to="InsertaInput/Codigo" />
+              <Assignment type="Expression" from="1" to="InsertaInput/Cantidad" />
+              <Assignment type="Expression" from="&quot;UND&quot;" to="InsertaInput/UnidadMedida" />
+              <Assignment type="Expression" from="&quot;Prueba&quot;" to="InsertaInput/Detalle" />
+              <Assignment type="Expression" from="65" to="InsertaInput/PrecioUnitario" />
+              <Assignment type="Expression" from="65" to="InsertaInput/MontoTotal" />
+              <Assignment type="Expression" from="0" to="InsertaInput/MontoDescuento" />
+              <Assignment type="Expression" from="&quot;PRUEBA&quot;" to="InsertaInput/NaturalezaDescuento" />
+              <Assignment type="Expression" from="65" to="InsertaInput/SubTotal" />
+              <Assignment type="Expression" from="0" to="InsertaInput/Impuesto" />
+              <Assignment type="Expression" from="65" to="InsertaInput/MontoTotalLinea" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="InsertaInput/EstadoLinea" />
+              <Assignment type="Expression" from="&quot;PRUEBA INSERCION&quot;" to="InsertaInput/EstadoLineaDesc" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/Fecha" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaCarga" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaProceso" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaRecepcion" />
+              <Assignment type="Expression" from="&quot;A&quot;" to="InsertaInput/EstadoHacienda" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

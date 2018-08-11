@@ -279,4 +279,13 @@
     <UltimaModificacion>10/08/2018 13:23:40</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>36</ID>
+    <Nombre>FEInsertaDocumentoDetalle</Nombre>
+    <Diagrama>FEInsertaDocumentoDetalle.xml</Diagrama>
+    <Descripcion>Proceso que inserta el detalle de la factura </Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>10/08/2018 17:18:19</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

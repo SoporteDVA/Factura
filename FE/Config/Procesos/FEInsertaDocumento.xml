@@ -238,7 +238,7 @@
               <Assignment type="Expression" from="1" to="TareaInput/IDEmpresa" />
               <Assignment type="Expression" from="&quot;jlopez&quot;" to="TareaInput/Usuario" />
               <Assignment type="Expression" from="2" to="TareaInput/TipoAmbiente" />
-              <Assignment type="Expression" from="12345678" to="TareaInput/clave" />
+              <Assignment type="Expression" from=" secuencia( 10 )" to="TareaInput/clave" />
               <Assignment type="Expression" from="123" to="TareaInput/consecutivo" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/fechaEmision" />
               <Assignment type="Expression" from="&quot;Jose&quot;" to="TareaInput/emisorNombre" />
