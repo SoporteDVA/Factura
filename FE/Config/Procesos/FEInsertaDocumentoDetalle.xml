@@ -107,7 +107,7 @@
           <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="315" Top="125">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="600" Top="235">
+          <End ID="20" IdTop="21" IdLeft="24" IdBottom="23" IdRight="22" Left="595" Top="310">
             <Name>FEInsertaDocumentoDetalleFault</Name>
             <Message>
               <Properties>
@@ -120,12 +120,10 @@
             <Template>
             </Template>
           </End>
+          <ExclusiveGateway ID="27" IdTop="28" IdLeft="31" IdBottom="30" IdRight="29" Left="425" Top="125">
+            <Name>2</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="18" Source="10" Target="17" />
-          <SequenceFlow ID="19" Source="15" Target="6" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="InsertaOutput" to="FEInsertaDocumentoDetalleOutput" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="25" Source="16" Target="24">
             <Assignments>
               <Assignment type="Expression" from=" parametro(Error)" to="FEInsertaDocumentoDetalleFault/Estado" />
@@ -156,6 +154,14 @@
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaProceso" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaRecepcion" />
               <Assignment type="Expression" from="&quot;A&quot;" to="InsertaInput/EstadoHacienda" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="32" Source="15" Target="31" ConditionExpression="?" />
+          <SequenceFlow ID="33" Source="29" Target="6" ConditionExpression=" variable(InsertaOutput/Fila/Estado)=00" />
+          <SequenceFlow ID="34" Source="30" Target="24">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaOutput/Fila/Estado" to="FEInsertaDocumentoDetalleFault/Estado" />
+              <Assignment type="Variable" from="InsertaOutput/Fila/EstadoDesc" to="FEInsertaDocumentoDetalleFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
