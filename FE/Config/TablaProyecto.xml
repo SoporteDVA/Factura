@@ -21,4 +21,11 @@
     <Descripcion>Tabla con los urls de Produccion de Hacienda</Descripcion>
     <UltimaModificacion>01/08/2018 16:00:16</UltimaModificacion>
   </TablaProyecto>
+  <TablaProyecto>
+    <ID>3</ID>
+    <Nombre>TablaRespuestasDVA</Nombre>
+    <ValorPredeterminado>Error Desconocido</ValorPredeterminado>
+    <Descripcion>Tabla que valida los codigos de error del proceso que envia las facturas a hacienda</Descripcion>
+    <UltimaModificacion>13/08/2018 16:36:57</UltimaModificacion>
+  </TablaProyecto>
 </TablaProyectoDS>

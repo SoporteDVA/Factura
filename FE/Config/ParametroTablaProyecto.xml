@@ -80,4 +80,116 @@
     <Descripcion>URL Produccion para optener token y token refresh</Descripcion>
     <UltimaModificacion>01/08/2018 11:08:29</UltimaModificacion>
   </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>10</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>98</Nombre>
+    <Valor>No se logro obtener el Perfil</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:37:31</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>11</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>97</Nombre>
+    <Valor>No se genero el consecutivo</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:37:54</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>12</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>96</Nombre>
+    <Valor>No se pudo obtener el token</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:38:57</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>13</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>95</Nombre>
+    <Valor>Fallo el armado del XML</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:39:35</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>14</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>94</Nombre>
+    <Valor>Problemas al intentar firmar el xml</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:40:05</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>15</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>93</Nombre>
+    <Valor>Fallo el envio del documento XML</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:40:55</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>16</ID>
+    <TablaProyecto>3</TablaProyecto>
+    <Nombre>92</Nombre>
+    <Valor>Problemas a la hora de consultar el estado del documento</Valor>
+    <Descripcion />
+    <UltimaModificacion>13/08/2018 16:42:13</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>17</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>PERFIL</Nombre>
+    <Valor>98</Valor>
+    <Descripcion>Error por perfil</Descripcion>
+    <UltimaModificacion>13/08/2018 16:43:32</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>18</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>CONSECUTIVO</Nombre>
+    <Valor>97</Valor>
+    <Descripcion>Error por consecutivo</Descripcion>
+    <UltimaModificacion>13/08/2018 16:47:16</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>19</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>TOKEN</Nombre>
+    <Valor>96</Valor>
+    <Descripcion>Error por token</Descripcion>
+    <UltimaModificacion>13/08/2018 16:48:02</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>20</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>ARMADOXML</Nombre>
+    <Valor>95</Valor>
+    <Descripcion>Error por armado de XML</Descripcion>
+    <UltimaModificacion>13/08/2018 16:48:46</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>21</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>FIRMAXML</Nombre>
+    <Valor>94</Valor>
+    <Descripcion>Error por firma de XML</Descripcion>
+    <UltimaModificacion>13/08/2018 16:49:20</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>22</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>ENVIOXML</Nombre>
+    <Valor>93</Valor>
+    <Descripcion>Error por envio de XML</Descripcion>
+    <UltimaModificacion>13/08/2018 16:49:55</UltimaModificacion>
+  </ParametroTablaProyecto>
+  <ParametroTablaProyecto>
+    <ID>23</ID>
+    <TablaProyecto>0</TablaProyecto>
+    <Nombre>CONSULTADOC</Nombre>
+    <Valor>92</Valor>
+    <Descripcion>Error por consulta de documento</Descripcion>
+    <UltimaModificacion>13/08/2018 16:50:42</UltimaModificacion>
+  </ParametroTablaProyecto>
 </ParametroTablaProyectoDS>
