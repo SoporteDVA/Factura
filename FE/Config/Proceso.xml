@@ -297,4 +297,31 @@
     <UltimaModificacion>12/08/2018 20:14:19</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>38</ID>
+    <Nombre>Factura_SBE_Envia</Nombre>
+    <Diagrama>Factura_SBE_Envia.xml</Diagrama>
+    <Descripcion>Proceso que carga e inserta en BD  las facturas del cliente y las envia a Hacienda </Descripcion>
+    <Categoria>Movimientos/SBE</Categoria>
+    <UltimaModificacion>13/08/2018 9:55:18</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>39</ID>
+    <Nombre>FEConsultaFacturas</Nombre>
+    <Diagrama>FEConsultaFacturas.xml</Diagrama>
+    <Descripcion>Permite Consultar en SQL las facturas de una fecha especifica</Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>13/08/2018 10:30:11</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>40</ID>
+    <Nombre>FEActualizaFactura</Nombre>
+    <Diagrama>FEActualizaFactura.xml</Diagrama>
+    <Descripcion>Actualiza el estado de la factura una vez enviada a Hacienda</Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>13/08/2018 14:56:53</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

@@ -1,0 +1,393 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>Factura_SBE_Envia</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>13/08/2018</CreationDate>
+  <ModificationDate>13/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="130" Top="240">
+            <Message>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1650" Top="240">
+            <Name>Factura_SBE_EnviaOutput</Name>
+            <Message>
+              <Properties />
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>Factura_SBE_EnviaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1190" Top="475">
+            <Name>Factura_SBE_EnviaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>Factura_SBE_EnviaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="533.2584" Top="240" update="False" loopType="MultiInstance" miCondition="CargaFacOutput/Resultados/Fila" assignTime="Before" NombreProceso="InterfazarMYSQLDetalle">
+            <Name>CargaDetalles</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./IDPedido" to="CargaDetallesInput/pedidoin" />
+              <Assignment type="Variable" from="./IDEncabezado" to="CargaDetallesInput/IDDocumento" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="pedidoin" />
+                <Property name="IDDocumento" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                        <Property name="EstadoDesc" />
+                        <Property name="IDDetalle" />
+                        <Property name="Clave" />
+                        <Property name="IDDocumento" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="271.3086" Top="240" update="False" NombreProceso="InterfazarMYSQLFAC">
+            <Name>CargaFac</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                        <Property name="EstadoDesc" />
+                        <Property name="IDEncabezado" />
+                        <Property name="TipoDocumento" />
+                        <Property name="IDEmpresa" />
+                        <Property name="Usuario" />
+                        <Property name="TipoAmbiente" />
+                        <Property name="clave" />
+                        <Property name="consecutivo" />
+                        <Property name="IDPedido" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="430" Top="240">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <ExclusiveGateway ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="700" Top="240">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="1055" Top="240" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput" assignTime="Before" NombreProceso="EnviaFactura">
+            <Name>EnviaFac</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./Cliente" to="EnviaFacInput/Cliente" />
+              <Assignment type="Variable" from="./Usuario" to="EnviaFacInput/Usuario" />
+              <Assignment type="Variable" from="./Situacion" to="EnviaFacInput/Situacion" />
+              <Assignment type="Variable" from="./clave" to="EnviaFacInput/clave" />
+              <Assignment type="Variable" from="./consecutivo" to="EnviaFacInput/consecutivo" />
+              <Assignment type="Variable" from="./fechaEmision" to="EnviaFacInput/fechaEmision" />
+              <Assignment type="Variable" from="./emisorNombre" to="EnviaFacInput/emisorNombre" />
+              <Assignment type="Variable" from="./emisorTipoIdentif" to="EnviaFacInput/emisorTipoIdentif" />
+              <Assignment type="Variable" from="./emisorNumIdentif" to="EnviaFacInput/emisorNumIdentif" />
+              <Assignment type="Variable" from="./nombreComercial" to="EnviaFacInput/nombreComercial" />
+              <Assignment type="Variable" from="./emisorProv" to="EnviaFacInput/emisorProv" />
+              <Assignment type="Variable" from="./emisorCanton" to="EnviaFacInput/emisorCanton" />
+              <Assignment type="Variable" from="./emisorDistrito" to="EnviaFacInput/emisorDistrito" />
+              <Assignment type="Variable" from="./emisorBarrio" to="EnviaFacInput/emisorBarrio" />
+              <Assignment type="Variable" from="./emisorOtrasSenas" to="EnviaFacInput/emisorOtrasSenas" />
+              <Assignment type="Variable" from="./emisorCodPaisTel" to="EnviaFacInput/emisorCodPaisTel" />
+              <Assignment type="Variable" from="./emisorTel" to="EnviaFacInput/emisorTel" />
+              <Assignment type="Variable" from="./emisorCodPaisFax" to="EnviaFacInput/emisorCodPaisFax" />
+              <Assignment type="Variable" from="./emisorFax" to="EnviaFacInput/emisorFax" />
+              <Assignment type="Variable" from="./emisorEmail" to="EnviaFacInput/emisorEmail" />
+              <Assignment type="Variable" from="./receptorNombre" to="EnviaFacInput/receptorNombre" />
+              <Assignment type="Variable" from="./receptorTipoIdentif" to="EnviaFacInput/receptorTipoIdentif" />
+              <Assignment type="Variable" from="./receptorNumIdentif" to="EnviaFacInput/receptorNumIdentif" />
+              <Assignment type="Variable" from="./receptorProvincia" to="EnviaFacInput/receptorProvincia" />
+              <Assignment type="Variable" from="./receptorCanton" to="EnviaFacInput/receptorCanton" />
+              <Assignment type="Variable" from="./receptorDistrito" to="EnviaFacInput/receptorDistrito" />
+              <Assignment type="Variable" from="./receptorBarrio" to="EnviaFacInput/receptorBarrio" />
+              <Assignment type="Variable" from="./receptorOtrasSenas" to="EnviaFacInput/receptorOtrasSenas" />
+              <Assignment type="Variable" from="./receptorCodPaisTel" to="EnviaFacInput/receptorCodPaisTel" />
+              <Assignment type="Variable" from="./receptorTel" to="EnviaFacInput/receptorTel" />
+              <Assignment type="Variable" from="./receptorCodPaisFax" to="EnviaFacInput/receptorCodPaisFax" />
+              <Assignment type="Variable" from="./receptorFax" to="EnviaFacInput/receptorFax" />
+              <Assignment type="Variable" from="./receptorEmail" to="EnviaFacInput/receptorEmail" />
+              <Assignment type="Variable" from="./condVenta" to="EnviaFacInput/condVenta" />
+              <Assignment type="Variable" from="./plazoCredito" to="EnviaFacInput/plazoCredito" />
+              <Assignment type="Variable" from="./medioPago" to="EnviaFacInput/medioPago" />
+              <Assignment type="Variable" from="./codMoneda" to="EnviaFacInput/codMoneda" />
+              <Assignment type="Variable" from="./tipoCambio" to="EnviaFacInput/tipoCambio" />
+              <Assignment type="Variable" from="./totalServGravados" to="EnviaFacInput/totalServGravados" />
+              <Assignment type="Variable" from="./totalServExentos" to="EnviaFacInput/totalServExentos" />
+              <Assignment type="Variable" from="./totalMercGravadas" to="EnviaFacInput/totalMercGravadas" />
+              <Assignment type="Variable" from="./totalMercExentas" to="EnviaFacInput/totalMercExentas" />
+              <Assignment type="Variable" from="./totalGravados" to="EnviaFacInput/totalGravados" />
+              <Assignment type="Variable" from="./totalExentos" to="EnviaFacInput/totalExentos" />
+              <Assignment type="Variable" from="./totalVentas" to="EnviaFacInput/totalVentas" />
+              <Assignment type="Variable" from="./totalDescuentos" to="EnviaFacInput/totalDescuentos" />
+              <Assignment type="Variable" from="./totalVentasNeta" to="EnviaFacInput/totalVentasNeta" />
+              <Assignment type="Variable" from="./totalImp" to="EnviaFacInput/totalImp" />
+              <Assignment type="Variable" from="./totalComprobante" to="EnviaFacInput/totalComprobante" />
+              <Assignment type="Variable" from="./infoRefeTipoDoc" to="EnviaFacInput/infoRefeTipoDoc" />
+              <Assignment type="Variable" from="./infoRefeNumero" to="EnviaFacInput/infoRefeNumero" />
+              <Assignment type="Variable" from="./infoRefeFechaEmision" to="EnviaFacInput/infoRefeFechaEmision" />
+              <Assignment type="Variable" from="./infoRefeCodigo" to="EnviaFacInput/infoRefeCodigo" />
+              <Assignment type="Variable" from="./infoRefeRazon" to="EnviaFacInput/infoRefeRazon" />
+              <Assignment type="Variable" from="./otros" to="EnviaFacInput/otros" />
+              <Assignment type="Variable" from="./detalles" to="EnviaFacInput/detalles" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Usuario" />
+                <Property name="Situacion" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="detalles" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="RespuestaXML" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="970" Top="240">
+            <Name>3</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="783.2943" Top="240" update="False" loopType="MultiInstance" miCondition="CargaDetallesOutput/Resultados/Resultados/Fila" assignTime="Before" NombreProceso="FEConsultaFacturas">
+            <Name>ConsultaFacturas</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./IDDocumento" to="ConsultaFacturasInput/IDDocumento" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+                <Property name="IDDocumento" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Cliente" />
+                <Property name="Usuario" />
+                <Property name="Situacion" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="detalles" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="101" IdTop="102" IdLeft="105" IdBottom="104" IdRight="103" Left="1190" Top="240">
+            <Name>4</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="193" IdTop="194" IdLeft="197" IdBottom="196" IdRight="195" Left="1300" Top="240" update="False" NombreProceso="">
+            <Name>Subproceso</Name>
+            <InputMessage>
+              <Properties />
+            </InputMessage>
+            <OutputMessage>
+              <Properties />
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="199" IdTop="200" IdLeft="203" IdBottom="202" IdRight="201" Left="1470" Top="240">
+            <Name>5</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="33" Source="1" Target="22">
+            <Assignments>
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="CargaFacInput/Fecha" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="34" Source="20" Target="27" />
+          <SequenceFlow ID="35" Source="25" Target="17" ConditionExpression="?" />
+          <SequenceFlow ID="36" Source="26" Target="12" />
+          <SequenceFlow ID="37" Source="15" Target="32" />
+          <SequenceFlow ID="38" Source="31" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="CargaDetallesFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
+              <Assignment type="Variable" from="CargaDetallesFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="92" Source="88" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ConsultaFacturasFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFacturasFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="98" Source="30" Target="97" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="ConsultaFacturasInput/IDEmpresa" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="99" Source="95" Target="89" />
+          <SequenceFlow ID="100" Source="87" Target="83" ConditionExpression="?" />
+          <SequenceFlow ID="106" Source="81" Target="105" />
+          <SequenceFlow ID="108" Source="104" Target="9" />
+          <SequenceFlow ID="198" Source="103" Target="197" ConditionExpression="?" />
+          <SequenceFlow ID="204" Source="195" Target="203" />
+          <SequenceFlow ID="205" Source="201" Target="7" ConditionExpression="?" />
+          <SequenceFlow ID="206" Source="202" Target="10" />
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

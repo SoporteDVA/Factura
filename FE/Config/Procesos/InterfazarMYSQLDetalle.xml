@@ -13,6 +13,7 @@
             <Message>
               <Properties>
                 <Property name="pedidoin" />
+                <Property name="IDDocumento" />
               </Properties>
             </Message>
           </Start>
@@ -26,7 +27,7 @@
                       <Properties>
                         <Property name="Estado" />
                         <Property name="EstadoDesc" />
-                        <Property name="IDPedido" />
+                        <Property name="IDDetalle" />
                         <Property name="Clave" />
                         <Property name="IDDocumento" />
                       </Properties>
@@ -135,7 +136,7 @@
                   <Properties>
                     <Property name="Estado" />
                     <Property name="EstadoDesc" />
-                    <Property name="IDPedido" />
+                    <Property name="IDDetalle" />
                     <Property name="Clave" />
                     <Property name="IDDocumento" />
                   </Properties>
@@ -158,7 +159,11 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="22" />
-          <SequenceFlow ID="30" Source="20" Target="29" ConditionExpression="?" />
+          <SequenceFlow ID="30" Source="20" Target="29" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarMYSQLDetalleInput/IDDocumento" to="InsertaDetalleInput/IDDocumento" />
+            </Assignments>
+          </SequenceFlow>
           <SequenceFlow ID="36" Source="27" Target="35" />
           <SequenceFlow ID="37" Source="33" Target="7" ConditionExpression="?">
             <Assignments>
