@@ -288,4 +288,13 @@
     <UltimaModificacion>10/08/2018 17:18:19</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>37</ID>
+    <Nombre>InterfazarMYSQLDetalle</Nombre>
+    <Diagrama>InterfazarMYSQLDetalle.xml</Diagrama>
+    <Descripcion>Permite traer los detalles de las facturas desde mysql</Descripcion>
+    <Categoria>MYSQLData</Categoria>
+    <UltimaModificacion>12/08/2018 20:14:19</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

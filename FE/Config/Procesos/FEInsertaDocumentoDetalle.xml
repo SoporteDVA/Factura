@@ -9,10 +9,9 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="25">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="35" Top="35">
             <Message>
               <Properties>
-                <Property name="IDDetalle" />
                 <Property name="IDDocumento" />
                 <Property name="clave" />
                 <Property name="NumeroLinea" />
@@ -37,7 +36,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="585" Top="40">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="620" Top="45">
             <Name>FEInsertaDocumentoDetalleOutput</Name>
             <Message>
               <Properties>
@@ -133,31 +132,35 @@
           <SequenceFlow ID="26" Source="2" Target="12">
             <Assignments>
               <Assignment type="Expression" from="FeInsertaDetalleDocumento" to="InsertaInput/SP" />
-              <Assignment type="Expression" from="1" to="InsertaInput/IDDocumento" />
-              <Assignment type="Expression" from="10" to="InsertaInput/clave" />
-              <Assignment type="Expression" from="1" to="InsertaInput/NumeroLinea" />
-              <Assignment type="Expression" from="100" to="InsertaInput/Codigo" />
-              <Assignment type="Expression" from="1" to="InsertaInput/Cantidad" />
-              <Assignment type="Expression" from="&quot;UND&quot;" to="InsertaInput/UnidadMedida" />
-              <Assignment type="Expression" from="&quot;Prueba&quot;" to="InsertaInput/Detalle" />
-              <Assignment type="Expression" from="65" to="InsertaInput/PrecioUnitario" />
-              <Assignment type="Expression" from="65" to="InsertaInput/MontoTotal" />
-              <Assignment type="Expression" from="0" to="InsertaInput/MontoDescuento" />
-              <Assignment type="Expression" from="&quot;PRUEBA&quot;" to="InsertaInput/NaturalezaDescuento" />
-              <Assignment type="Expression" from="65" to="InsertaInput/SubTotal" />
-              <Assignment type="Expression" from="0" to="InsertaInput/Impuesto" />
-              <Assignment type="Expression" from="65" to="InsertaInput/MontoTotalLinea" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="InsertaInput/EstadoLinea" />
-              <Assignment type="Expression" from="&quot;PRUEBA INSERCION&quot;" to="InsertaInput/EstadoLineaDesc" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/Fecha" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaCarga" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaProceso" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaRecepcion" />
-              <Assignment type="Expression" from="&quot;A&quot;" to="InsertaInput/EstadoHacienda" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/IDDocumento" to="InsertaInput/IDDocumento" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/clave" to="InsertaInput/clave" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/NumeroLinea" to="InsertaInput/NumeroLinea" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Codigo" to="InsertaInput/Codigo" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Cantidad" to="InsertaInput/Cantidad" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/UnidadMedida" to="InsertaInput/UnidadMedida" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Detalle" to="InsertaInput/Detalle" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/PrecioUnitario" to="InsertaInput/PrecioUnitario" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/MontoTotal" to="InsertaInput/MontoTotal" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/MontoDescuento" to="InsertaInput/MontoDescuento" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/NaturalezaDescuento" to="InsertaInput/NaturalezaDescuento" />
+              <Assignment type="Expression" from=" variable(FEInsertaDocumentoDetalleInput/MontoTotal) -  variable(FEInsertaDocumentoDetalleInput/MontoDescuento)" to="InsertaInput/SubTotal" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Impuesto" to="InsertaInput/Impuesto" />
+              <Assignment type="Expression" from=" variable(FEInsertaDocumentoDetalleInput/MontoTotal) -  variable(FEInsertaDocumentoDetalleInput/MontoDescuento) +  variable(FEInsertaDocumentoDetalleInput/Impuesto)" to="InsertaInput/MontoTotalLinea" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/EstadoLinea" to="InsertaInput/EstadoLinea" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/EstadoLineaDesc" to="InsertaInput/EstadoLineaDesc" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Fecha" to="InsertaInput/Fecha" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/FechaCarga" to="InsertaInput/FechaCarga" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/FechaProceso" to="InsertaInput/FechaProceso" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/FechaRecepcion" to="InsertaInput/FechaRecepcion" />
+              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/EstadoHacienda" to="InsertaInput/EstadoHacienda" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="32" Source="15" Target="31" ConditionExpression="?" />
-          <SequenceFlow ID="33" Source="29" Target="6" ConditionExpression=" variable(InsertaOutput/Fila/Estado)=00" />
+          <SequenceFlow ID="33" Source="29" Target="6" ConditionExpression=" variable(InsertaOutput/Fila/Estado)=00">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaOutput" to="FEInsertaDocumentoDetalleOutput" />
+            </Assignments>
+          </SequenceFlow>
           <SequenceFlow ID="34" Source="30" Target="24">
             <Assignments>
               <Assignment type="Variable" from="InsertaOutput/Fila/Estado" to="FEInsertaDocumentoDetalleFault/Estado" />

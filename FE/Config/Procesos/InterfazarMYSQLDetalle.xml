@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>InterfazarMYSQLDetalle</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>12/08/2018</CreationDate>
+  <ModificationDate>12/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="205" Top="205">
+            <Message>
+              <Properties>
+                <Property name="pedidoin" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1105" Top="205">
+            <Name>InterfazarMYSQLDetalleOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                        <Property name="EstadoDesc" />
+                        <Property name="IDPedido" />
+                        <Property name="Clave" />
+                        <Property name="IDDocumento" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>InterfazarMYSQLDetalleOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1095" Top="405">
+            <Name>InterfazarMYSQLDetalleFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>InterfazarMYSQLDetalleFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="424.7493" Top="205" update="False" NombreProceso="ConsultaDetalle">
+            <Name>Detalle</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="pedidoin" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Detalles">
+                  <Properties>
+                    <Property name="idpedido" />
+                    <Property name="cantidad" />
+                    <Property name="precio_venta" />
+                    <Property name="descuento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="647.959" Top="205">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="744.3685" Top="205" update="False" loopType="MultiInstance" miCondition="DetalleOutput/Detalles" assignTime="Before" NombreProceso="FEInsertaDocumentoDetalle">
+            <Name>InsertaDetalle</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./idpedido" to="InsertaDetalleInput/IDDocumento" />
+              <Assignment type="Expression" from="100" to="InsertaDetalleInput/clave" />
+              <Assignment type="Expression" from="1" to="InsertaDetalleInput/NumeroLinea" />
+              <Assignment type="Expression" from="1" to="InsertaDetalleInput/Codigo" />
+              <Assignment type="Variable" from="./cantidad" to="InsertaDetalleInput/Cantidad" />
+              <Assignment type="Expression" from="&quot;H&quot;" to="InsertaDetalleInput/UnidadMedida" />
+              <Assignment type="Expression" from="&quot;Servicios Profesionales&quot;" to="InsertaDetalleInput/Detalle" />
+              <Assignment type="Variable" from="./precio_venta" to="InsertaDetalleInput/PrecioUnitario" />
+              <Assignment type="Expression" from=" variable(./cantidad)   *  variable(./precio_venta)" to="InsertaDetalleInput/MontoTotal" />
+              <Assignment type="Variable" from="./descuento" to="InsertaDetalleInput/MontoDescuento" />
+              <Assignment type="Expression" from="0" to="InsertaDetalleInput/Impuesto" />
+              <Assignment type="Expression" from="&quot;1&quot;" to="InsertaDetalleInput/EstadoLinea" />
+              <Assignment type="Expression" from="&quot;Inicial&quot;" to="InsertaDetalleInput/EstadoLineaDesc" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/Fecha" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaCarga" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaProceso" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaRecepcion" />
+              <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaDetalleInput/EstadoHacienda" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="IDDocumento" />
+                <Property name="clave" />
+                <Property name="NumeroLinea" />
+                <Property name="Codigo" />
+                <Property name="Cantidad" />
+                <Property name="UnidadMedida" />
+                <Property name="Detalle" />
+                <Property name="PrecioUnitario" />
+                <Property name="MontoTotal" />
+                <Property name="MontoDescuento" />
+                <Property name="NaturalezaDescuento" />
+                <Property name="SubTotal" />
+                <Property name="Impuesto" />
+                <Property name="MontoTotalLinea" />
+                <Property name="EstadoLinea" />
+                <Property name="EstadoLineaDesc" />
+                <Property name="Fecha" />
+                <Property name="FechaCarga" />
+                <Property name="FechaProceso" />
+                <Property name="FechaRecepcion" />
+                <Property name="EstadoHacienda" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="EstadoDesc" />
+                    <Property name="IDPedido" />
+                    <Property name="Clave" />
+                    <Property name="IDDocumento" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="31" IdTop="32" IdLeft="35" IdBottom="34" IdRight="33" Left="919.2513" Top="205">
+            <Name>ok2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="23" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarMYSQLDetalleInput/pedidoin" to="DetalleInput/pedidoin" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="22" />
+          <SequenceFlow ID="30" Source="20" Target="29" ConditionExpression="?" />
+          <SequenceFlow ID="36" Source="27" Target="35" />
+          <SequenceFlow ID="37" Source="33" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaDetalleOutput" to="InterfazarMYSQLDetalleOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="34" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="InsertaDetalleFault/Estado" to="InterfazarMYSQLDetalleFault/Estado" />
+              <Assignment type="Variable" from="InsertaDetalleFault/Respuesta" to="InterfazarMYSQLDetalleFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="39" Source="21" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="DetalleFault/Estado" to="InterfazarMYSQLDetalleFault/Estado" />
+              <Assignment type="Variable" from="DetalleFault/Respuesta" to="InterfazarMYSQLDetalleFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
