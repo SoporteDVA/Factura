@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEConsultaDocExterno</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>14/08/2018</CreationDate>
+  <ModificationDate>14/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="905" Top="160">
+            <Name>FEConsultaDocExternoOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ID">
+                  <Properties>
+                    <Property name="DocExterno" />
+                    <Property name="ID" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEConsultaDocExternoOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="930" Top="350">
+            <Name>FEConsultaDocExternoFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEConsultaDocExternoFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Start ID="10" IdTop="0" IdLeft="0" IdBottom="12" IdRight="11" Left="130" Top="160">
+            <Message>
+              <Properties />
+            </Message>
+          </Start>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="448.5222" Top="160" update="False" server="Bitacora">
+            <Name>ObIDs</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ID">
+                  <Properties>
+                    <Property name="DocExterno" />
+                    <Property name="ID" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="607.959" Top="160">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="18" Source="11" Target="17" />
+          <SequenceFlow ID="24" Source="15" Target="23" />
+          <SequenceFlow ID="25" Source="21" Target="4" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ObIDsOutput" to="FEConsultaDocExternoOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="22" Target="9">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEConsultaDocExternoFault/Estado" />
+              <Assignment type="Variable" from="ObIDsFault/Error" to="FEConsultaDocExternoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

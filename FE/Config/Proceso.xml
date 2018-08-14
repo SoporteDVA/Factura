@@ -333,4 +333,13 @@
     <UltimaModificacion>13/08/2018 5:03:09 PM</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>42</ID>
+    <Nombre>FEConsultaDocExterno</Nombre>
+    <Diagrama>FEConsultaDocExterno.xml</Diagrama>
+    <Descripcion>Consulta los Documentos del sistema externo para poder consultar y cargar los detalles de las facturas</Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>14/08/2018 12:03:38</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
