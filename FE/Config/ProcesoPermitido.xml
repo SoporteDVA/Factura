@@ -52,4 +52,8 @@
     <Canal>1</Canal>
     <Proceso>37</Proceso>
   </ProcesoPermitido>
+  <ProcesoPermitido>
+    <Canal>1</Canal>
+    <Proceso>38</Proceso>
+  </ProcesoPermitido>
 </ProcesoPermitidoDS>

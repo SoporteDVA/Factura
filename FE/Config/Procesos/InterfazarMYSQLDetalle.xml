@@ -54,7 +54,7 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="424.7493" Top="205" update="False" NombreProceso="ConsultaDetalle">
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="320" Top="205" update="False" NombreProceso="ConsultaDetalle">
             <Name>Detalle</Name>
             <InputMessage>
               <Properties>
@@ -80,14 +80,13 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="647.959" Top="205">
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="480" Top="205">
             <Name>ok</Name>
           </ExclusiveGateway>
-          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="744.3685" Top="205" update="False" loopType="MultiInstance" miCondition="DetalleOutput/Detalles" assignTime="Before" NombreProceso="FEInsertaDocumentoDetalle">
+          <Subprocess ID="25" IdTop="26" IdLeft="29" IdBottom="28" IdRight="27" Left="610" Top="205" update="False" loopType="MultiInstance" miCondition="DetalleOutput/Detalles" assignTime="Before" NombreProceso="FEInsertaDocumentoDetalle">
             <Name>InsertaDetalle</Name>
             <Assignments>
-              <Assignment type="Variable" from="./idpedido" to="InsertaDetalleInput/IDDocumento" />
-              <Assignment type="Expression" from="100" to="InsertaDetalleInput/clave" />
+              <Assignment type="Variable" from="./idpedido" to="InsertaDetalleInput/clave" />
               <Assignment type="Expression" from="1" to="InsertaDetalleInput/NumeroLinea" />
               <Assignment type="Expression" from="1" to="InsertaDetalleInput/Codigo" />
               <Assignment type="Variable" from="./cantidad" to="InsertaDetalleInput/Cantidad" />

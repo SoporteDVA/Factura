@@ -9,17 +9,19 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="115" Top="155">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="10" Top="15">
             <Message>
               <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
                 <Property name="Fecha" />
               </Properties>
             </Message>
           </Start>
-          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="395" Top="155">
+          <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="475" Top="155">
             <Name>1</Name>
           </ExclusiveGateway>
-          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="205" Top="155" update="False" NombreProceso="ConsultaDATA">
+          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="290" Top="155" update="False" NombreProceso="ConsultaDATA">
             <Name>ConsultaFacturas</Name>
             <InputMessage>
               <Properties>
@@ -73,30 +75,12 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="500" Top="155" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Facturas" assignTime="Before" NombreProceso="FEInsertaDocumento">
+          <Subprocess ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="560" Top="155" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Facturas" assignTime="Before" NombreProceso="FEInsertaDocumento">
             <Name>InsertaFACS</Name>
             <Assignments>
               <Assignment type="Expression" from="&quot;FE&quot;" to="InsertaFACSInput/TipoDocumento" />
-              <Assignment type="Expression" from="1" to="InsertaFACSInput/IDEmpresa" />
-              <Assignment type="Expression" from="&quot;aalpizar&quot;" to="InsertaFACSInput/Usuario" />
-              <Assignment type="Expression" from="2" to="InsertaFACSInput/TipoAmbiente" />
               <Assignment type="Variable" from="./num_comprobante" to="InsertaFACSInput/clave" />
               <Assignment type="Variable" from="./serie_comprobante" to="InsertaFACSInput/consecutivo" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/fechaEmision" />
-              <Assignment type="Variable" from="./razon_social" to="InsertaFACSInput/emisorNombre" />
-              <Assignment type="Expression" from="  decision( variable(./CedulaSucursal)=&quot;CEDULA&quot; , &quot;01&quot; , &quot;02&quot; ) " to="InsertaFACSInput/emisorTipoIdentif" />
-              <Assignment type="Variable" from="./num_sucursal" to="InsertaFACSInput/emisorNumIdentif" />
-              <Assignment type="Variable" from="./razon_social" to="InsertaFACSInput/nombreComercial" />
-              <Assignment type="Expression" from="1" to="InsertaFACSInput/emisorProv" />
-              <Assignment type="Expression" from="13" to="InsertaFACSInput/emisorCanton" />
-              <Assignment type="Expression" from="01" to="InsertaFACSInput/emisorDistrito" />
-              <Assignment type="Expression" from="01" to="InsertaFACSInput/emisorBarrio" />
-              <Assignment type="Variable" from="./direccion" to="InsertaFACSInput/emisorOtrasSenas" />
-              <Assignment type="Expression" from="506" to="InsertaFACSInput/emisorCodPaisTel" />
-              <Assignment type="Variable" from="./telefono_suc" to="InsertaFACSInput/emisorTel" />
-              <Assignment type="Expression" from="506" to="InsertaFACSInput/emisorCodPaisFax" />
-              <Assignment type="Variable" from="./telefono_suc" to="InsertaFACSInput/emisorFax" />
-              <Assignment type="Variable" from="./email_suc" to="InsertaFACSInput/emisorEmail" />
               <Assignment type="Variable" from="./nombre" to="InsertaFACSInput/receptorNombre" />
               <Assignment type="Expression" from=" decision( variable(./tipo_documento)=&quot;CEDULA&quot; , &quot;01&quot; , &quot;02&quot; ) " to="InsertaFACSInput/receptorTipoIdentif" />
               <Assignment type="Variable" from="./num_documento" to="InsertaFACSInput/receptorNumIdentif" />
@@ -127,13 +111,13 @@
               <Assignment type="Variable" from="./impuesto" to="InsertaFACSInput/totalImp" />
               <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalComprobante" />
               <Assignment type="Expression" from="&quot;Gracias&quot;" to="InsertaFACSInput/otros" />
-              <Assignment type="Expression" from="&quot;I&quot;" to="InsertaFACSInput/Estado" />
-              <Assignment type="Expression" from="&quot;PRUEBA&quot;" to="InsertaFACSInput/EstadoDesc" />
+              <Assignment type="Expression" from="1" to="InsertaFACSInput/Estado" />
+              <Assignment type="Expression" from="&quot;Interfazado&quot;" to="InsertaFACSInput/EstadoDesc" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/Fecha" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/FechaCarga" />
-              <Assignment type="Expression" from="  trim( hora(&quot; yyyyMMdd &quot;) )" to="InsertaFACSInput/FechaProceso" />
+              <Assignment type="Expression" from="trim( hora(&quot; yyyyMMdd &quot;) )" to="InsertaFACSInput/FechaProceso" />
               <Assignment type="Expression" from="trim( hora(&quot; yyyyMMdd &quot;) )" to="InsertaFACSInput/FechaRecepcion" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/FechaReproceso" />
+              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/FechaReproceso" />
               <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaFACSInput/EstadoHacienda" />
               <Assignment type="Expression" from="&quot;TRAMA&quot;" to="InsertaFACSInput/TramaXML" />
               <Assignment type="Expression" from="&quot;TRAMA&quot;" to="InsertaFACSInput/TramaRespuestaConsulta" />
@@ -210,6 +194,7 @@
                 <Property name="TramaRespuestaConsulta" />
                 <Property name="Situacion" />
                 <Property name="idpedido" />
+                <Property name="DocExterno" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -226,6 +211,7 @@
                     <Property name="clave" />
                     <Property name="consecutivo" />
                     <Property name="IDPedido" />
+                    <Property name="DocExterno" />
                   </Properties>
                 </Property>
               </Properties>
@@ -237,10 +223,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="685" Top="155">
+          <ExclusiveGateway ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="740" Top="155">
             <Name>2</Name>
           </ExclusiveGateway>
-          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="900" Top="155">
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="1115" Top="255">
             <Name>InterfazarMYSQLFACOutput</Name>
             <Message>
               <Properties>
@@ -258,8 +244,46 @@
                         <Property name="clave" />
                         <Property name="consecutivo" />
                         <Property name="IDPedido" />
+                        <Property name="DocExterno" />
                       </Properties>
                     </Property>
+                  </Properties>
+                </Property>
+                <Property name="Perfil">
+                  <Properties>
+                    <Property name="IDEmpresa" />
+                    <Property name="NombreEmpresa" />
+                    <Property name="UsuarioLocal" />
+                    <Property name="Acceso" />
+                    <Property name="Identificacion" />
+                    <Property name="Nombre" />
+                    <Property name="Telefono" />
+                    <Property name="Estado" />
+                    <Property name="UsuarioHacienda" />
+                    <Property name="PasswordHacienda" />
+                    <Property name="Sucursal" />
+                    <Property name="Terminal" />
+                    <Property name="UrlP12" />
+                    <Property name="PinP12" />
+                    <Property name="ArchivoP12" />
+                    <Property name="PuedeEnviar" />
+                    <Property name="AplicaNC" />
+                    <Property name="AplicaND" />
+                    <Property name="AceptaFE" />
+                    <Property name="TipoAmbiente" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="emisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
                   </Properties>
                 </Property>
               </Properties>
@@ -282,13 +306,83 @@
             <Template>
             </Template>
           </End>
-          <SequenceFlow ID="38" Source="1" Target="17">
+          <Subprocess ID="91" IdTop="92" IdLeft="95" IdBottom="94" IdRight="93" Left="60" Top="90" update="False" NombreProceso="Perfil">
+            <Name>Perfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
+                <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
+                <Property name="TipoAmbiente" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="100" IdTop="101" IdLeft="104" IdBottom="103" IdRight="102" Left="205" Top="155">
+            <Name>okP</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="39" Source="15" Target="12" />
+          <SequenceFlow ID="40" Source="10" Target="22" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="InterfazarMYSQLFACInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+              <Assignment type="Variable" from="PerfilOutput/IDEmpresa" to="InsertaFACSInput/IDEmpresa" />
+              <Assignment type="Variable" from="PerfilOutput/UsuarioLocal" to="InsertaFACSInput/Usuario" />
+              <Assignment type="Variable" from="PerfilOutput/TipoAmbiente" to="InsertaFACSInput/TipoAmbiente" />
+              <Assignment type="Variable" from="PerfilOutput/NombreEmpresa" to="InsertaFACSInput/emisorNombre" />
+              <Assignment type="Variable" from="PerfilOutput/emisorTipoIdentif" to="InsertaFACSInput/emisorTipoIdentif" />
+              <Assignment type="Variable" from="PerfilOutput/emisorNumIdentif" to="InsertaFACSInput/emisorNumIdentif" />
+              <Assignment type="Variable" from="PerfilOutput/nombreComercial" to="InsertaFACSInput/nombreComercial" />
+              <Assignment type="Variable" from="PerfilOutput/emisorProv" to="InsertaFACSInput/emisorProv" />
+              <Assignment type="Variable" from="PerfilOutput/emisorCanton" to="InsertaFACSInput/emisorCanton" />
+              <Assignment type="Variable" from="PerfilOutput/emisorDistrito" to="InsertaFACSInput/emisorDistrito" />
+              <Assignment type="Variable" from="PerfilOutput/emisorBarrio" to="InsertaFACSInput/emisorBarrio" />
+              <Assignment type="Variable" from="PerfilOutput/emisorOtrasSenas" to="InsertaFACSInput/emisorOtrasSenas" />
+              <Assignment type="Variable" from="PerfilOutput/emisorCodPaisTel" to="InsertaFACSInput/emisorCodPaisTel" />
+              <Assignment type="Variable" from="PerfilOutput/emisorTel" to="InsertaFACSInput/emisorTel" />
+              <Assignment type="Variable" from="PerfilOutput/emisorCodPaisFax" to="InsertaFACSInput/emisorCodPaisFax" />
+              <Assignment type="Variable" from="PerfilOutput/emisorFax" to="InsertaFACSInput/emisorFax" />
+              <Assignment type="Variable" from="PerfilOutput/emisorEmail" to="InsertaFACSInput/emisorEmail" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="39" Source="15" Target="12" />
-          <SequenceFlow ID="40" Source="10" Target="22" ConditionExpression="?" />
           <SequenceFlow ID="41" Source="20" Target="27" />
           <SequenceFlow ID="43" Source="26" Target="37">
             <Assignments>
@@ -302,9 +396,23 @@
               <Assignment type="Variable" from="ConsultaFacturasFault/Respuesta" to="InterfazarMYSQLFACFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="90" Source="25" Target="32" ConditionExpression="?">
+          <SequenceFlow ID="99" Source="1" Target="92">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarMYSQLFACInput/IDEmpresa" to="PerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="InterfazarMYSQLFACInput/Usuario" to="PerfilInput/Usuario" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="105" Source="93" Target="104" />
+          <SequenceFlow ID="106" Source="102" Target="17" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarMYSQLFACInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="107" Source="103" Target="36" />
+          <SequenceFlow ID="125" Source="25" Target="29" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="InsertaFACSOutput" to="InterfazarMYSQLFACOutput" />
+              <Assignment type="Variable" from="PerfilOutput" to="InterfazarMYSQLFACOutput/Perfil" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

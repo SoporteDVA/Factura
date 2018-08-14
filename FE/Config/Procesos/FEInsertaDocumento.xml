@@ -80,6 +80,7 @@
                 <Property name="TramaRespuestaConsulta" />
                 <Property name="Situacion" />
                 <Property name="idpedido" />
+                <Property name="DocExterno" />
               </Properties>
             </Message>
           </Start>
@@ -155,6 +156,7 @@
                 <Property name="TramaXML" />
                 <Property name="TramaRespuestaConsulta" />
                 <Property name="Situacion" />
+                <Property name="DocExterno" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -170,6 +172,7 @@
                     <Property name="TipoAmbiente" />
                     <Property name="clave" />
                     <Property name="consecutivo" />
+                    <Property name="DocExterno" />
                   </Properties>
                 </Property>
               </Properties>
@@ -212,6 +215,7 @@
                     <Property name="clave" />
                     <Property name="consecutivo" />
                     <Property name="IDPedido" />
+                    <Property name="DocExterno" />
                   </Properties>
                 </Property>
               </Properties>
@@ -301,6 +305,7 @@
               <Assignment type="Variable" from="FEInsertaDocumentoInput/TramaXML" to="TareaInput/TramaXML" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/TramaRespuestaConsulta" to="TareaInput/TramaRespuestaConsulta" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/Situacion" to="TareaInput/Situacion" />
+              <Assignment type="Variable" from="FEInsertaDocumentoInput/DocExterno" to="TareaInput/DocExterno" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="35" Source="15" Target="34" ConditionExpression="?" />
@@ -308,6 +313,7 @@
             <Assignments>
               <Assignment type="Variable" from="TareaOutput" to="FEInsertaDocumentoOutput" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/idpedido" to="FEInsertaDocumentoOutput/Fila/IDPedido" />
+              <Assignment type="Variable" from="TareaOutput/Fila/DocExterno" to="FEInsertaDocumentoOutput/Fila/DocExterno" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="37" Source="33" Target="10">

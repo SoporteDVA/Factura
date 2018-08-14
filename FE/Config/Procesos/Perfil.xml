@@ -41,6 +41,19 @@
                 <Property name="AplicaND" />
                 <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -61,7 +74,6 @@
               <Properties>
                 <Property name="Fila">
                   <Properties>
-                    <Property name="Campo" />
                     <Property name="IDEmpresa" />
                     <Property name="NombreEmpresa" />
                     <Property name="UsuarioLocal" />
@@ -82,6 +94,19 @@
                     <Property name="AplicaND" />
                     <Property name="AceptaFE" />
                     <Property name="TipoAmbiente" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="emisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
                   </Properties>
                 </Property>
               </Properties>

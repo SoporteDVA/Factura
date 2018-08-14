@@ -22,62 +22,67 @@
             <Name>FEConsultaFacturasOutput</Name>
             <Message>
               <Properties>
-                <Property name="Cliente" />
-                <Property name="Usuario" />
-                <Property name="Situacion" />
-                <Property name="clave" />
-                <Property name="consecutivo" />
-                <Property name="fechaEmision" />
-                <Property name="emisorNombre" />
-                <Property name="emisorTipoIdentif" />
-                <Property name="emisorNumIdentif" />
-                <Property name="nombreComercial" />
-                <Property name="emisorProv" />
-                <Property name="emisorCanton" />
-                <Property name="emisorDistrito" />
-                <Property name="emisorBarrio" />
-                <Property name="emisorOtrasSenas" />
-                <Property name="emisorCodPaisTel" />
-                <Property name="emisorTel" />
-                <Property name="emisorCodPaisFax" />
-                <Property name="emisorFax" />
-                <Property name="emisorEmail" />
-                <Property name="receptorNombre" />
-                <Property name="receptorTipoIdentif" />
-                <Property name="receptorNumIdentif" />
-                <Property name="receptorProvincia" />
-                <Property name="receptorCanton" />
-                <Property name="receptorDistrito" />
-                <Property name="receptorBarrio" />
-                <Property name="receptorOtrasSenas" />
-                <Property name="receptorCodPaisTel" />
-                <Property name="receptorTel" />
-                <Property name="receptorCodPaisFax" />
-                <Property name="receptorFax" />
-                <Property name="receptorEmail" />
-                <Property name="condVenta" />
-                <Property name="plazoCredito" />
-                <Property name="medioPago" />
-                <Property name="codMoneda" />
-                <Property name="tipoCambio" />
-                <Property name="totalServGravados" />
-                <Property name="totalServExentos" />
-                <Property name="totalMercGravadas" />
-                <Property name="totalMercExentas" />
-                <Property name="totalGravados" />
-                <Property name="totalExentos" />
-                <Property name="totalVentas" />
-                <Property name="totalDescuentos" />
-                <Property name="totalVentasNeta" />
-                <Property name="totalImp" />
-                <Property name="totalComprobante" />
-                <Property name="infoRefeTipoDoc" />
-                <Property name="infoRefeNumero" />
-                <Property name="infoRefeFechaEmision" />
-                <Property name="infoRefeCodigo" />
-                <Property name="infoRefeRazon" />
-                <Property name="otros" />
-                <Property name="detalles" />
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Cliente" />
+                    <Property name="Usuario" />
+                    <Property name="Situacion" />
+                    <Property name="clave" />
+                    <Property name="consecutivo" />
+                    <Property name="fechaEmision" />
+                    <Property name="emisorNombre" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="emisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
+                    <Property name="receptorNombre" />
+                    <Property name="receptorTipoIdentif" />
+                    <Property name="receptorNumIdentif" />
+                    <Property name="receptorProvincia" />
+                    <Property name="receptorCanton" />
+                    <Property name="receptorDistrito" />
+                    <Property name="receptorBarrio" />
+                    <Property name="receptorOtrasSenas" />
+                    <Property name="receptorCodPaisTel" />
+                    <Property name="receptorTel" />
+                    <Property name="receptorCodPaisFax" />
+                    <Property name="receptorFax" />
+                    <Property name="receptorEmail" />
+                    <Property name="condVenta" />
+                    <Property name="plazoCredito" />
+                    <Property name="medioPago" />
+                    <Property name="codMoneda" />
+                    <Property name="tipoCambio" />
+                    <Property name="totalServGravados" />
+                    <Property name="totalServExentos" />
+                    <Property name="totalMercGravadas" />
+                    <Property name="totalMercExentas" />
+                    <Property name="totalGravados" />
+                    <Property name="totalExentos" />
+                    <Property name="totalVentas" />
+                    <Property name="totalDescuentos" />
+                    <Property name="totalVentasNeta" />
+                    <Property name="totalImp" />
+                    <Property name="totalComprobante" />
+                    <Property name="infoRefeTipoDoc" />
+                    <Property name="infoRefeNumero" />
+                    <Property name="infoRefeFechaEmision" />
+                    <Property name="infoRefeCodigo" />
+                    <Property name="infoRefeRazon" />
+                    <Property name="otros" />
+                    <Property name="DocExterno" />
+                    <Property name="detalles" />
+                  </Properties>
+                </Property>
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -167,6 +172,7 @@
                     <Property name="infoRefeCodigo" />
                     <Property name="infoRefeRazon" />
                     <Property name="otros" />
+                    <Property name="DocExterno" />
                     <Property name="detalles" />
                   </Properties>
                 </Property>
@@ -190,7 +196,7 @@
           <SequenceFlow ID="24" Source="15" Target="23" />
           <SequenceFlow ID="25" Source="21" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFACOutput/Fila" to="FEConsultaFacturasOutput" />
+              <Assignment type="Variable" from="ConsultaFACOutput" to="FEConsultaFacturasOutput" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="26" Source="22" Target="12" />

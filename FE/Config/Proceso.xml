@@ -324,4 +324,13 @@
     <UltimaModificacion>13/08/2018 14:56:53</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>41</ID>
+    <Nombre>InterfazarFacturas</Nombre>
+    <Diagrama>InterfazarFacturas.xml</Diagrama>
+    <Descripcion>Permite traer las facturas de MYSQL con sus detalles.</Descripcion>
+    <Categoria>MYSQLData/SBE</Categoria>
+    <UltimaModificacion>13/08/2018 5:03:09 PM</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
