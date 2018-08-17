@@ -98,7 +98,7 @@
           <SequenceFlow ID="24" Source="15" Target="23" />
           <SequenceFlow ID="26" Source="22" Target="12">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(Error)" to="ConsultaFacturaFault/Estado" />
+              <Assignment type="Expression" from=" tabla(Estados, CONSULTADOC)" to="ConsultaFacturaFault/Estado" />
               <Assignment type="Variable" from="ConsultaEstadoFault/Error" to="ConsultaFacturaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>

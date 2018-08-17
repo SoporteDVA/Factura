@@ -14,7 +14,6 @@
               <Properties>
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
-                <Property name="IDDocumento" />
               </Properties>
             </Message>
           </Start>
@@ -24,7 +23,8 @@
               <Properties>
                 <Property name="Fila">
                   <Properties>
-                    <Property name="Cliente" />
+                    <Property name="ID" />
+                    <Property name="IDEmpresa" />
                     <Property name="Usuario" />
                     <Property name="Situacion" />
                     <Property name="clave" />
@@ -80,7 +80,7 @@
                     <Property name="infoRefeRazon" />
                     <Property name="otros" />
                     <Property name="DocExterno" />
-                    <Property name="detalles" />
+                    <Property name="Detalles" />
                   </Properties>
                 </Property>
               </Properties>
@@ -110,14 +110,14 @@
                 <Property name="SP" />
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
-                <Property name="IDDocumento" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Fila">
                   <Properties>
-                    <Property name="Cliente" />
+                    <Property name="ID" />
+                    <Property name="IDEmpresa" />
                     <Property name="Usuario" />
                     <Property name="Situacion" />
                     <Property name="clave" />
@@ -173,13 +173,15 @@
                     <Property name="infoRefeRazon" />
                     <Property name="otros" />
                     <Property name="DocExterno" />
-                    <Property name="detalles" />
+                    <Property name="Detalles" />
                   </Properties>
                 </Property>
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Error" />
+              </Properties>
             </FaultMessage>
           </Task>
           <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="635.3679" Top="175">
@@ -190,7 +192,6 @@
               <Assignment type="Expression" from="&quot;FEObtieneEncabezado_Detalle&quot;" to="ConsultaFACInput/SP" />
               <Assignment type="Variable" from="FEConsultaFacturasInput/Fecha" to="ConsultaFACInput/Fecha" />
               <Assignment type="Variable" from="FEConsultaFacturasInput/IDEmpresa" to="ConsultaFACInput/IDEmpresa" />
-              <Assignment type="Variable" from="FEConsultaFacturasInput/IDDocumento" to="ConsultaFACInput/IDDocumento" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="23" />
@@ -199,7 +200,12 @@
               <Assignment type="Variable" from="ConsultaFACOutput" to="FEConsultaFacturasOutput" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="26" Source="22" Target="12" />
+          <SequenceFlow ID="26" Source="22" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEConsultaFacturasFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFACFault/Error" to="FEConsultaFacturasFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
         </GraphicalElements>
       </Process>
     </Pool>

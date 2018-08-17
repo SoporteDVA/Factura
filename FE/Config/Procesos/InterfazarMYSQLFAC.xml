@@ -113,7 +113,7 @@
               <Assignment type="Expression" from="&quot;Gracias&quot;" to="InsertaFACSInput/otros" />
               <Assignment type="Expression" from="1" to="InsertaFACSInput/Estado" />
               <Assignment type="Expression" from="&quot;Interfazado&quot;" to="InsertaFACSInput/EstadoDesc" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/Fecha" />
+              <Assignment type="Expression" from=" cfecha( variable(./fecha) , &quot;yyyy-MM-dd&quot; , &quot;yyyyMMdd&quot; ) " to="InsertaFACSInput/Fecha" />
               <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaFACSInput/FechaCarga" />
               <Assignment type="Expression" from="trim( hora(&quot; yyyyMMdd &quot;) )" to="InsertaFACSInput/FechaProceso" />
               <Assignment type="Expression" from="trim( hora(&quot; yyyyMMdd &quot;) )" to="InsertaFACSInput/FechaRecepcion" />
@@ -123,6 +123,7 @@
               <Assignment type="Expression" from="&quot;TRAMA&quot;" to="InsertaFACSInput/TramaRespuestaConsulta" />
               <Assignment type="Expression" from="1" to="InsertaFACSInput/Situacion" />
               <Assignment type="Variable" from="./idpedido" to="InsertaFACSInput/idpedido" />
+              <Assignment type="Variable" from="./idpedido" to="InsertaFACSInput/DocExterno" />
             </Assignments>
             <InputMessage>
               <Properties>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEActualizaEstadoMYSQL</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>14/08/2018</CreationDate>
+  <ModificationDate>14/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <End ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="905" Top="160">
+            <Name>FEActualizaEstadoMYSQLOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEActualizaEstadoMYSQLOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="5" IdTop="6" IdLeft="9" IdBottom="8" IdRight="7" Left="930" Top="350">
+            <Name>FEActualizaEstadoMYSQLFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEActualizaEstadoMYSQLFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Start ID="10" IdTop="0" IdLeft="0" IdBottom="12" IdRight="11" Left="130" Top="160">
+            <Message>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="280" Top="160" update="False" server="Bitacora">
+            <Name>ObIDs</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="ID">
+                  <Properties>
+                    <Property name="DocExterno" />
+                    <Property name="ID" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="440" Top="160">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="33" IdTop="34" IdLeft="37" IdBottom="36" IdRight="35" Left="566.2239" Top="160" update="False" loopType="MultiInstance" miCondition="ObIDsOutput/ID" assignTime="Before" NombreProceso="ActualizaEstadoFac">
+            <Name>ActualizaMySQL</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./DocExterno" to="ActualizaMySQLInput/idpedidoIN" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="idpedidoIN" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Actualizado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="39" IdTop="40" IdLeft="43" IdBottom="42" IdRight="41" Left="765" Top="160">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="18" Source="11" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEConsultaDocumentoExterno&quot;" to="ObIDsInput/SP" />
+              <Assignment type="Variable" from="FEActualizaEstadoMYSQLInput/Fecha" to="ObIDsInput/Fecha" />
+              <Assignment type="Variable" from="FEActualizaEstadoMYSQLInput/IDEmpresa" to="ObIDsInput/IDEmpresa" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="23" />
+          <SequenceFlow ID="26" Source="22" Target="9">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaEstadoMYSQLFault/Estado" />
+              <Assignment type="Variable" from="ObIDsFault/Error" to="FEActualizaEstadoMYSQLFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="38" Source="21" Target="37" ConditionExpression="?" />
+          <SequenceFlow ID="44" Source="35" Target="43" />
+          <SequenceFlow ID="45" Source="41" Target="4" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(OK)" to="FEActualizaEstadoMYSQLOutput/Estado" />
+              <Assignment type="Expression" from="&quot;Se actualizaron los estados en MYSQL&quot;" to="FEActualizaEstadoMYSQLOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="46" Source="42" Target="9">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaMySQLFault/Estado" to="FEActualizaEstadoMYSQLFault/Estado" />
+              <Assignment type="Variable" from="ActualizaMySQLFault/Respuesta" to="FEActualizaEstadoMYSQLFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

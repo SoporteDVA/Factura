@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="35" Top="45">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="45">
             <Message>
               <Properties>
                 <Property name="TipoDocumento" />
@@ -199,7 +199,7 @@
           <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="305" Top="145">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="830" Top="145">
+          <End ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="940" Top="145">
             <Name>FEInsertaDocumentoOutput</Name>
             <Message>
               <Properties>
@@ -244,7 +244,7 @@
               <Assignment type="Variable" from="FEInsertaDocumentoInput/TipoAmbiente" to="TareaInput/TipoAmbiente" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/clave" to="TareaInput/clave" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/consecutivo" to="TareaInput/consecutivo" />
-              <Assignment type="Variable" from="FEInsertaDocumentoInput/fechaEmision" to="TareaInput/fechaEmision" />
+              <Assignment type="Variable" from="FEInsertaDocumentoInput/Fecha" to="TareaInput/fechaEmision" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/emisorNombre" to="TareaInput/emisorNombre" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/emisorTipoIdentif" to="TareaInput/emisorTipoIdentif" />
               <Assignment type="Variable" from="FEInsertaDocumentoInput/emisorNumIdentif" to="TareaInput/emisorNumIdentif" />
@@ -309,17 +309,15 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="35" Source="15" Target="34" ConditionExpression="?" />
-          <SequenceFlow ID="36" Source="32" Target="23" ConditionExpression=" variable(TareaOutput/Fila/Estado)=00">
-            <Assignments>
-              <Assignment type="Variable" from="TareaOutput" to="FEInsertaDocumentoOutput" />
-              <Assignment type="Variable" from="FEInsertaDocumentoInput/idpedido" to="FEInsertaDocumentoOutput/Fila/IDPedido" />
-              <Assignment type="Variable" from="TareaOutput/Fila/DocExterno" to="FEInsertaDocumentoOutput/Fila/DocExterno" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="37" Source="33" Target="10">
             <Assignments>
               <Assignment type="Variable" from="TareaOutput/Fila/Estado" to="FEInsertaDocumentoFault/Estado" />
               <Assignment type="Variable" from="TareaOutput/Fila/EstadoDesc" to="FEInsertaDocumentoFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="115" Source="32" Target="23" ConditionExpression=" variable(TareaOutput/Fila/Estado)=00">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput" to="FEInsertaDocumentoOutput" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

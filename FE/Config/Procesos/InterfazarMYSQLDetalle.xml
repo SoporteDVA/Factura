@@ -9,31 +9,20 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="205" Top="205">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="150" Top="210">
             <Message>
               <Properties>
-                <Property name="pedidoin" />
-                <Property name="IDDocumento" />
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="760" Top="205">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="960" Top="205">
             <Name>InterfazarMYSQLDetalleOutput</Name>
             <Message>
               <Properties>
-                <Property name="Resultados">
-                  <Properties>
-                    <Property name="Fila">
-                      <Properties>
-                        <Property name="Estado" />
-                        <Property name="EstadoDesc" />
-                        <Property name="IDDetalle" />
-                        <Property name="Clave" />
-                        <Property name="IDDocumento" />
-                      </Properties>
-                    </Property>
-                  </Properties>
-                </Property>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -41,7 +30,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="760" Top="370">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="668.3398" Top="385">
             <Name>InterfazarMYSQLDetalleFault</Name>
             <Message>
               <Properties>
@@ -54,23 +43,17 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="320" Top="205" update="False" NombreProceso="ConsultaDetalle">
-            <Name>Detalle</Name>
+          <Subprocess ID="44" IdTop="45" IdLeft="48" IdBottom="47" IdRight="46" Left="330" Top="210" update="False" NombreProceso="ConsultaDetalle">
+            <Name>ConsultaDetalle</Name>
             <InputMessage>
               <Properties>
-                <Property name="pedidoin" />
+                <Property name="FechaIN" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="Detalles">
-                  <Properties>
-                    <Property name="idpedido" />
-                    <Property name="cantidad" />
-                    <Property name="precio_venta" />
-                    <Property name="descuento" />
-                  </Properties>
-                </Property>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -80,22 +63,22 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="480" Top="205">
-            <Name>ok</Name>
+          <ExclusiveGateway ID="100" IdTop="101" IdLeft="104" IdBottom="103" IdRight="102" Left="660" Top="210">
+            <Name>OK2</Name>
           </ExclusiveGateway>
-          <SequenceFlow ID="23" Source="1" Target="17">
+          <SequenceFlow ID="105" Source="46" Target="104" />
+          <SequenceFlow ID="106" Source="102" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="InterfazarMYSQLDetalleInput/pedidoin" to="DetalleInput/pedidoin" />
+              <Assignment type="Variable" from="ConsultaDetalleOutput/Estado" to="InterfazarMYSQLDetalleOutput/Estado" />
+              <Assignment type="Variable" from="ConsultaDetalleOutput/Respuesta" to="InterfazarMYSQLDetalleOutput/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="24" Source="15" Target="22" />
-          <SequenceFlow ID="39" Source="21" Target="12">
+          <SequenceFlow ID="107" Source="103" Target="9" />
+          <SequenceFlow ID="108" Source="1" Target="48">
             <Assignments>
-              <Assignment type="Variable" from="DetalleFault/Estado" to="InterfazarMYSQLDetalleFault/Estado" />
-              <Assignment type="Variable" from="DetalleFault/Respuesta" to="InterfazarMYSQLDetalleFault/Respuesta" />
+              <Assignment type="Variable" from="InterfazarMYSQLDetalleInput/Fecha" to="ConsultaDetalleInput/FechaIN" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="40" Source="20" Target="7" ConditionExpression="" />
         </GraphicalElements>
       </Process>
     </Pool>

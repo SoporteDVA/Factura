@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>ActualizaEstadoFac</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>14/08/2018</CreationDate>
+  <ModificationDate>14/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="225" Top="170">
+            <Message>
+              <Properties>
+                <Property name="idpedidoIN" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="920" Top="170">
+            <Name>ActualizaEstadoFacOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Actualizado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>ActualizaEstadoFacOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="950" Top="350">
+            <Name>ActualizaEstadoFacFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>ActualizaEstadoFacFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="465.2865" Top="170" update="False" server="MYSQL">
+            <Name>Actualiza</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="SPUpdate" />
+                <Property name="idpedidoIN" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Actualizado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="19" IdTop="20" IdLeft="23" IdBottom="22" IdRight="21" Left="685.3679" Top="170">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="18" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;ActualizaFactura&quot;" to="ActualizaInput/SP" />
+              <Assignment type="Expression" from="&quot;SI&quot;" to="ActualizaInput/SPUpdate" />
+              <Assignment type="Variable" from="ActualizaEstadoFacInput/idpedidoIN" to="ActualizaInput/idpedidoIN" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="24" Source="15" Target="23" />
+          <SequenceFlow ID="25" Source="21" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaOutput/Actualizado" to="ActualizaEstadoFacOutput/Actualizado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="22" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="ActualizaEstadoFacFault/Estado" />
+              <Assignment type="Variable" from="ActualizaFault/Error" to="ActualizaEstadoFacFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

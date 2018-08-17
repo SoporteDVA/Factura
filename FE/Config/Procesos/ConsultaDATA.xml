@@ -133,6 +133,9 @@
             <Template>
             </Template>
           </End>
+          <ExclusiveGateway ID="72" IdTop="73" IdLeft="76" IdBottom="75" IdRight="74" Left="715" Top="170">
+            <Name>2</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="23" Source="1" Target="7">
             <Assignments>
               <Assignment type="Expression" from="ObtieneFacturas" to="TareaInput/SP" />
@@ -146,9 +149,16 @@
               <Assignment type="Variable" from="TareaFault/Error" to="ConsultaDATAFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="68" Source="10" Target="22" ConditionExpression="?">
+          <SequenceFlow ID="77" Source="10" Target="76" ConditionExpression="?" />
+          <SequenceFlow ID="78" Source="74" Target="22" ConditionExpression=" variable(TareaOutput/Facturas/idpersona)!&quot;&quot;">
             <Assignments>
               <Assignment type="Variable" from="TareaOutput" to="ConsultaDATAOutput" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="79" Source="75" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDATAFault/Estado" />
+              <Assignment type="Expression" from="&quot;NO hay Datos&quot;" to="ConsultaDATAFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

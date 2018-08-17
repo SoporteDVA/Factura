@@ -92,7 +92,7 @@
           </SequenceFlow>
           <SequenceFlow ID="49" Source="37" Target="45">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(Error)" to="FirmaXMLFault/Estado" />
+              <Assignment type="Expression" from=" tabla(Estados, FIRMAXML)" to="FirmaXMLFault/Estado" />
               <Assignment type="Variable" from="FirmaFault/Error" to="FirmaXMLFault/Respuesta" />
             </Assignments>
           </SequenceFlow>

@@ -103,8 +103,7 @@
           </SequenceFlow>
           <SequenceFlow ID="26" Source="21" Target="12">
             <Assignments>
-              <Assignment type="Expression" from="99" to="FEObtenerDocumentoFault/Estado" />
-              <Assignment type="Variable" from="TareaFault/Error" to="FEObtenerDocumentoFault/Respuesta" />
+              <Assignment type="Expression" from=" tabla(Estados, CONSECUTIVO)" to="FEObtenerDocumentoFault/Estado" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

@@ -335,11 +335,20 @@
   </Proceso>
   <Proceso>
     <ID>42</ID>
-    <Nombre>FEConsultaDocExterno</Nombre>
-    <Diagrama>FEConsultaDocExterno.xml</Diagrama>
+    <Nombre>FEActualizaEstadoMYSQL</Nombre>
+    <Diagrama>FEActualizaEstadoMYSQL.xml</Diagrama>
     <Descripcion>Consulta los Documentos del sistema externo para poder consultar y cargar los detalles de las facturas</Descripcion>
     <Categoria>Bitacora</Categoria>
     <UltimaModificacion>14/08/2018 12:03:38</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>43</ID>
+    <Nombre>ActualizaEstadoFac</Nombre>
+    <Diagrama>ActualizaEstadoFac.xml</Diagrama>
+    <Descripcion>Actualiza el estado de las Facturas en MYSQL</Descripcion>
+    <Categoria>MYSQLData/Core</Categoria>
+    <UltimaModificacion>14/08/2018 19:11:44</UltimaModificacion>
     <Llaves />
   </Proceso>
 </ProcesoDS>

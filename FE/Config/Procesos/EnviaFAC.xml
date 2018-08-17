@@ -97,7 +97,7 @@
           <SequenceFlow ID="24" Source="20" Target="12" />
           <SequenceFlow ID="26" Source="11" Target="17">
             <Assignments>
-              <Assignment type="Expression" from="99" to="EnviaFACFault/Estado" />
+              <Assignment type="Expression" from=" tabla(Estados, ENVIOXML)" to="EnviaFACFault/Estado" />
               <Assignment type="Variable" from="EnviaFacFault/Error" to="EnviaFACFault/Respuesta" />
             </Assignments>
           </SequenceFlow>

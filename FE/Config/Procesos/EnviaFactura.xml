@@ -9,20 +9,23 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Subprocess ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="210" Top="110" update="False" NombreProceso="Token">
+          <Subprocess ID="0" IdTop="1" IdLeft="4" IdBottom="3" IdRight="2" Left="210" Top="110" update="False" NombreProceso="TokenLocal">
             <Name>Token</Name>
             <InputMessage>
               <Properties>
                 <Property name="url" />
                 <Property name="Usuario" />
                 <Property name="Password" />
-                <Property name="UsuarioLocal" />
-                <Property name="Identificacion" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Token" />
+                <Property name="Expires_in" />
+                <Property name="Refresh_expires_in" />
+                <Property name="Refresh_token" />
+                <Property name="token_type" />
+                <Property name="ID_token" />
                 <Property name="FechaFormato" />
               </Properties>
             </OutputMessage>
@@ -189,9 +192,6 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="45" IdTop="46" IdLeft="49" IdBottom="48" IdRight="47" Left="835" Top="300">
-            <Name>5</Name>
-          </ExclusiveGateway>
           <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="900" Top="110" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
@@ -249,6 +249,7 @@
           <Start ID="89" IdTop="0" IdLeft="0" IdBottom="91" IdRight="90" Left="15" Top="15">
             <Message>
               <Properties>
+                <Property name="ID" />
                 <Property name="Cliente" />
                 <Property name="Usuario" />
                 <Property name="Situacion" />
@@ -363,8 +364,13 @@
             <Name>EnviaFacturaOutput</Name>
             <Message>
               <Properties>
+                <Property name="ID" />
                 <Property name="Estado" />
-                <Property name="RespuestaXML" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="RequestXML" />
+                <Property name="ResponseXML" />
+                <Property name="Clave" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -390,60 +396,62 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="173" IdTop="174" IdLeft="177" IdBottom="176" IdRight="175" Left="1065" Top="110">
-            <Name>OkE</Name>
-          </ExclusiveGateway>
           <SequenceFlow ID="75" Source="2" Target="9" />
           <SequenceFlow ID="76" Source="7" Target="14" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="FacturaXMLInput/clave" />
               <Assignment type="Variable" from="ConsecutivoOutput/Consecutivo" to="FacturaXMLInput/consecutivo" />
               <Assignment type="Variable" from="TokenOutput/FechaFormato" to="FacturaXMLInput/fechaEmision" />
-              <Assignment type="Expression" from="&quot;Alonso Alpizar&quot;" to="FacturaXMLInput/emisorNombre" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;109660018&quot;" to="FacturaXMLInput/emisorNumIdentif" />
-              <Assignment type="Expression" from="&quot;Alonso&quot;" to="FacturaXMLInput/nombreComercial" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/emisorProv" />
-              <Assignment type="Expression" from="&quot;13&quot;" to="FacturaXMLInput/emisorCanton" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorDistrito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/emisorBarrio" />
-              <Assignment type="Expression" from="&quot;parque&quot;" to="FacturaXMLInput/emisorOtrasSenas" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/emisorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/emisorTel" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/emisorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;86091954&quot;" to="FacturaXMLInput/emisorFax" />
-              <Assignment type="Expression" from="&quot;alonsoalpizar@gmail.com&quot;" to="FacturaXMLInput/emisorEmail" />
-              <Assignment type="Expression" from="&quot;Geinner Romero&quot;" to="FacturaXMLInput/receptorNombre" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorTipoIdentif" />
-              <Assignment type="Expression" from="&quot;111970739&quot;" to="FacturaXMLInput/receptorNumIdentif" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="FacturaXMLInput/receptorProvincia" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorCanton" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorDistrito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/receptorBarrio" />
-              <Assignment type="Expression" from="&quot;centro&quot;" to="FacturaXMLInput/receptorOtrasSenas" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/receptorCodPaisTel" />
-              <Assignment type="Expression" from="&quot;66558899&quot;" to="FacturaXMLInput/receptorTel" />
-              <Assignment type="Expression" from="&quot;506&quot;" to="FacturaXMLInput/receptorCodPaisFax" />
-              <Assignment type="Expression" from="&quot;66558899&quot;" to="FacturaXMLInput/receptorFax" />
-              <Assignment type="Expression" from="&quot;gromero@corpdva.com&quot;" to="FacturaXMLInput/receptorEmail" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/condVenta" />
-              <Assignment type="Expression" from="&quot;0&quot;" to="FacturaXMLInput/plazoCredito" />
-              <Assignment type="Expression" from="&quot;01&quot;" to="FacturaXMLInput/medioPago" />
-              <Assignment type="Expression" from="&quot;USD&quot;" to="FacturaXMLInput/codMoneda" />
-              <Assignment type="Expression" from="&quot;570.6&quot;" to="FacturaXMLInput/tipoCambio" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalServGravados" />
-              <Assignment type="Expression" from="65" to="FacturaXMLInput/totalServExentos" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalMercGravadas" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalMercExentas" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalGravados" />
-              <Assignment type="Expression" from="65" to="FacturaXMLInput/totalExentos" />
-              <Assignment type="Expression" from="65" to="FacturaXMLInput/totalVentas" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalDescuentos" />
-              <Assignment type="Expression" from="65" to="FacturaXMLInput/totalVentasNeta" />
-              <Assignment type="Expression" from="0" to="FacturaXMLInput/totalImp" />
-              <Assignment type="Expression" from="65" to="FacturaXMLInput/totalComprobante" />
-              <Assignment type="Expression" from="&quot;GRACIAS&quot;" to="FacturaXMLInput/otros" />
-              <Assignment type="Variable" from="ConsecutivoOutput/Detalles" to="FacturaXMLInput/detalles" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorNombre" to="FacturaXMLInput/emisorNombre" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorTipoIdentif" to="FacturaXMLInput/emisorTipoIdentif" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorNumIdentif" to="FacturaXMLInput/emisorNumIdentif" />
+              <Assignment type="Variable" from="EnviaFacturaInput/nombreComercial" to="FacturaXMLInput/nombreComercial" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorProv" to="FacturaXMLInput/emisorProv" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorCanton" to="FacturaXMLInput/emisorCanton" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorDistrito" to="FacturaXMLInput/emisorDistrito" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorBarrio" to="FacturaXMLInput/emisorBarrio" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorOtrasSenas" to="FacturaXMLInput/emisorOtrasSenas" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorCodPaisTel" to="FacturaXMLInput/emisorCodPaisTel" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorTel" to="FacturaXMLInput/emisorTel" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorCodPaisFax" to="FacturaXMLInput/emisorCodPaisFax" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorTel" to="FacturaXMLInput/emisorFax" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorEmail" to="FacturaXMLInput/emisorEmail" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorNombre" to="FacturaXMLInput/receptorNombre" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorTipoIdentif" to="FacturaXMLInput/receptorTipoIdentif" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorNumIdentif" to="FacturaXMLInput/receptorNumIdentif" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorProvincia" to="FacturaXMLInput/receptorProvincia" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorCanton" to="FacturaXMLInput/receptorCanton" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorDistrito" to="FacturaXMLInput/receptorDistrito" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorBarrio" to="FacturaXMLInput/receptorBarrio" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorOtrasSenas" to="FacturaXMLInput/receptorOtrasSenas" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorCodPaisTel" to="FacturaXMLInput/receptorCodPaisTel" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorTel" to="FacturaXMLInput/receptorTel" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorCodPaisFax" to="FacturaXMLInput/receptorCodPaisFax" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorFax" to="FacturaXMLInput/receptorFax" />
+              <Assignment type="Variable" from="EnviaFacturaInput/receptorEmail" to="FacturaXMLInput/receptorEmail" />
+              <Assignment type="Variable" from="EnviaFacturaInput/condVenta" to="FacturaXMLInput/condVenta" />
+              <Assignment type="Variable" from="EnviaFacturaInput/plazoCredito" to="FacturaXMLInput/plazoCredito" />
+              <Assignment type="Variable" from="EnviaFacturaInput/medioPago" to="FacturaXMLInput/medioPago" />
+              <Assignment type="Variable" from="EnviaFacturaInput/codMoneda" to="FacturaXMLInput/codMoneda" />
+              <Assignment type="Variable" from="EnviaFacturaInput/tipoCambio" to="FacturaXMLInput/tipoCambio" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalServGravados" to="FacturaXMLInput/totalServGravados" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalServExentos" to="FacturaXMLInput/totalServExentos" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalMercGravadas" to="FacturaXMLInput/totalMercGravadas" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalMercExentas" to="FacturaXMLInput/totalMercExentas" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalGravados" to="FacturaXMLInput/totalGravados" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalExentos" to="FacturaXMLInput/totalExentos" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalVentas" to="FacturaXMLInput/totalVentas" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalDescuentos" to="FacturaXMLInput/totalDescuentos" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalVentasNeta" to="FacturaXMLInput/totalVentasNeta" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalImp" to="FacturaXMLInput/totalImp" />
+              <Assignment type="Variable" from="EnviaFacturaInput/totalComprobante" to="FacturaXMLInput/totalComprobante" />
+              <Assignment type="Variable" from="EnviaFacturaInput/infoRefeTipoDoc" to="FacturaXMLInput/infoRefeTipoDoc" />
+              <Assignment type="Variable" from="EnviaFacturaInput/infoRefeNumero" to="FacturaXMLInput/infoRefeNumero" />
+              <Assignment type="Variable" from="EnviaFacturaInput/infoRefeFechaEmision" to="FacturaXMLInput/infoRefeFechaEmision" />
+              <Assignment type="Variable" from="EnviaFacturaInput/infoRefeCodigo" to="FacturaXMLInput/infoRefeCodigo" />
+              <Assignment type="Variable" from="EnviaFacturaInput/infoRefeRazon" to="FacturaXMLInput/infoRefeRazon" />
+              <Assignment type="Variable" from="EnviaFacturaInput/otros" to="FacturaXMLInput/otros" />
+              <Assignment type="Variable" from="EnviaFacturaInput/detalles" to="FacturaXMLInput/detalles" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="77" Source="12" Target="19" />
@@ -477,7 +485,6 @@
               <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="83" Source="43" Target="46" />
           <SequenceFlow ID="84" Source="32" Target="54" ConditionExpression="?">
             <Assignments>
               <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 ,tabla(URLsProduccion, ConsultaEstado)  ,  tabla(URLsDesarrollo, ConsultaEstado) )   " to="ConsultaFacOKInput/url" />
@@ -491,68 +498,64 @@
               <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, token) , tabla(URLsDesarrollo, token) )   " to="TokenInput/url" />
               <Assignment type="Variable" from="EnviaFacturaInput/Perfil/UsuarioHacienda" to="TokenInput/Usuario" />
               <Assignment type="Variable" from="EnviaFacturaInput/Perfil/PasswordHacienda" to="TokenInput/Password" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Perfil/UsuarioLocal" to="TokenInput/UsuarioLocal" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Perfil/Identificacion" to="TokenInput/Identificacion" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="107" Source="63" Target="96">
             <Assignments>
-              <Assignment type="Variable" from="ConsecutivoFault" to="EnviaFacturaFault" />
+              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="EnviaFacturaFault/Estado" />
+              <Assignment type="Expression" from=" tabla(TablaRespuestasDVA, variable(ConsecutivoFault/Estado) ) " to="EnviaFacturaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="108" Source="8" Target="96">
             <Assignments>
-              <Assignment type="Variable" from="TokenFault" to="EnviaFacturaFault" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="109" Source="48" Target="97">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacFault" to="EnviaFacturaFault" />
+              <Assignment type="Variable" from="TokenFault/Estado" to="EnviaFacturaFault/Estado" />
+              <Assignment type="Expression" from=" tabla(TablaRespuestasDVA, variable(TokenFault/Estado) ) " to="EnviaFacturaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="110" Source="23" Target="96">
             <Assignments>
-              <Assignment type="Variable" from="FirmarFault" to="EnviaFacturaFault" />
+              <Assignment type="Variable" from="FirmarFault/Estado" to="EnviaFacturaFault/Estado" />
+              <Assignment type="Expression" from=" tabla(TablaRespuestasDVA, variable(FirmarFault/Estado) ) " to="EnviaFacturaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="111" Source="18" Target="96">
             <Assignments>
-              <Assignment type="Variable" from="FacturaXMLFault" to="EnviaFacturaFault" />
+              <Assignment type="Variable" from="FacturaXMLFault/Estado" to="EnviaFacturaFault/Estado" />
+              <Assignment type="Expression" from=" tabla(TablaRespuestasDVA, variable(FacturaXMLFault/Estado) ) " to="EnviaFacturaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="123" Source="116" Target="102">
             <Assignments>
-              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="EnviaFacturaOutput/Estado" />
-              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/RespuestaXML" />
+              <Assignment type="Variable" from="EnviaFacturaInput/ID" to="EnviaFacturaOutput/ID" />
+              <Assignment type="Expression" from=" decision( variable(XMLOutput/IndestadoR)=&quot;aceptado&quot; , 0 , 2 ) " to="EnviaFacturaOutput/Estado" />
+              <Assignment type="Expression" from=" decision( variable(XMLOutput/IndestadoR)=&quot;&quot; , &quot;NO_VERIFICADO&quot; ,variable(XMLOutput/IndestadoR)  )  " to="EnviaFacturaOutput/EstadoDesc" />
+              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="EnviaFacturaOutput/EstadoHacienda" />
+              <Assignment type="Expression" from="fromB64(variable(EnviaInput/XMLIN))  " to="EnviaFacturaOutput/RequestXML" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/ResponseXML" />
+              <Assignment type="Variable" from="ConsultaFacOKOutput/ClaveR" to="EnviaFacturaOutput/Clave" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="127" Source="47" Target="118" ConditionExpression="?">
+          <SequenceFlow ID="253" Source="90" Target="59">
             <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
-              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Cliente" to="ConsecutivoInput/Cliente" />
+              <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
+              <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Usuario" to="ConsecutivoInput/Usuario" />
+              <Assignment type="Variable" from="EnviaFacturaInput/emisorNumIdentif" to="ConsecutivoInput/Identificacion" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="ConsecutivoInput/Fecha" />
+              <Assignment type="Variable" from="EnviaFacturaInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="181" Source="52" Target="177" />
-          <SequenceFlow ID="248" Source="175" Target="115" ConditionExpression="?">
+          <SequenceFlow ID="273" Source="52" Target="115">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="253" Source="90" Target="59">
+          <SequenceFlow ID="277" Source="43" Target="118">
             <Assignments>
-              <Assignment type="Variable" from="EnviaFacturaInput/Perfil/IDEmpresa" to="ConsecutivoInput/Cliente" />
-              <Assignment type="Expression" from="1" to="ConsecutivoInput/Servicio" />
-              <Assignment type="Expression" from="&quot;FE&quot;" to="ConsecutivoInput/TipoDoc" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Perfil/UsuarioLocal" to="ConsecutivoInput/Usuario" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Perfil/Identificacion" to="ConsecutivoInput/Identificacion" />
-              <Assignment type="Variable" from="EnviaFacturaInput/fechaEmision" to="ConsecutivoInput/Fecha" />
-              <Assignment type="Variable" from="EnviaFacturaInput/Situacion" to="ConsecutivoInput/Situacion" />
-            </Assignments>
-          </SequenceFlow>
-          <SequenceFlow ID="257" Source="176" Target="94">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacOKFault" to="EnviaFacturaFault" />
+              <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
+              <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

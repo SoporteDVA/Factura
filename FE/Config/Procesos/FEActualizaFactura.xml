@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEActualizaFactura</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>16/08/2018</CreationDate>
+  <ModificationDate>16/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="210" Top="235">
+            <Message>
+              <Properties>
+                <Property name="ID" />
+                <Property name="Estado" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="TramaXML" />
+                <Property name="TramaRespuestaConsulta" />
+                <Property name="clave" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1115" Top="235">
+            <Name>FEActualizaFacturaOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEActualizaFacturaOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="402.6855" Top="235" update="False" server="Bitacora">
+            <Name>ActualizaFactura</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="ID" />
+                <Property name="Estado" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="TramaXML" />
+                <Property name="TramaRespuestaConsulta" />
+                <Property name="clave" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="740.3679" Top="235">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <End ID="21" IdTop="22" IdLeft="25" IdBottom="24" IdRight="23" Left="1125" Top="435">
+            <Name>FEActualizaFacturaFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEActualizaFacturaFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="18" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEActualizaEstado&quot;" to="ActualizaFacturaInput/SP" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/ID" to="ActualizaFacturaInput/ID" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/Estado" to="ActualizaFacturaInput/Estado" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/EstadoDesc" to="ActualizaFacturaInput/EstadoDesc" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/EstadoHacienda" to="ActualizaFacturaInput/EstadoHacienda" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/TramaXML" to="ActualizaFacturaInput/TramaXML" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/TramaRespuestaConsulta" to="ActualizaFacturaInput/TramaRespuestaConsulta" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/clave" to="ActualizaFacturaInput/clave" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="19" Source="10" Target="17" />
+          <SequenceFlow ID="20" Source="15" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaFacturaOutput/Estado" to="FEActualizaFacturaOutput/Estado" />
+              <Assignment type="Variable" from="ActualizaFacturaOutput/Respuesta" to="FEActualizaFacturaOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="16" Target="25">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaFacturaFault/Estado" />
+              <Assignment type="Expression" from="&quot;No se logró Actualizar la Factura&quot;" to="FEActualizaFacturaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

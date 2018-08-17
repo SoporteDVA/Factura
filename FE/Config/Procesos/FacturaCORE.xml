@@ -176,7 +176,7 @@
           </End>
           <SequenceFlow ID="66" Source="59" Target="65">
             <Assignments>
-              <Assignment type="Expression" from="99" to="FacturaCOREFault/Estado" />
+              <Assignment type="Expression" from=" tabla(Estados, ARMADOXML)" to="FacturaCOREFault/Estado" />
               <Assignment type="Variable" from="TareaFault/Error" to="FacturaCOREFault/Respuesta" />
             </Assignments>
           </SequenceFlow>

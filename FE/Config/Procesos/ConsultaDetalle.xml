@@ -12,7 +12,7 @@
           <Start ID="5" IdTop="0" IdLeft="0" IdBottom="7" IdRight="6" Left="265" Top="170">
             <Message>
               <Properties>
-                <Property name="pedidoin" />
+                <Property name="FechaIN" />
               </Properties>
             </Message>
           </Start>
@@ -20,14 +20,8 @@
             <Name>ConsultaDetalleOutput</Name>
             <Message>
               <Properties>
-                <Property name="Detalles">
-                  <Properties>
-                    <Property name="idpedido" />
-                    <Property name="cantidad" />
-                    <Property name="precio_venta" />
-                    <Property name="descuento" />
-                  </Properties>
-                </Property>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -56,7 +50,7 @@
             <InputMessage>
               <Properties>
                 <Property name="SP" />
-                <Property name="pedidoin" />
+                <Property name="FechaIN" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -67,6 +61,8 @@
                     <Property name="cantidad" />
                     <Property name="precio_venta" />
                     <Property name="descuento" />
+                    <Property name="fecha" />
+                    <Property name="iddetalle_pedido" />
                   </Properties>
                 </Property>
               </Properties>
@@ -77,30 +73,38 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <Subprocess ID="42" IdTop="43" IdLeft="46" IdBottom="45" IdRight="44" Left="769.3685" Top="170" update="False" loopType="MultiInstance" miCondition="DetallesOutput/Detalles" assignTime="Before" NombreProceso="FEInsertaDocumentoDetalle">
-            <Name>InsertaDetalle</Name>
+          <ExclusiveGateway ID="49" IdTop="50" IdLeft="53" IdBottom="52" IdRight="51" Left="975" Top="170">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Task ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="790" Top="170" update="False" loopType="MultiInstance" miCondition="DetallesOutput/Detalles" assignTime="Before" server="Bitacora">
+            <Name>Inserta</Name>
             <Assignments>
-              <Assignment type="Variable" from="./idpedido" to="InsertaDetalleInput/clave" />
-              <Assignment type="Expression" from="1" to="InsertaDetalleInput/NumeroLinea" />
-              <Assignment type="Expression" from="1" to="InsertaDetalleInput/Codigo" />
-              <Assignment type="Variable" from="./cantidad" to="InsertaDetalleInput/Cantidad" />
-              <Assignment type="Expression" from="&quot;H&quot;" to="InsertaDetalleInput/UnidadMedida" />
-              <Assignment type="Expression" from="&quot;Servicios Profesionales&quot;" to="InsertaDetalleInput/Detalle" />
-              <Assignment type="Variable" from="./precio_venta" to="InsertaDetalleInput/PrecioUnitario" />
-              <Assignment type="Expression" from=" variable(./cantidad)   *  variable(./precio_venta)" to="InsertaDetalleInput/MontoTotal" />
-              <Assignment type="Variable" from="./descuento" to="InsertaDetalleInput/MontoDescuento" />
-              <Assignment type="Expression" from="0" to="InsertaDetalleInput/Impuesto" />
-              <Assignment type="Expression" from="&quot;1&quot;" to="InsertaDetalleInput/EstadoLinea" />
-              <Assignment type="Expression" from="&quot;Inicial&quot;" to="InsertaDetalleInput/EstadoLineaDesc" />
-              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/Fecha" />
-              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaCarga" />
-              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaProceso" />
-              <Assignment type="Expression" from="hora( &quot;yyyyMMdd&quot; )" to="InsertaDetalleInput/FechaRecepcion" />
-              <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaDetalleInput/EstadoHacienda" />
+              <Assignment type="Variable" from="./idpedido" to="InsertaInput/IDPedido" />
+              <Assignment type="Variable" from="./idpedido" to="InsertaInput/clave" />
+              <Assignment type="Expression" from="1" to="InsertaInput/NumeroLinea" />
+              <Assignment type="Expression" from="1" to="InsertaInput/Codigo" />
+              <Assignment type="Variable" from="./cantidad" to="InsertaInput/Cantidad" />
+              <Assignment type="Expression" from="&quot;H&quot;" to="InsertaInput/UnidadMedida" />
+              <Assignment type="Expression" from="&quot;Servicios Profesionales&quot;" to="InsertaInput/Detalle" />
+              <Assignment type="Variable" from="./precio_venta" to="InsertaInput/PrecioUnitario" />
+              <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta)" to="InsertaInput/MontoTotal" />
+              <Assignment type="Variable" from="./descuento" to="InsertaInput/MontoDescuento" />
+              <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta) -  variable(./descuento)" to="InsertaInput/SubTotal" />
+              <Assignment type="Expression" from="0" to="InsertaInput/Impuesto" />
+              <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta) -  variable(./descuento) " to="InsertaInput/MontoTotalLinea" />
+              <Assignment type="Expression" from="1" to="InsertaInput/EstadoLinea" />
+              <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaInput/EstadoLineaDesc" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/Fecha" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaCarga" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaProceso" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="InsertaInput/FechaRecepcion" />
+              <Assignment type="Expression" from="&quot;Iniciado&quot;" to="InsertaInput/EstadoHacienda" />
+              <Assignment type="Variable" from="./iddetalle_pedido" to="InsertaInput/IDDetalleExterno" />
             </Assignments>
             <InputMessage>
               <Properties>
-                <Property name="IDDocumento" />
+                <Property name="SP" />
+                <Property name="IDPedido" />
                 <Property name="clave" />
                 <Property name="NumeroLinea" />
                 <Property name="Codigo" />
@@ -121,6 +125,7 @@
                 <Property name="FechaProceso" />
                 <Property name="FechaRecepcion" />
                 <Property name="EstadoHacienda" />
+                <Property name="IDDetalleExterno" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -138,14 +143,10 @@
             </OutputMessage>
             <FaultMessage>
               <Properties>
-                <Property name="Estado" />
-                <Property name="Respuesta" />
+                <Property name="Error" />
               </Properties>
             </FaultMessage>
-          </Subprocess>
-          <ExclusiveGateway ID="49" IdTop="50" IdLeft="53" IdBottom="52" IdRight="51" Left="975" Top="170">
-            <Name>2</Name>
-          </ExclusiveGateway>
+          </Task>
           <SequenceFlow ID="28" Source="24" Target="17">
             <Assignments>
               <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDetalleFault/Estado" />
@@ -155,19 +156,28 @@
           <SequenceFlow ID="37" Source="6" Target="36">
             <Assignments>
               <Assignment type="Expression" from="ObtieneDetalleFacturas" to="DetallesInput/SP" />
-              <Assignment type="Variable" from="ConsultaDetalleInput/pedidoin" to="DetallesInput/pedidoin" />
+              <Assignment type="Variable" from="ConsultaDetalleInput/FechaIN" to="DetallesInput/FechaIN" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="38" Source="34" Target="25" />
-          <SequenceFlow ID="47" Source="23" Target="46" ConditionExpression="?" />
-          <SequenceFlow ID="54" Source="44" Target="53" />
-          <SequenceFlow ID="55" Source="51" Target="12" ConditionExpression="?" />
-          <SequenceFlow ID="56" Source="52" Target="14">
+          <SequenceFlow ID="55" Source="51" Target="12" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="InsertaDetalleFault/Estado" to="ConsultaDetalleFault/Estado" />
-              <Assignment type="Variable" from="InsertaDetalleFault/Respuesta" to="ConsultaDetalleFault/Respuesta" />
+              <Assignment type="Expression" from=" parametro(OK)" to="ConsultaDetalleOutput/Estado" />
+              <Assignment type="Expression" from="&quot;Se realizo la carga de Detalles Correctamente&quot;" to="ConsultaDetalleOutput/Respuesta" />
             </Assignments>
           </SequenceFlow>
+          <SequenceFlow ID="56" Source="52" Target="14">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="ConsultaDetalleFault/Estado" />
+              <Assignment type="Variable" from="InsertaFault/Error" to="ConsultaDetalleFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="62" Source="23" Target="61" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FeInsertaDetalleDocumento&quot;" to="InsertaInput/SP" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="63" Source="59" Target="53" />
         </GraphicalElements>
       </Process>
     </Pool>

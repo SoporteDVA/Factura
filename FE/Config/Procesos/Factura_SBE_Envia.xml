@@ -18,7 +18,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1200" Top="30">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1405" Top="140">
             <Name>Factura_SBE_EnviaOutput</Name>
             <Message>
               <Properties>
@@ -31,7 +31,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1180" Top="220">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1380" Top="330">
             <Name>Factura_SBE_EnviaFault</Name>
             <Message>
               <Properties>
@@ -44,10 +44,11 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="615" Top="30" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Fila" assignTime="Before" NombreProceso="EnviaFactura">
+          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="700" Top="140" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Fila" assignTime="Before" NombreProceso="EnviaFactura">
             <Name>EnviaFac</Name>
             <Assignments>
-              <Assignment type="Variable" from="./Cliente" to="EnviaFacInput/Cliente" />
+              <Assignment type="Variable" from="./ID" to="EnviaFacInput/ID" />
+              <Assignment type="Variable" from="./IDEmpresa" to="EnviaFacInput/Cliente" />
               <Assignment type="Variable" from="./Usuario" to="EnviaFacInput/Usuario" />
               <Assignment type="Variable" from="./Situacion" to="EnviaFacInput/Situacion" />
               <Assignment type="Variable" from="./clave" to="EnviaFacInput/clave" />
@@ -103,10 +104,11 @@
               <Assignment type="Variable" from="./infoRefeRazon" to="EnviaFacInput/infoRefeRazon" />
               <Assignment type="Variable" from="./otros" to="EnviaFacInput/otros" />
               <Assignment type="Variable" from="./DocExterno" to="EnviaFacInput/DocExterno" />
-              <Assignment type="Variable" from="./detalles" to="EnviaFacInput/detalles" />
+              <Assignment type="Variable" from="./Detalles" to="EnviaFacInput/detalles" />
             </Assignments>
             <InputMessage>
               <Properties>
+                <Property name="ID" />
                 <Property name="Cliente" />
                 <Property name="Usuario" />
                 <Property name="Situacion" />
@@ -205,8 +207,13 @@
             </InputMessage>
             <OutputMessage>
               <Properties>
+                <Property name="ID" />
                 <Property name="Estado" />
-                <Property name="RespuestaXML" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="RequestXML" />
+                <Property name="ResponseXML" />
+                <Property name="Clave" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -216,23 +223,23 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="530" Top="30">
+          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="565" Top="140">
             <Name>3</Name>
           </ExclusiveGateway>
-          <Subprocess ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="320" Top="30" update="False" NombreProceso="FEConsultaFacturas">
+          <Subprocess ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="330" Top="140" update="False" NombreProceso="FEConsultaFacturas">
             <Name>ConsultaFacturas</Name>
             <InputMessage>
               <Properties>
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
-                <Property name="IDDocumento" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Fila">
                   <Properties>
-                    <Property name="Cliente" />
+                    <Property name="ID" />
+                    <Property name="IDEmpresa" />
                     <Property name="Usuario" />
                     <Property name="Situacion" />
                     <Property name="clave" />
@@ -288,7 +295,7 @@
                     <Property name="infoRefeRazon" />
                     <Property name="otros" />
                     <Property name="DocExterno" />
-                    <Property name="detalles" />
+                    <Property name="Detalles" />
                   </Properties>
                 </Property>
               </Properties>
@@ -300,59 +307,35 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="101" IdTop="102" IdLeft="105" IdBottom="104" IdRight="103" Left="745" Top="30">
+          <ExclusiveGateway ID="101" IdTop="102" IdLeft="105" IdBottom="104" IdRight="103" Left="890" Top="140">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Subprocess ID="207" IdTop="208" IdLeft="211" IdBottom="210" IdRight="209" Left="116.8587" Top="30" update="False" NombreProceso="InterfazarFacturas">
-            <Name>IntefazarFACS</Name>
+          <Subprocess ID="270" IdTop="271" IdLeft="274" IdBottom="273" IdRight="272" Left="995" Top="140" update="False" loopType="MultiInstance" miCondition="EnviaFacOutput/Resultados" assignTime="Before" NombreProceso="FEActualizaFactura">
+            <Name>ActualizaFac</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./ID" to="ActualizaFacInput/ID" />
+              <Assignment type="Variable" from="./Estado" to="ActualizaFacInput/Estado" />
+              <Assignment type="Variable" from="./EstadoDesc" to="ActualizaFacInput/EstadoDesc" />
+              <Assignment type="Variable" from="./EstadoHacienda" to="ActualizaFacInput/EstadoHacienda" />
+              <Assignment type="Variable" from="./RequestXML" to="ActualizaFacInput/TramaXML" />
+              <Assignment type="Variable" from="./ResponseXML" to="ActualizaFacInput/TramaRespuestaConsulta" />
+              <Assignment type="Variable" from="./Clave" to="ActualizaFacInput/clave" />
+            </Assignments>
             <InputMessage>
               <Properties>
-                <Property name="Fecha" />
-                <Property name="IDEmpresa" />
-                <Property name="Usuario" />
+                <Property name="ID" />
+                <Property name="Estado" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="TramaXML" />
+                <Property name="TramaRespuestaConsulta" />
+                <Property name="clave" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
                 <Property name="Estado" />
                 <Property name="Respuesta" />
-                <Property name="Perfil">
-                  <Properties>
-                    <Property name="IDEmpresa" />
-                    <Property name="NombreEmpresa" />
-                    <Property name="UsuarioLocal" />
-                    <Property name="Acceso" />
-                    <Property name="Identificacion" />
-                    <Property name="Nombre" />
-                    <Property name="Telefono" />
-                    <Property name="Estado" />
-                    <Property name="UsuarioHacienda" />
-                    <Property name="PasswordHacienda" />
-                    <Property name="Sucursal" />
-                    <Property name="Terminal" />
-                    <Property name="UrlP12" />
-                    <Property name="PinP12" />
-                    <Property name="ArchivoP12" />
-                    <Property name="PuedeEnviar" />
-                    <Property name="AplicaNC" />
-                    <Property name="AplicaND" />
-                    <Property name="AceptaFE" />
-                    <Property name="TipoAmbiente" />
-                    <Property name="emisorTipoIdentif" />
-                    <Property name="emisorNumIdentif" />
-                    <Property name="nombreComercial" />
-                    <Property name="emisorProv" />
-                    <Property name="emisorCanton" />
-                    <Property name="emisorDistrito" />
-                    <Property name="emisorBarrio" />
-                    <Property name="emisorOtrasSenas" />
-                    <Property name="emisorCodPaisTel" />
-                    <Property name="emisorTel" />
-                    <Property name="emisorCodPaisFax" />
-                    <Property name="emisorFax" />
-                    <Property name="emisorEmail" />
-                  </Properties>
-                </Property>
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -362,6 +345,64 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
+          <ExclusiveGateway ID="282" IdTop="283" IdLeft="286" IdBottom="285" IdRight="284" Left="1185" Top="140">
+            <Name>5</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="383" IdTop="384" IdLeft="387" IdBottom="386" IdRight="385" Left="150.3125" Top="140" update="False" NombreProceso="Perfil">
+            <Name>Perfil</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="IDEmpresa" />
+                <Property name="NombreEmpresa" />
+                <Property name="UsuarioLocal" />
+                <Property name="Acceso" />
+                <Property name="Identificacion" />
+                <Property name="Nombre" />
+                <Property name="Telefono" />
+                <Property name="Estado" />
+                <Property name="UsuarioHacienda" />
+                <Property name="PasswordHacienda" />
+                <Property name="Sucursal" />
+                <Property name="Terminal" />
+                <Property name="UrlP12" />
+                <Property name="PinP12" />
+                <Property name="ArchivoP12" />
+                <Property name="PuedeEnviar" />
+                <Property name="AplicaNC" />
+                <Property name="AplicaND" />
+                <Property name="AceptaFE" />
+                <Property name="TipoAmbiente" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="388" IdTop="389" IdLeft="392" IdBottom="391" IdRight="390" Left="265" Top="140">
+            <Name>1</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="92" Source="88" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacturasFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
@@ -371,32 +412,47 @@
           <SequenceFlow ID="99" Source="95" Target="89" />
           <SequenceFlow ID="100" Source="87" Target="83" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="IntefazarFACSOutput/Perfil" to="EnviaFacInput/Perfil" />
+              <Assignment type="Variable" from="PerfilOutput" to="EnviaFacInput/Perfil" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="106" Source="81" Target="105" />
-          <SequenceFlow ID="212" Source="1" Target="211">
+          <SequenceFlow ID="287" Source="272" Target="286" />
+          <SequenceFlow ID="288" Source="284" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="IntefazarFACSInput/Fecha" />
-              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="IntefazarFACSInput/IDEmpresa" />
-              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Usuario" to="IntefazarFACSInput/Usuario" />
+              <Assignment type="Variable" from="ActualizaFacOutput/Resultados/Estado" to="Factura_SBE_EnviaOutput/Estado" />
+              <Assignment type="Variable" from="ActualizaFacOutput/Resultados/Respuesta" to="Factura_SBE_EnviaOutput/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="232" Source="104" Target="12">
+          <SequenceFlow ID="327" Source="103" Target="274" ConditionExpression="?" />
+          <SequenceFlow ID="352" Source="285" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaFacFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
+              <Assignment type="Variable" from="ActualizaFacFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="375" Source="81" Target="105" />
+          <SequenceFlow ID="382" Source="104" Target="12">
             <Assignments>
               <Assignment type="Variable" from="EnviaFacFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
               <Assignment type="Variable" from="EnviaFacFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="249" Source="209" Target="97">
+          <SequenceFlow ID="393" Source="385" Target="392" />
+          <SequenceFlow ID="394" Source="390" Target="97" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="IntefazarFACSInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="ConsultaFacturasInput/Fecha" />
               <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="ConsultaFacturasInput/IDEmpresa" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="250" Source="103" Target="7" ConditionExpression="?">
+          <SequenceFlow ID="395" Source="1" Target="387">
             <Assignments>
-              <Assignment type="Expression" from=" parametro(OK)" to="Factura_SBE_EnviaOutput/Estado" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="PerfilInput/IDEmpresa" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Usuario" to="PerfilInput/Usuario" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="396" Source="391" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="PerfilFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
+              <Assignment type="Variable" from="PerfilFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

@@ -95,8 +95,8 @@
           <SequenceFlow ID="24" Source="5" Target="17" />
           <SequenceFlow ID="26" Source="16" Target="22">
             <Assignments>
-              <Assignment type="Expression" from=" decision( variable(TareaFault/Fault/faultcode)=&quot;&quot; ,parametro(Error) , variable(TareaFault/Fault/faultcode) )   " to="TokenLocalFault/Estado" />
-              <Assignment type="Expression" from="decision( variable(TareaFault/Fault/faultstring)=&quot;&quot; ,&quot;Problemas con el servicio de Token&quot; , variable(TareaFault/Fault/faultstring) )   " to="TokenLocalFault/Respuesta" />
+              <Assignment type="Expression" from="  tabla(Estados, TOKEN)" to="TokenLocalFault/Estado" />
+              <Assignment type="Expression" from=" tabla(TablaRespuestasDVA, 97)" to="TokenLocalFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="65" Source="15" Target="12" ConditionExpression="?">

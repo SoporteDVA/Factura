@@ -9,7 +9,7 @@
       <Process>
         <Properties />
         <GraphicalElements>
-          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="125" Top="190">
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="110" Top="110">
             <Message>
               <Properties>
                 <Property name="Fecha" />
@@ -97,7 +97,7 @@
           <ExclusiveGateway ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="415" Top="190">
             <Name>1</Name>
           </ExclusiveGateway>
-          <End ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="855" Top="190">
+          <End ID="23" IdTop="24" IdLeft="27" IdBottom="26" IdRight="25" Left="1225" Top="190">
             <Name>InterfazarFacturasOutput</Name>
             <Message>
               <Properties>
@@ -147,7 +147,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="710" Top="325">
+          <End ID="28" IdTop="29" IdLeft="32" IdBottom="31" IdRight="30" Left="730" Top="325">
             <Name>InterfazarFacturasFault</Name>
             <Message>
               <Properties>
@@ -160,6 +160,54 @@
             <Template>
             </Template>
           </End>
+          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="574.7493" Top="190" update="False" NombreProceso="InterfazarMYSQLDetalle">
+            <Name>Detalle</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="730" Top="190">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="99" IdTop="100" IdLeft="103" IdBottom="102" IdRight="101" Left="870.1107" Top="190" update="False" NombreProceso="FEActualizaEstadoMYSQL">
+            <Name>ActualizaMYSQL</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="124" IdTop="125" IdLeft="128" IdBottom="127" IdRight="126" Left="1070" Top="190">
+            <Name>3</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="33" Source="1" Target="7">
             <Assignments>
               <Assignment type="Variable" from="InterfazarFacturasInput/IDEmpresa" to="EncabezadoInput/IDEmpresa" />
@@ -174,11 +222,37 @@
               <Assignment type="Variable" from="EncabezadoFault/Respuesta" to="InterfazarFacturasFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="46" Source="10" Target="27" ConditionExpression="?">
+          <SequenceFlow ID="55" Source="10" Target="54" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarFacturasInput/Fecha" to="DetalleInput/Fecha" />
+              <Assignment type="Variable" from="InterfazarFacturasInput/IDEmpresa" to="DetalleInput/IDEmpresa" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="62" Source="52" Target="61" />
+          <SequenceFlow ID="64" Source="60" Target="29">
+            <Assignments>
+              <Assignment type="Variable" from="DetalleFault/Estado" to="InterfazarFacturasFault/Estado" />
+              <Assignment type="Variable" from="DetalleFault/Respuesta" to="InterfazarFacturasFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="104" Source="59" Target="103" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarFacturasInput/Fecha" to="ActualizaMYSQLInput/Fecha" />
+              <Assignment type="Variable" from="InterfazarFacturasInput/IDEmpresa" to="ActualizaMYSQLInput/IDEmpresa" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="129" Source="101" Target="128" />
+          <SequenceFlow ID="130" Source="126" Target="27" ConditionExpression="?">
             <Assignments>
               <Assignment type="Expression" from=" parametro(OK)" to="InterfazarFacturasOutput/Estado" />
-              <Assignment type="Expression" from="&quot;Se han cargado las facturas segun la fecha indicada&quot;" to="InterfazarFacturasOutput/Respuesta" />
+              <Assignment type="Expression" from="&quot;Se Cargaron los encabezados y detalles correctamente&quot;" to="InterfazarFacturasOutput/Respuesta" />
               <Assignment type="Variable" from="EncabezadoOutput/Perfil" to="InterfazarFacturasOutput/Perfil" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="131" Source="127" Target="30">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaMYSQLFault/Estado" to="InterfazarFacturasFault/Estado" />
+              <Assignment type="Variable" from="ActualizaMYSQLFault/Respuesta" to="InterfazarFacturasFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
