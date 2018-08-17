@@ -200,10 +200,10 @@ function tokenAuth($url,$usuarioFE, $Pass)
             "2":["1","Sp","Honorarios","100000","100000","100000","100000"]
           }
          */
-        $l = 1;
+        //$l = 1;
         foreach ($detalles as $d) {
             $xmlString .= '<LineaDetalle>
-                      <NumeroLinea>' . $l . '</NumeroLinea>
+                      <NumeroLinea>' . $d->numeroLinea . '</NumeroLinea>
                       <Cantidad>' . $d->cantidad . '</Cantidad>
                       <UnidadMedida>' . $d->unidadMedida . '</UnidadMedida>
                       <Detalle>' . $d->detalle . '</Detalle>
@@ -240,7 +240,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
             $xmlString .= '<SubTotal>' . $d->subtotal . '</SubTotal>
             <MontoTotalLinea>' . $d->montoTotalLinea . '</MontoTotalLinea>';
             $xmlString .= '</LineaDetalle>';
-            $l++;
+            //$l++;
         }
 
         if ($infoRefeTipoDoc=="" )
@@ -1102,7 +1102,7 @@ function json_to_xml($json) {
 
 function ConsultaComprobante($url,$clave, $token)
     {
-        $urlin=$url.$clave;//URL del SandBox
+        $url=$url.$clave;//URL del SandBox
         //'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/recepcion/'
 
         $builtHeader = array(
@@ -1118,7 +1118,7 @@ function ConsultaComprobante($url,$clave, $token)
         );
 
         $context  = stream_context_create($options);
-        $result = file_get_contents($urlin, false, $context);        
+        $result = file_get_contents($url, false, $context);        
         if (!$result = file_get_contents($url, false, $context)) {
             $error = error_get_last();
             //print_r(get_headers($url));
@@ -1145,7 +1145,7 @@ function ConsultaComprobante($url,$clave, $token)
 
 function ObtieneFactura($url,$clave, $token)
     {
-       $urlin= $url.$clave;//URL del SandBox   'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/'
+       $url= $url.$clave;//URL del SandBox   'https://api.comprobanteselectronicos.go.cr/recepcion-sandbox/v1/Comprobantes/'
         
               $builtHeader = array(
             'Authorization: ' . $token,
@@ -1160,7 +1160,7 @@ function ObtieneFactura($url,$clave, $token)
             );
     
             $context  = stream_context_create($options);
-            $result = file_get_contents($urlin, false, $context);  
+            $result = file_get_contents($url, false, $context);  
             $json_data = json_decode($result, true);
  
 

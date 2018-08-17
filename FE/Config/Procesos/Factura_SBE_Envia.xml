@@ -403,6 +403,12 @@
           <ExclusiveGateway ID="388" IdTop="389" IdLeft="392" IdBottom="391" IdRight="390" Left="265" Top="140">
             <Name>1</Name>
           </ExclusiveGateway>
+          <TextAnnotation ID="400" Left="40" Top="30">
+            <Documentation>Escriba su comentario aquí.</Documentation>
+          </TextAnnotation>
+          <TextAnnotation ID="401" Left="50" Top="30">
+            <Documentation>Escriba su comentario aquí.</Documentation>
+          </TextAnnotation>
           <SequenceFlow ID="92" Source="88" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacturasFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
