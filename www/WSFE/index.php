@@ -200,10 +200,10 @@ function tokenAuth($url,$usuarioFE, $Pass)
             "2":["1","Sp","Honorarios","100000","100000","100000","100000"]
           }
          */
-        //$l = 1;
+        $l = 1;
         foreach ($detalles as $d) {
             $xmlString .= '<LineaDetalle>
-                      <NumeroLinea>' . $d->numeroLinea . '</NumeroLinea>
+                      <NumeroLinea>' . $l . '</NumeroLinea>
                       <Cantidad>' . $d->cantidad . '</Cantidad>
                       <UnidadMedida>' . $d->unidadMedida . '</UnidadMedida>
                       <Detalle>' . $d->detalle . '</Detalle>
@@ -240,7 +240,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
             $xmlString .= '<SubTotal>' . $d->subtotal . '</SubTotal>
             <MontoTotalLinea>' . $d->montoTotalLinea . '</MontoTotalLinea>';
             $xmlString .= '</LineaDetalle>';
-            //$l++;
+            $l++;
         }
 
         if ($infoRefeTipoDoc=="" )
@@ -1218,6 +1218,46 @@ function ObtieneFactura($url,$clave, $token)
 
     
 
+
+//FUNCION QUE RECIBE LA Idpedido Y CREA PDF
+
+function CreaPDF($idpedido)
+{
+
+$id=$idpedido;
+
+require_once "FacturacionDVA/model/Pedido.php";
+$objPedido = new Pedido();
+
+$query_cli = $objPedido->GetComprobanteTipo($id);
+$reg_cli = $query_cli->fetch_object();
+
+If($reg_cli->tipo_comprobante=="Factura" || $reg_cli->tipo_comprobante=="FACTURA" || $reg_cli->tipo_comprobante=="FACTURAS" || $reg_cli->tipo_comprobante=="Facturas" )
+{
+  header('Location: FacturacionDVA/Reportes/exFacturaGuarda.php?id='.$id);  
+}
+
+ElseIf($reg_cli->tipo_comprobante=="Ticket" || $reg_cli->tipo_comprobante=="TICKET" || $reg_cli->tipo_comprobante=="TICKETS" || $reg_cli->tipo_comprobante=="Tickets" )
+{
+  header('Location: FacturacionDVA/Reportes/exTicket.php?id='.$id);  
+}
+
+ElseIf($reg_cli->tipo_comprobante=="Boleta" || $reg_cli->tipo_comprobante=="BOLETA" || $reg_cli->tipo_comprobante=="BOLETAS" || $reg_cli->tipo_comprobante=="Boleta" )
+{
+  header('Location: FacturacionDVA/Reportes/exBoleta.php?id='.$id);  
+}
+Else{
+  header('Location: FacturacionDVA/Reportes/exGuia.php?id='.$id);
+}
+
+$Mensaje='Se han enviado la solicitud de creacion del PDF';
+Return $Mensaje;
+
+}
+
+
+
+
 // Publicación de los Servicios en SOAP
 
 $ns = "http://127.0.0.1/ServicioFE";
@@ -1582,6 +1622,14 @@ array('Comprobante' => 'xsd:string'
 ),
 $ns);
 
+
+
+//generaPDF
+
+$soapclient->register('CreaPDF',
+array('idpedido'=>'xsd:string' ),
+array('Mensaje' => 'xsd:string'),
+$ns);
 
 
 

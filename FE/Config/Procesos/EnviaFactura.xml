@@ -420,9 +420,9 @@
               <Assignment type="Variable" from="EnviaFacturaInput/receptorTipoIdentif" to="FacturaXMLInput/receptorTipoIdentif" />
               <Assignment type="Variable" from="EnviaFacturaInput/receptorNumIdentif" to="FacturaXMLInput/receptorNumIdentif" />
               <Assignment type="Variable" from="EnviaFacturaInput/receptorProvincia" to="FacturaXMLInput/receptorProvincia" />
-              <Assignment type="Variable" from="EnviaFacturaInput/receptorCanton" to="FacturaXMLInput/receptorCanton" />
-              <Assignment type="Variable" from="EnviaFacturaInput/receptorDistrito" to="FacturaXMLInput/receptorDistrito" />
-              <Assignment type="Variable" from="EnviaFacturaInput/receptorBarrio" to="FacturaXMLInput/receptorBarrio" />
+              <Assignment type="Expression" from=" rellenar( variable(EnviaFacturaInput/receptorCanton) , 2 , 0 ) " to="FacturaXMLInput/receptorCanton" />
+              <Assignment type="Expression" from=" rellenar( variable(EnviaFacturaInput/receptorDistrito) , 2 , 0 ) " to="FacturaXMLInput/receptorDistrito" />
+              <Assignment type="Expression" from=" rellenar( variable(EnviaFacturaInput/receptorBarrio) , 2 , 0 ) " to="FacturaXMLInput/receptorBarrio" />
               <Assignment type="Variable" from="EnviaFacturaInput/receptorOtrasSenas" to="FacturaXMLInput/receptorOtrasSenas" />
               <Assignment type="Variable" from="EnviaFacturaInput/receptorCodPaisTel" to="FacturaXMLInput/receptorCodPaisTel" />
               <Assignment type="Variable" from="EnviaFacturaInput/receptorTel" to="FacturaXMLInput/receptorTel" />
@@ -431,7 +431,7 @@
               <Assignment type="Variable" from="EnviaFacturaInput/receptorEmail" to="FacturaXMLInput/receptorEmail" />
               <Assignment type="Variable" from="EnviaFacturaInput/condVenta" to="FacturaXMLInput/condVenta" />
               <Assignment type="Variable" from="EnviaFacturaInput/plazoCredito" to="FacturaXMLInput/plazoCredito" />
-              <Assignment type="Variable" from="EnviaFacturaInput/medioPago" to="FacturaXMLInput/medioPago" />
+              <Assignment type="Expression" from=" rellenar( variable(EnviaFacturaInput/medioPago) , 2 , 0 ) " to="FacturaXMLInput/medioPago" />
               <Assignment type="Variable" from="EnviaFacturaInput/codMoneda" to="FacturaXMLInput/codMoneda" />
               <Assignment type="Variable" from="EnviaFacturaInput/tipoCambio" to="FacturaXMLInput/tipoCambio" />
               <Assignment type="Variable" from="EnviaFacturaInput/totalServGravados" to="FacturaXMLInput/totalServGravados" />

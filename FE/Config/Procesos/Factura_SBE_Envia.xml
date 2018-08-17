@@ -324,18 +324,22 @@
             <InputMessage>
               <Properties>
                 <Property name="ID" />
+                <Property name="clave" />
                 <Property name="Estado" />
                 <Property name="EstadoDesc" />
                 <Property name="EstadoHacienda" />
                 <Property name="TramaXML" />
                 <Property name="TramaRespuestaConsulta" />
-                <Property name="clave" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="Estado" />
-                <Property name="Respuesta" />
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Respuesta" />
+                  </Properties>
+                </Property>
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -403,12 +407,6 @@
           <ExclusiveGateway ID="388" IdTop="389" IdLeft="392" IdBottom="391" IdRight="390" Left="265" Top="140">
             <Name>1</Name>
           </ExclusiveGateway>
-          <TextAnnotation ID="400" Left="40" Top="30">
-            <Documentation>Escriba su comentario aquí.</Documentation>
-          </TextAnnotation>
-          <TextAnnotation ID="401" Left="50" Top="30">
-            <Documentation>Escriba su comentario aquí.</Documentation>
-          </TextAnnotation>
           <SequenceFlow ID="92" Source="88" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacturasFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
@@ -424,8 +422,8 @@
           <SequenceFlow ID="287" Source="272" Target="286" />
           <SequenceFlow ID="288" Source="284" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ActualizaFacOutput/Resultados/Estado" to="Factura_SBE_EnviaOutput/Estado" />
-              <Assignment type="Variable" from="ActualizaFacOutput/Resultados/Respuesta" to="Factura_SBE_EnviaOutput/Respuesta" />
+              <Assignment type="Expression" from=" parametro(OK)" to="Factura_SBE_EnviaOutput/Estado" />
+              <Assignment type="Expression" from="&quot;Se han enviado y actualizado las facturas Correctamente validar el estado de las mismas&quot;" to="Factura_SBE_EnviaOutput/Respuesta" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="327" Source="103" Target="274" ConditionExpression="?" />

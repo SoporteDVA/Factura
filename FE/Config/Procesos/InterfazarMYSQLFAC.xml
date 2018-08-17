@@ -94,7 +94,7 @@
               <Assignment type="Expression" from="506" to="InsertaFACSInput/receptorCodPaisFax" />
               <Assignment type="Variable" from="./telefono" to="InsertaFACSInput/receptorFax" />
               <Assignment type="Variable" from="./email" to="InsertaFACSInput/receptorEmail" />
-              <Assignment type="Expression" from="01" to="InsertaFACSInput/condVenta" />
+              <Assignment type="Expression" from=" decision( variable(./tipo_venta)=&quot;Contado&quot; , 01 , 02 ) " to="InsertaFACSInput/condVenta" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/plazoCredito" />
               <Assignment type="Expression" from="1" to="InsertaFACSInput/medioPago" />
               <Assignment type="Expression" from="&quot;CRC&quot;" to="InsertaFACSInput/codMoneda" />
@@ -102,7 +102,7 @@
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalServGravados" />
               <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalServExentos" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalMercGravadas" />
-              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalMercExentas" />
+              <Assignment type="Expression" from="0" to="InsertaFACSInput/totalMercExentas" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalGravados" />
               <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalExentos" />
               <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalVentas" />

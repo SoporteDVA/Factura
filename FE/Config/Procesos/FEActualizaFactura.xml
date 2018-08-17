@@ -13,12 +13,12 @@
             <Message>
               <Properties>
                 <Property name="ID" />
+                <Property name="clave" />
                 <Property name="Estado" />
                 <Property name="EstadoDesc" />
                 <Property name="EstadoHacienda" />
                 <Property name="TramaXML" />
                 <Property name="TramaRespuestaConsulta" />
-                <Property name="clave" />
               </Properties>
             </Message>
           </Start>
@@ -26,8 +26,12 @@
             <Name>FEActualizaFacturaOutput</Name>
             <Message>
               <Properties>
-                <Property name="Estado" />
-                <Property name="Respuesta" />
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Respuesta" />
+                  </Properties>
+                </Property>
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -41,18 +45,22 @@
               <Properties>
                 <Property name="SP" />
                 <Property name="ID" />
+                <Property name="clave" />
                 <Property name="Estado" />
                 <Property name="EstadoDesc" />
                 <Property name="EstadoHacienda" />
                 <Property name="TramaXML" />
                 <Property name="TramaRespuestaConsulta" />
-                <Property name="clave" />
               </Properties>
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="Estado" />
-                <Property name="Respuesta" />
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Respuesta" />
+                  </Properties>
+                </Property>
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -81,19 +89,18 @@
             <Assignments>
               <Assignment type="Expression" from="&quot;FEActualizaEstado&quot;" to="ActualizaFacturaInput/SP" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/ID" to="ActualizaFacturaInput/ID" />
+              <Assignment type="Variable" from="FEActualizaFacturaInput/clave" to="ActualizaFacturaInput/clave" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/Estado" to="ActualizaFacturaInput/Estado" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/EstadoDesc" to="ActualizaFacturaInput/EstadoDesc" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/EstadoHacienda" to="ActualizaFacturaInput/EstadoHacienda" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/TramaXML" to="ActualizaFacturaInput/TramaXML" />
               <Assignment type="Variable" from="FEActualizaFacturaInput/TramaRespuestaConsulta" to="ActualizaFacturaInput/TramaRespuestaConsulta" />
-              <Assignment type="Variable" from="FEActualizaFacturaInput/clave" to="ActualizaFacturaInput/clave" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="19" Source="10" Target="17" />
           <SequenceFlow ID="20" Source="15" Target="7" ConditionExpression="?">
             <Assignments>
-              <Assignment type="Variable" from="ActualizaFacturaOutput/Estado" to="FEActualizaFacturaOutput/Estado" />
-              <Assignment type="Variable" from="ActualizaFacturaOutput/Respuesta" to="FEActualizaFacturaOutput/Respuesta" />
+              <Assignment type="Variable" from="ActualizaFacturaOutput" to="FEActualizaFacturaOutput" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="26" Source="16" Target="25">
