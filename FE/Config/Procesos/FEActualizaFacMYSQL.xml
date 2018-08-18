@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEActualizaFacMYSQL</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/08/2018</CreationDate>
+  <ModificationDate>17/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="100" Top="150">
+            <Message>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+                <Property name="Estado" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1235" Top="150">
+            <Name>FEActualizaFacMYSQLOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEActualizaFacMYSQLOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1100" Top="345">
+            <Name>FEActualizaFacMYSQLFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEActualizaFacMYSQLFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="24" IdTop="25" IdLeft="28" IdBottom="27" IdRight="26" Left="838.877" Top="150">
+            <Name>OK232</Name>
+          </ExclusiveGateway>
+          <Task ID="47" IdTop="48" IdLeft="51" IdBottom="50" IdRight="49" Left="241.0645" Top="150" update="False" server="Bitacora">
+            <Name>Consulta</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+                <Property name="Estado" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="IDEmpresa" />
+                    <Property name="Usuario" />
+                    <Property name="clave" />
+                    <Property name="Estado" />
+                    <Property name="DocExterno" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="52" IdTop="53" IdLeft="56" IdBottom="55" IdRight="54" Left="442.959" Top="150">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="62" IdTop="63" IdLeft="66" IdBottom="65" IdRight="64" Left="580" Top="142.4544" update="False" loopType="MultiInstance" miCondition="ConsultaOutput/Fila" assignTime="Before" NombreProceso="FEActualizaDocSINC">
+            <Name>ActualizadocSincronizado</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./DocExterno" to="ActualizadocSincronizadoInput/idpedidoIN" />
+              <Assignment type="Variable" from="./clave" to="ActualizadocSincronizadoInput/ClaveIN" />
+              <Assignment type="Variable" from="./Estado" to="ActualizadocSincronizadoInput/EstadoSincronizacionIN" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="idpedidoIN" />
+                <Property name="ClaveIN" />
+                <Property name="EstadoSincronizacionIN" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <Subprocess ID="69" IdTop="70" IdLeft="73" IdBottom="72" IdRight="71" Left="1013.35" Top="120" update="False" loopType="MultiInstance" miCondition="ConsultaOutput/Fila" assignTime="Before" NombreProceso="CreaPDF">
+            <Name>CreaPDFS</Name>
+            <Assignments>
+              <Assignment type="Variable" from="./DocExterno" to="CreaPDFSInput/idpedido" />
+            </Assignments>
+            <InputMessage>
+              <Properties>
+                <Property name="idpedido" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
+          <SequenceFlow ID="31" Source="27" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizadocSincronizadoFault/Estado" to="FEActualizaFacMYSQLFault/Estado" />
+              <Assignment type="Variable" from="ActualizadocSincronizadoFault/Respuesta" to="FEActualizaFacMYSQLFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="57" Source="1" Target="51">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEObtieneEncabezado_Detalle&quot;" to="ConsultaInput/SP" />
+              <Assignment type="Variable" from="FEActualizaFacMYSQLInput/Fecha" to="ConsultaInput/Fecha" />
+              <Assignment type="Variable" from="FEActualizaFacMYSQLInput/IDEmpresa" to="ConsultaInput/IDEmpresa" />
+              <Assignment type="Expression" from="0" to="ConsultaInput/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="59" Source="49" Target="56" />
+          <SequenceFlow ID="61" Source="55" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaFacMYSQLFault/Estado" />
+              <Assignment type="Variable" from="ConsultaFault/Error" to="FEActualizaFacMYSQLFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="67" Source="54" Target="66" ConditionExpression="?" />
+          <SequenceFlow ID="68" Source="64" Target="28" />
+          <SequenceFlow ID="77" Source="26" Target="73" ConditionExpression="?" />
+          <SequenceFlow ID="78" Source="71" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizadocSincronizadoOutput" to="FEActualizaFacMYSQLOutput" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

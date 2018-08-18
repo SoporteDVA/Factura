@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>CreaPDF</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/08/2018</CreationDate>
+  <ModificationDate>17/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="30" Top="30">
+            <Message>
+              <Properties>
+                <Property name="idpedido" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="505" Top="45">
+            <Name>CreaPDFOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>CreaPDFOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="135" Top="130" update="False" server="ConectorDGTD">
+            <Name>CrearPDF</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="CreaPDF">
+                  <Properties>
+                    <Property name="idpedido" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <SequenceFlow ID="18" Source="2" Target="17">
+            <Assignments>
+              <Assignment type="Variable" from="CreaPDFInput/idpedido" to="CrearPDFInput/CreaPDF/idpedido" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="58" Source="15" Target="7">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(OK)" to="CreaPDFOutput/Estado" />
+              <Assignment type="Expression" from="&quot;Se realizo la solicitud de impresion PDF correctamente&quot;" to="CreaPDFOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

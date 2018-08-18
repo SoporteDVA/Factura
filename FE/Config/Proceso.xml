@@ -351,4 +351,31 @@
     <UltimaModificacion>14/08/2018 19:11:44</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>44</ID>
+    <Nombre>FEActualizaFacMYSQL</Nombre>
+    <Diagrama>FEActualizaFacMYSQL.xml</Diagrama>
+    <Descripcion>Actualiza las facturas en mysql una vez procesadas contra Hacienda</Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>17/08/2018 16:15:01</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>45</ID>
+    <Nombre>FEActualizaDocSINC</Nombre>
+    <Diagrama>FEActualizaDocSINC.xml</Diagrama>
+    <Descripcion>Actualiza independientemente los documentos </Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>17/08/2018 17:10:51</UltimaModificacion>
+    <Llaves />
+  </Proceso>
+  <Proceso>
+    <ID>46</ID>
+    <Nombre>CreaPDF</Nombre>
+    <Diagrama>CreaPDF.xml</Diagrama>
+    <Descripcion>Permite Crear pdf a partir del idpedido del sistema mysql</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>17/08/2018 18:27:25</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

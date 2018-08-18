@@ -18,7 +18,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1405" Top="140">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1505" Top="140">
             <Name>Factura_SBE_EnviaOutput</Name>
             <Message>
               <Properties>
@@ -31,7 +31,7 @@
             <Template>
             </Template>
           </End>
-          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1380" Top="330">
+          <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1480" Top="330">
             <Name>Factura_SBE_EnviaFault</Name>
             <Message>
               <Properties>
@@ -44,7 +44,7 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="700" Top="140" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Fila" assignTime="Before" NombreProceso="EnviaFactura">
+          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="800" Top="140" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Fila" assignTime="Before" NombreProceso="EnviaFactura">
             <Name>EnviaFac</Name>
             <Assignments>
               <Assignment type="Variable" from="./ID" to="EnviaFacInput/ID" />
@@ -223,15 +223,16 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="565" Top="140">
+          <ExclusiveGateway ID="85" IdTop="86" IdLeft="89" IdBottom="88" IdRight="87" Left="725" Top="140">
             <Name>3</Name>
           </ExclusiveGateway>
-          <Subprocess ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="330" Top="140" update="False" NombreProceso="FEConsultaFacturas">
+          <Subprocess ID="93" IdTop="94" IdLeft="97" IdBottom="96" IdRight="95" Left="565" Top="140" update="False" NombreProceso="FEConsultaFacturas">
             <Name>ConsultaFacturas</Name>
             <InputMessage>
               <Properties>
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
+                <Property name="Estado" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -307,10 +308,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="101" IdTop="102" IdLeft="105" IdBottom="104" IdRight="103" Left="890" Top="140">
+          <ExclusiveGateway ID="101" IdTop="102" IdLeft="105" IdBottom="104" IdRight="103" Left="920" Top="140">
             <Name>4</Name>
           </ExclusiveGateway>
-          <Subprocess ID="270" IdTop="271" IdLeft="274" IdBottom="273" IdRight="272" Left="995" Top="140" update="False" loopType="MultiInstance" miCondition="EnviaFacOutput/Resultados" assignTime="Before" NombreProceso="FEActualizaFactura">
+          <Subprocess ID="270" IdTop="271" IdLeft="274" IdBottom="273" IdRight="272" Left="990" Top="140" update="False" loopType="MultiInstance" miCondition="EnviaFacOutput/Resultados" assignTime="Before" NombreProceso="FEActualizaFactura">
             <Name>ActualizaFac</Name>
             <Assignments>
               <Assignment type="Variable" from="./ID" to="ActualizaFacInput/ID" />
@@ -349,10 +350,10 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="282" IdTop="283" IdLeft="286" IdBottom="285" IdRight="284" Left="1185" Top="140">
+          <ExclusiveGateway ID="282" IdTop="283" IdLeft="286" IdBottom="285" IdRight="284" Left="1140" Top="140">
             <Name>5</Name>
           </ExclusiveGateway>
-          <Subprocess ID="383" IdTop="384" IdLeft="387" IdBottom="386" IdRight="385" Left="150.3125" Top="140" update="False" NombreProceso="Perfil">
+          <Subprocess ID="383" IdTop="384" IdLeft="387" IdBottom="386" IdRight="385" Left="130" Top="140" update="False" NombreProceso="Perfil">
             <Name>Perfil</Name>
             <InputMessage>
               <Properties>
@@ -404,8 +405,102 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="388" IdTop="389" IdLeft="392" IdBottom="391" IdRight="390" Left="265" Top="140">
+          <ExclusiveGateway ID="388" IdTop="389" IdLeft="392" IdBottom="391" IdRight="390" Left="215" Top="140">
             <Name>1</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="400" IdTop="401" IdLeft="404" IdBottom="403" IdRight="402" Left="1225" Top="140" update="False" NombreProceso="FEActualizaFacMYSQL">
+            <Name>ActualizaMYSQL</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+                <Property name="Estado" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Fila">
+                      <Properties>
+                        <Property name="Estado" />
+                      </Properties>
+                    </Property>
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="410" IdTop="411" IdLeft="414" IdBottom="413" IdRight="412" Left="1385" Top="140">
+            <Name>6</Name>
+          </ExclusiveGateway>
+          <Subprocess ID="433" IdTop="434" IdLeft="437" IdBottom="436" IdRight="435" Left="301.4844" Top="140" update="False" NombreProceso="InterfazarFacturas">
+            <Name>InterfazarFacturas</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="Fecha" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+                <Property name="Perfil">
+                  <Properties>
+                    <Property name="IDEmpresa" />
+                    <Property name="NombreEmpresa" />
+                    <Property name="UsuarioLocal" />
+                    <Property name="Acceso" />
+                    <Property name="Identificacion" />
+                    <Property name="Nombre" />
+                    <Property name="Telefono" />
+                    <Property name="Estado" />
+                    <Property name="UsuarioHacienda" />
+                    <Property name="PasswordHacienda" />
+                    <Property name="Sucursal" />
+                    <Property name="Terminal" />
+                    <Property name="UrlP12" />
+                    <Property name="PinP12" />
+                    <Property name="ArchivoP12" />
+                    <Property name="PuedeEnviar" />
+                    <Property name="AplicaNC" />
+                    <Property name="AplicaND" />
+                    <Property name="AceptaFE" />
+                    <Property name="TipoAmbiente" />
+                    <Property name="emisorTipoIdentif" />
+                    <Property name="emisorNumIdentif" />
+                    <Property name="nombreComercial" />
+                    <Property name="emisorProv" />
+                    <Property name="emisorCanton" />
+                    <Property name="emisorDistrito" />
+                    <Property name="emisorBarrio" />
+                    <Property name="emisorOtrasSenas" />
+                    <Property name="emisorCodPaisTel" />
+                    <Property name="emisorTel" />
+                    <Property name="emisorCodPaisFax" />
+                    <Property name="emisorFax" />
+                    <Property name="emisorEmail" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </FaultMessage>
+          </Subprocess>
+          <ExclusiveGateway ID="439" IdTop="440" IdLeft="443" IdBottom="442" IdRight="441" Left="475" Top="140">
+            <Name>10</Name>
           </ExclusiveGateway>
           <SequenceFlow ID="92" Source="88" Target="12">
             <Assignments>
@@ -420,12 +515,6 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="287" Source="272" Target="286" />
-          <SequenceFlow ID="288" Source="284" Target="7" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Expression" from=" parametro(OK)" to="Factura_SBE_EnviaOutput/Estado" />
-              <Assignment type="Expression" from="&quot;Se han enviado y actualizado las facturas Correctamente validar el estado de las mismas&quot;" to="Factura_SBE_EnviaOutput/Respuesta" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="327" Source="103" Target="274" ConditionExpression="?" />
           <SequenceFlow ID="352" Source="285" Target="12">
             <Assignments>
@@ -441,12 +530,6 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="393" Source="385" Target="392" />
-          <SequenceFlow ID="394" Source="390" Target="97" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="ConsultaFacturasInput/Fecha" />
-              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="ConsultaFacturasInput/IDEmpresa" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="395" Source="1" Target="387">
             <Assignments>
               <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="PerfilInput/IDEmpresa" />
@@ -457,6 +540,45 @@
             <Assignments>
               <Assignment type="Variable" from="PerfilFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
               <Assignment type="Variable" from="PerfilFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="405" Source="284" Target="404" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="ActualizaMYSQLInput/Fecha" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="ActualizaMYSQLInput/IDEmpresa" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="415" Source="402" Target="414" />
+          <SequenceFlow ID="416" Source="412" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(OK)" to="Factura_SBE_EnviaOutput/Estado" />
+              <Assignment type="Expression" from="&quot;Se han enviado y actualizado las facturas Correctamente validar el estado de las mismas&quot;" to="Factura_SBE_EnviaOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="417" Source="413" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaMYSQLFault/Estado" to="Factura_SBE_EnviaFault/Estado" />
+              <Assignment type="Variable" from="ActualizaMYSQLFault/Respuesta" to="Factura_SBE_EnviaFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="438" Source="390" Target="437" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="InterfazarFacturasInput/Fecha" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="InterfazarFacturasInput/IDEmpresa" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Usuario" to="InterfazarFacturasInput/Usuario" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="444" Source="435" Target="443" />
+          <SequenceFlow ID="445" Source="441" Target="97" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/Fecha" to="ConsultaFacturasInput/Fecha" />
+              <Assignment type="Variable" from="Factura_SBE_EnviaInput/IDEmpresa" to="ConsultaFacturasInput/IDEmpresa" />
+              <Assignment type="Expression" from="1" to="ConsultaFacturasInput/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="446" Source="442" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarFacturasFault" to="Factura_SBE_EnviaFault" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>
