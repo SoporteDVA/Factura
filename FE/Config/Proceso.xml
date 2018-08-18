@@ -378,4 +378,13 @@
     <UltimaModificacion>17/08/2018 18:27:25</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>47</ID>
+    <Nombre>FEObtieneXML</Nombre>
+    <Diagrama>FEObtieneXML.xml</Diagrama>
+    <Descripcion>Proceso que crea el XML en una ruta del servidor </Descripcion>
+    <Categoria>Bitacora</Categoria>
+    <UltimaModificacion>17/08/2018 19:50:17</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>
