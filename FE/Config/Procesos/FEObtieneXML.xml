@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEObtieneXML</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/08/2018</CreationDate>
+  <ModificationDate>17/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="55" Top="35">
+            <Message>
+              <Properties>
+                <Property name="Clave" />
+                <Property name="IDDocumento" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="620" Top="45">
+            <Name>FEObtieneXMLOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Archivo" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEObtieneXMLOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="210" Top="155" update="False" server="Bitacora">
+            <Name>Tarea</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="Fecha" />
+                <Property name="Clave" />
+                <Property name="IDDocumento" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Archivo" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <End ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="635" Top="295">
+            <Name>FEObtieneXMLFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Archivo" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEObtieneXMLFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="335" Top="155">
+            <Name>1</Name>
+          </ExclusiveGateway>
+          <ExclusiveGateway ID="36" IdTop="37" IdLeft="40" IdBottom="39" IdRight="38" Left="415" Top="155">
+            <Name>2</Name>
+          </ExclusiveGateway>
+          <SequenceFlow ID="23" Source="10" Target="22" />
+          <SequenceFlow ID="24" Source="20" Target="40" ConditionExpression="?" />
+          <SequenceFlow ID="25" Source="21" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEObtieneXMLFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Error" to="FEObtieneXMLFault/Archivo" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="26" Source="2" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FE_GenArchivoXML&quot;" to="TareaInput/SP" />
+              <Assignment type="Expression" from=" hora( &quot;yyyyMMdd&quot; )" to="TareaInput/Fecha" />
+              <Assignment type="Variable" from="FEObtieneXMLInput/Clave" to="TareaInput/Clave" />
+              <Assignment type="Variable" from="FEObtieneXMLInput/IDDocumento" to="TareaInput/IDDocumento" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="41" Source="38" Target="6" ConditionExpression=" variable(TareaOutput/Fila/Estado)=1">
+            <Assignments>
+              <Assignment type="Variable" from="TareaOutput/Fila/Estado" to="FEObtieneXMLOutput/Estado" />
+              <Assignment type="Variable" from="TareaOutput/Fila/Archivo" to="FEObtieneXMLOutput/Archivo" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="42" Source="39" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEObtieneXMLFault/Estado" />
+              <Assignment type="Variable" from="TareaFault/Error" to="FEObtieneXMLFault/Archivo" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
