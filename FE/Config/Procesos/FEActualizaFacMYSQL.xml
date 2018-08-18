@@ -18,7 +18,7 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1095" Top="150">
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1235" Top="150">
             <Name>FEActualizaFacMYSQLOutput</Name>
             <Message>
               <Properties>
@@ -112,11 +112,26 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <SequenceFlow ID="30" Source="26" Target="7" ConditionExpression="?">
+          <Subprocess ID="69" IdTop="70" IdLeft="73" IdBottom="72" IdRight="71" Left="1013.35" Top="120" update="False" loopType="MultiInstance" miCondition="ConsultaOutput/Fila" assignTime="Before" NombreProceso="CreaPDF">
+            <Name>CreaPDFS</Name>
             <Assignments>
-              <Assignment type="Variable" from="ActualizadocSincronizadoOutput" to="FEActualizaFacMYSQLOutput" />
+              <Assignment type="Variable" from="./DocExterno" to="CreaPDFSInput/idpedido" />
             </Assignments>
-          </SequenceFlow>
+            <InputMessage>
+              <Properties>
+                <Property name="idpedido" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties />
+            </FaultMessage>
+          </Subprocess>
           <SequenceFlow ID="31" Source="27" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ActualizadocSincronizadoFault/Estado" to="FEActualizaFacMYSQLFault/Estado" />
@@ -140,6 +155,12 @@
           </SequenceFlow>
           <SequenceFlow ID="67" Source="54" Target="66" ConditionExpression="?" />
           <SequenceFlow ID="68" Source="64" Target="28" />
+          <SequenceFlow ID="77" Source="26" Target="73" ConditionExpression="?" />
+          <SequenceFlow ID="78" Source="71" Target="7">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizadocSincronizadoOutput" to="FEActualizaFacMYSQLOutput" />
+            </Assignments>
+          </SequenceFlow>
         </GraphicalElements>
       </Process>
     </Pool>

@@ -4,7 +4,7 @@
 
 require('Factura.php');
 
-session_start();
+//session_start();
 
 //$lo = $_SESSION["logo"];
 
@@ -25,13 +25,13 @@ $query_cli = $objPedido->GetVenta($_GET["id"]);
 
         $reg_cli = $query_cli->fetch_object();
 
-$f = "";
+$f = $regConf->logo;
 
-      if ($_SESSION["superadmin"] == "S") {
-        $f = $regConf->logo;
-      } else {
-        $f = $reg_cli->logo;
-      }
+      // if ($_SESSION["superadmin"] == "S") {
+      //   $f = $regConf->logo;
+      // } else {
+      //   $f = $reg_cli->logo;
+      // }
 
       $archivo = $f; 
       $trozos = explode(".", $archivo); 
@@ -159,5 +159,8 @@ $pdf->addTVAs( $reg_cli->impuesto, $reg_total->Total,$reg_igv->simbolo_moneda );
 $pdf->addCadreEurosFrancs("$reg_igv->nombre_impuesto". "$reg_cli->impuesto%");
 //$pdf->Output('Factura','I');
 $pdf->Output("DocumentosPDF/".$contenido.".pdf",'F');
+
+
+
 
 ?>

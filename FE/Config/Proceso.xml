@@ -369,4 +369,13 @@
     <UltimaModificacion>17/08/2018 17:10:51</UltimaModificacion>
     <Llaves />
   </Proceso>
+  <Proceso>
+    <ID>46</ID>
+    <Nombre>CreaPDF</Nombre>
+    <Diagrama>CreaPDF.xml</Diagrama>
+    <Descripcion>Permite Crear pdf a partir del idpedido del sistema mysql</Descripcion>
+    <Categoria>Util</Categoria>
+    <UltimaModificacion>17/08/2018 18:27:25</UltimaModificacion>
+    <Llaves />
+  </Proceso>
 </ProcesoDS>

@@ -576,7 +576,11 @@
               <Assignment type="Expression" from="1" to="ConsultaFacturasInput/Estado" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="446" Source="442" Target="12" />
+          <SequenceFlow ID="446" Source="442" Target="12">
+            <Assignments>
+              <Assignment type="Variable" from="InterfazarFacturasFault" to="Factura_SBE_EnviaFault" />
+            </Assignments>
+          </SequenceFlow>
         </GraphicalElements>
       </Process>
     </Pool>

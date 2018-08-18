@@ -1224,39 +1224,16 @@ function ObtieneFactura($url,$clave, $token)
 function CreaPDF($idpedido)
 {
 
-$id=$idpedido;
 
-require_once "FacturacionDVA/model/Pedido.php";
-$objPedido = new Pedido();
 
-$query_cli = $objPedido->GetComprobanteTipo($id);
-$reg_cli = $query_cli->fetch_object();
-
-If($reg_cli->tipo_comprobante=="Factura" || $reg_cli->tipo_comprobante=="FACTURA" || $reg_cli->tipo_comprobante=="FACTURAS" || $reg_cli->tipo_comprobante=="Facturas" )
-{
-  header('Location: FacturacionDVA/Reportes/exFacturaGuarda.php?id='.$id);  
-}
-
-ElseIf($reg_cli->tipo_comprobante=="Ticket" || $reg_cli->tipo_comprobante=="TICKET" || $reg_cli->tipo_comprobante=="TICKETS" || $reg_cli->tipo_comprobante=="Tickets" )
-{
-  header('Location: FacturacionDVA/Reportes/exTicket.php?id='.$id);  
-}
-
-ElseIf($reg_cli->tipo_comprobante=="Boleta" || $reg_cli->tipo_comprobante=="BOLETA" || $reg_cli->tipo_comprobante=="BOLETAS" || $reg_cli->tipo_comprobante=="Boleta" )
-{
-  header('Location: FacturacionDVA/Reportes/exBoleta.php?id='.$id);  
-}
-Else{
-  header('Location: FacturacionDVA/Reportes/exGuia.php?id='.$id);
-}
-
+header('Location: ../FacturacionDVA/Reportes/exVentaGuarda.php?id='.$idpedido);  
+ 
 $Mensaje='Se han enviado la solicitud de creacion del PDF';
-Return $Mensaje;
+return $Mensaje;
+
+
 
 }
-
-
-
 
 // Publicación de los Servicios en SOAP
 
