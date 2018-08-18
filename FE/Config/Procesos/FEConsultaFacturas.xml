@@ -14,6 +14,7 @@
               <Properties>
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
+                <Property name="Estado" />
               </Properties>
             </Message>
           </Start>
@@ -110,6 +111,7 @@
                 <Property name="SP" />
                 <Property name="Fecha" />
                 <Property name="IDEmpresa" />
+                <Property name="Estado" />
               </Properties>
             </InputMessage>
             <OutputMessage>
@@ -192,6 +194,7 @@
               <Assignment type="Expression" from="&quot;FEObtieneEncabezado_Detalle&quot;" to="ConsultaFACInput/SP" />
               <Assignment type="Variable" from="FEConsultaFacturasInput/Fecha" to="ConsultaFACInput/Fecha" />
               <Assignment type="Variable" from="FEConsultaFacturasInput/IDEmpresa" to="ConsultaFACInput/IDEmpresa" />
+              <Assignment type="Variable" from="FEConsultaFacturasInput/Estado" to="ConsultaFACInput/Estado" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="24" Source="15" Target="23" />

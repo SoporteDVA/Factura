@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEActualizaDocSINC</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>17/08/2018</CreationDate>
+  <ModificationDate>17/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="101" Top="151">
+            <Message>
+              <Properties>
+                <Property name="idpedidoIN" />
+                <Property name="ClaveIN" />
+                <Property name="EstadoSincronizacionIN" />
+              </Properties>
+            </Message>
+          </Start>
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="410" Top="151" update="False" server="MYSQL">
+            <Name>Actualiza</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="idpedidoIN" />
+                <Property name="ClaveIN" />
+                <Property name="EstadoSincronizacionIN" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="685" Top="151">
+            <Name>OK</Name>
+          </ExclusiveGateway>
+          <End ID="47" IdTop="48" IdLeft="51" IdBottom="50" IdRight="49" Left="855" Top="151">
+            <Name>FEActualizaDocSINCOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEActualizaDocSINCOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <End ID="57" IdTop="58" IdLeft="61" IdBottom="60" IdRight="59" Left="895" Top="320">
+            <Name>FEActualizaDocSINCFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEActualizaDocSINCFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="33" Source="15" Target="22" />
+          <SequenceFlow ID="43" Source="1" Target="17">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;ActualizaSincFacturas&quot;" to="ActualizaInput/SP" />
+              <Assignment type="Variable" from="FEActualizaDocSINCInput/idpedidoIN" to="ActualizaInput/idpedidoIN" />
+              <Assignment type="Variable" from="FEActualizaDocSINCInput/ClaveIN" to="ActualizaInput/ClaveIN" />
+              <Assignment type="Variable" from="FEActualizaDocSINCInput/EstadoSincronizacionIN" to="ActualizaInput/EstadoSincronizacionIN" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="62" Source="20" Target="51" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ActualizaOutput/Fila/Estado" to="FEActualizaDocSINCOutput/Estado" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="63" Source="21" Target="61">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaDocSINCFault/Estado" />
+              <Assignment type="Variable" from="ActualizaFault/Error" to="FEActualizaDocSINCFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>
