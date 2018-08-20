@@ -18,27 +18,6 @@
               </Properties>
             </Message>
           </Start>
-          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1235" Top="150">
-            <Name>FEActualizaFacMYSQLOutput</Name>
-            <Message>
-              <Properties>
-                <Property name="Resultados">
-                  <Properties>
-                    <Property name="Fila">
-                      <Properties>
-                        <Property name="Estado" />
-                        <Property name="Respuesta" />
-                      </Properties>
-                    </Property>
-                  </Properties>
-                </Property>
-              </Properties>
-            </Message>
-            <EndResult>Message</EndResult>
-            <OutputName>FEActualizaFacMYSQLOutput</OutputName>
-            <Template>
-            </Template>
-          </End>
           <End ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="1100" Top="345">
             <Name>FEActualizaFacMYSQLFault</Name>
             <Message>
@@ -134,6 +113,23 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
+          <End ID="82" IdTop="83" IdLeft="86" IdBottom="85" IdRight="84" Left="1275" Top="120">
+            <Name>FEActualizaFacMYSQLOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="Resultados">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Respuesta" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEActualizaFacMYSQLOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
           <SequenceFlow ID="31" Source="27" Target="12">
             <Assignments>
               <Assignment type="Variable" from="ActualizadocSincronizadoFault/Estado" to="FEActualizaFacMYSQLFault/Estado" />
@@ -158,7 +154,7 @@
           <SequenceFlow ID="67" Source="54" Target="66" ConditionExpression="?" />
           <SequenceFlow ID="68" Source="64" Target="28" />
           <SequenceFlow ID="77" Source="26" Target="73" ConditionExpression="?" />
-          <SequenceFlow ID="78" Source="71" Target="7">
+          <SequenceFlow ID="87" Source="71" Target="86">
             <Assignments>
               <Assignment type="Variable" from="ActualizadocSincronizadoOutput" to="FEActualizaFacMYSQLOutput" />
             </Assignments>
