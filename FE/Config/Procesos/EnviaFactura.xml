@@ -192,7 +192,7 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="900" Top="110" update="False" NombreProceso="ConsultaFactura">
+          <Subprocess ID="50" IdTop="51" IdLeft="54" IdBottom="53" IdRight="52" Left="915" Top="110" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
               <Properties>
@@ -532,7 +532,7 @@
               <Assignment type="Variable" from="XMLOutput/IndestadoR" to="EnviaFacturaOutput/EstadoHacienda" />
               <Assignment type="Expression" from="fromB64(variable(EnviaInput/XMLIN))  " to="EnviaFacturaOutput/RequestXML" />
               <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="EnviaFacturaOutput/ResponseXML" />
-              <Assignment type="Variable" from="ConsultaFacOKOutput/ClaveR" to="EnviaFacturaOutput/Clave" />
+              <Assignment type="Variable" from="EnviaInput/clave" to="EnviaFacturaOutput/Clave" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="253" Source="90" Target="59">

@@ -18,7 +18,7 @@
               </Properties>
             </Message>
           </Start>
-          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="410" Top="151" update="False" server="MYSQL">
+          <Task ID="13" IdTop="14" IdLeft="17" IdBottom="16" IdRight="15" Left="260" Top="151" update="False" server="MYSQL">
             <Name>Actualiza</Name>
             <InputMessage>
               <Properties>
@@ -43,7 +43,7 @@
               </Properties>
             </FaultMessage>
           </Task>
-          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="685" Top="151">
+          <ExclusiveGateway ID="18" IdTop="19" IdLeft="22" IdBottom="21" IdRight="20" Left="450" Top="151">
             <Name>OK</Name>
           </ExclusiveGateway>
           <End ID="47" IdTop="48" IdLeft="51" IdBottom="50" IdRight="49" Left="855" Top="151">
@@ -51,6 +51,7 @@
             <Message>
               <Properties>
                 <Property name="Estado" />
+                <Property name="Respuesta" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -71,6 +72,35 @@
             <Template>
             </Template>
           </End>
+          <Task ID="67" IdTop="68" IdLeft="71" IdBottom="70" IdRight="69" Left="586.8066" Top="151" update="False" server="Bitacora">
+            <Name>ActLocal</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="DocExterno" />
+                <Property name="Clave" />
+                <Property name="EstadoSinc" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="Fila">
+                  <Properties>
+                    <Property name="Estado" />
+                    <Property name="Respuesta" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="73" IdTop="74" IdLeft="77" IdBottom="76" IdRight="75" Left="716.6602" Top="151">
+            <Name>OK2</Name>
+          </ExclusiveGateway>
           <SequenceFlow ID="33" Source="15" Target="22" />
           <SequenceFlow ID="43" Source="1" Target="17">
             <Assignments>
@@ -80,15 +110,31 @@
               <Assignment type="Variable" from="FEActualizaDocSINCInput/EstadoSincronizacionIN" to="ActualizaInput/EstadoSincronizacionIN" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="62" Source="20" Target="51" ConditionExpression="?">
-            <Assignments>
-              <Assignment type="Variable" from="ActualizaOutput/Fila/Estado" to="FEActualizaDocSINCOutput/Estado" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="63" Source="21" Target="61">
             <Assignments>
               <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaDocSINCFault/Estado" />
               <Assignment type="Variable" from="ActualizaFault/Error" to="FEActualizaDocSINCFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="72" Source="20" Target="71" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEActualizaEstadoSINC&quot;" to="ActLocalInput/SP" />
+              <Assignment type="Variable" from="FEActualizaDocSINCInput/idpedidoIN" to="ActLocalInput/DocExterno" />
+              <Assignment type="Variable" from="FEActualizaDocSINCInput/ClaveIN" to="ActLocalInput/Clave" />
+              <Assignment type="Expression" from="0" to="ActLocalInput/EstadoSinc" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="78" Source="69" Target="77" />
+          <SequenceFlow ID="79" Source="75" Target="51" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="ActLocalOutput/Fila/Estado" to="FEActualizaDocSINCOutput/Estado" />
+              <Assignment type="Variable" from="ActLocalOutput/Fila/Respuesta" to="FEActualizaDocSINCOutput/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="80" Source="76" Target="61">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEActualizaDocSINCFault/Estado" />
+              <Assignment type="Variable" from="ActLocalFault/Error" to="FEActualizaDocSINCFault/Respuesta" />
             </Assignments>
           </SequenceFlow>
         </GraphicalElements>

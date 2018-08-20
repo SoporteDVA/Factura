@@ -424,6 +424,7 @@
                     <Property name="Fila">
                       <Properties>
                         <Property name="Estado" />
+                        <Property name="Respuesta" />
                       </Properties>
                     </Property>
                   </Properties>
