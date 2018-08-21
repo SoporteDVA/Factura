@@ -13,8 +13,13 @@
             <Name>NotaCreditoOutput</Name>
             <Message>
               <Properties>
+                <Property name="ID" />
                 <Property name="Estado" />
-                <Property name="RespuestaXML" />
+                <Property name="EstadoDesc" />
+                <Property name="EstadoHacienda" />
+                <Property name="RequestXML" />
+                <Property name="ResponseXML" />
+                <Property name="Clave" />
               </Properties>
             </Message>
             <EndResult>Message</EndResult>
@@ -175,6 +180,7 @@
           <Start ID="45" IdTop="0" IdLeft="0" IdBottom="47" IdRight="46" Left="10" Top="50">
             <Message>
               <Properties>
+                <Property name="ID" />
                 <Property name="Cliente" />
                 <Property name="Usuario" />
                 <Property name="Situacion" />
@@ -197,7 +203,10 @@
               </Properties>
             </OutputMessage>
             <FaultMessage>
-              <Properties />
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
             </FaultMessage>
           </Subprocess>
           <Subprocess ID="53" IdTop="54" IdLeft="57" IdBottom="56" IdRight="55" Left="1057.536" Top="290" update="False" NombreProceso="ConsultaFactura">
@@ -224,9 +233,6 @@
               </Properties>
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="58" IdTop="59" IdLeft="62" IdBottom="61" IdRight="60" Left="1090" Top="390">
-            <Name>5</Name>
-          </ExclusiveGateway>
           <Subprocess ID="63" IdTop="64" IdLeft="67" IdBottom="66" IdRight="65" Left="1165" Top="185" update="False" NombreProceso="ConsultaFactura">
             <Name>ConsultaFacOK</Name>
             <InputMessage>
@@ -311,6 +317,19 @@
                 <Property name="AplicaND" />
                 <Property name="AceptaFE" />
                 <Property name="TipoAmbiente" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
               </Properties>
             </OutputMessage>
             <FaultMessage>
@@ -341,11 +360,13 @@
               <Properties />
             </FaultMessage>
           </Subprocess>
-          <ExclusiveGateway ID="374" IdTop="375" IdLeft="378" IdBottom="377" IdRight="376" Left="1330" Top="185">
-            <Name>6</Name>
-          </ExclusiveGateway>
           <SequenceFlow ID="78" Source="7" Target="19" />
-          <SequenceFlow ID="79" Source="18" Target="13" />
+          <SequenceFlow ID="79" Source="18" Target="13">
+            <Assignments>
+              <Assignment type="Expression" from=" tabla(Estados, TOKEN)" to="NotaCreditoFault/Error" />
+              <Assignment type="Variable" from="TokenFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
           <SequenceFlow ID="80" Source="17" Target="24" ConditionExpression="?">
             <Assignments>
               <Assignment type="Variable" from="ConsecutivoOutput/Clave" to="NCXMLInput/clave" />
@@ -404,10 +425,16 @@
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="81" Source="22" Target="29" />
-          <SequenceFlow ID="82" Source="28" Target="13" />
+          <SequenceFlow ID="82" Source="28" Target="13">
+            <Assignments>
+              <Assignment type="Expression" from=" tabla(Estados, ARMADOXML)" to="NotaCreditoFault/Error" />
+              <Assignment type="Variable" from="NCXMLFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
+            </Assignments>
+          </SequenceFlow>
           <SequenceFlow ID="83" Source="33" Target="13">
             <Assignments>
-              <Assignment type="Expression" from="99" to="NotaCreditoFault/Error" />
+              <Assignment type="Expression" from=" tabla(Estados, FIRMAXML)" to="NotaCreditoFault/Error" />
+              <Assignment type="Variable" from="FirmarFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
           <SequenceFlow ID="84" Source="32" Target="39" ConditionExpression="?">
@@ -440,13 +467,6 @@
               <Assignment type="Variable" from="EnviaInput/token" to="ConsultaFacInput/token" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="89" Source="56" Target="59" />
-          <SequenceFlow ID="90" Source="61" Target="14">
-            <Assignments>
-              <Assignment type="Variable" from="ConsultaFacFault/Estado" to="NotaCreditoFault/Error" />
-              <Assignment type="Variable" from="ConsultaFacFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
-            </Assignments>
-          </SequenceFlow>
           <SequenceFlow ID="92" Source="42" Target="67" ConditionExpression="?">
             <Assignments>
               <Assignment type="Expression" from=" decision( variable(PerfilOutput/TipoAmbiente)=1 , tabla(URLsProduccion, ConsultaEstado) ,   tabla(URLsDesarrollo, ConsultaEstado) ) " to="ConsultaFacOKInput/url" />
@@ -464,7 +484,7 @@
           </SequenceFlow>
           <SequenceFlow ID="97" Source="76" Target="13">
             <Assignments>
-              <Assignment type="Variable" from="ConsecutivoFault/Estado" to="NotaCreditoFault/Error" />
+              <Assignment type="Expression" from=" tabla(Estados, CONSECUTIVO)" to="NotaCreditoFault/Error" />
               <Assignment type="Variable" from="ConsecutivoFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
@@ -486,27 +506,35 @@
               <Assignment type="Variable" from="NotaCreditoInput/Situacion" to="ConsecutivoInput/Situacion" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="121" Source="117" Target="13" />
-          <SequenceFlow ID="229" Source="214" Target="4">
+          <SequenceFlow ID="121" Source="117" Target="13">
             <Assignments>
-              <Assignment type="Variable" from="XMLOutput/IndestadoR" to="NotaCreditoOutput/Estado" />
-              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="NotaCreditoOutput/RespuestaXML" />
+              <Assignment type="Expression" from=" tabla(Estados, PERFIL)" to="NotaCreditoFault/Error" />
+              <Assignment type="Variable" from="PerfilFault/Respuesta" to="NotaCreditoFault/RespuestaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="322" Source="60" Target="216" ConditionExpression="?">
+          <SequenceFlow ID="229" Source="214" Target="4">
+            <Assignments>
+              <Assignment type="Variable" from="NotaCreditoInput/ID" to="NotaCreditoOutput/ID" />
+              <Assignment type="Expression" from="  decision( variable(XMLOutput/IndestadoR)=&quot;aceptado&quot; , 0 , 2 )  " to="NotaCreditoOutput/Estado" />
+              <Assignment type="Expression" from=" decision( variable(XMLOutput/IndestadoR)=&quot;&quot; , &quot;NO_VERIFICADO&quot; , variable(XMLOutput/IndestadoR) )  " to="NotaCreditoOutput/EstadoDesc" />
+              <Assignment type="Expression" from=" decision( variable(XMLOutput/IndestadoR)=&quot;&quot; , &quot;NO_VERIFICADO&quot; , variable(XMLOutput/IndestadoR) )  " to="NotaCreditoOutput/EstadoHacienda" />
+              <Assignment type="Expression" from="fromB64(variable(EnviaInput/XMLIN)) " to="NotaCreditoOutput/RequestXML" />
+              <Assignment type="Variable" from="XMLOutput/TramaRespuesta" to="NotaCreditoOutput/ResponseXML" />
+              <Assignment type="Variable" from="EnviaInput/clave" to="NotaCreditoOutput/Clave" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="430" Source="56" Target="216">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="379" Source="65" Target="378" />
-          <SequenceFlow ID="380" Source="376" Target="213" ConditionExpression="?">
+          <SequenceFlow ID="440" Source="65" Target="213">
             <Assignments>
               <Assignment type="Variable" from="ConsultaFacOKOutput/IndestadoR" to="XMLInput/IndestadoR" />
               <Assignment type="Expression" from="fromB64(variable(ConsultaFacOKOutput/RespuestaxmlR)) " to="XMLInput/TramaXML" />
             </Assignments>
           </SequenceFlow>
-          <SequenceFlow ID="381" Source="377" Target="11" />
         </GraphicalElements>
       </Process>
     </Pool>
