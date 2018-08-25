@@ -2,6 +2,34 @@
 require_once('lib/nusoap.php');
 $soapclient = new soap_server;
 error_reporting(E_ALL ^ E_WARNING); 
+//FUNCION PARA CONVERTIR A JSON
+
+function xmltojson ($xmlinin) {
+
+    // $fileContents= file_get_contents($url);
+
+     $fileContents = str_replace(array("\n", "\r", "\t"), '', $xmlinin);
+
+     $fileContents = trim(str_replace('"', "'", $fileContents));
+
+     $simpleXml = simplexml_load_string($fileContents);
+
+     $json = json_encode($simpleXml);
+
+     return $json;
+
+ }
+
+
+function XML2JSON ($xml_string)
+{
+$xml = simplexml_load_string($xml_string);
+$json = json_encode($xml);
+$array = json_decode($json,TRUE);
+
+RETURN $array;
+}
+
 
 //Codifica base 64
 function parseBase64($invoice)
@@ -132,7 +160,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
 
  
          //detalles de la compra
-    $detalles = json_decode($detalles);
+    //$detalles = json_decode($detalles);
     //grace_debug($detalles);    
 
         $xmlString = '<?xml version="1.0" encoding="utf-8"?>
@@ -191,7 +219,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
             <PlazoCredito>' . $plazoCredito . '</PlazoCredito>
             <MedioPago>' . $medioPago . '</MedioPago>
             <DetalleServicio>
-            ';
+            ' .$detalles;
         //cant - unidad medida - detalle - precio unitario - monto total - subtotal - monto total linea - Monto desc -Naturaleza Desc - Impuesto : Codigo / Tarifa / Monto
         
         /* EJEMPLO DE DETALLES
@@ -200,48 +228,49 @@ function tokenAuth($url,$usuarioFE, $Pass)
             "2":["1","Sp","Honorarios","100000","100000","100000","100000"]
           }
          */
-        $l = 1;
-        foreach ($detalles as $d) {
-            $xmlString .= '<LineaDetalle>
-                      <NumeroLinea>' . $l . '</NumeroLinea>
-                      <Cantidad>' . $d->cantidad . '</Cantidad>
-                      <UnidadMedida>' . $d->unidadMedida . '</UnidadMedida>
-                      <Detalle>' . $d->detalle . '</Detalle>
-                      <PrecioUnitario>' . $d->precioUnitario . '</PrecioUnitario>
-                      <MontoTotal>' . $d->montoTotal . '</MontoTotal>';
-            if (isset($d->montoDescuento) && $d->montoDescuento != "") {
-                $xmlString .= '<MontoDescuento>' . $d->montoDescuento . '</MontoDescuento>';
-            }
-            if (isset($d->naturalezaDescuento) && $d->naturalezaDescuento != "") {
-                $xmlString .= '<NaturalezaDescuento>' . $d->naturalezaDescuento . '</NaturalezaDescuento>';
-            }
-            if (isset($d->impuesto) && $d->impuesto != "") {
-                foreach($d->impuesto as $i)
-                {
-                    $xmlString .= '<Impuesto>
-                    <Codigo>' . $i->codigo . '</Codigo>
-                    <Tarifa>' . $i->tarifa . '</Tarifa>
-                    <Monto>' . $i->monto . '</Monto>';
-                    if(isset($i->exoneracion) && $i->exoneracion!=""){
-                        $xmlString .= '
-                        <Exoneracion>
-                            <TipoDocumento>' . $i->exoneracion->tipoDocumento . '</TipoDocumento>
-                            <NumeroDocumento>' . $i->exoneracion->numeroDocumento . '</NumeroDocumento>
-                            <NombreInstitucion>' . $i->exoneracion->nombreInstitucion . '</NombreInstitucion>
-                            <FechaEmision>' . $i->exoneracion->fechaEmision . '</FechaEmision>
-                            <MontoImpuesto>' . $i->exoneracion->montoImpuesto . '</MontoImpuesto>
-                            <PorcentajeCompra>' . $i->exoneracion->porcentajeCompra . '</PorcentajeCompra>
-                        </Exoneracion>';
-                    }
+        //$l = 1;
+        //foreach ($detalles as $d) {
+            // {  $xmlString .= 
+            //'<LineaDetalle>
+            //           <NumeroLinea>' . $l . '</NumeroLinea><Cantidad>' . $d->cantidad . '</Cantidad>
+            //           <UnidadMedida>' . $d->unidadMedida . '</UnidadMedida>
+            //           <Detalle>' . $d->detalle . '</Detalle>
+            //           <PrecioUnitario>' . $d->precioUnitario . '</PrecioUnitario>
+            //           <MontoTotal>' . $d->montoTotal . '</MontoTotal>';
+            // if (isset($d->montoDescuento) && $d->montoDescuento != "") {
+            //     $xmlString .= '<MontoDescuento>' . $d->montoDescuento . '</MontoDescuento>';
+            // }
+            // if (isset($d->naturalezaDescuento) && $d->naturalezaDescuento != "") {
+            //     $xmlString .= '<NaturalezaDescuento>' . $d->naturalezaDescuento . '</NaturalezaDescuento>';
+            // }
+            // if (isset($d->impuesto) && $d->impuesto != "") {
+            //     foreach($d->impuesto as $i)
+            //     {
+            //         $xmlString .= '<Impuesto>
+            //         <Codigo>' . $i->codigo . '</Codigo>
+            //         <Tarifa>' . $i->tarifa . '</Tarifa>
+            //         <Monto>' . $i->monto . '</Monto>';
+            //         if(isset($i->exoneracion) && $i->exoneracion!=""){
+            //             $xmlString .= '
+            //             <Exoneracion>
+            //                 <TipoDocumento>' . $i->exoneracion->tipoDocumento . '</TipoDocumento>
+            //                 <NumeroDocumento>' . $i->exoneracion->numeroDocumento . '</NumeroDocumento>
+            //                 <NombreInstitucion>' . $i->exoneracion->nombreInstitucion . '</NombreInstitucion>
+            //                 <FechaEmision>' . $i->exoneracion->fechaEmision . '</FechaEmision>
+            //                 <MontoImpuesto>' . $i->exoneracion->montoImpuesto . '</MontoImpuesto>
+            //                 <PorcentajeCompra>' . $i->exoneracion->porcentajeCompra . '</PorcentajeCompra>
+            //             </Exoneracion>';
+            //         }
     
-                    $xmlString .= '</Impuesto>';
-                }
-            }
-            $xmlString .= '<SubTotal>' . $d->subtotal . '</SubTotal>
-            <MontoTotalLinea>' . $d->montoTotalLinea . '</MontoTotalLinea>';
-            $xmlString .= '</LineaDetalle>';
-            $l++;
-        }
+            //         $xmlString .= '</Impuesto>';
+            //     }
+            // }
+            // $xmlString .= '<SubTotal>' . $d->subtotal . '</SubTotal>
+            // <MontoTotalLinea>' . $d->montoTotalLinea . '</MontoTotalLinea>';
+           // $xmlString .= '</LineaDetalle>';
+            //$l++;
+            
+      //  }
 
         if ($infoRefeTipoDoc=="" )
         {$xmlString .= '</DetalleServicio>
@@ -308,7 +337,7 @@ function tokenAuth($url,$usuarioFE, $Pass)
         //);
        // return $arrayResp;
 
-       $arrayResp = base64_encode($xmlString);
+       $arrayResp = base64_encode($xmlString);//$xmlString; //base64_encode
        return $arrayResp;
        
 
@@ -1608,7 +1637,16 @@ array('idpedido'=>'xsd:string' ),
 array('Mensaje' => 'xsd:string'),
 $ns);
 
+//CONVIERTE JSON
+$soapclient->register('XML2JSON',
+array('xml_string'=>'xsd:string' ),
+array('array' => 'xsd:string'),
+$ns);
 
+$soapclient->register('xmltojson',
+array('xmlinin'=>'xsd:string' ),
+array('jsonout' => 'xsd:string'),
+$ns);
 
 
 if (isset($HTTP_RAW_POST_DATA)) {
