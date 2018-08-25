@@ -100,16 +100,16 @@
               <Assignment type="Expression" from="&quot;CRC&quot;" to="InsertaFACSInput/codMoneda" />
               <Assignment type="Expression" from="574" to="InsertaFACSInput/tipoCambio" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalServGravados" />
-              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalServExentos" />
+              <Assignment type="Expression" from=" variable(./total) +  variable(./descuento)" to="InsertaFACSInput/totalServExentos" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalMercGravadas" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalMercExentas" />
               <Assignment type="Expression" from="0" to="InsertaFACSInput/totalGravados" />
-              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalExentos" />
-              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalVentas" />
+              <Assignment type="Expression" from=" variable(./total) +  variable(./descuento)" to="InsertaFACSInput/totalExentos" />
+              <Assignment type="Expression" from=" variable(./total) + variable(./descuento)" to="InsertaFACSInput/totalVentas" />
               <Assignment type="Variable" from="./descuento" to="InsertaFACSInput/totalDescuentos" />
-              <Assignment type="Expression" from=" variable(./total) -  variable(./descuento)" to="InsertaFACSInput/totalVentasNeta" />
+              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalVentasNeta" />
               <Assignment type="Variable" from="./impuesto" to="InsertaFACSInput/totalImp" />
-              <Assignment type="Variable" from="./total" to="InsertaFACSInput/totalComprobante" />
+              <Assignment type="Expression" from=" variable(./total) + variable(./impuesto)" to="InsertaFACSInput/totalComprobante" />
               <Assignment type="Expression" from="&quot;Gracias&quot;" to="InsertaFACSInput/otros" />
               <Assignment type="Expression" from="1" to="InsertaFACSInput/Estado" />
               <Assignment type="Expression" from="&quot;Interfazado&quot;" to="InsertaFACSInput/EstadoDesc" />

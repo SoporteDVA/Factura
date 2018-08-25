@@ -1,0 +1,271 @@
+<?xml version="1.0" encoding="utf-8"?>
+<BPD>
+  <Name>FEConsultaDetalles</Name>
+  <Version>1.0.0.2</Version>
+  <CreationDate>24/08/2018</CreationDate>
+  <ModificationDate>24/08/2018</ModificationDate>
+  <Pools>
+    <Pool ID="0">
+      <Process>
+        <Properties />
+        <GraphicalElements>
+          <Start ID="0" IdTop="0" IdLeft="0" IdBottom="2" IdRight="1" Left="250" Top="250">
+            <Message>
+              <Properties>
+                <Property name="ID" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+                <Property name="Situacion" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="DocExterno" />
+              </Properties>
+            </Message>
+          </Start>
+          <End ID="3" IdTop="4" IdLeft="7" IdBottom="6" IdRight="5" Left="1170" Top="250">
+            <Name>FEConsultaDetallesOutput</Name>
+            <Message>
+              <Properties>
+                <Property name="ID" />
+                <Property name="IDEmpresa" />
+                <Property name="Usuario" />
+                <Property name="Situacion" />
+                <Property name="clave" />
+                <Property name="consecutivo" />
+                <Property name="fechaEmision" />
+                <Property name="emisorNombre" />
+                <Property name="emisorTipoIdentif" />
+                <Property name="emisorNumIdentif" />
+                <Property name="nombreComercial" />
+                <Property name="emisorProv" />
+                <Property name="emisorCanton" />
+                <Property name="emisorDistrito" />
+                <Property name="emisorBarrio" />
+                <Property name="emisorOtrasSenas" />
+                <Property name="emisorCodPaisTel" />
+                <Property name="emisorTel" />
+                <Property name="emisorCodPaisFax" />
+                <Property name="emisorFax" />
+                <Property name="emisorEmail" />
+                <Property name="receptorNombre" />
+                <Property name="receptorTipoIdentif" />
+                <Property name="receptorNumIdentif" />
+                <Property name="receptorProvincia" />
+                <Property name="receptorCanton" />
+                <Property name="receptorDistrito" />
+                <Property name="receptorBarrio" />
+                <Property name="receptorOtrasSenas" />
+                <Property name="receptorCodPaisTel" />
+                <Property name="receptorTel" />
+                <Property name="receptorCodPaisFax" />
+                <Property name="receptorFax" />
+                <Property name="receptorEmail" />
+                <Property name="condVenta" />
+                <Property name="plazoCredito" />
+                <Property name="medioPago" />
+                <Property name="codMoneda" />
+                <Property name="tipoCambio" />
+                <Property name="totalServGravados" />
+                <Property name="totalServExentos" />
+                <Property name="totalMercGravadas" />
+                <Property name="totalMercExentas" />
+                <Property name="totalGravados" />
+                <Property name="totalExentos" />
+                <Property name="totalVentas" />
+                <Property name="totalDescuentos" />
+                <Property name="totalVentasNeta" />
+                <Property name="totalImp" />
+                <Property name="totalComprobante" />
+                <Property name="infoRefeTipoDoc" />
+                <Property name="infoRefeNumero" />
+                <Property name="infoRefeFechaEmision" />
+                <Property name="infoRefeCodigo" />
+                <Property name="infoRefeRazon" />
+                <Property name="otros" />
+                <Property name="DocExterno" />
+                <Property name="Detalles" />
+              </Properties>
+            </Message>
+            <EndResult>Message</EndResult>
+            <OutputName>FEConsultaDetallesOutput</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <Task ID="8" IdTop="9" IdLeft="12" IdBottom="11" IdRight="10" Left="523.252" Top="250" update="False" server="Bitacora">
+            <Name>Detalles</Name>
+            <InputMessage>
+              <Properties>
+                <Property name="SP" />
+                <Property name="IDDocumento" />
+              </Properties>
+            </InputMessage>
+            <OutputMessage>
+              <Properties>
+                <Property name="LineaDetalle">
+                  <Properties>
+                    <Property name="NumeroLinea" />
+                    <Property name="Cantidad" />
+                    <Property name="UnidadMedida" />
+                    <Property name="Detalle" />
+                    <Property name="PrecioUnitario" />
+                    <Property name="MontoTotal" />
+                    <Property name="MontoDescuento" />
+                    <Property name="NaturalezaDescuento" />
+                    <Property name="SubTotal" />
+                    <Property name="MontoTotalLinea" />
+                  </Properties>
+                </Property>
+              </Properties>
+            </OutputMessage>
+            <FaultMessage>
+              <Properties>
+                <Property name="Error" />
+              </Properties>
+            </FaultMessage>
+          </Task>
+          <ExclusiveGateway ID="14" IdTop="15" IdLeft="18" IdBottom="17" IdRight="16" Left="822.959" Top="250">
+            <Name>ok</Name>
+          </ExclusiveGateway>
+          <End ID="22" IdTop="23" IdLeft="26" IdBottom="25" IdRight="24" Left="1180" Top="460">
+            <Name>FEConsultaDetallesFault</Name>
+            <Message>
+              <Properties>
+                <Property name="Estado" />
+                <Property name="Respuesta" />
+              </Properties>
+            </Message>
+            <EndResult>Error</EndResult>
+            <OutputName>FEConsultaDetallesFault</OutputName>
+            <Template>
+            </Template>
+          </End>
+          <SequenceFlow ID="13" Source="1" Target="12">
+            <Assignments>
+              <Assignment type="Expression" from="&quot;FEConsultaDetalles&quot;" to="DetallesInput/SP" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/ID" to="DetallesInput/IDDocumento" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="20" Source="10" Target="18" />
+          <SequenceFlow ID="21" Source="16" Target="7" ConditionExpression="?">
+            <Assignments>
+              <Assignment type="Variable" from="FEConsultaDetallesInput/ID" to="FEConsultaDetallesOutput/ID" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/IDEmpresa" to="FEConsultaDetallesOutput/IDEmpresa" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/Usuario" to="FEConsultaDetallesOutput/Usuario" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/Situacion" to="FEConsultaDetallesOutput/Situacion" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/clave" to="FEConsultaDetallesOutput/clave" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/consecutivo" to="FEConsultaDetallesOutput/consecutivo" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/fechaEmision" to="FEConsultaDetallesOutput/fechaEmision" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorNombre" to="FEConsultaDetallesOutput/emisorNombre" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorTipoIdentif" to="FEConsultaDetallesOutput/emisorTipoIdentif" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorNumIdentif" to="FEConsultaDetallesOutput/emisorNumIdentif" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/nombreComercial" to="FEConsultaDetallesOutput/nombreComercial" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorProv" to="FEConsultaDetallesOutput/emisorProv" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorCanton" to="FEConsultaDetallesOutput/emisorCanton" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorDistrito" to="FEConsultaDetallesOutput/emisorDistrito" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorBarrio" to="FEConsultaDetallesOutput/emisorBarrio" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorOtrasSenas" to="FEConsultaDetallesOutput/emisorOtrasSenas" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorCodPaisTel" to="FEConsultaDetallesOutput/emisorCodPaisTel" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorTel" to="FEConsultaDetallesOutput/emisorTel" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorCodPaisFax" to="FEConsultaDetallesOutput/emisorCodPaisFax" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorFax" to="FEConsultaDetallesOutput/emisorFax" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/emisorEmail" to="FEConsultaDetallesOutput/emisorEmail" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorNombre" to="FEConsultaDetallesOutput/receptorNombre" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorTipoIdentif" to="FEConsultaDetallesOutput/receptorTipoIdentif" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorNumIdentif" to="FEConsultaDetallesOutput/receptorNumIdentif" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorProvincia" to="FEConsultaDetallesOutput/receptorProvincia" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorCanton" to="FEConsultaDetallesOutput/receptorCanton" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorDistrito" to="FEConsultaDetallesOutput/receptorDistrito" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorBarrio" to="FEConsultaDetallesOutput/receptorBarrio" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorOtrasSenas" to="FEConsultaDetallesOutput/receptorOtrasSenas" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorCodPaisTel" to="FEConsultaDetallesOutput/receptorCodPaisTel" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorTel" to="FEConsultaDetallesOutput/receptorTel" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorCodPaisFax" to="FEConsultaDetallesOutput/receptorCodPaisFax" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorFax" to="FEConsultaDetallesOutput/receptorFax" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/receptorEmail" to="FEConsultaDetallesOutput/receptorEmail" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/condVenta" to="FEConsultaDetallesOutput/condVenta" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/plazoCredito" to="FEConsultaDetallesOutput/plazoCredito" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/medioPago" to="FEConsultaDetallesOutput/medioPago" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/codMoneda" to="FEConsultaDetallesOutput/codMoneda" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/tipoCambio" to="FEConsultaDetallesOutput/tipoCambio" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalServGravados" to="FEConsultaDetallesOutput/totalServGravados" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalServExentos" to="FEConsultaDetallesOutput/totalServExentos" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalMercGravadas" to="FEConsultaDetallesOutput/totalMercGravadas" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalMercExentas" to="FEConsultaDetallesOutput/totalMercExentas" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalGravados" to="FEConsultaDetallesOutput/totalGravados" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalExentos" to="FEConsultaDetallesOutput/totalExentos" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalVentas" to="FEConsultaDetallesOutput/totalVentas" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalDescuentos" to="FEConsultaDetallesOutput/totalDescuentos" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalVentasNeta" to="FEConsultaDetallesOutput/totalVentasNeta" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalImp" to="FEConsultaDetallesOutput/totalImp" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/totalComprobante" to="FEConsultaDetallesOutput/totalComprobante" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/infoRefeTipoDoc" to="FEConsultaDetallesOutput/infoRefeTipoDoc" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/infoRefeNumero" to="FEConsultaDetallesOutput/infoRefeNumero" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/infoRefeFechaEmision" to="FEConsultaDetallesOutput/infoRefeFechaEmision" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/infoRefeCodigo" to="FEConsultaDetallesOutput/infoRefeCodigo" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/infoRefeRazon" to="FEConsultaDetallesOutput/infoRefeRazon" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/otros" to="FEConsultaDetallesOutput/otros" />
+              <Assignment type="Variable" from="FEConsultaDetallesInput/DocExterno" to="FEConsultaDetallesOutput/DocExterno" />
+              <Assignment type="Expression" from="  reemplazar(  (reemplazar( xml(DetallesOutput) , &quot;&lt;DetallesOutput&gt;&quot; , &quot;&quot; )) , &quot;&lt;/DetallesOutput&gt;&quot;, &quot;&quot; )" to="FEConsultaDetallesOutput/Detalles" />
+            </Assignments>
+          </SequenceFlow>
+          <SequenceFlow ID="27" Source="17" Target="26">
+            <Assignments>
+              <Assignment type="Expression" from=" parametro(Error)" to="FEConsultaDetallesFault/Estado" />
+              <Assignment type="Variable" from="DetallesFault/Error" to="FEConsultaDetallesFault/Respuesta" />
+            </Assignments>
+          </SequenceFlow>
+        </GraphicalElements>
+      </Process>
+    </Pool>
+  </Pools>
+</BPD>

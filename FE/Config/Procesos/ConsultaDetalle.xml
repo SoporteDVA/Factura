@@ -89,6 +89,7 @@
               <Assignment type="Variable" from="./precio_venta" to="InsertaInput/PrecioUnitario" />
               <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta)" to="InsertaInput/MontoTotal" />
               <Assignment type="Variable" from="./descuento" to="InsertaInput/MontoDescuento" />
+              <Assignment type="Expression" from=" decision( variable(./descuento)&gt;0 , &quot;CLIENTE PREFERENCIAL&quot; , &quot;NINGUNO&quot; ) " to="InsertaInput/NaturalezaDescuento" />
               <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta) -  variable(./descuento)" to="InsertaInput/SubTotal" />
               <Assignment type="Expression" from="0" to="InsertaInput/Impuesto" />
               <Assignment type="Expression" from=" variable(./cantidad) *  variable(./precio_venta) -  variable(./descuento) " to="InsertaInput/MontoTotalLinea" />

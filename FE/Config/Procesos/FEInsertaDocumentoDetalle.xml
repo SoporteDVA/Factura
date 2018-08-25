@@ -142,7 +142,7 @@
               <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/PrecioUnitario" to="InsertaInput/PrecioUnitario" />
               <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/MontoTotal" to="InsertaInput/MontoTotal" />
               <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/MontoDescuento" to="InsertaInput/MontoDescuento" />
-              <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/NaturalezaDescuento" to="InsertaInput/NaturalezaDescuento" />
+              <Assignment type="Expression" from=" decision( variable(FEInsertaDocumentoDetalleInput/MontoDescuento)&gt;0 , &quot;Cliente Preferente&quot; , &quot;Ninguno&quot; )  " to="InsertaInput/NaturalezaDescuento" />
               <Assignment type="Expression" from=" variable(FEInsertaDocumentoDetalleInput/MontoTotal) -  variable(FEInsertaDocumentoDetalleInput/MontoDescuento)" to="InsertaInput/SubTotal" />
               <Assignment type="Variable" from="FEInsertaDocumentoDetalleInput/Impuesto" to="InsertaInput/Impuesto" />
               <Assignment type="Expression" from=" variable(FEInsertaDocumentoDetalleInput/MontoTotal) -  variable(FEInsertaDocumentoDetalleInput/MontoDescuento) +  variable(FEInsertaDocumentoDetalleInput/Impuesto)" to="InsertaInput/MontoTotalLinea" />

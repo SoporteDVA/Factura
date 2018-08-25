@@ -44,7 +44,7 @@
             <Template>
             </Template>
           </End>
-          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="800" Top="140" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Fila" assignTime="Before" NombreProceso="EnviaFactura">
+          <Subprocess ID="79" IdTop="80" IdLeft="83" IdBottom="82" IdRight="81" Left="800" Top="140" update="False" loopType="MultiInstance" miCondition="ConsultaFacturasOutput/Resultados" assignTime="Before" NombreProceso="EnviaFactura">
             <Name>EnviaFac</Name>
             <Assignments>
               <Assignment type="Variable" from="./ID" to="EnviaFacInput/ID" />
@@ -237,7 +237,7 @@
             </InputMessage>
             <OutputMessage>
               <Properties>
-                <Property name="Fila">
+                <Property name="Resultados">
                   <Properties>
                     <Property name="ID" />
                     <Property name="IDEmpresa" />
